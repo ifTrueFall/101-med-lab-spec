@@ -1,6 +1,8 @@
-/* ============================
-   Quiz Generation Function
-   ============================ */
+/*
+    ============================
+    Quiz Generation Function
+    ============================ 
+*/
 
 /*
   Takes a list of questions in the specified format and generates HTML
@@ -21,11 +23,10 @@ function generateQuizHTML(questionList) {
   const correctAnswers = {};
   const answerLetters = ['a', 'b', 'c', 'd'];
 
-  // Simple Fisher-Yates (Knuth) shuffle function to randomize answer order
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+      [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
   }
@@ -35,58 +36,46 @@ function generateQuizHTML(questionList) {
     const questionId = `q${questionNumber}`;
     const lines = questionBlock.trim().split('\n');
 
-    // Basic validation for the input format
     if (lines.length !== 2 || !lines[0].toLowerCase().startsWith('question:') || !lines[1]) {
       console.error(`Skipping invalid question block format at index ${index}:`, questionBlock);
-      return; // Skip malformed entries
+      return;
     }
 
     const questionText = lines[0].substring(lines[0].indexOf(':') + 1).trim();
     const allAnswers = lines[1].split(',').map(ans => ans.trim());
 
-    // Ensure exactly 4 answers
     if (allAnswers.length !== 4) {
        console.error(`Skipping question ${questionNumber} due to incorrect number of answers (found ${allAnswers.length}, expected 4).`);
        return;
     }
-
-    // Identify the correct answer (always the first one listed in the input string)
     const correctAnswerText = allAnswers[0];
 
-    // Create objects for shuffling, marking the correct one
     let answerObjects = allAnswers.map(ans => ({
       text: ans,
       isCorrect: ans === correctAnswerText
     }));
 
-    // Shuffle the answerObjects array randomly
     answerObjects = shuffleArray(answerObjects);
 
-    // Start building the HTML string for this specific question
     let questionHTML = `<div class="question-container" id="${questionId}">\n`;
     questionHTML += `  <p><strong>${questionNumber}. ${questionText}</strong></p>\n`;
 
-    // Loop through the SHUFFLED answers and create radio buttons
     answerObjects.forEach((ansObj, ansIndex) => {
-      const letter = answerLetters[ansIndex]; // Assigns 'a', 'b', 'c', 'd'
+      const letter = answerLetters[ansIndex];
       questionHTML += `  <label>\n`;
-      // Add the radio button input
       questionHTML += `    <input type="radio" name="${questionId}" value="${letter}" style="vertical-align: middle;"> ${letter}) ${ansObj.text}\n`;
-      // Add the span where feedback will be displayed
       questionHTML += `    <span class="feedback"></span>\n`;
       questionHTML += `  </label>\n`;
 
-      // If this shuffled answer is the original correct one, store its new letter ('a'/'b'/'c'/'d')
       if (ansObj.isCorrect) {
         correctAnswers[questionId] = letter;
       }
     });
 
-    questionHTML += `</div>\n\n`; // Close the question container div
-    fullHTML += questionHTML; // Add this question's HTML to the total HTML string
+    questionHTML += `</div>\n\n`; 
+    fullHTML += questionHTML; 
   });
 
-  // Return the complete HTML string and the generated answer key object
   return {
     html: fullHTML,
     answers: correctAnswers
@@ -94,13 +83,14 @@ function generateQuizHTML(questionList) {
 }
 
 
-/* ============================
-   Quiz Data and Execution
-   ============================ */
+/* 
+    ============================
+    Quiz Data and Execution
+    ============================ 
+*/
 
-// 1. DEFINE YOUR QUESTIONS ARRAY HERE
+//    DEFINE YOUR QUESTIONS HERE
 //    Use the format: "question: <Text>\n<Correct Answer>, <Wrong1>, <Wrong2>, <Wrong3>"
-//    **Replace this example list with your actual 60 questions.**
 const myQuestions = [
     `question: What is the term for a portion of a specimen used for testing?
 Aliquot, Aerosol, Centrifuge, Analyte`,
@@ -313,72 +303,56 @@ Safety Data Sheet (SDS), Chemical Hygiene Plan (CHP), Laboratory Safety Manual, 
 Chemical Hygiene Plan (CHP), Bloodborne Pathogen Exposure Control Plan, Tuberculosis Exposure Control Plan, Ergonomics Program`
 
 
-    // *** PASTE OR ADD YOUR OTHER 51 QUESTIONS HERE ***
+    // *** PASTE OR ADD OTHER QUESTIONS HERE ***
 ];
 
-// 2. Generate the quiz HTML and the answer key by calling the function
 const quizData = generateQuizHTML(myQuestions);
-
-// 3. Get the HTML element where the quiz should be inserted
-//    (This assumes your HTML file has <form id="quizForm"></form>)
 const quizForm = document.getElementById('quizForm');
 
-// 4. Insert the generated HTML into the designated form element
+// Insert the generated HTML into the designated form element
 if (quizForm) {
-    // Replace the content (e.g., "Loading quiz...") with the actual quiz questions
     quizForm.innerHTML = quizData.html;
 } else {
-    // Log an error if the form element wasn't found in the HTML
     console.error("CRITICAL: Could not find HTML element with ID 'quizForm'. Quiz cannot be loaded.");
 }
 
-// 5. Store the dynamically generated correct answer key for use in feedback
 const correctAnswers = quizData.answers;
 
 
-/* ============================
-   Feedback Handling Script
-   ============================ */
+/*
+     ============================
+    Feedback Handling Script
+    ============================ 
+*/
 
-// Add an event listener to the entire form to handle clicks on any radio button
-if (quizForm) { // Only add listener if the form was successfully found
+if (quizForm) {
   quizForm.addEventListener('change', function(event) {
-    // Check if the element that triggered the 'change' event is a radio button
     if (event.target.type === 'radio') {
-      const questionName = event.target.name; // Gets the question ID (e.g., 'q1')
-      const selectedValue = event.target.value; // Gets the selected answer ('a', 'b', 'c', or 'd')
-      const questionContainer = document.getElementById(questionName); // Gets the div for this question
+      const questionName = event.target.name;
+      const selectedValue = event.target.value;
+      const questionContainer = document.getElementById(questionName);
 
-      if (!questionContainer) return; // Exit if the question container is missing for some reason
+      if (!questionContainer) return;
 
-      // Find all feedback spans WITHIN the current question's container
       const feedbackSpans = questionContainer.querySelectorAll('.feedback');
 
-      // Reset any previous feedback displayed for THIS question
       feedbackSpans.forEach(span => {
-        span.textContent = ''; // Clear text
-        span.className = 'feedback'; // Reset styling classes
+        span.textContent = '';
+        span.className = 'feedback';
       });
 
-      // Find the specific feedback span associated with the EXACT radio button clicked
-      const selectedLabel = event.target.closest('label'); // Get the parent label of the clicked radio
-      if (!selectedLabel) return; // Exit if label isn't found
-      const feedbackSpan = selectedLabel.querySelector('.feedback'); // Find the span within that label
-      if (!feedbackSpan) return; // Exit if span isn't found
+      const selectedLabel = event.target.closest('label');
+      if (!selectedLabel) return;
+      const feedbackSpan = selectedLabel.querySelector('.feedback');
+      if (!feedbackSpan) return;
 
-
-      // Check if the selected answer ('a'/'b'/'c'/'d') matches the stored correct answer for this question ID
-      // Use hasOwnProperty for a safer check against the correctAnswers object
       if (correctAnswers.hasOwnProperty(questionName) && selectedValue === correctAnswers[questionName]) {
-        // Correct Answer: Display "Correct" in green
         feedbackSpan.textContent = 'Correct';
-        feedbackSpan.className = 'feedback correct'; // Add 'correct' class for styling
+        feedbackSpan.className = 'feedback correct';
       } else if (correctAnswers.hasOwnProperty(questionName)) {
-        // Incorrect Answer: Display "Wrong" in red
         feedbackSpan.textContent = 'Wrong';
-        feedbackSpan.className = 'feedback incorrect'; // Add 'incorrect' class for styling
+        feedbackSpan.className = 'feedback incorrect';
       } else {
-          // This case handles if an answer is selected for a question that somehow didn't get into the answer key
           console.warn(`No answer key found for question ${questionName}. Cannot provide feedback.`);
       }
     }
