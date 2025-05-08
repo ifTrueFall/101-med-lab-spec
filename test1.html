@@ -7,13 +7,56 @@
         body {
             background-color: lightgray;
         }
+
+        /* Navigation Bar Styles */
+  .navbar {
+    background-color: #5a5454;
+    color: #f0f0f0;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .navbar-brand {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #f0f0f0;
+    text-decoration: none;
+  }
+
+  .navbar-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  .navbar-links li {
+    margin-left: 20px;
+  }
+
+  .navbar-links a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 1em;
+  }
+
+  .navbar-links a:hover {
+    color: #cec8c8aa;
+  }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <a href="#" class="navbar-brand">MLT Quizzes</a>
+        <a href="index.html" class="navbar-brand">MLT Quizzes</a>
         <ul class="navbar-links">
-          <li><a href="#">ChemPt1</a></li>
+          <li><a href="index.html">ChemPt1</a></li>
           <li><a href="test2.html">Phleb Quiz</a></li>
           <li><a href="test1.html">Intro Quiz</a></li>
           <li>
