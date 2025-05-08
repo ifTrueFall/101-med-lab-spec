@@ -90,7 +90,8 @@ function generateQuizHTML(questionList) {
 */
 
 //    DEFINE YOUR QUESTIONS HERE
-//    Use the format: "question: <Text>\n<Correct Answer>, <Wrong1>, <Wrong2>, <Wrong3>"
+//    Use the format: 'question: <Question's Text> <new line> 
+// <Correct Answer>, <Wrong1>, <Wrong2>, <Wrong3>'
 const myQuestions = [
     `question: What is the term for a portion of a specimen used for testing?
 Aliquot, Aerosol, Centrifuge, Analyte`,
