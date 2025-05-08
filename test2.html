@@ -1,27 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title> Handling & Phlebotomy Test</title>
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='-27' y='75' font-family='Courier' font-size='117' fill='%23000'%3E☕%3C/text%3E%3C/svg%3E" />
+    <title> Handling & Phlebotomy Test</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-  /* CSS styles for the quiz appearance and feedback */
   body {
     font-family: sans-serif;
     line-height: 1.5;
-    padding: 20px;
+    margin: 0;
+    padding-top: 60px;
     background-color: #b3a3a3aa;
   }
+
+  /* Navigation Bar Styles */
+  .navbar {
+    background-color: #5a5454;
+    color: #f0f0f0;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .navbar-brand {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #f0f0f0;
+    text-decoration: none;
+  }
+
+  .navbar-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  .navbar-links li {
+    margin-left: 20px;
+  }
+
+  .navbar-links a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 1em;
+  }
+
+  .navbar-links a:hover {
+    color: #cec8c8aa;
+  }
+
+  .coffee-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: #f0f0f0;
+    vertical-align: middle;
+  }
+  .coffee-icon:hover svg {
+    fill: #cec8c8aa;
+  }
+
+
+  /* Main Content Styles */
+  .main-content {
+    padding: 20px;
+  }
+
   h1 {
     text-align: center;
     border-bottom: 2px solid #ccc;
     padding-bottom: 10px;
+    margin-top: 0;
     margin-bottom: 20px;
   }
   #quizForm {
     max-width: 800px;
-    margin: 0 auto; /* Center the form */
-    
+    margin: 0 auto;
   }
   .question-container {
     margin-bottom: 25px;
@@ -29,7 +91,6 @@
     border: 1px solid #5a5454;
     border-radius: 8px;
     background-color: #cec8c8aa;
-
   }
   .question-container p strong {
      font-size: 1.1em;
@@ -43,15 +104,15 @@
   }
   .correct {
     color: white;
-    background-color: #28a745; /* Green */
+    background-color: #28a745;
   }
   .incorrect {
     color: white;
-    background-color: #dc3545; /* Red */
+    background-color: #dc3545;
   }
   label {
     display: block;
-    margin: 8px 0 8px 20px; /* Indent answers slightly */
+    margin: 8px 0 8px 20px;
     cursor: pointer;
   }
   input[type="radio"] {
@@ -62,12 +123,26 @@
 </head>
 <body>
 
-<h1>MLT 101 Specimen Handling & Phlebotomy Test</h1>
-<p style="text-align: center;">Instructions: Select the best answer for each question.</p>
+<nav class="navbar">
+  <a href="#" class="navbar-brand">MLT Quizzes</a>
+  <ul class="navbar-links">
+    <li><a href="#">ChemPt1</a></li>
+    <li><a href="test2.html">Phleb Quiz</a></li>
+    <li><a href="test1.html">Intro Quiz</a></li>
+    <li>
+      </a>
+    </li>
+  </ul>
+</nav>
 
-<form id="quizForm">
-  <p>Loading quiz...</p>
-</form>
+<div class="main-content">
+  <h1>MLT 102 Chemistry, part one</h1>
+  <p style="text-align: center;">Instructions: Select the best answer for each question.</p>
+
+  <form id="quizForm">
+    <p>Loading quiz...</p>
+  </form>
+</div>
 
 <script src="testTwoScript.js"></script>
 
