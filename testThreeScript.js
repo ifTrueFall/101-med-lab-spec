@@ -226,7 +226,7 @@ Mass, Hardness, Temperature, Boiling point`,
 Extensive property, Intensive property, Density, Specific gravity`,
 
     `question: Matter is defined as anything that has mass and...?
-Occupies space (volume), Contains energy, Can be seen, Is a pure substance`,
+Volume, Contains energy, Can be seen, Is a pure substance`,
 
     `question: Energy is defined as the ability to do work to accomplish some...?
 Change, Reaction, Measurement, Observation`,
@@ -259,7 +259,7 @@ Hypothesis, Theory, Observation, Fact`,
 Experiments, Observations, Formulations, Calculations`,
 
     `question: A scientific law is described as a summary of a large quantity of what?
-Information (gathered from experiments), Hypotheses, Theories, Educated guesses`,
+Tested Information, Hypotheses, Written Theories, Educated guesses`,
 
     `question: Rusting iron and burning wood are examples of what type of changes/properties?
 Chemical, Physical, Intensive, Extensive`,
@@ -279,7 +279,6 @@ It cannot be broken down by chemical means, It is a uniform mixture, It has vari
 const quizData = generateQuizHTML(myQuestions);
 const quizForm = document.getElementById('quizForm');
 
-// Insert the generated HTML into the designated form element
 if (quizForm) {
     quizForm.innerHTML = quizData.html;
 } else {
