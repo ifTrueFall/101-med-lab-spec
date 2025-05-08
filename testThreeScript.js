@@ -96,8 +96,8 @@ const myQuestions = [
     `question: What are characteristics of a material that become evident when it undergoes a chemical reaction?
 Chemical Properties, Physical Properties, Intensive Properties, Extensive Properties`,
 
-    `question: What is defined as a chemical change occurring when two or more substances combine to form a new substance?
-Chemical Reactions, Physical Changes, Mixtures, Solutions`,
+    `question: What is kind of change is occurring when two or more substances combine to form a new substance?
+Chemical Reactions, Physical Reaction, Homongenous Reaction, Solutions`,
 
     `question: What is the study of matter and energy and the interactions between them?
 Chemistry, Physics, Biology, Geology`,
