@@ -142,7 +142,7 @@ Substituted Hydrocarbon, Saturated Hydrocarbon, Pure Hydrocarbon, Aliphatic Hydr
 Carbon, Oxygen, Nitrogen, Hydrogen`,
 
     `question: Carbon can form stable, covalent bonds with which other elements besides carbon itself?
-Oxygen, nitrogen, sulfur, and halogens, Only hydrogen, Only other carbon atoms, Noble gases`,
+Oxygen- nitrogen- sulfur- and halogens, Only hydrogen, Only other carbon atoms, Noble gases`,
 
     `question: Besides linear chains, what other arrangements are common for carbon atoms in organic compounds?
 Ring structures and branched chains, Only ring structures, Only branched chains, Only tetrahedral structures`,
@@ -162,9 +162,6 @@ Structural isomers and stereoisomers, Aliphatic isomers and aromatic isomers, Sa
     `question: In which type of isomers are the atoms connected or bonded differently?
 Structural (or Constitutional) Isomers, Stereoisomers, Enantiomers, Diastereomers`,
 
-    `question: Butane and methylpropane ($C_{4}H_{10}$) are examples of what type of isomers?
-Structural Isomers, Stereoisomers, Cis-Trans Isomers, Geometric Isomers`,
-
     `question: What is the general classification of organic compounds that divides them into two main groups?
 Hydrocarbons and substituted hydrocarbons, Alkanes and alkenes, Saturated and unsaturated compounds, Aliphatic and aromatic compounds`,
 
@@ -180,10 +177,10 @@ Aliphatic hydrocarbons, Aromatic hydrocarbons, Saturated hydrocarbons only, Unsa
     `question: What is the defining characteristic of alkanes regarding their chemical bonds?
 They contain only single bonds, They contain at least one double bond, They contain at least one triple bond, They contain a benzene ring`,
 
-    `question: $CH_{2}=CH_{2}$ (ethene) is an example of which family of aliphatic hydrocarbons?
+    `question: ethene is an example of which family of aliphatic hydrocarbons?
 Alkenes, Alkanes, Alkynes, Cycloalkanes`,
 
-    `question: $HC\equiv CH$ (ethyne) is an example of which family of aliphatic hydrocarbons?
+    `question: ethyne is an example of which family of aliphatic hydrocarbons?
 Alkynes, Alkanes, Alkenes, Aromatic compounds`,
 
     `question: Organic compounds typically have what type of bonding?
@@ -202,7 +199,7 @@ Non-conductor (Nonelectrolytes), Conductor (Electrolytes), Semiconductor, Superc
 Almost all burn, Most are not combustible, Only long-chain ones burn, Only cyclic ones burn`,
 
     `question: What is the general formula for alkanes, where n is the number of carbon atoms?
-$C_{n}H_{2n+2}$, $C_{n}H_{2n}$, $C_{n}H_{2n-2}$, $C_{n}H_{n}$`,
+CnH2n+2, CnH2n, CnH2n-2, CnHn`,
 
     `question: Which type of chemical formula tells the kind and number of each type of atom in a molecule but does not show the bonding pattern?
 Molecular formula, Structural formula, Condensed formula, Line formula`,
@@ -219,11 +216,11 @@ A carbon atom, A hydrogen atom, A methyl group, An oxygen atom`,
     `question: In the line formula, what is assumed to be at the end of any line?
 A methyl group, A single carbon atom, A hydrogen atom, A double bond`,
 
-    `question: Although a carbon atom may be involved in single, double, or triple bonds, it always shares how many pairs of electrons?
+    `question: Although a carbon atom may be involved in single- double- or triple bond; it always shares how many pairs of electrons?
 Four, Two, Three, One`,
 
     `question: What is the IUPAC system used for in organic chemistry?
-A standard, universal system for naming organic compounds, Classifying compounds by solubility, Determining the physical state of compounds, Measuring the bond energy of compounds`,
+A universal system for naming organic compounds, Classifying compounds by solubility, Determining the physical state of compounds, Measuring the bond energy of compounds`,
 
     `question: What is an alkyl group?
 An alkane with one less hydrogen atom, An alkane with an added functional group, Any branched alkane, An alkane in a ring structure`,
@@ -232,10 +229,10 @@ An alkane with one less hydrogen atom, An alkane with an added functional group,
 The -ane ending is replaced by -yl, The -ane ending is replaced by -ene, The prefix is changed, A number is added to the name`,
 
     `question: A carbon atom directly bonded to only one other carbon atom is classified as what?
-Primary ($1^{\circ}$) carbon, Secondary ($2^{\circ}$) carbon, Tertiary ($3^{\circ}$) carbon, Quaternary ($4^{\circ}$) carbon`,
+Primary  carbon, Secondary  carbon, Tertiary  carbon, Quaternary  carbon`,
 
     `question: A carbon atom bonded to three other carbon atoms is classified as what?
-Tertiary ($3^{\circ}$) carbon, Primary ($1^{\circ}$) carbon, Secondary ($2^{\circ}$) carbon, Quaternary ($4^{\circ}$) carbon`,
+Tertiary  carbon, Primary  carbon, Secondary  carbon, Quaternary  carbon`,
 
     `question: At room temperature, alkanes with 1 to 4 carbon atoms are typically in what physical state?
 Gases, Liquids, Solids, Plasma`,
@@ -255,9 +252,6 @@ Determine the name of the parent compound (longest continuous carbon chain), Num
     `question: In IUPAC nomenclature, how should the parent chain be numbered if substituents are present?
 To give the lowest number to the carbon bonded to the first group encountered, From left to right always, To give the highest numbers to substituents, Alphabetically based on substituent names`,
 
-    `question: If the same substituent occurs more than once in a compound, what prefixes are used (e.g., for two identical groups)?
-di-, tri-, tetra-, etc., bi-, ter-, quad-, etc., mono-, duo-, trio-, etc., iso-, neo-, cyclo-, etc.`,
-
     `question: How are substituents placed in the final IUPAC name?
 In alphabetical order before the parent compound name, In numerical order of their position, In order of size (smallest first), Halogens always last`,
 
@@ -272,6 +266,8 @@ Isomers contain atoms oriented on opposite sides of a bond, Isomers contain atom
 
     `question: Unsaturated hydrocarbons contain at least one carbon-to-carbon what?
 Double or triple bond, Single bond only, Benzene ring, Oxygen atom`
+
+
     // *** PASTE OR ADD OTHER QUESTIONS HERE ***
 ];
 
