@@ -220,7 +220,7 @@ The quantity of matter in an object, The pull of gravity on an object, The space
 Gram (g), Kilogram (kg), Pound (lb), Ounce (oz)`,
 
   `question: What is the difference between mass and weight?
-Mass is the amount of matter, weight is the pull of gravity, Weight is the amount of matter, mass is the pull of gravity, Mass and weight are identical, Mass is measured in Newtons, weight in grams`,
+Mass is the amount of matter; weight is the pull of gravity, Weight is the amount of matter; mass is the pull of gravity, Mass and weight are identical, Mass is measured in Newtons; weight in grams`,
 
   `question: What is the standard metric unit for length?
 Meter (m), Foot (ft), Yard (yd), Mile (mi)`,
