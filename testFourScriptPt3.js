@@ -33,11 +33,11 @@ function generateQuizHTML(questionList) {
 
   questionList.forEach((questionBlock, index) => {
     const questionNumber = index + 1;
-    const questionId = `q{questionNumber}`;
+    const questionId = `q${questionNumber}`;
     const lines = questionBlock.trim().split('\n');
 
     if (lines.length !== 2 || !lines[0].toLowerCase().startsWith('question:') || !lines[1]) {
-      console.error(`Skipping invalid question block format at index {index}:`, questionBlock);
+      console.error(`Skipping invalid question block format at index ${index}:`, questionBlock);
       return;
     }
 
@@ -45,7 +45,7 @@ function generateQuizHTML(questionList) {
     const allAnswers = lines[1].split(',').map(ans => ans.trim());
 
     if (allAnswers.length !== 4) {
-       console.error(`Skipping question {questionNumber} due to incorrect number of answers (found {allAnswers.length}, expected 4).`);
+       console.error(`Skipping question ${questionNumber} due to incorrect number of answers (found ${allAnswers.length}, expected 4).`);
        return;
     }
     const correctAnswerText = allAnswers[0];
@@ -57,13 +57,13 @@ function generateQuizHTML(questionList) {
 
     answerObjects = shuffleArray(answerObjects);
 
-    let questionHTML = `<div class="question-container" id="{questionId}">\n`;
-    questionHTML += `  <p><strong>{questionNumber}. {questionText}</strong></p>\n`;
+    let questionHTML = `<div class="question-container" id="${questionId}">\n`;
+    questionHTML += `  <p><strong>${questionNumber}. ${questionText}</strong></p>\n`;
 
     answerObjects.forEach((ansObj, ansIndex) => {
       const letter = answerLetters[ansIndex];
       questionHTML += `  <label>\n`;
-      questionHTML += `    <input type="radio" name="{questionId}" value="{letter}" style="vertical-align: middle;"> {letter}) {ansObj.text}\n`;
+      questionHTML += `    <input type="radio" name="${questionId}" value="${letter}" style="vertical-align: middle;"> ${letter}) ${ansObj.text}\n`;
       questionHTML += `    <span class="feedback"></span>\n`;
       questionHTML += `  </label>\n`;
 
@@ -317,7 +317,7 @@ if (quizForm) {
         feedbackSpan.textContent = 'Wrong';
         feedbackSpan.className = 'feedback incorrect';
       } else {
-          console.warn(`No answer key found for question {questionName}. Cannot provide feedback.`);
+          console.warn(`No answer key found for question ${questionName}. Cannot provide feedback.`);
       }
     }
   });
