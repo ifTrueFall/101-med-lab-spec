@@ -33,11 +33,11 @@ function generateQuizHTML(questionList) {
 
   questionList.forEach((questionBlock, index) => {
     const questionNumber = index + 1;
-    const questionId = `q${questionNumber}`;
+    const questionId = `q{questionNumber}`;
     const lines = questionBlock.trim().split('\n');
 
     if (lines.length !== 2 || !lines[0].toLowerCase().startsWith('question:') || !lines[1]) {
-      console.error(`Skipping invalid question block format at index ${index}:`, questionBlock);
+      console.error(`Skipping invalid question block format at index {index}:`, questionBlock);
       return;
     }
 
@@ -45,7 +45,7 @@ function generateQuizHTML(questionList) {
     const allAnswers = lines[1].split(',').map(ans => ans.trim());
 
     if (allAnswers.length !== 4) {
-       console.error(`Skipping question ${questionNumber} due to incorrect number of answers (found ${allAnswers.length}, expected 4).`);
+       console.error(`Skipping question {questionNumber} due to incorrect number of answers (found {allAnswers.length}, expected 4).`);
        return;
     }
     const correctAnswerText = allAnswers[0];
@@ -57,13 +57,13 @@ function generateQuizHTML(questionList) {
 
     answerObjects = shuffleArray(answerObjects);
 
-    let questionHTML = `<div class="question-container" id="${questionId}">\n`;
-    questionHTML += `  <p><strong>${questionNumber}. ${questionText}</strong></p>\n`;
+    let questionHTML = `<div class="question-container" id="{questionId}">\n`;
+    questionHTML += `  <p><strong>{questionNumber}. {questionText}</strong></p>\n`;
 
     answerObjects.forEach((ansObj, ansIndex) => {
       const letter = answerLetters[ansIndex];
       questionHTML += `  <label>\n`;
-      questionHTML += `    <input type="radio" name="${questionId}" value="${letter}" style="vertical-align: middle;"> ${letter}) ${ansObj.text}\n`;
+      questionHTML += `    <input type="radio" name="{questionId}" value="{letter}" style="vertical-align: middle;"> {letter}) {ansObj.text}\n`;
       questionHTML += `    <span class="feedback"></span>\n`;
       questionHTML += `  </label>\n`;
 
@@ -93,7 +93,7 @@ function generateQuizHTML(questionList) {
 //    Use the format: 'question: <Question's Text> <new line> 
 // <Correct Answer>, <Wrong1>, <Wrong2>, <Wrong3>'
 const myQuestions = [
-  `question: What is the number of particles found in one mole of a substance equal to $6.02 \times 10^{23} mol^{-1}$?
+  `question: What is the number of particles found in one mole of a substance equal to 6.02*10^23?
 Avogadros Number, Einsteins Number, Plancks Constant, Faradays Constant`,
 
   `question: What is defined as the number of grams of an ion corresponding to Avogadros number of electrical charges?
@@ -129,16 +129,16 @@ Mass (g) = Concentration (mol/L) * Molecular Weight (g/mol) * Volume (L), Mass (
   `question: How many moles are in 117.0 g of NaCl if the GMW of NaCl is 58.5 g/mol?
 2.0 moles, 1.0 mole, 0.5 moles, 4.0 moles`,
 
-  `question: To calculate the molecular weight (GMW) of $Na_2SO_4$ what must you sum?
+  `question: To calculate the molecular weight (GMW) of Na_2SO_4 what must you sum?
 The atomic weights of 2 Na 1 S and 4 O atoms, The moles of Na S and O, The equivalents of Na S and O, The charges of Na S and O`,
 
-  `question: If the GMW of $Na_2SO_4$ is 142.1 g/mol how much $Na_2SO_4$ (g) is needed to prepare 300 mL of a 2.00 mol/L solution?
+  `question: If the GMW of Na_2SO_4 is 142.1 g/mol how much Na_2SO_4 (g) is needed to prepare 300 mL of a 2.00 mol/L solution?
 85.26 g, 142.1 g, 284.2 g, 42.63 g`,
 
   `question: To prepare a solution of a specific molarity what unit must the volume typically be converted to for the calculation Mass (g) = (mol/L)(GMW)(L)?
 Liters (L), Milliliters (mL), Grams (g), Moles (mol)`,
 
-  `question: What volume (mL) of a $CaCO_3$ solution can be prepared from 25.0 g of $CaCO_3$ (GMW 100.1 g/mol) if a 0.50 mol/L solution is desired?
+  `question: What volume (mL) of a CaCO_3 solution can be prepared from 25.0 g of CaCO_3 (GMW 100.1 g/mol) if a 0.50 mol/L solution is desired?
 499.5 mL, 250.0 mL, 100.1 mL, 50.05 mL`,
 
   `question: What is the first step usually recommended when solving molarity problems such as calculating the mass of solute needed?
@@ -153,13 +153,13 @@ Summarize the information from the problem, Convert all units to moles, Calculat
   `question: What are compounds containing one or more water molecules as an integral part of their structure termed?
 Hydrates, Anhydrous compounds, Solvates, Desiccants`,
 
-  `question: In the formula of a hydrate like $CuSO_4 \cdot 5H_2O$ what does the dot preceding $5H_2O$ indicate?
+  `question: In the formula of a hydrate like CuSO_4*5H_2O what does the dot preceding 5H_2O indicate?
 Water is part of a larger structure, Water is a solvent, Water is a catalyst, Water is an impurity`,
 
-  `question: When calculating the molecular weight of a hydrate like $CuSO_4 \cdot 5H_2O$ is the mass of water included?
+  `question: When calculating the molecular weight of a hydrate like CuSO_4*5H_2O is the mass of water included?
 Yes the mass of water is included, No the mass of water is excluded, Only if the water is bound ionically, Only half the mass of water is included`,
 
-  `question: If the GMW of $CuSO_4 \cdot 5H_2O$ is 249.6 g/mol how much $CuSO_4 \cdot 5H_2O$ (g) is required to prepare 250 mL of a 2.00 mol/L $CuSO_4$ solution?
+  `question: If the GMW of CuSO_4*5H_2O is 249.6 g/mol how much CuSO_4*5H_2O (g) is required to prepare 250 mL of a 2.00 mol/L CuSO_4 solution?
 124.8 g, 249.6 g, 499.2 g, 62.4 g`,
 
   `question: Normality relates the amount of solute to the total volume of a solution and is specifically used for what types of substances?
@@ -186,7 +186,7 @@ Molecular Weight (g/mol) / Number of Equivalents (eq/mol), Number of Equivalents
   `question: What is the general formula used to calculate mass from normal solutions given concentration equivalent weight and volume?
 Mass (g) = Concentration (eq/L) * Equivalent Weight (g/eq) * Volume (L), Mass (g) = Concentration (eq/L) / (Equivalent Weight (g/eq) * Volume (L)), Mass (g) = Equivalent Weight (g/eq) / (Concentration (eq/L) * Volume (L)), Mass (g) = Volume (L) / (Concentration (eq/L) * Equivalent Weight (g/eq))`,
 
-  `question: To determine how much NaCl (GMW 58.5 g/mol) is needed to prepare 500 mL of a 25.00 eq/L NaCl solution what is the TPIV for NaCl ($Na^{+1}Cl^{-1}$)?
+  `question: To determine how much NaCl (GMW 58.5 g/mol) is needed to prepare 500 mL of a 25.00 eq/L NaCl solution what is the TPIV for NaCl (Na^{+1}Cl^{-1})?
 1 eq/mol, 2 eq/mol, 25 eq/mol, 58.5 eq/mol`,
 
   `question: What is the Gram Equivalent Weight (GEW) of NaCl if its GMW is 58.5 g/mol and its TPIV is 1 eq/mol?
@@ -195,7 +195,7 @@ Mass (g) = Concentration (eq/L) * Equivalent Weight (g/eq) * Volume (L), Mass (g
   `question: How many grams of NaCl (GEW 58.5 g/eq) are needed to prepare 500 mL (0.500 L) of a 25.00 eq/L solution?
 731.2 g (rounded from 731.25), 585.0 g, 1462.5 g, 25.0 g`,
 
-  `question: To determine how much NaOH (GMW 40.0 g/mol) is needed to prepare 400 mL of a 10.00 eq/L NaOH solution what is the TPIV for NaOH ($Na^{+1}OH^{-1}$)?
+  `question: To determine how much NaOH (GMW 40.0 g/mol) is needed to prepare 400 mL of a 10.00 eq/L NaOH solution what is the TPIV for NaOH (Na^{+1}OH^{-1})?
 1 eq/mol, 2 eq/mol, 10 eq/mol, 40 eq/mol`,
 
   `question: What is the Gram Equivalent Weight (GEW) of NaOH if its GMW is 40.0 g/mol and its TPIV is 1 eq/mol?
@@ -204,22 +204,22 @@ Mass (g) = Concentration (eq/L) * Equivalent Weight (g/eq) * Volume (L), Mass (g
   `question: How many grams of NaOH (GEW 40.0 g/eq) are needed to prepare 400 mL (0.400 L) of a 10.00 eq/L solution?
 160.0 g, 400.0 g, 40.0 g, 100.0 g`,
 
-  `question: To calculate the $eq/L$ concentration of an $AlPO_4$ solution (GMW 122.0 g/mol) what is the TPIV for $AlPO_4$ ($Al^{+3}PO_4^{-3}$)?
+  `question: To calculate the eq/L concentration of an AlPO_4 solution (GMW 122.0 g/mol) what is the TPIV for AlPO_4 (Al^{+3}PO_4^{-3})?
 3 eq/mol, 1 eq/mol, 2 eq/mol, 4 eq/mol`,
 
-  `question: What is the Gram Equivalent Weight (GEW) of $AlPO_4$ if its GMW is 122.0 g/mol and its TPIV is 3 eq/mol?
+  `question: What is the Gram Equivalent Weight (GEW) of AlPO_4 if its GMW is 122.0 g/mol and its TPIV is 3 eq/mol?
 40.67 g/eq (approx), 122.0 g/eq, 366.0 g/eq, 61.0 g/eq`,
 
-  `question: What is the $eq/L$ concentration if 120.0 g of $AlPO_4$ (GEW 40.67 g/eq) is dissolved to make 250 mL (0.250 L) of solution?
+  `question: What is the eq/L concentration if 120.0 g of AlPO_4 (GEW 40.67 g/eq) is dissolved to make 250 mL (0.250 L) of solution?
 11.8 eq/L, 2.95 eq/L, 47.2 eq/L, 120.0 eq/L`,
 
-  `question: To determine the volume of $PbSO_4$ solution (GMW 303.3 g/mol) that can be prepared from 80.0 g if a 0.5 eq/L solution is desired what is the TPIV for $PbSO_4$ ($Pb^{+2}SO_4^{-2}$)?
+  `question: To determine the volume of PbSO_4 solution (GMW 303.3 g/mol) that can be prepared from 80.0 g if a 0.5 eq/L solution is desired what is the TPIV for PbSO_4 (Pb^{+2}SO_4^{-2})?
 2 eq/mol, 1 eq/mol, 0.5 eq/mol, 4 eq/mol`,
 
-  `question: What is the Gram Equivalent Weight (GEW) of $PbSO_4$ if its GMW is 303.3 g/mol and its TPIV is 2 eq/mol?
+  `question: What is the Gram Equivalent Weight (GEW) of PbSO_4 if its GMW is 303.3 g/mol and its TPIV is 2 eq/mol?
 151.65 g/eq, 303.3 g/eq, 75.825 g/eq, 606.6 g/eq`,
 
-  `question: What volume (in Liters initially) can be prepared from 80.0 g of $PbSO_4$ (GEW 151.65 g/eq) if a 0.5 eq/L solution is desired?
+  `question: What volume (in Liters initially) can be prepared from 80.0 g of PbSO_4 (GEW 151.65 g/eq) if a 0.5 eq/L solution is desired?
 1.055 L (approx), 0.527 L, 2.11 L, 80.0 L`,
 
   `question: The molecular weight of NaCl is 58.5 g/mol. This value represents what?
@@ -231,7 +231,7 @@ The mass of one mole of NaCl, The mass of one molecule of NaCl, The number of eq
   `question: A solution with a concentration of 1 eq/L is also described as being?
 1 Normal, 1 Molar, 1 Osmolar, 1 Gram-equivalent`,
 
-  `question: When calculating GMW of a compound like $Na_2SO_4$ how many sodium atoms (Na atomic weight 23.0) are accounted for?
+  `question: When calculating GMW of a compound like Na_2SO_4 how many sodium atoms (Na atomic weight 23.0) are accounted for?
 Two, One, Three, Four`,
 
   `question: How many mL are in 0.300 L?
@@ -255,7 +255,7 @@ Total Positive Ionic Valence (TPIV), Avogadros Number, Number of moles, Number o
   `question: How many grams are in one mole of a substance if its molecular weight is 100.1 g/mol?
 100.1 grams, 1 gram, 6.022 x 10^23 grams, Variable grams`,
 
-  `question: In the compound $H_2SO_4$ if $H^{+1}$ and $SO_4^{-2}$ what is the Total Positive Ionic Valence (TPIV)?
+  `question: In the compound H_2SO_4 if H^{+1} and SO_4^{-2} what is the Total Positive Ionic Valence (TPIV)?
 2 eq/mol, 1 eq/mol, 4 eq/mol, 3 eq/mol`,
 
   `question: If a substance has a molecular weight of 98 g/mol and a TPIV of 2 eq/mol what is its GEW?
@@ -264,7 +264,7 @@ Total Positive Ionic Valence (TPIV), Avogadros Number, Number of moles, Number o
   `question: What does GMW stand for in these calculations?
 Gram-Molecular Weight, Grams Moles Water, General Molar Volume, Great Molar Weight`,
 
-  `question: What is the fundamental quantity that Avogadros number ($6.022 \times 10^{23}$) represents?
+  `question: What is the fundamental quantity that Avogadros number (6.022 \times 10^{23}) represents?
 The number of particles in one mole, The mass of one mole in grams, The volume of one mole of gas, The charge of one mole of electrons`,
 
   `question: To calculate the number of moles what two quantities are divided?
@@ -317,7 +317,7 @@ if (quizForm) {
         feedbackSpan.textContent = 'Wrong';
         feedbackSpan.className = 'feedback incorrect';
       } else {
-          console.warn(`No answer key found for question ${questionName}. Cannot provide feedback.`);
+          console.warn(`No answer key found for question {questionName}. Cannot provide feedback.`);
       }
     }
   });
