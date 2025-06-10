@@ -93,126 +93,124 @@ function generateQuizHTML(questionList) {
 //    Use the format: 'question: <Question's Text> <new line> 
 // <Correct Answer>, <Wrong1>, <Wrong2>, <Wrong3>'
 const myQuestions = [
-  `question: What is the term for the measure of the binding strength of a single antibody-antigen reaction?
-Affinity, Avidity, Reactivity, Specificity`,
-  `question: What term describes the unfolding or disorganization of a protein's tertiary structure rendering it insoluble?
-Denaturation, Hydrolysis, Condensation, Polymerization`,
-  `question: What are the building blocks or subunits of proteins called?
-Amino Acid, Nucleic Acid, Fatty Acid, Monosaccharide`,
-  `question: A protein that is lacking the ligand or prosthetic group it needs to be fully functional is called what?
-Apoprotein, Holoprotein, Glycoprotein, Lipoprotein`,
-  `question: A whole or completely functional protein made up of an apoprotein and its ligand is called what?
-Holoprotein, Apoprotein, Simple Protein, Conjugated Protein`,
-  `question: What is a non-protein chemical group bound to a protein and responsible for its biological activity called?
-Prosthetic Group, Side Chain, Active Site, Allosteric Site`,
-  `question: What is the term for a systemic response to infection tissue injury or an inflammatory process?
-Acute Phase Reaction, Allergic Reaction, Autoimmune Response, Anaphylactic Shock`,
-  `question: A monoclonal immunoglobulin produced in excessive amounts in disorders like multiple myeloma is called what?
-Paraprotein, Cryoglobulin, Agglutinin, Opsonin`,
-  `question: What type of bond is the covalent amide bond between the primary amino group of one amino acid and the carboxylic group of another?
-Peptide Bond, Hydrogen Bond, Ionic Bond, Disulfide Bond`,
-  `question: What unit of DNA specifies the production of proteins and RNA molecules?
-Gene, Codon, Anticodon, Genome`,
-  `question: What process involves transferring sequence information from gene regions of DNA to an mRNA molecule?
-Transcription, Translation, Replication, Transduction`,
-  `question: What is the process whereby an mRNA sequence forms an amino acid sequence with the help of tRNA?
-Translation, Transcription, Splicing, Conjugation`,
-  `question: Protein structure that consists of the specific sequence or order of amino acids is called what?
-Primary structure, Secondary structure, Tertiary structure, Quaternary structure`,
-  `question: The alpha-helix and beta-pleated sheet patterns are examples of what level of protein structure?
-Secondary structure, Primary structure, Tertiary structure, Quaternary structure`,
-  `question: The three-dimensional folded and convoluted shape of a single polypeptide chain is what level of protein structure?
-Tertiary structure, Quaternary structure, Secondary structure, Primary structure`,
-  `question: What is the primary function of transport proteins like hemoglobin and transferrin?
-Carry materials from one place to another, Catalyze biological reactions, Provide structural support, Store nutrients`,
-  `question: What is the most abundant plasma protein which is a major contributor to colloidal osmotic pressure?
-Albumin, Fibrinogen, Transferrin, Haptoglobin`,
-  `question: Which protein is a weak and late-reacting APR that binds to free hemoglobin to prevent its loss and toxic effects?
-Haptoglobin, Albumin, Transferrin, Ceruloplasmin`,
-  `question: A deficiency in alpha-1-Antitrypsin AAT can lead to what irreversible lung condition?
-Emphysema, Asthma, Bronchitis, Pulmonary fibrosis`,
-  `question: Ceruloplasmin's primary role is to oxidize iron from what state to what state enabling its transport?
-Fe2+ to Fe3+, Fe3+ to Fe2+, Fe to Fe2+, Fe3+ to Fe`,
-  `question: Transferrin is the major transport protein for which element?
-Iron, Copper, Zinc, Calcium`,
-  `question: In cases of iron deficiency anemia what happens to transferrin levels?
-They are increased, They are decreased, They remain normal, They become undetectable`,
-  `question: What is the most specific and sensitive protein marker for cardiac muscle injury?
-Troponin, Creatine Kinase CK-MB, Myoglobin, Aspartate aminotransferase AST`,
-  `question: C-reactive protein CRP is one of the first and strongest what?
-Acute-phase proteins, Negative acute-phase proteins, Transport proteins, Coagulation factors`,
-  `question: Chronically high levels of which coagulation protein are associated with an increased risk of cardiovascular disease?
-Fibrinogen, Thrombin, Plasminogen, Prothrombin`,
-  `question: Elevated levels of beta-2-microglobulin are indicative of what?
-Impaired renal clearance, Normal liver function, Acute pancreatitis, Dehydration`,
-  `question: Low levels of maternal alpha-Fetoprotein AFP indicate an increased risk for what fetal conditions?
-Trisomy 18 and trisomy 21, Neural tube defects, Abdominal wall defects, Fetal distress`,
-  `question: Antibodies are produced by which type of cells?
-Plasma cells, Hepatocytes, T-lymphocytes, Erythrocytes`,
-  `question: Which immunoglobulin class is the first to appear in response to antigenic stimulation?
-IgM, IgG, IgA, IgE`,
-  `question: Which immunoglobulin is the most abundant in blood plasma and can cross the placenta?
-IgG, IgM, IgA, IgD`,
-  `question: Which immunoglobulin is the main antibody found in body secretions like tears saliva and milk?
-IgA, IgG, IgM, IgE`,
-  `question: Which immunoglobulin is most associated with allergic and anaphylactic reactions?
-IgE, IgA, IgM, IgG`,
-  `question: Multiple Myeloma is a malignant neoplasm of a single clone of what cell type?
-Plasma cells, Myeloid cells, T-cells, B-cells`,
-  `question: What is a primary preanalytical concern for protein specimens that can be caused by vigorous mixing or pH shifts?
-Denaturation, Precipitation, Contamination, Evaporation`,
-  `question: What common specimen condition resulting from red blood cell lysis should be avoided for protein testing?
-Hemolysis, Lipemia, Icterus, Turbidity`,
-  `question: What classic protein testing method is based on quantifying the amount of nitrogen in proteins?
-Kjeldahl Method, Biuret Method, Electrophoresis, Dye-Binding Method`,
-  `question: The Biuret method measures the reaction of peptide bonds with what ions in alkaline conditions?
-Cu2+ cupric ions, Fe3+ ferric ions, Mg2+ magnesium ions, Cl- chloride ions`,
-  `question: Dye-binding methods for protein testing rely on shifts in what when dyes bind to proteins?
-Absorbance spectra, Refractive index, Light scatter, pH`,
-  `question: Which analytical technique separates proteins into five distinct bands based on their electrical charge?
-Electrophoresis, Chromatography, Spectrophotometry, Nephelometry`,
-  `question: On a serum electrophoresis strip which protein makes up the most prominent band?
-Albumin, Gamma globulin, Alpha-1 globulin, Beta globulin`,
-  `question: Which electrophoretic technique uses antibodies to evaluate individual immunoglobulin classes and light chains?
-Immunofixation Electrophoresis IFE, Capillary Electrophoresis, Gel Electrophoresis, Western Blot`,
-  `question: Turbidimetry and nephelometry are widely used to assay high abundance proteins by assessing the formation of what?
-Aggregates, Colored products, Precipitates that dissolve, Gas bubbles`,
-  `question: The direct photometric method for protein measurement is affected by the variable content of which two amino acids?
-Tyrosine and tryptophan, Alanine and glycine, Leucine and valine, Cysteine and methionine`,
-  `question: Which immunoglobulin is the predominate antibody seen in many autoimmune diseases?
-IgG, IgM, IgA, IgE`,
-  `question: Which protein is a sensitive indicator of hepatobiliary disease but is also elevated during periods of accelerated bone growth?
-Alkaline Phosphatase ALP, Alanine Aminotransferase ALT, Aspartate Aminotransferase AST, Gamma-Glutamyltransferase GGT`,
-  `question: Which enzyme is a more specific indicator of liver inflammation than AST?
-Alanine Aminotransferase ALT, Lactate Dehydrogenase LD, Alkaline Phosphatase ALP, Creatine Kinase CK`,
-  `question: What is the name of the protein that transports copper throughout the body?
-Ceruloplasmin, Transferrin, Haptoglobin, Albumin`,
-  `question: What is a key function of structural proteins like collagen and keratin?
-Provide mechanical support, Catalyze reactions, Transport oxygen, Regulate pH`,
-  `question: Insulin and glucagon are examples of what type of proteins?
-Hormonal Proteins, Defensive Proteins, Transport Proteins, Structural Proteins`,
-  `question: The basic structural unit of an immunoglobulin consists of two heavy chains and what else?
-Two light chains, Two J chains, One secretory component, One carbohydrate chain`,
-  `question: What is the fragment antigen binding site on an antibody also known as?
-Fab, Fc, Hinge Region, Constant Domain`,
-  `question: What is the effector site on an antibody that binds to cell receptors and determines its class called?
-Fc, Fab, Variable Region, Light Chain`,
-  `question: Which analytical method is considered the reference method for protein quantification but is too time-consuming for routine use?
-Kjeldahl Method, Biuret Method, Dye-Binding Method, Nephelometry`,
-  `question: The Biuret method requires the presence of at least how many peptide bonds to generate a detectable color change?
-Three or more, Two, One, Four or more`,
-  `question: On serum protein electrophoresis a monoclonal increase in immunoglobulins is seen as what?
-A sharp spike in the gamma region, A broad increase in the gamma region, A decrease in the albumin band, An increase in the alpha-2 band`,
-  `question: Which enzyme is primarily used to diagnose and monitor acute pancreatitis and is more specific than amylase?
-Lipase, Alkaline Phosphatase, Aspartate Aminotransferase, Lactate Dehydrogenase`,
-  `question: What is a major function of defensive proteins like antibodies?
-Destroy and remove harmful material, Store iron, Transport lipids, Regulate blood sugar`,
-  `question: Which protein's measurement is used to distinguish between in vivo and in vitro hemolysis?
-Haptoglobin, Hemoglobin, Albumin, Fibrinogen`,
-  `question: The synthesis of most plasma proteins such as albumin and fibrinogen occurs in which organ?
-Liver, Kidneys, Spleen, Pancreas`,
-  `question: The five fractions seen on serum electrophoresis are albumin alpha-1 alpha-2 beta and what other fraction?
-Gamma, Delta, Epsilon, Zeta`
+  `question: What is the most specific clinical manifestation of hepatic dysfunction?
+Jaundice, Portal hypertension, Disordered hemostasis, Enzyme release`,
+  `question: What substance is used as an accelerator in the Malloy-Evelyn method for bilirubin?
+Methanol, Sodium benzoate-caffeine, Ascorbic acid, Alkaline titrate`,
+  `question: In the Jendrassik-Grof method what is the final color of the azobilirubin product measured?
+Blue, Red-purple, Green, Yellow`,
+  `question: The yellow appearance of the skin mucous membranes and sclera is known as what?
+Icterus, Ascites, Varices, Peritonitis`,
+  `question: What is the most common cause of sinusoidal portal hypertension?
+Cirrhosis, Portal vein thrombosis, Hepatic vein occlusion, Congestive heart failure`,
+  `question: A serum-ascites albumin gradient (SAAG) greater than what value is diagnostic of ascites due to portal hypertension?
+1.1 g/dL, 0.5 g/dL, 2.0 g/dL, 1.5 g/dL`,
+  `question: What is the most commonly used accelerator in the Jendrassik-Grof method?
+Sodium benzoate-caffeine reagent, Methanol, Diazotized sulfanilic acid, Ascorbic acid`,
+  `question: In the Malloy-Evelyn method the reaction is typically performed at what pH?
+1.2, 7.4, 5.0, 9.8`,
+  `question: Which condition is defined as the accumulation of fluid in the abdominal cavity and is a common finding in portal hypertension?
+Ascites, Varices, Jaundice, Hepatorenal syndrome`,
+  `question: A normal plasma ammonia concentration is helpful in excluding what condition as a cause of cerebral dysfunction?
+Hepatic encephalopathy, Hepatorenal syndrome, Spontaneous bacterial peritonitis, Acute viral hepatitis`,
+  `question: Which two enzymes are considered the most specific markers for liver injury based on tissue distribution?
+ALT and GGT, AST and LD, ALP and AST, LD and GGT`,
+  `question: A patient with impaired bilirubin clearance might present with what color stools?
+Acholic or gray-colored, Dark brown, Black and tarry, Bright red`,
+  `question: For accurate bilirubin testing a serum or plasma specimen must be protected from what?
+Light, Heat, Freezing, Agitation`,
+  `question: Which of the following are cytosolic enzymes released with cell injury?
+AST ALT and LD, ALP and GGT, GGT and LD, ALP and AST`,
+  `question: What is the most life-threatening consequence of portosystemic shunting?
+Development of varices, Ascites, Jaundice, Hepatic encephalopathy`,
+  `question: The Malloy-Evelyn method produces a red-purple color with a maximal absorption at what wavelength?
+560nm, 600nm, 450nm, 540nm`,
+  `question: Which form of Hepatorenal Syndrome (HRS) is characterized by a rapidly declining renal function?
+Type 1 HRS, Type 2 HRS, Chronic HRS, Acute HRS`,
+  `question: Why is disordered hemostasis a common clinical manifestation of liver disease?
+Numerous coagulation factors are manufactured by the liver, Platelet production is increased by the liver, The liver clears anticoagulants from the blood, Red blood cell synthesis occurs in the liver`,
+  `question: The Jendrassik-Grof method measures the absorbance of blue azobilirubin at what wavelength?
+600nm, 560nm, 455nm, 575nm`,
+  `question: ALP and GGT are what type of enzymes found on the canalicular membrane of hepatocytes?
+Membrane-bound glycoprotein enzymes, Cytosolic enzymes, Mitochondrial isoenzymes, Nuclear enzymes`,
+  `question: Patients with ascites are predisposed to what life-threatening condition?
+Spontaneous bacterial peritonitis, Variceal bleeding, Hepatorenal syndrome, Acute liver failure`,
+  `question: The accumulation of what substance due to impaired metabolic function can lead to hepatic encephalopathy?
+Ammonia, Bilirubin, Albumin, Glucose`,
+  `question: How long is a separated serum specimen for bilirubin testing stable if stored in the dark at 4 degrees Celsius?
+1 week, 2 days, 24 hours, Indefinitely`,
+  `question: What is the term for enlarged and tortuous veins that develop as a consequence of portosystemic shunting?
+Varices, Ascites, Shunts, Stenoses`,
+  `question: Which pattern of aminotransferases is commonly seen in patients with cirrhosis or alcohol abuse?
+Lower ALT than AST, Higher ALT than AST, Equal ALT and AST levels, Normal ALT and AST levels`,
+  `question: The diazo reagent in bilirubin methods reacts at which part of the bilirubin molecule?
+The central methylene carbon, The outer vinyl group, The propionic acid side chain, The pyrrole nitrogen`,
+  `question: What is the typical color of urine in a patient with increased water-soluble conjugated bilirubin?
+Tea-colored, Pale yellow, Bright red, Colorless`,
+  `question: What is the simplest mechanism that allows leakage of cytoplasmic enzymes from hepatocytes?
+Cell injury, Increased synthesis, Membrane fragmentation, Apoptosis`,
+  `question: What is used to distinguish the pattern of liver injury?
+The aminotransferases and ALP, Prothrombin Time and Albumin, Bilirubin and GGT, LD and AST`,
+  `question: In acute liver injury what test can be used to determine the severity of the damage?
+Prothrombin Time (PT), Serum albumin, Complete blood count, Serum electrolytes`,
+  `question: What is the most common cause of presinusoidal portal hypertension?
+Portal vein thrombosis or schistosomiasis, Cirrhosis, Budd-Chiari syndrome, Congestive heart failure`,
+  `question: What is the half-life of ALT in plasma?
+24-48 hours, 16-18 hours, 4.1 days, 1 to 10 days`,
+  `question: What kind of specimen is preferred for bilirubin testing?
+Non-hemolyzed serum, Whole blood, Heparinized plasma, Urine`,
+  `question: What term describes accelerated programmed cell death where the cell participates in its own demise?
+Apoptosis, Necrosis, Lysis, Fibrosis`,
+  `question: Most forms of acute and chronic hepatitis are associated with which type of cell death?
+Apoptosis, Necrosis, Ischemic injury, Toxic injury`,
+  `question: Which of the following is NOT listed as one of the four major conditions indicative of liver disease?
+Anemia, Jaundice, Portal hypertension, Disordered hemostasis`,
+  `question: What is the most common form of Hepatorenal Syndrome (HRS)?
+Type 2 HRS, Type 1 HRS, Classic HRS, Acute HRS`,
+  `question: A diagnosis of spontaneous bacterial peritonitis is established by examination of what?
+The ascitic fluid, The blood, The urine, A liver biopsy`,
+  `question: What is the half-life of cytosolic AST in plasma?
+16-18 hours, 24-48 hours, 4.1 days, 7 days`,
+  `question: Which type of cellular death is referred to as "cell murder" and results from an injurious environment?
+Necrosis, Apoptosis, Fibrosis, Phagocytosis`,
+  `question: The longer half-life of ALT leads to what typical finding in most forms of hepatocellular injury?
+Higher activities of ALT than AST, Lower activities of ALT than AST, Equal activities of ALT and AST, Undetectable ALT levels`,
+  `question: What is a key factor in all cases of HRS that develop in chronic liver disease?
+Portal hypertension, Acute viral infection, High blood pressure, Autoimmune response`,
+  `question: Impaired synthetic functions in portal hypertension result in decreased concentrations of what?
+Most plasma proteins and clotting factors, Red blood cells, Bile acids, Ammonia`,
+  `question: What important cause of postsinusoidal hypertension involves hepatic vein occlusion?
+Budd-Chiari syndrome, Cirrhosis, Schistosomiasis, Portal vein thrombosis`,
+  `question: In the Jendrassik-Grof method what is added to the specimen before the diazotized sulfanilic acid?
+Sodium benzoate-caffeine reagent, Methanol, Ascorbic acid, Saline`,
+  `question: Besides the skin and sclera where else does the yellow appearance of jaundice manifest?
+Mucous membranes, Hair follicles, Fingernails, Teeth`,
+  `question: Jaundice may occur with bilirubin overproduction from what condition?
+Hemolysis, Dehydration, Malnutrition, Infection`,
+  `question: What is the name for the physiological jaundice that can occur in neonates due to short-term liver immaturity?
+Physiological jaundice, Pathological jaundice, Hemolytic jaundice, Obstructive jaundice`,
+  `question: In chronic liver injury prognosis is related to the degree of impairment in liver function such as what?
+Increased bilirubin and prolonged PT, Decreased AST and ALT, Normal albumin and platelets, Increased GGT only`,
+  `question: Cellular injury from compounds like aspirin or acetaminophen occurs for the most part by what process?
+Necrosis, Apoptosis, Fibrosis, Inflammation`,
+  `question: The pattern and degree of what varies with the type of liver disease?
+Enzyme activity elevation, Serum albumin concentration, Blood glucose levels, Red blood cell count`,
+  `question: What is the most common location for varices to occur?
+The esophagus and stomach, The small intestine, The colon, The rectum`,
+  `question: The diagnosis for spontaneous bacterial peritonitis typically involves finding what type of bacteria in the ascitic fluid?
+Gram negative, Gram positive, Acid-fast, Spirochetes`,
+  `question: How long is a separated plasma specimen for bilirubin stable if stored at -20 degrees Celsius?
+Indefinitely, 1 week, 2 days, 1 month`,
+  `question: Which factors govern the ability of liver enzymes to assist in diagnosis?
+Tissue specificity and subcellular distribution, Color and turbidity of the sample, Patient age and gender, Time of day of the blood draw`,
+  `question: In the Jendrassik-Grof method the addition of what substances results in the final blue color?
+Ascorbic acid and alkaline titrate, Methanol and diazo reagent, Sodium benzoate and caffeine, Saline and sulfanilic acid`,
+  `question: Impaired liver function can lead to patients being predisposed to what two opposing conditions?
+Excessive bleeding and to venous thrombosis, Hypoglycemia and hyperglycemia, Dehydration and fluid overload, Anemia and polycythemia`,
+  `question: How is the serum-ascites albumin gradient (SAAG) calculated?
+The difference in albumin between plasma and ascitic fluid, The sum of albumin in plasma and ascitic fluid, The ratio of albumin to globulin in plasma, The product of albumin and bilirubin levels`,
+  `question: Which of these enzymes is only occasionally used in liver panels because it is nonspecific?
+Lactate dehydrogenase (LD), Alanine aminotransferase (ALT), Aspartate aminotransferase (AST), Alkaline phosphatase (ALP)`
 ];
 
 const quizData = generateQuizHTML(myQuestions);
