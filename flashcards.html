@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medical Terminology Study Tool</title>
-     <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='-27' y='75' font-family='Courier' font-size='117' fill='%23000'%3E☕%3C/text%3E%3C/svg%3E" />
     <style>
         /* Base and User-provided CSS */
         body {
@@ -43,6 +41,7 @@
             margin: 0;
             padding: 0;
             display: flex;
+            flex-wrap: wrap; /* Allow nav items to wrap on smaller screens */
         }
 
         .navbar-links li {
@@ -102,43 +101,45 @@
             font-size: 1.1em;
         }
 
-        .feedback {
-            margin-left: 10px;
-            font-weight: bold;
-            font-size: 0.9em;
-            padding: 2px 5px;
-            border-radius: 3px;
-        }
-
-        .correct {
-            color: white;
-            background-color: #28a745;
-        }
-
-        .incorrect {
-            color: white;
-            background-color: #dc3545;
-        }
-
         label {
             display: block;
             margin: 8px 0 8px 10px;
             cursor: pointer;
             padding: 10px;
             border-radius: 5px;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s, border-color 0.2s;
+            border: 1px solid transparent;
         }
         
-        label:hover {
-            background-color: rgba(90, 84, 84, 0.1);
+        label:hover:not(.correct-answer):not(:has(input[disabled])) {
+             background-color: rgba(90, 84, 84, 0.1);
         }
 
         input[type="radio"] {
             margin-right: 10px;
             vertical-align: middle;
         }
+        
+        /* Styles for instant feedback on quiz answers */
+        label.correct-answer {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+            font-weight: bold;
+        }
 
-        /* Custom styles for flashcards and buttons */
+        label.incorrect-answer {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+            font-weight: bold;
+        }
+        
+        label:has(input[type="radio"]:disabled) {
+           cursor: not-allowed;
+        }
+
+        /* Custom styles for flashcards */
         .flashcard-section, .quiz-section {
             display: none; /* Hidden by default */
         }
@@ -200,7 +201,7 @@
             margin-top: 20px;
         }
 
-        .nav-button, .action-button {
+        .nav-button {
             background-color: #5a5454;
             color: #f0f0f0;
             border: none;
@@ -212,37 +213,27 @@
             -webkit-tap-highlight-color: transparent; /* Disable tap highlight on mobile */
         }
         
-        .nav-button:hover, .action-button:hover {
+        .nav-button:hover {
             background-color: #4a4444;
             transform: translateY(-2px);
-        }
-
-        .action-button-container {
-            text-align: center;
-            margin-top: 30px;
-        }
-        
-        #quiz-results {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 1.2em;
-            font-weight: bold;
-            padding: 15px;
-            border-radius: 8px;
-            background-color: #e9e4e4;
-            display: none; /* Hidden until quiz is submitted */
         }
         
         /* --- Mobile Optimization --- */
         @media (max-width: 768px) {
+            body {
+                padding-top: 100px; /* Adjust for potentially wrapped navbar */
+            }
             .navbar-brand {
                 font-size: 1em;
             }
+            .navbar-links {
+                justify-content: flex-end;
+            }
             .navbar-links li {
-                margin: 0 8px;
+                margin: 0 5px;
             }
             .navbar-links a {
-                font-size: 0.9em;
+                font-size: 0.8em;
                 padding: 5px;
             }
 
@@ -283,6 +274,10 @@
         <ul class="navbar-links">
             <li><a id="nav-flashcards" class="active">Flashcards</a></li>
             <li><a id="nav-quiz">Quiz</a></li>
+          <li><a href="test11.html">Keyterms</a></li>
+          <li><a href="test11Pt2.html">Renal</a></li>
+          <li><a href="test11Pt3.html">Clinic</a></li>
+          <li><a href="Electrolytes.html">Electrolytes</a></li>
         </ul>
     </nav>
 
@@ -308,11 +303,8 @@
         <!-- Quiz Section -->
         <section id="quiz-section" class="main-content quiz-section">
             <h1>Key Terms Quiz</h1>
+            <p style="text-align:center;">Select an answer. Keep trying until you get it right!</p>
             <form id="quizForm"></form>
-            <div class="action-button-container">
-                <button id="submit-quiz" class="action-button">Submit Quiz</button>
-            </div>
-            <div id="quiz-results"></div>
         </section>
     </main>
 
@@ -384,11 +376,8 @@
         const cardCounter = document.getElementById('card-counter');
         
         const quizForm = document.getElementById('quizForm');
-        const submitQuizBtn = document.getElementById('submit-quiz');
-        const quizResults = document.getElementById('quiz-results');
 
         let currentCardIndex = 0;
-        let isFlipped = false;
 
         // --- NAVIGATION LOGIC ---
         function showFlashcards() {
@@ -403,6 +392,7 @@
             quizSection.style.display = 'block';
             navFlashcards.classList.remove('active');
             navQuiz.classList.add('active');
+            generateQuiz(); // Regenerate quiz each time to reset it
         }
 
         navFlashcards.addEventListener('click', showFlashcards);
@@ -414,16 +404,13 @@
             cardFront.textContent = card.term;
             cardBack.textContent = card.definition;
             cardCounter.textContent = `${index + 1} / ${keyTerms.length}`;
-            // Reset flip state when card changes
             if(flashcard.classList.contains('is-flipped')){
                 flashcard.classList.remove('is-flipped');
-                isFlipped = false;
             }
         }
 
         flashcard.addEventListener('click', () => {
             flashcard.classList.toggle('is-flipped');
-            isFlipped = !isFlipped;
         });
 
         nextCardBtn.addEventListener('click', () => {
@@ -454,15 +441,12 @@
                 questionContainer.className = 'question-container';
 
                 const questionText = document.createElement('p');
-                questionText.innerHTML = `<strong>${index + 1}.</strong> Which term matches the following definition? <span class="feedback" id="feedback-${index}"></span><br><br><em>"${item.definition}"</em>`;
+                questionText.innerHTML = `<strong>${index + 1}.</strong> Which term matches the following definition?<br><br><em>"${item.definition}"</em>`;
                 questionContainer.appendChild(questionText);
 
-                // Create options
                 const options = [];
-                // Add correct answer
                 options.push({ text: item.term, correct: true });
 
-                // Add 3 random incorrect answers
                 const distractors = [...keyTerms].filter(d => d.term !== item.term);
                 shuffleArray(distractors);
                 for (let i = 0; i < 3; i++) {
@@ -488,46 +472,36 @@
             });
         }
         
-        submitQuizBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            let score = 0;
-            const totalQuestions = keyTerms.length;
-            const quizQuestions = quizForm.querySelectorAll('.question-container');
-            
-            quizQuestions.forEach((question, i) => {
-                 const questionIndex = parseInt(question.querySelector('strong').textContent) - 1;
-                 const feedbackSpan = question.querySelector('.feedback');
-                 const name = `question-${questionIndex}`;
-                 const selected = quizForm.querySelector(`input[name="question-${i}"]:checked`);
-                
-                if (selected) {
-                    const isCorrect = selected.dataset.correct === 'true';
-                    const parentLabel = selected.parentElement;
-                    if (isCorrect) {
-                        score++;
-                        feedbackSpan.textContent = 'Correct';
-                        feedbackSpan.className = 'feedback correct';
-                        parentLabel.style.fontWeight = 'bold';
-                    } else {
-                        feedbackSpan.textContent = 'Incorrect';
-                        feedbackSpan.className = 'feedback incorrect';
-                        // Highlight the correct answer
-                        const correctRadio = quizForm.querySelector(`input[name="question-${i}"][data-correct="true"]`);
-                        if(correctRadio) {
-                            correctRadio.parentElement.style.fontWeight = 'bold';
-                            correctRadio.parentElement.style.color = '#28a745';
-                        }
-                    }
-                } else {
-                    // Mark unanswered questions
-                    feedbackSpan.textContent = 'Unanswered';
-                    feedbackSpan.className = 'feedback incorrect';
-                }
-            });
+        quizForm.addEventListener('click', (e) => {
+            const selectedLabel = e.target.closest('label');
+            if (!selectedLabel) return;
 
-            quizResults.textContent = `You scored ${score} out of ${totalQuestions} (${Math.round((score/totalQuestions)*100)}%)`;
-            quizResults.style.display = 'block';
-            window.scrollTo({ top: quizResults.offsetTop - 80, behavior: 'smooth' });
+            const selectedRadio = selectedLabel.querySelector('input[type="radio"]');
+            // Do nothing if the radio is already part of a completed question
+            if (!selectedRadio || selectedRadio.disabled) {
+                return;
+            }
+
+            const isCorrect = selectedRadio.dataset.correct === 'true';
+            
+            if (isCorrect) {
+                // Remove any previous incorrect styling on siblings
+                const questionContainer = selectedRadio.closest('.question-container');
+                const allLabelsInQuestion = questionContainer.querySelectorAll('label');
+                allLabelsInQuestion.forEach(lbl => lbl.classList.remove('incorrect-answer'));
+
+                // Apply correct styling
+                selectedLabel.classList.add('correct-answer');
+                
+                // Disable all options for this question since it's now answered
+                const allRadiosInQuestion = questionContainer.querySelectorAll(`input[name="${selectedRadio.name}"]`);
+                allRadiosInQuestion.forEach(radio => {
+                    radio.disabled = true;
+                });
+            } else {
+                // Apply incorrect styling to the currently selected wrong answer
+                selectedLabel.classList.add('incorrect-answer');
+            }
         });
 
         // --- INITIALIZATION ---
