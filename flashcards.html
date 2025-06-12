@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Terminology Study Tool</title>
+     <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='-27' y='75' font-family='Courier' font-size='117' fill='%23000'%3E☕%3C/text%3E%3C/svg%3E" />
+    <style>
+        /* Base and User-provided CSS */
+        body {
+            font-family: sans-serif;
+            line-height: 1.5;
+            margin: 0;
+            padding-top: 60px; /* Space for fixed navbar */
+            background-color: #b3a3a3aa;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #5a5454;
+            color: #f0f0f0;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #f0f0f0;
+            text-decoration: none;
+        }
+
+        .navbar-links {
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar-links li {
+            list-style: none;
+            margin: 0 15px;
+        }
+
+        .navbar-links a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-size: 1em;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar-links a:hover, .navbar-links a.active {
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .main-content {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        #quizForm {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .question-container {
+            margin-bottom: 25px;
+            padding: 20px;
+            border: 1px solid #5a5454;
+            border-radius: 8px;
+            background-color: #cec8c8aa;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .question-container p {
+             word-wrap: break-word; /* Ensure long words don't overflow */
+        }
+
+        .question-container p strong {
+            font-size: 1.1em;
+        }
+
+        .feedback {
+            margin-left: 10px;
+            font-weight: bold;
+            font-size: 0.9em;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+
+        .correct {
+            color: white;
+            background-color: #28a745;
+        }
+
+        .incorrect {
+            color: white;
+            background-color: #dc3545;
+        }
+
+        label {
+            display: block;
+            margin: 8px 0 8px 10px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+        
+        label:hover {
+            background-color: rgba(90, 84, 84, 0.1);
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        /* Custom styles for flashcards and buttons */
+        .flashcard-section, .quiz-section {
+            display: none; /* Hidden by default */
+        }
+
+        .flashcard-container {
+            perspective: 1000px;
+            margin: 20px auto;
+            width: 100%;
+            max-width: 500px;
+            height: 300px;
+        }
+
+        .flashcard {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .flashcard.is-flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            border-radius: 15px;
+            border: 1px solid #5a5454;
+            text-align: center;
+        }
+
+        .card-front {
+            background-color: #e9e4e4;
+            font-size: 1.8em;
+            font-weight: bold;
+        }
+
+        .card-back {
+            background-color: #cec8c8;
+            transform: rotateY(180deg);
+            font-size: 1.1em;
+        }
+
+        .flashcard-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .nav-button, .action-button {
+            background-color: #5a5454;
+            color: #f0f0f0;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.2s;
+            -webkit-tap-highlight-color: transparent; /* Disable tap highlight on mobile */
+        }
+        
+        .nav-button:hover, .action-button:hover {
+            background-color: #4a4444;
+            transform: translateY(-2px);
+        }
+
+        .action-button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        #quiz-results {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #e9e4e4;
+            display: none; /* Hidden until quiz is submitted */
+        }
+        
+        /* --- Mobile Optimization --- */
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1em;
+            }
+            .navbar-links li {
+                margin: 0 8px;
+            }
+            .navbar-links a {
+                font-size: 0.9em;
+                padding: 5px;
+            }
+
+            .main-content {
+                padding: 10px;
+                margin-top: 10px;
+            }
+            
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            .flashcard-container {
+                height: 250px; /* Smaller card on mobile */
+                margin-top: 10px;
+            }
+            
+            .card-front {
+                font-size: 1.5em;
+            }
+            
+            .card-back {
+                font-size: 1em;
+                line-height: 1.4;
+            }
+
+            .question-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">MLT 103 Study Tool</a>
+        <ul class="navbar-links">
+            <li><a id="nav-flashcards" class="active">Flashcards</a></li>
+            <li><a id="nav-quiz">Quiz</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- Flashcard Section -->
+        <section id="flashcard-section" class="main-content flashcard-section">
+            <h1>Key Terms Flashcards</h1>
+            <p style="text-align:center;">Click the card to flip it. Use the buttons to navigate.</p>
+            <div class="flashcard-container">
+                <div class="flashcard" id="flashcard">
+                    <div class="card-face card-front" id="card-front"></div>
+                    <div class="card-face card-back" id="card-back"></div>
+                </div>
+            </div>
+            <div class="flashcard-nav">
+                <button id="prev-card" class="nav-button">Previous</button>
+                <div id="card-counter" style="display: flex; align-items: center; font-weight: bold;"></div>
+                <button id="next-card" class="nav-button">Next</button>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz-section" class="main-content quiz-section">
+            <h1>Key Terms Quiz</h1>
+            <form id="quizForm"></form>
+            <div class="action-button-container">
+                <button id="submit-quiz" class="action-button">Submit Quiz</button>
+            </div>
+            <div id="quiz-results"></div>
+        </section>
+    </main>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // --- DATA ---
+        // Combined and parsed key terms from the provided documents
+        const keyTerms = [
+            // From Keyterms.pdf
+            { term: 'Active Transport', definition: 'The movement of ions or molecules across a cell membrane into a region of higher concentration; cellular energy is required to achieve this movement.' },
+            { term: 'Anion Gap', definition: 'The difference between the primarily measured cations (Na+ and K+) and the primarily measured anions (Cl- and HCO3-); metabolic acidosis is the most common cause of an increased anion gap.' },
+            { term: 'Diffusion', definition: 'The movement of a fluid from an area of higher concentration to an area of lower concentration.' },
+            { term: 'Electrolyte', definition: 'Minerals dissolved in the body\'s fluid creating electrically charged ions; examples include: sodium, potassium, calcium, chloride, bicarbonate, magnesium, and phosphate.' },
+            { term: 'Extracellular Fluid (ECF)', definition: 'All the body fluid that is outside of the cells; ECF can be divided into two major sub compartments: interstitial fluid and blood plasma.' },
+            { term: 'Hyperchloremia', definition: 'An elevated concentration of chloride (Cl-) in the blood.' },
+            { term: 'Hyperkalemia', definition: 'An elevated concentration of potassium (K+) in the blood.' },
+            { term: 'Hypermagnesemia', definition: 'An elevated concentration of magnesium (Mg2+) in the blood.' },
+            { term: 'Hypernatremia', definition: 'An elevated concentration of sodium (Na+) in the blood.' },
+            { term: 'Hypervolemia', definition: 'An abnormal increase in the volume of blood plasma.' },
+            { term: 'Hypochloremia', definition: 'A decreased concentration of chloride (Cl-) in the blood.' },
+            { term: 'Hypokalemia', definition: 'A decreased concentration of potassium (K+) in the blood.' },
+            { term: 'Hypomagnesemia', definition: 'A decreased concentration of magnesium (Mg2+) in the blood.' },
+            { term: 'Hyponatremia', definition: 'A decreased concentration of sodium (Na+) in the blood.' },
+            { term: 'Hypovolemia', definition: 'An abnormal decrease in the volume of blood plasma.' },
+            { term: 'Intracellular Fluid (ICF)', definition: 'The fluid found within cell membranes; contains water, electrolytes, and proteins.' },
+            { term: 'Ion-Selective Electrode (ISE)', definition: 'An analytical technique used to determine the activity of ions in an aqueous solution by measuring the electrical potential.' },
+            { term: 'Osmolality', definition: 'The concentration of particles dissolved in a fluid.' },
+            { term: 'Osmometer', definition: 'An instrument specifically designed to measure osmolality.' },
+            { term: 'Osmotic Pressure', definition: 'The pressure that would be required to stop water from diffusing through a semi-permeable membrane; refers to how hard the water would "push" to get through the membrane in order to diffuse to the other side.' },
+            { term: 'Pilocarpine Iontophoresis', definition: 'A testing method used to induce sweating in order to measure sweat chloride levels; used to screen for cystic fibrosis (CF).' },
+            { term: 'Polydipsia', definition: 'Constant, excessive drinking as a result of thirst.' },
+            // From Keyterms1.pdf
+            { term: 'Acute Kidney Injury (AKI)', definition: 'A sudden, sharp decline in renal function that occurs over hours and days.' },
+            { term: 'Antidiuretic Hormone (ADH; Vasopressin; AVP)', definition: 'A peptide hormone secreted by the posterior pituitary, primarily in response to increased blood osmolality, or decreased blood volume that results in tubular reabsorption of water in the kidney. It has both antidiuretic and vasopressor actions.' },
+            { term: 'Chronic Kidney Disease', definition: 'Abnormalities of kidney structure or function, present for greater than 3 months, which occurs when there is a gradual decline in renal function over time.' },
+            { term: 'Diabetes Insipidus (DI)', definition: 'The excessive production of urine due either to insufficient synthesis of antidiuretic hormone (ADH) or defective ADH receptors or end-organ resistance to its action.' },
+            { term: 'End-Stage Renal Disease (ESRD)', definition: 'A condition where renal function is inadequate to support life.' },
+            { term: 'Estimated Glomerular Filtration Rate (eGFR)', definition: 'Formula used for earlier detection of chronic kidney disease by predicting GFR based on serum creatinine, age, body size, gender, and race, without the need of a urine creatinine.' },
+            { term: 'Glomerular Filtration Rate (GFR)', definition: 'The rate in milliliters per minute at which small molecules are filtered from the blood through the kidney\'s glomeruli. It is a measure of the number of functioning nephrons, and its determination is essential in evaluating renal function.' },
+            { term: 'Glomerulonephritis', definition: 'Nephritis accompanied by inflammation of the capillary loops of the glomeruli of the kidney.' },
+            { term: 'Glomerulus', definition: 'A tuft of blood vessels found in each nephron of the kidney that are involved in the filtration of the blood.' },
+            { term: 'Hemodialysis', definition: 'Renal replacement therapy that utilizes a dialyzing solution to remove certain elements from the blood by virtue of the difference in the rates of their diffusion through a semipermeable membrane.' },
+            { term: 'Hemofiltration/Hemodiafiltration', definition: 'Process used in the intensive care setting in which solutes and water are slowly and continuously filtered from the blood across a semipermeable membrane, causing minimal changes in plasma osmolality.' },
+            { term: 'Microalbuminuria', definition: 'Small amounts of albumin in the urine (30 to 300 mg of albumin). Measurement of urinary albumin levels are important in management of patients with diabetes mellitus.' },
+            { term: 'Nephritis', definition: 'Inflammation of the kidney with focal or diffuse proliferation or destructive processes that may involve the glomerulus, tubule, or interstitial renal tissue.' },
+            { term: 'Nephron', definition: 'Functional unit of the kidney, consisting of the (1) glomerulus (2) proximal convoluted tubule (3) long (descending and ascending) loop of Henle (4) distal convoluted tubule and (5) collecting duct.' },
+            { term: 'Nephrotic Syndrome', definition: 'General name for a group of diseases that result in injury and increased permeability of the glomerular basement membrane, characterized by massive proteinuria and lipiduria with varying degrees of edema, hypoalbuminemia, and hyperlipidemia. Also called nephrosis.' },
+            { term: 'Peritoneal Dialysis (PD)', definition: 'Diffusion of solutes and convection of fluid through the peritoneal membrane with the use of gravity to introduce and remove the dialyzing solution.' },
+            { term: 'Pyelonephritis', definition: 'Inflammation of the kidney due to sudden and often severe infection from bacteria. A type of urinary tract infection; UTI.' },
+            { term: 'Renal Clearance', definition: 'The volume of plasma from which a given substance is completely cleared by the kidneys per unit of time.' },
+            { term: 'Renal Threshold', definition: 'The plasma concentration of a substance above which the kidneys begin to eliminate into urine.' },
+            { term: 'Rhabdomyolysis', definition: 'Serious medical condition characterized by rapid breakdown of skeletal muscle that results in elevated blood levels of cellular breakdown products (e.g. myoglobin). Can lead to acute renal failure.' },
+            { term: 'Uremia (Uremic Syndrome)', definition: 'A very high concentration of urea, creatinine, and other nitrogenous end products of protein and amino acid metabolism in the blood accompanied by kidney failure. Also referred to as azotemia.' },
+            { term: 'Urinary Tract Infection (UTI)', definition: 'An infection in any part of your urinary system (kidneys, ureters, bladder, and urethra). Most infections involve the lower urinary tract (bladder and urethra).' }
+        ];
+
+        // --- DOM Elements ---
+        const flashcardSection = document.getElementById('flashcard-section');
+        const quizSection = document.getElementById('quiz-section');
+        const navFlashcards = document.getElementById('nav-flashcards');
+        const navQuiz = document.getElementById('nav-quiz');
+
+        const flashcard = document.getElementById('flashcard');
+        const cardFront = document.getElementById('card-front');
+        const cardBack = document.getElementById('card-back');
+        const prevCardBtn = document.getElementById('prev-card');
+        const nextCardBtn = document.getElementById('next-card');
+        const cardCounter = document.getElementById('card-counter');
+        
+        const quizForm = document.getElementById('quizForm');
+        const submitQuizBtn = document.getElementById('submit-quiz');
+        const quizResults = document.getElementById('quiz-results');
+
+        let currentCardIndex = 0;
+        let isFlipped = false;
+
+        // --- NAVIGATION LOGIC ---
+        function showFlashcards() {
+            flashcardSection.style.display = 'block';
+            quizSection.style.display = 'none';
+            navFlashcards.classList.add('active');
+            navQuiz.classList.remove('active');
+        }
+
+        function showQuiz() {
+            flashcardSection.style.display = 'none';
+            quizSection.style.display = 'block';
+            navFlashcards.classList.remove('active');
+            navQuiz.classList.add('active');
+        }
+
+        navFlashcards.addEventListener('click', showFlashcards);
+        navQuiz.addEventListener('click', showQuiz);
+        
+        // --- FLASHCARD LOGIC ---
+        function displayCard(index) {
+            const card = keyTerms[index];
+            cardFront.textContent = card.term;
+            cardBack.textContent = card.definition;
+            cardCounter.textContent = `${index + 1} / ${keyTerms.length}`;
+            // Reset flip state when card changes
+            if(flashcard.classList.contains('is-flipped')){
+                flashcard.classList.remove('is-flipped');
+                isFlipped = false;
+            }
+        }
+
+        flashcard.addEventListener('click', () => {
+            flashcard.classList.toggle('is-flipped');
+            isFlipped = !isFlipped;
+        });
+
+        nextCardBtn.addEventListener('click', () => {
+            currentCardIndex = (currentCardIndex + 1) % keyTerms.length;
+            displayCard(currentCardIndex);
+        });
+
+        prevCardBtn.addEventListener('click', () => {
+            currentCardIndex = (currentCardIndex - 1 + keyTerms.length) % keyTerms.length;
+            displayCard(currentCardIndex);
+        });
+        
+        // --- QUIZ LOGIC ---
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        function generateQuiz() {
+            quizForm.innerHTML = '';
+            const shuffledTerms = shuffleArray([...keyTerms]);
+
+            shuffledTerms.forEach((item, index) => {
+                const questionContainer = document.createElement('div');
+                questionContainer.className = 'question-container';
+
+                const questionText = document.createElement('p');
+                questionText.innerHTML = `<strong>${index + 1}.</strong> Which term matches the following definition? <span class="feedback" id="feedback-${index}"></span><br><br><em>"${item.definition}"</em>`;
+                questionContainer.appendChild(questionText);
+
+                // Create options
+                const options = [];
+                // Add correct answer
+                options.push({ text: item.term, correct: true });
+
+                // Add 3 random incorrect answers
+                const distractors = [...keyTerms].filter(d => d.term !== item.term);
+                shuffleArray(distractors);
+                for (let i = 0; i < 3; i++) {
+                    if (distractors[i]) {
+                        options.push({ text: distractors[i].term, correct: false });
+                    }
+                }
+                
+                shuffleArray(options).forEach(option => {
+                    const label = document.createElement('label');
+                    const radio = document.createElement('input');
+                    radio.type = 'radio';
+                    radio.name = `question-${index}`;
+                    radio.value = option.text;
+                    radio.dataset.correct = option.correct;
+                    
+                    label.appendChild(radio);
+                    label.appendChild(document.createTextNode(option.text));
+                    questionContainer.appendChild(label);
+                });
+
+                quizForm.appendChild(questionContainer);
+            });
+        }
+        
+        submitQuizBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            let score = 0;
+            const totalQuestions = keyTerms.length;
+            const quizQuestions = quizForm.querySelectorAll('.question-container');
+            
+            quizQuestions.forEach((question, i) => {
+                 const questionIndex = parseInt(question.querySelector('strong').textContent) - 1;
+                 const feedbackSpan = question.querySelector('.feedback');
+                 const name = `question-${questionIndex}`;
+                 const selected = quizForm.querySelector(`input[name="question-${i}"]:checked`);
+                
+                if (selected) {
+                    const isCorrect = selected.dataset.correct === 'true';
+                    const parentLabel = selected.parentElement;
+                    if (isCorrect) {
+                        score++;
+                        feedbackSpan.textContent = 'Correct';
+                        feedbackSpan.className = 'feedback correct';
+                        parentLabel.style.fontWeight = 'bold';
+                    } else {
+                        feedbackSpan.textContent = 'Incorrect';
+                        feedbackSpan.className = 'feedback incorrect';
+                        // Highlight the correct answer
+                        const correctRadio = quizForm.querySelector(`input[name="question-${i}"][data-correct="true"]`);
+                        if(correctRadio) {
+                            correctRadio.parentElement.style.fontWeight = 'bold';
+                            correctRadio.parentElement.style.color = '#28a745';
+                        }
+                    }
+                } else {
+                    // Mark unanswered questions
+                    feedbackSpan.textContent = 'Unanswered';
+                    feedbackSpan.className = 'feedback incorrect';
+                }
+            });
+
+            quizResults.textContent = `You scored ${score} out of ${totalQuestions} (${Math.round((score/totalQuestions)*100)}%)`;
+            quizResults.style.display = 'block';
+            window.scrollTo({ top: quizResults.offsetTop - 80, behavior: 'smooth' });
+        });
+
+        // --- INITIALIZATION ---
+        displayCard(currentCardIndex);
+        generateQuiz();
+        showFlashcards(); // Show flashcards by default on load
+    });
+    </script>
+
+</body>
+</html>
