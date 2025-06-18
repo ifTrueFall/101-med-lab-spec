@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='-27' y='75' font-family='Courier' font-size='117' fill='%23000'%3E☕%3C/text%3E%3C/svg%3E" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endocrine System: Hormone Drag & Drop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles with coffee theme colors */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #D7CCC8; /* Light latte foam background */
+            color: #4E342E; /* Dark espresso text */
+            touch-action: none;
+        }
+        /* Sticky Navbar styles */
+        .navbar {
+            background-color: #5D4037; /* Dark coffee color */
+            color: #EFEBE9; /* Creamy text */
+            padding: 0.75rem 1.5rem;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .navbar-brand {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #EFEBE9;
+            text-decoration: none;
+        }
+        .navbar-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 1.5rem;
+        }
+        .navbar-links a {
+            color: #EFEBE9;
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.3s;
+        }
+        .navbar-links a:hover {
+            color: #BCAAA4;
+        }
+
+        /* Drag and Drop styles */
+        .hormone {
+            cursor: grab;
+            transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+            user-select: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .hormone:active {
+            cursor: grabbing;
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .hormone.dragging {
+            opacity: 0.6;
+        }
+        .gland-dropzone {
+            transition: background-color 0.3s, border-color 0.3s;
+            border-style: dashed;
+            min-height: 100px;
+        }
+        .gland-dropzone.drag-over {
+            background-color: #FFF9C4; /* Light creamy highlight */
+            border-color: #A1887F; /* Mid-tone brown */
+        }
+        .correct {
+            background-color: #A5D6A7 !important;
+            border: 1px solid #388E3C;
+            color: #1B5E20;
+            cursor: not-allowed;
+        }
+        .incorrect {
+            background-color: #EF9A9A !important;
+            animation: shake 0.5s;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        /* Make hormone list scroll horizontally on mobile */
+        #hormone-list {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        #hormone-list::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+    </style>
+</head>
+<body class="text-stone-800">
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">Other MLT Quizzes</a>
+        <ul class="navbar-links">
+          <li><a href="test12.html">Endo</a></li>
+        </ul>
+    </nav>
+
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-[#4E342E]">Endocrine System Challenge</h1>
+            <p class="text-md text-[#5D4037] mt-2">Drag each hormone to the gland that produces it.</p>
+        </header>
+
+        <div class="text-center mb-6">
+            <button id="reset-button" class="bg-[#5D4037] text-[#EFEBE9] font-bold py-2 px-6 rounded-lg shadow-md hover:bg-[#4E342E] transition duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#5D4037] focus:ring-offset-[#D7CCC8]">Reset Game</button>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Glands/Organs Dropzones -->
+            <div class="w-full lg:w-2/3 order-last lg:order-first pb-48 lg:pb-0">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div id="hypothalamus" class="gland-dropzone bg-[#EFEBE9] p-4 rounded-lg shadow-lg border-2 border-[#BCAAA4]"><h3 class="font-bold text-lg mb-3 text-center text-[#6F4E37]">Hypothalamus</h3><div class="flex flex-wrap gap-2 justify-center min-h-[40px]"></div></div>
+                    <div id="anterior-pituitary" class="gland-dropzone bg-[#EFEBE9] p-4 rounded-lg shadow-lg border-2 border-[#BCAAA4]"><h3 class="font-bold text-lg mb-3 text-center text-[#8B4513]">Anterior Pituitary</h3><div class="flex flex-wrap gap-2 justify-center min-h-[40px]"></div></div>
+                    <div id="posterior-pituitary" class="gland-dropzone bg-[#EFEBE9] p-4 rounded-lg shadow-lg border-2 border-[#BCAAA4]"><h3 class="font-bold text-lg mb-3 text-center text-[#A0522D]">Posterior Pituitary (Storage)</h3><div class="flex flex-wrap gap-2 justify-center min-h-[40px]"></div></div>
+                    <div id="thyroid" class="gland-dropzone bg-[#EFEBE9] p-4 rounded-lg shadow-lg border-2 border-[#BCAAA4]"><h3 class="font-bold text-lg mb-3 text-center text-[#CD853F]">Thyroid</h3><div class="flex flex-wrap gap-2 justify-center min-h-[40px]"></div></div>
+                    <div id="adrenal-glands" class="gland-dropzone bg-[#EFEBE9] p-4 rounded-lg shadow-lg border-2 border-[#BCAAA4]"><h3 class="font-bold text-lg mb-3 text-center text-[#D2691E]">Adrenal Glands</h3><div class="flex flex-wrap gap-2 justify-center min-h-[40px]"></div></div>
+                    <div id="pancreas" class="gland-dropzone bg-[#EFEBE9] p-4 rounded-lg shadow-lg border-2 border-[#BCAAA4]"><h3 class="font-bold text-lg mb-3 text-center text-[#B87333]">Pancreas</h3><div class="flex flex-wrap gap-2 justify-center min-h-[40px]"></div></div>
+                    <div id="gonads" class="gland-dropzone bg-[#EFEBE9] p-4 rounded-lg shadow-lg border-2 border-[#BCAAA4] md:col-span-2"><h3 class="font-bold text-lg mb-3 text-center text-[#DAA520]">Gonads</h3><div class="flex flex-wrap gap-2 justify-center min-h-[40px]"></div></div>
+                </div>
+            </div>
+
+            <!-- Hormones List -->
+            <!-- On mobile, this is a fixed bar at the bottom. On desktop, it's a static panel on the right. -->
+            <div id="hormone-list-wrapper" class="w-full fixed bottom-0 left-0 bg-[#EFEBE9]/95 backdrop-blur-sm p-4 shadow-[0_-2px_10px_rgba(0,0,0,0.1)] lg:static lg:w-1/3 lg:rounded-lg lg:shadow-lg lg:bg-[#EFEBE9] lg:backdrop-blur-none lg:p-4">
+                <h2 class="text-xl font-bold mb-4 text-center border-b-2 border-[#BCAAA4] pb-2 text-[#4E342E]">Hormones</h2>
+                <div id="hormone-list" class="flex flex-row lg:flex-wrap gap-3 justify-start overflow-x-auto pb-2">
+                    <!-- Hormones will be injected here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hormoneData = {
+                'TRH': 'hypothalamus', 'GnRH': 'hypothalamus', 'CRH': 'hypothalamus',
+                'Dopamine (PRIF)': 'hypothalamus', 'Somatostatin': 'hypothalamus',
+                'ADH (AVP)': 'posterior-pituitary', 'Oxytocin': 'posterior-pituitary',
+                'Growth Hormone (GH)': 'anterior-pituitary', 'Prolactin (PRL)': 'anterior-pituitary',
+                'TSH': 'anterior-pituitary', 'ACTH': 'anterior-pituitary', 'FSH': 'anterior-pituitary',
+                'LH': 'anterior-pituitary', 'Thyroxine (T4)': 'thyroid', 'Cortisol': 'adrenal-glands',
+                'Aldosterone': 'adrenal-glands', 'Epinephrine': 'adrenal-glands', 'Insulin': 'pancreas',
+                'Glucagon': 'pancreas', 'Testosterone': 'gonads', 'Estrogen': 'gonads',
+            };
+            const hormoneListContainer = document.getElementById('hormone-list');
+            const resetButton = document.getElementById('reset-button');
+            let draggedElement = null;
+
+            function initializeGame() {
+                document.querySelectorAll('.gland-dropzone > div').forEach(div => div.innerHTML = '');
+                hormoneListContainer.innerHTML = '';
+                const hormones = Object.keys(hormoneData).sort(() => Math.random() - 0.5);
+                hormones.forEach(hormoneName => {
+                    const hormoneEl = document.createElement('div');
+                    hormoneEl.id = hormoneName;
+                    hormoneEl.textContent = hormoneName;
+                    hormoneEl.draggable = true;
+                    hormoneEl.className = 'hormone bg-[#BCAAA4] text-[#4E342E] font-medium py-1 px-4 rounded-md whitespace-nowrap';
+                    hormoneListContainer.appendChild(hormoneEl);
+                });
+                addDragListeners();
+            }
+
+            function addDragListeners() {
+                const hormones = document.querySelectorAll('.hormone');
+                const dropzones = document.querySelectorAll('.gland-dropzone');
+                hormones.forEach(hormone => {
+                    hormone.addEventListener('dragstart', e => {
+                        if (hormone.classList.contains('correct')) { e.preventDefault(); return; }
+                        e.dataTransfer.setData('text/plain', hormone.id);
+                        setTimeout(() => hormone.classList.add('dragging'), 0);
+                    });
+                    hormone.addEventListener('dragend', e => hormone.classList.remove('dragging'));
+                    hormone.addEventListener('touchstart', e => {
+                        if (hormone.classList.contains('correct')) return;
+                        draggedElement = e.target;
+                        draggedElement.classList.add('dragging');
+                    }, { passive: true });
+                });
+                document.addEventListener('touchmove', e => {
+                    if (!draggedElement) return;
+                    e.preventDefault();
+                    let touch = e.touches[0];
+                    const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
+                    document.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
+                    if (dropTarget && dropTarget.closest('.gland-dropzone')) {
+                        dropTarget.closest('.gland-dropzone').classList.add('drag-over');
+                    }
+                }, { passive: false });
+                document.addEventListener('touchend', e => {
+                    if (!draggedElement) return;
+                    document.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
+                    const touch = e.changedTouches[0];
+                    const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
+                    draggedElement.classList.remove('dragging');
+                    const dropzone = dropTarget ? dropTarget.closest('.gland-dropzone') : null;
+                    if (dropzone) {
+                        handleDrop(draggedElement, dropzone);
+                    }
+                    draggedElement = null;
+                });
+                dropzones.forEach(zone => {
+                    zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
+                    zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+                    zone.addEventListener('drop', e => {
+                        e.preventDefault();
+                        zone.classList.remove('drag-over');
+                        const hormoneId = e.dataTransfer.getData('text/plain');
+                        const hormoneEl = document.getElementById(hormoneId);
+                        handleDrop(hormoneEl, zone);
+                    });
+                });
+            }
+
+            function handleDrop(hormoneEl, dropzone) {
+                if (!hormoneEl || !dropzone) return;
+                const correctGlandId = hormoneData[hormoneEl.id];
+                if (dropzone.id === correctGlandId) {
+                    dropzone.querySelector('div').appendChild(hormoneEl);
+                    hormoneEl.classList.add('correct');
+                    hormoneEl.classList.remove('incorrect');
+                    hormoneEl.draggable = false;
+                } else {
+                    hormoneEl.classList.add('incorrect');
+                    setTimeout(() => hormoneEl.classList.remove('incorrect'), 500);
+                }
+            }
+            resetButton.addEventListener('click', initializeGame);
+            initializeGame();
+        });
+    </script>
+</body>
+</html>
