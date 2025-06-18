@@ -14,7 +14,6 @@
             font-family: 'Inter', sans-serif;
             background-color: #D7CCC8; /* Light latte foam background */
             color: #4E342E; /* Dark espresso text */
-            touch-action: none;
         }
         /* Sticky Navbar styles */
         .navbar {
@@ -59,6 +58,7 @@
             transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
             user-select: none;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            touch-action: none; /* Prevents page scroll when starting a drag on a hormone */
         }
         .hormone:active {
             cursor: grabbing;
@@ -92,10 +92,15 @@
             25% { transform: translateX(-5px); }
             75% { transform: translateX(5px); }
         }
-        /* Make hormone list scroll horizontally on mobile */
+        /* Styles for the hormone list container */
         #hormone-list {
+            cursor: grab;
+            overflow-x: auto;
             -ms-overflow-style: none;  /* IE and Edge */
             scrollbar-width: none;  /* Firefox */
+        }
+        #hormone-list.active-scroll {
+             cursor: grabbing;
         }
         #hormone-list::-webkit-scrollbar {
             display: none; /* Chrome, Safari, Opera */
@@ -106,7 +111,7 @@
     <nav class="navbar">
         <a href="#" class="navbar-brand">Other MLT Quizzes</a>
         <ul class="navbar-links">
-          <li><a href="test12.html">Endo</a></li>
+          <li><a href="#">Endo</a></li>
         </ul>
     </nav>
 
@@ -135,11 +140,10 @@
             </div>
 
             <!-- Hormones List -->
-            <!-- On mobile, this is a fixed bar at the bottom. On desktop, it's a static panel on the right. -->
             <div id="hormone-list-wrapper" class="w-full fixed bottom-0 left-0 bg-[#EFEBE9]/95 backdrop-blur-sm p-4 shadow-[0_-2px_10px_rgba(0,0,0,0.1)] lg:static lg:w-1/3 lg:rounded-lg lg:shadow-lg lg:bg-[#EFEBE9] lg:backdrop-blur-none lg:p-4">
                 <h2 class="text-xl font-bold mb-4 text-center border-b-2 border-[#BCAAA4] pb-2 text-[#4E342E]">Hormones</h2>
-                <div id="hormone-list" class="flex flex-row lg:flex-wrap gap-3 justify-start overflow-x-auto pb-2">
-                    <!-- Hormones will be injected here by JavaScript -->
+                <div id="hormone-list" class="flex flex-row lg:flex-wrap gap-3 justify-start lg:justify-center overflow-x-auto pb-2">
+                    <!-- Hormones will be injected here -->
                 </div>
             </div>
         </div>
@@ -147,16 +151,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const hormoneData = {
-                'TRH': 'hypothalamus', 'GnRH': 'hypothalamus', 'CRH': 'hypothalamus',
-                'Dopamine (PRIF)': 'hypothalamus', 'Somatostatin': 'hypothalamus',
-                'ADH (AVP)': 'posterior-pituitary', 'Oxytocin': 'posterior-pituitary',
-                'Growth Hormone (GH)': 'anterior-pituitary', 'Prolactin (PRL)': 'anterior-pituitary',
-                'TSH': 'anterior-pituitary', 'ACTH': 'anterior-pituitary', 'FSH': 'anterior-pituitary',
-                'LH': 'anterior-pituitary', 'Thyroxine (T4)': 'thyroid', 'Cortisol': 'adrenal-glands',
-                'Aldosterone': 'adrenal-glands', 'Epinephrine': 'adrenal-glands', 'Insulin': 'pancreas',
-                'Glucagon': 'pancreas', 'Testosterone': 'gonads', 'Estrogen': 'gonads',
-            };
+            const hormoneData = { 'TRH': 'hypothalamus', 'GnRH': 'hypothalamus', 'CRH': 'hypothalamus', 'Dopamine (PRIF)': 'hypothalamus', 'Somatostatin': 'hypothalamus', 'ADH (AVP)': 'posterior-pituitary', 'Oxytocin': 'posterior-pituitary', 'Growth Hormone (GH)': 'anterior-pituitary', 'Prolactin (PRL)': 'anterior-pituitary', 'TSH': 'anterior-pituitary', 'ACTH': 'anterior-pituitary', 'FSH': 'anterior-pituitary', 'LH': 'anterior-pituitary', 'Thyroxine (T4)': 'thyroid', 'Cortisol': 'adrenal-glands', 'Aldosterone': 'adrenal-glands', 'Epinephrine': 'adrenal-glands', 'Insulin': 'pancreas', 'Glucagon': 'pancreas', 'Testosterone': 'gonads', 'Estrogen': 'gonads' };
             const hormoneListContainer = document.getElementById('hormone-list');
             const resetButton = document.getElementById('reset-button');
             let draggedElement = null;
@@ -174,26 +169,19 @@
                     hormoneListContainer.appendChild(hormoneEl);
                 });
                 addDragListeners();
+                addHormoneBarScrollListeners();
             }
 
             function addDragListeners() {
                 const hormones = document.querySelectorAll('.hormone');
                 const dropzones = document.querySelectorAll('.gland-dropzone');
                 hormones.forEach(hormone => {
-                    hormone.addEventListener('dragstart', e => {
-                        if (hormone.classList.contains('correct')) { e.preventDefault(); return; }
-                        e.dataTransfer.setData('text/plain', hormone.id);
-                        setTimeout(() => hormone.classList.add('dragging'), 0);
-                    });
+                    hormone.addEventListener('dragstart', e => { if (hormone.classList.contains('correct')) { e.preventDefault(); return; } e.dataTransfer.setData('text/plain', hormone.id); setTimeout(() => hormone.classList.add('dragging'), 0); });
                     hormone.addEventListener('dragend', e => hormone.classList.remove('dragging'));
-                    hormone.addEventListener('touchstart', e => {
-                        if (hormone.classList.contains('correct')) return;
-                        draggedElement = e.target;
-                        draggedElement.classList.add('dragging');
-                    }, { passive: true });
+                    hormone.addEventListener('touchstart', e => { if (hormone.classList.contains('correct')) return; draggedElement = e.target; draggedElement.classList.add('dragging'); }, { passive: true });
                 });
                 document.addEventListener('touchmove', e => {
-                    if (!draggedElement) return;
+                    if (!draggedElement) return; // FIX: Allows page to scroll if not dragging
                     e.preventDefault();
                     let touch = e.touches[0];
                     const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
@@ -209,21 +197,13 @@
                     const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
                     draggedElement.classList.remove('dragging');
                     const dropzone = dropTarget ? dropTarget.closest('.gland-dropzone') : null;
-                    if (dropzone) {
-                        handleDrop(draggedElement, dropzone);
-                    }
+                    if (dropzone) { handleDrop(draggedElement, dropzone); }
                     draggedElement = null;
                 });
                 dropzones.forEach(zone => {
                     zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
                     zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
-                    zone.addEventListener('drop', e => {
-                        e.preventDefault();
-                        zone.classList.remove('drag-over');
-                        const hormoneId = e.dataTransfer.getData('text/plain');
-                        const hormoneEl = document.getElementById(hormoneId);
-                        handleDrop(hormoneEl, zone);
-                    });
+                    zone.addEventListener('drop', e => { e.preventDefault(); zone.classList.remove('drag-over'); const hormoneId = e.dataTransfer.getData('text/plain'); const hormoneEl = document.getElementById(hormoneId); handleDrop(hormoneEl, zone); });
                 });
             }
 
@@ -240,6 +220,49 @@
                     setTimeout(() => hormoneEl.classList.remove('incorrect'), 500);
                 }
             }
+
+            // FEATURE: Adds drag-to-scroll for the hormone bar
+            function addHormoneBarScrollListeners() {
+                const slider = hormoneListContainer;
+                let isDown = false;
+                let startX;
+                let scrollLeft;
+                
+                const start = (e) => {
+                    // Only activate for the container, not the hormone children
+                    if (e.target.classList.contains('hormone')) return;
+                    isDown = true;
+                    slider.classList.add('active-scroll');
+                    const pageX = e.pageX || e.touches[0].pageX;
+                    startX = pageX - slider.offsetLeft;
+                    scrollLeft = slider.scrollLeft;
+                };
+
+                const end = () => {
+                    isDown = false;
+                    slider.classList.remove('active-scroll');
+                };
+
+                const move = (e) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const pageX = e.pageX || e.touches[0].pageX;
+                    const x = pageX - slider.offsetLeft;
+                    const walk = (x - startX) * 2; // scroll-fast
+                    slider.scrollLeft = scrollLeft - walk;
+                };
+
+                slider.addEventListener('mousedown', start);
+                slider.addEventListener('mouseleave', end);
+                slider.addEventListener('mouseup', end);
+                slider.addEventListener('mousemove', move);
+
+                slider.addEventListener('touchstart', start, { passive: true });
+                slider.addEventListener('touchend', end);
+                slider.addEventListener('touchcancel', end);
+                slider.addEventListener('touchmove', move, { passive: false });
+            }
+
             resetButton.addEventListener('click', initializeGame);
             initializeGame();
         });
