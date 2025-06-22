@@ -93,124 +93,126 @@ function generateQuizHTML(questionList) {
 //  The first line contains the full question.
 //  The second line contains the correct answer followed by three wrong answers.
 const myQuestions = [
-  `question: Define terminology associated with endocrinology. Page 272. What is the anterior lobe of the pituitary gland that secretes many major hormones called?
-Adenohypophysis, Neurohypophysis, Hypothalamus, Thyroid`,
-  `question: Define terminology associated with endocrinology. Page 272. What form of hormonal signaling involves a cell secreting a hormone that binds to its own receptors?
-Autocrine Action, Paracrine Action, Endocrine Action, Exocrine Action`,
-  `question: Define terminology associated with endocrinology. Page 272. What is the term for the material found within the follicles of the thyroid?
-Colloid, Thyroglobulin, Iodine, Cytosol`,
-  `question: Define terminology associated with endocrinology. Page 272. What is a ductless gland that secretes hormones directly into the blood stream called?
-Endocrine Gland, Exocrine Gland, Salivary Gland, Lymph Node`,
-  `question: Define terminology associated with endocrinology. Page 272. An enlargement of the thyroid gland is known as what?
-Goiter, Tumor, Adenoma, Follicle`,
-  `question: Define terminology associated with endocrinology. Page 272. What is a chemical substance produced and secreted into the blood by an organ that has a specific effect on a target tissue?
-Hormone, Enzyme, Neurotransmitter, Cytokine`,
-  `question: Define terminology associated with endocrinology. Page 273. What is the posterior lobe of the pituitary gland that is an extension of the central nervous system called?
-Neurohypophysis, Adenohypophysis, Sella Turcica, Pineal Gland`,
-  `question: Define terminology associated with endocrinology. Page 273. What type of hormone function involves a hormone binding to receptors in nearby cells?
-Paracrine Action, Autocrine Action, Endocrine Action, Synaptic Action`,
-  `question: Define terminology associated with endocrinology. Page 273. What are peptides synthesized by the hypothalamus that affect pituitary hormone secretion called?
-Releasing Factors, Second Messengers, Tropic Hormones, Trophic Hormones`,
-  `question: Define terminology associated with endocrinology. Page 273. What are hormones that stimulate the activity of another endocrine gland called?
-Tropic Hormones, Trophic Hormones, Steroid Hormones, Peptide Hormones`,
-  `question: Define terminology associated with endocrinology. Page 273. What are hormones that stimulate a cell or tissue to increase growth effects called?
-Trophic Hormones, Tropic Hormones, Releasing Factors, Androgens`,
-  `question: Define terminology associated with endocrinology. Page 273. What is an intracellular signal that translates a message from a first messenger into a cellular response?
-Second Messenger, Releasing Factor, Receptor, Paracrine Agent`,
-  `question: Describe the fundamentals of endocrinology. Page 274. The endocrine system is part of the extracellular communication system that links the brain to organs controlling functions like what?
-Body metabolism, Digestion, Respiration, Muscle contraction`,
-  `question: Describe the fundamentals of endocrinology. Page 275. In which system do hormones synthesized and released by one cell type bind to receptors of nearby cells of a different type?
-Paracrine system, Autocrine system, Endocrine system, Nervous system`,
-  `question: Describe the fundamentals of endocrinology. Page 275. The endocrine system uses what to transport its chemical messengers called hormones?
-Blood circulation, Lymphatic vessels, Nerve fibers, Interstitial fluid`,
-  `question: Describe the fundamentals of endocrinology. Page 276. All hormones act on their target glands and tissues through highly specific binding proteins called what?
-Receptors, Second messengers, Enzymes, Antibodies`,
-  `question: Describe the fundamentals of endocrinology. Page 277. Which chemical class of hormones is water soluble and circulates freely in the plasma?
-Polypeptide/Protein Hormones, Steroid Hormones, Cholesterol Hormones, Lipid Hormones`,
-  `question: Describe the fundamentals of endocrinology. Page 277. Which type of hormone requires a second messenger system to produce its specific actions?
-Peptide hormones, Steroid hormones, Thyroid hormones, Sex hormones`,
-  `question: Describe the fundamentals of endocrinology. Page 278. Steroid hormones are derived from what molecule?
-Cholesterol, Amino Acids, Peptides, Glycogen`,
-  `question: Describe the fundamentals of endocrinology. Page 278. How do free steroid hormones enter a cell?
-By passive diffusion, By active transport, Through a channel protein, Via a second messenger`,
-  `question: Describe the fundamentals of endocrinology. Page 279. Thyroxine and catecholamines are examples of what chemical class of hormones?
-Amino Acid Derived Hormones, Steroid Hormones, Polypeptide Hormones, Protein Hormones`,
-  `question: Describe the fundamentals of endocrinology. Page 280. The hypothalamus is a small region in the brain that plays a key role in regulating the release of what?
-Many hormones, Only pituitary hormones, Only thyroid hormones, Only adrenal hormones`,
-  `question: Describe the fundamentals of endocrinology. Page 281. When high levels of a circulating hormone provide feedback to the hypothalamus to suppress its releasing hormones this is called what?
-Negative feedback, Positive feedback, Autocrine action, Paracrine action`,
-  `question: Describe the fundamentals of endocrinology. Page 281. When a hormone or CNS stimulation triggers a response from the hypothalamus resulting in hormone secretion this is called what?
-A positive-feedback loop, A negative-feedback loop, A tropic effect, A trophic effect`,
-  `question: Describe the types of glands and their specific hormones. Page 283. Which gland releases neurosecretory factors to stimulate or inhibit the release of hormones from the adenohypophysis?
-Hypothalamus, Pineal gland, Adrenal gland, Thyroid gland`,
-  `question: Describe the types of glands and their specific hormones. Page 283. Which hypothalamic hormone triggers the release of TSH from the pituitary?
-Thyrotropin-releasing hormone (TRH), Gonadotropin-releasing hormone (GnRH), Corticotropin-releasing hormone (CRH), Somatostatin (SS)`,
-  `question: Describe the types of glands and their specific hormones. Page 283. Which neurotransmitter also known as PRIF suppresses the synthesis and secretion of prolactin?
-Dopamine, Serotonin, Acetylcholine, Norepinephrine`,
-  `question: Describe the types of glands and their specific hormones. Page 283. Which two hormones are synthesized in the hypothalamus but stored in the neurohypophysis?
-Arginine vasopressin (AVP) and oxytocin, TSH and ACTH, LH and FSH, Prolactin and Growth Hormone`,
-  `question: Describe the types of glands and their specific hormones. Page 285. The pituitary gland is located at the base of the skull in a bone cavity called the what?
-Sella Turcica, Foramen Magnum, Cranial Fossa, Sphenoid Sinus`,
-  `question: Describe the types of glands and their specific hormones. Page 285. Which gland is called the master endocrine organ?
-Pituitary Gland, Hypothalamus, Adrenal Gland, Thyroid Gland`,
-  `question: Describe the types of glands and their specific hormones. Page 285. The neurohypophysis functions as a reservoir for two hormones that were produced by what gland?
-Hypothalamus, Adenohypophysis, Pineal Gland, Adrenal Cortex`,
-  `question: Describe the types of glands and their specific hormones. Page 286. What is the major physiological function of Antidiuretic Hormone (ADH)?
-Water homeostasis, Glucose metabolism, Calcium regulation, Growth promotion`,
-  `question: Describe the types of glands and their specific hormones. Page 286. Deficient production or action of ADH results in what condition?
-Polyuria, Oliguria, Anuria, Hematuria`,
-  `question: Describe the types of glands and their specific hormones. Page 287. Which hormone promotes uterine contractions and milk ejection?
-Oxytocin, Prolactin, Estrogen, Progesterone`,
-  `question: Describe the types of glands and their specific hormones. Page 287. What is the primary stimulus for the release of oxytocin?
-Suckling, High estrogen levels, Low blood pressure, Emotional stress`,
-  `question: Describe the types of glands and their specific hormones. Page 288. Which anterior pituitary hormone acts directly on peripheral tissue rather than on another endocrine gland?
-Growth Hormone (GH), Thyroid-Stimulating Hormone (TSH), Adrenocorticotropic Hormone (ACTH), Luteinizing Hormone (LH)`,
-  `question: Describe the functions regulations and clinical significance of glandular hormones. Page 289. What is the most common cause of pituitary hypersecretion?
-The presence of a pituitary adenoma, A bacterial infection, A genetic disorder, Head trauma`,
-  `question: Describe the functions regulations and clinical significance of glandular hormones. Page 289. Prolactin-secreting pituitary adenoma is the most common form of what?
-Hypersecreting pituitary disease, Hyposecreting pituitary disease, Hypothalamic disease, Adrenal disease`,
-  `question: Describe the functions regulations and clinical significance of glandular hormones. Page 289. When low cortisol is due to a pituitary deficiency of ACTH it is defined as what?
-Secondary adrenal deficiency, Primary adrenal deficiency, Tertiary adrenal deficiency, Adrenal overproduction`,
-  `question: Relate endocrine disorders to disease states. Page 290. The diagnosis of pituitary disease often requires what type of testing?
-Provocative testing of gland function, A single baseline hormone level, A routine blood chemistry panel, A complete blood count`,
-  `question: Relate endocrine disorders to disease states. Page 290. Hypothalamus-based disorders are what compared to abnormal hormone secretion from pituitary disease?
-Relatively rare, More common, Equally common, Always congenital`,
-  `question: Describe the functions regulations and clinical significance of glandular hormones. Page 291. What is the most abundant hormone produced by the adenohypophysis?
-Growth Hormone (GH), Prolactin (PRL), Thyroid-Stimulating Hormone (TSH), Adrenocorticotropic Hormone (ACTH)`,
-  `question: Describe the functions regulations and clinical significance of glandular hormones. Page 291. During the evening hours adults and children show a marked rise in GH secretory activity approximately how long after the onset of sleep?
-90 minutes, 30 minutes, 3 hours, 6 hours`,
-  `question: Describe the functions regulations and clinical significance of glandular hormones. Page 291. GH concentrations reach a peak value during what period?
-The period of deepest sleep, Immediately after waking, 3 hours after a meal, During intense exercise`,
-  `question: Describe the functions regulations and clinical significance of glandular hormones. Page 291. A single determination of GH is not particularly useful in establishing its inadequate or excessive release due to what?
-Numerous influencing factors, Its long half-life, Its stable secretion rate, Its lack of a receptor`,
-  `question: Describe the functions regulations and clinical significance of glandular hormones. Page 291. GH triggers the liver to synthesize and release what polypeptide?
-Insulin-like growth factor I (IGF-I), Glucagon, Albumin, Thyroxine`,
-  `question: Describe the functions regulations and clinical significance of glandular hormones. Page 292. GH is considered what type of hormone as it directly influences both anabolic and catabolic processes?
-An amphibolic hormone, A tropic hormone, A steroid hormone, A releasing hormone`,
-  `question: Describe the functions regulations and clinical significance of glandular hormones. Page 292. GH directly antagonizes the effect of which hormone on glucose metabolism?
-Insulin, Glucagon, Cortisol, Thyroxine`,
-  `question: Describe the functions regulations and clinical significance of glandular hormones. Page 292. Besides antagonizing insulin what metabolic processes does GH promote?
-Hepatic gluconeogenesis and lipolysis, Glycogen storage and fat synthesis, Protein breakdown and ketogenesis, Glycolysis and glucose uptake`,
-  `question: Relate endocrine disorders to disease states. Page 293. Chronically elevated Growth Hormone levels in adults is known as what?
-Acromegaly, Pituitary gigantism, Dwarfism, Cushing's disease`,
-  `question: Relate endocrine disorders to disease states. Page 293. When chronic GH excess is seen before long-bone growth is complete what is the condition called?
-Pituitary gigantism, Acromegaly, Cretinism, Addison's disease`,
-  `question: Relate endocrine disorders to disease states. Page 293. What is the most important requirement for the diagnosis of acromegaly?
-Demonstration of inappropriate and excessive GH secretion, Observation of tall stature, Measurement of low IGF-I levels, Presence of a goiter`,
-  `question: Relate endocrine disorders to disease states. Page 293. Besides soft-tissue changes what is a biochemical abnormality seen in acromegaly?
-Impaired glucose tolerance, Hypophosphatemia, Low blood pressure, Anemia`,
-  `question: Relate endocrine disorders to disease states. Page 293. Pituitary gigantism involves a striking acceleration of what type of growth?
-Linear growth, Organ growth only, Soft tissue growth only, Horizontal growth`,
-  `question: Relate endocrine disorders to disease states. Page 293. Patients with acromegaly may complain of local effects of the pituitary tumor such as what?
-Headaches, Weight loss, Hair growth, Improved vision`,
-  `question: Relate endocrine disorders to disease states. Page 294. Pituitary tumors are the cause for the vast majority of patients who suffer from what?
-Autonomous GH excess, GH deficiency, Hypothyroidism, Adrenal insufficiency`,
-  `question: Relate endocrine disorders to disease states. Page 294. Patients with untreated acromegaly have what?
-A shortened life expectancy, A normal life expectancy, An extended life expectancy, A reduced cancer risk`,
-  `question: Relate endocrine disorders to disease states. Page 294. Treatment for acromegaly can involve different methods for what?
-Tumor removal/destruction, Hormone replacement, Gland stimulation, Diet modification`,
-  `question: Relate endocrine disorders to disease states. Page 294. Some patients with acromegaly may be required to use what type of therapy using hormone antagonists?
-Hormone suppression therapy, Hormone replacement therapy, Radiation therapy, Chemotherapy`
+  `question: Describe growth hormone disorders and diseases. Page 293. Growth Hormone Excess is characterized by the abnormal overgrowth of what tissues?
+Cartilage and soft tissue, Bone marrow and blood cells, Nervous tissue and neurons, Adipose tissue and skin`,
+  `question: Describe growth hormone disorders and diseases. Page 293. The major effect of growth hormone is that it induces the synthesis of what factor by the liver?
+Insulin-like growth factor (IGF-1), Epidermal growth factor (EGF), Fibroblast growth factor (FGF), Nerve growth factor (NGF)`,
+  `question: Describe growth hormone disorders and diseases. Page 293. Prolonged exposure to GH excess causes an overgrowth of the skeleton and what else?
+Soft tissue overgrowth, Muscle atrophy, Decreased organ size, Hair loss`,
+  `question: Describe growth hormone disorders and diseases. Page 293. What is the condition called when there are chronically elevated Growth Hormone levels in adults?
+Acromegaly, Pituitary gigantism, Cushing's disease, Addison's disease`,
+  `question: Describe growth hormone disorders and diseases. Page 293. Besides soft-tissue changes acromegaly may cause severe disability or death from what?
+Cardiac or respiratory problems, Liver failure, Kidney failure, Autoimmune disorders`,
+  `question: Describe growth hormone disorders and diseases. Page 293. Which of the following is a biochemical abnormality found in acromegaly?
+Hyperphosphatemia, Hypoglycemia, Low blood pressure, Hyponatremia`,
+  `question: Describe growth hormone disorders and diseases. Page 293. The most important requirement for the diagnosis of acromegaly is the demonstration of what?
+Inappropriate and excessive GH secretion, Low levels of IGF-1, High levels of TSH, A rapid growth spurt`,
+  `question: Describe growth hormone disorders and diseases. Page 293. What is the condition called when chronic GH excess is seen before long-bone growth is complete?
+Pituitary gigantism, Acromegaly, Psychosocial dwarfism, Laron syndrome`,
+  `question: Describe growth hormone disorders and diseases. Page 293. Pituitary gigantism results in a striking acceleration of what type of growth?
+Linear growth, Organ growth only, Horizontal growth, Soft tissue growth only`,
+  `question: Describe growth hormone disorders and diseases. Page 293. The features of acromegaly develop how over time?
+Slowly, Rapidly, In sudden bursts, Only during puberty`,
+  `question: Describe growth hormone disorders and diseases. Page 293. In severe or advanced cases of GH excess the diagnosis can be made on the basis of what alone?
+Physical appearance, A single blood test, A urine test, Patient symptoms`,
+  `question: Describe growth hormone disorders and diseases. Page 294. What is the cause for the vast majority of patients who suffer from autonomous GH excess?
+Pituitary tumors, Hypothalamic tumors, Ectopic production of GHRH, Genetic mutations`,
+  `question: Describe growth hormone disorders and diseases. Page 294. Patients with acromegaly have a higher risk of what?
+Cancer, Autoimmune disease, Infectious disease, Blood clots`,
+  `question: Describe growth hormone disorders and diseases. Page 294. Patients with untreated acromegaly have what kind of life expectancy?
+A shortened life expectancy, A normal life expectancy, An extended life expectancy, A variable life expectancy`,
+  `question: Describe growth hormone disorders and diseases. Page 294. Treatment for acromegaly can involve different methods for what?
+Tumor removal/destruction, GH replacement therapy, IGF-1 replacement therapy, Thyroid suppression`,
+  `question: Describe growth hormone disorders and diseases. Page 294. Some patients with acromegaly may be required to use what type of therapy using a variety of hormone antagonists?
+Hormone suppression therapy, Hormone stimulation therapy, Growth factor therapy, Immunotherapy`,
+  `question: Describe growth hormone disorders and diseases. Page 294. The reversibility of the tissue changes in acromegaly depends largely on what?
+The duration of the disease, The age of the patient, The size of the tumor, The type of treatment`,
+  `question: Describe growth hormone disorders and diseases. Page 295. Children with inadequate GH production or a GH receptor defect do not do what normally?
+Grow, Metabolize sugar, Produce red blood cells, Digest food`,
+  `question: Describe growth hormone disorders and diseases. Page 295. Children with growth hormone deficiency can be treated with what to advance their growth pattern?
+Recombinant GH, Insulin, Thyroid hormone, Cortisol`,
+  `question: Describe growth hormone disorders and diseases. Page 295. GH deficiency may be congenital or what?
+Acquired, Only genetic, Always idiopathic, Never due to damage`,
+  `question: Describe growth hormone disorders and diseases. Page 295. A reversible GH deficiency state caused by environmental stress is known as what?
+Psychosocial dwarfism, Pituitary gigantism, Acromegaly, Laron syndrome`,
+  `question: Describe growth hormone disorders and diseases. Page 295. What is the term for growth failure despite normal or increased serum GH concentrations?
+Resistance to GH, Isolated GH deficiency, Psychosocial dwarfism, Congenital GH deficiency`,
+  `question: Describe growth hormone disorders and diseases. Page 295. In individuals with resistance to GH what is the effect of administering exogenous GH?
+It fails to produce any appreciable metabolic changes or promote growth, It causes rapid growth, It corrects the growth failure, It increases IGF-1 levels`,
+  `question: Describe growth hormone disorders and diseases. Page 295. GH deficiency in adults is probably the most common demonstrable abnormality in patients with what condition?
+Large pituitary adenomas, Hypothalamic lesions, Thyroid cancer, Adrenal tumors`,
+  `question: Describe growth hormone disorders and diseases. Page 295. Growth hormone deficiency in adults can lead to what?
+Premature mortality, Increased bone density, Improved quality of life, Abnormal lipid storage`,
+  `question: Describe growth hormone disorders and diseases. Page 295. Adult GH deficiency can lead to decreased bone density with an increase in what risk?
+Fracture risk, Cancer risk, Infection risk, Cardiovascular risk`,
+  `question: Describe growth hormone disorders and diseases. Page 295. What is considered the standard of care for GH-deficient adults?
+GH replacement therapy, IGF-1 replacement therapy, A high-protein diet, Regular exercise`,
+  `question: Describe laboratory tests used for the diagnosis and treatment of endocrine disease states. Page 296. Why is the measurement of GH under random conditions not generally considered useful?
+GH concentrations vary widely under normal circumstances, GH levels are always stable, GH is difficult to measure, GH is not present in blood`,
+  `question: Describe laboratory tests used for the diagnosis and treatment of endocrine disease states. Page 296. GH measurements are best determined as part of testing involving what?
+The use of pharmacological or physiological stimuli, A 24-hour urine collection, A single fasting blood sample, A saliva sample`,
+  `question: Describe laboratory tests used for the diagnosis and treatment of endocrine disease states. Page 296. What are the usual methods used to measure GH and IGFs?
+Immunoassays, Chromatography, Electrophoresis, Mass spectrometry`,
+  `question: Describe laboratory tests used for the diagnosis and treatment of endocrine disease states. Page 296. What is the most reliable test for the diagnosis of GH excess?
+The oral glucose tolerance test, The insulin challenge test, A random GH measurement, A 24-hour urine GH`,
+  `question: Describe laboratory tests used for the diagnosis and treatment of endocrine disease states. Page 296. In a normal response to an oral glucose tolerance test GH is expected to fall to what level?
+Less than 1 ng/mL, Greater than 2 ng/mL, Between 5 and 10 ng/mL, Exactly 0 ng/mL`,
+  `question: Describe laboratory tests used for the diagnosis and treatment of endocrine disease states. Page 296. Most patients with GH excess will have GH levels above what value after glucose ingestion?
+Greater than 2 ng/mL, Less than 1 ng/mL, Between 1 and 2 ng/mL, Exactly 0 ng/mL`,
+  `question: Describe laboratory tests used for the diagnosis and treatment of endocrine disease states. Page 296. Besides the OGTT routine measurement of what is now also being used for the diagnosis of acromegaly?
+IGF-1 levels, Glucose levels, Phosphate levels, Calcium levels`,
+  `question: Describe laboratory tests used for the diagnosis and treatment of endocrine disease states. Page 297. What is the most commonly performed challenge test for a growth hormone deficiency?
+The insulin challenge test, The oral glucose tolerance test, The GHRH stimulation test, A random GH measurement`,
+  `question: Describe laboratory tests used for the diagnosis and treatment of endocrine disease states. Page 297. For adult patients with suspected GH deficiency what test do endocrinologists use exclusively?
+The insulin-induced hypoglycemia test, The oral glucose tolerance test, The arginine stimulation test, The L-dopa test`,
+  `question: Describe laboratory tests used for the diagnosis and treatment of endocrine disease states. Page 297. In the insulin challenge test what response will individuals with normal GH production have?
+A prompt increase in serum GH concentration, A prompt decrease in serum GH concentration, No change in serum GH concentration, A delayed increase in serum GH`,
+  `question: Describe laboratory tests used for the diagnosis and treatment of endocrine disease states. Page 297. For pediatric patients endocrinologists often use a combination of insulin-induced hypoglycemia and what drug?
+Levodopa (L-dopa), Glucose, Arginine, GHRH`,
+  `question: Describe laboratory tests used for the diagnosis and treatment of endocrine disease states. Page 297. Administration of GH-RH and measurement of GH are useful in discerning growth deficiencies of what origin?
+Hypothalamic origin, Pituitary origin, Ectopic origin, Genetic origin`,
+  `question: Describe growth hormone disorders and diseases. Page 293. Overt diabetes mellitus is a potential biochemical abnormality in what condition?
+Acromegaly, GH deficiency, Psychosocial dwarfism, Laron syndrome`,
+  `question: Describe growth hormone disorders and diseases. Page 295. What type of growth retardation can be caused by environmental stress that inhibits pituitary and hypothalamic function?
+Psychosocial dwarfism, Congenital dwarfism, Acquired GH deficiency, GH resistance`,
+  `question: Describe laboratory tests used for the diagnosis and treatment of endocrine disease states. Page 297. L-dopa acts in the CNS to induce what?
+Pituitary release of GH, Hypothalamic release of GHRH, Suppression of GH, Release of IGF-1`,
+  `question: Describe growth hormone disorders and diseases. Page 293. Impaired glucose tolerance is a biochemical abnormality associated with which disorder?
+Acromegaly, GH deficiency, Addison's Disease, Hypothyroidism`,
+  `question: Describe growth hormone disorders and diseases. Page 294. Ectopic production of GH or GHRH are considered what kind of causes of GH excess?
+Rare cases, Common causes, The only causes, Impossible causes`,
+  `question: Describe growth hormone disorders and diseases. Page 295. Children with growth retardation or what other condition should be screened for GH deficiency?
+Pituitary dwarfism, Gigantism, Acromegaly, Marfan syndrome`,
+  `question: Describe laboratory tests used for the diagnosis and treatment of endocrine disease states. Page 296. Immunoassays use what to specifically measure GH?
+Antibodies, Antigens, Enzymes, Substrates`,
+  `question: Describe growth hormone disorders and diseases. Page 293. In pituitary gigantism the acceleration of linear growth is particularly evident where?
+In the face and extremities, In the torso, In the skull, In the spine`,
+  `question: Describe growth hormone disorders and diseases. Page 293. Patients with acromegaly may complain of headaches which are a local effect of what?
+A pituitary tumor, High blood pressure, High blood sugar, Increased IGF-1`,
+  `question: Describe growth hormone disorders and diseases. Page 295. GH deficiency can be idiopathic or caused by anatomical damage to what glands?
+The pituitary gland or hypothalamus, The thyroid gland or parathyroid, The adrenal glands, The gonads`,
+  `question: Describe laboratory tests used for the diagnosis and treatment of endocrine disease states. Page 296. The graph of the Oral Glucose Testing for GH excess shows that an acromegalic patient's GH levels do what after glucose administration?
+Remain elevated, Decrease significantly, Increase slightly, Fluctuate wildly`,
+  `question: Describe growth hormone disorders and diseases. Page 293. Neurological sequelae are a potential cause of death in which condition?
+Acromegaly, GH deficiency, Hypothyroidism, Addison's Disease`,
+  `question: Describe growth hormone disorders and diseases. Page 294. Besides surgery and irradiation what is another treatment for acromegaly?
+Hormone suppression therapy, GH replacement, IGF-1 injections, Chemotherapy`,
+  `question: Describe growth hormone disorders and diseases. Page 295. Adult GH deficiency can result in abnormal body composition and impaired levels of what?
+Serum lipids, Blood glucose, Serum electrolytes, Red blood cells`,
+  `question: Describe laboratory tests used for the diagnosis and treatment of endocrine disease states. Page 297. In the pediatric insulin challenge test how often is blood collected for GH assessment after insulin is administered?
+At 30-minute intervals for 90 minutes, Every hour for 3 hours, Once after 60 minutes, At 15-minute intervals for 60 minutes`,
+  `question: Describe growth hormone disorders and diseases. Page 293. An overgrowth of the developing skeleton is a characteristic of what condition?
+GH excess, GH deficiency, Hypothyroidism, Adrenal insufficiency`,
+  `question: Describe growth hormone disorders and diseases. Page 295. GH deficiency can be associated with deficiencies of what?
+Other pituitary hormones, Only thyroid hormones, Only adrenal hormones, Only sex hormones`,
+  `question: Describe laboratory tests used for the diagnosis and treatment of endocrine disease states. Page 296. For the diagnosis of acromegaly the oral glucose tolerance test involves the administration of how much glucose?
+75 g, 50 g, 100 g, 25 g`,
+  `question: Describe laboratory tests used for the diagnosis and treatment of endocrine disease states. Page 297. The insulin challenge test for GH deficiency relies on inducing what state?
+Hypoglycemia, Hyperglycemia, Euglycemia, Ketoacidosis`,
+  `question: Describe growth hormone disorders and diseases. Page 295. Children with psychosocial dwarfism usually have healthy pituitary function after what?
+A few days of hospital stay, Long-term GH therapy, Surgical intervention, A change in diet`,
+  `question: Describe growth hormone disorders and diseases. Page 293. Is a patient with pituitary gigantism shorter or taller than average?
+Taller, Shorter, Average height, It varies`
 ];
 
 const quizData = generateQuizHTML(myQuestions);
