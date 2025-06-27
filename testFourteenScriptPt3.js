@@ -93,129 +93,127 @@ function generateQuizHTML(questionList) {
 //  The first line contains the full question.
 //  The second line contains the correct answer followed by three wrong answers.
 const myQuestions = [
-  `question: Describe hematopoiesis and the organs used for hematopoiesis throughout fetal and adult life. Page 25. What is the production development differentiation and maturation of all blood cells called?
-Hematopoiesis, Erythropoiesis, Leukopoiesis, Thrombopoiesis`,
-  `question: Describe hematopoiesis and the organs used for hematopoiesis throughout fetal and adult life. Page 25. During the first 2 weeks to 2 months of fetal life what is the primary site of hematopoiesis?
-Yolk sac, Liver, Spleen, Bone marrow`,
-  `question: Describe hematopoiesis and the organs used for hematopoiesis throughout fetal and adult life. Page 25. The hepatic period of fetal hematopoiesis occurs from 2 to 7 months and primarily involves which two organs?
-Liver and Spleen, Yolk sac and Bone marrow, Thymus and Lymph nodes, Heart and Lungs`,
-  `question: Describe hematopoiesis and the organs used for hematopoiesis throughout fetal and adult life. Page 25. From 7 months post-conception through the remainder of life what assumes the primary role in hematopoiesis?
-Bone marrow, Liver, Spleen, Lymph nodes`,
-  `question: Describe hematopoiesis and the organs used for hematopoiesis throughout fetal and adult life. Page 25. When there is bone marrow damage what non-bone marrow sites can compensate?
-Spleen thymus and lymph nodes, Heart and lungs, Kidneys and pancreas, Brain and spinal cord`,
-  `question: Differentiate between intramedullary and extramedullary hematopoiesis. Page 26. What is the term for hematopoiesis that occurs inside the bone marrow?
-Intramedullary hematopoiesis, Extramedullary hematopoiesis, Hepatic hematopoiesis, Mesoblastic hematopoiesis`,
-  `question: Differentiate between intramedullary and extramedullary hematopoiesis. Page 26. What is the term for hematopoiesis that occurs outside the bone marrow environment?
-Extramedullary hematopoiesis, Intramedullary hematopoiesis, Medullary hematopoiesis, Myeloid hematopoiesis`,
-  `question: Differentiate between intramedullary and extramedullary hematopoiesis. Page 26. In an adult extramedullary hematopoiesis occurs primarily in what two organs?
-The liver and spleen, The thymus and lymph nodes, The kidneys and pancreas, The lungs and heart`,
-  `question: Explain the four functions of the spleen. Page 26. The spleen acts as a reservoir storing one-third of the circulating pool of what cells?
-Platelets and granulocytes, Red blood cells, Lymphocytes, Monocytes`,
-  `question: Explain the four functions of the spleen. Page 26. One function of the spleen is filtration where it inspects red blood cells and platelets for abnormalities and what else?
-Inclusions, Size variations, Color variations, Antigen presence`,
-  `question: Explain the four functions of the spleen. Page 26. The spleen's immunologic role involves providing opsonizing antibodies that make bacteria vulnerable to what process?
-Phagocytosis, Apoptosis, Lysis, Agglutination`,
-  `question: Describe the microenvironment and factors affecting differentiation of the pluripotent stem cell (PSC). Page 27. The bone marrow microenvironment is home to what type of stem cells?
-Multipotential (Pluripotent) stem cells, Myeloid committed cells, Lymphoid committed cells, Erythroid precursor cells`,
-  `question: Describe the microenvironment and factors affecting differentiation of the pluripotent stem cell (PSC). Page 27. Pluripotent stem cells are capable of differentiation into what two precursor committed cell lines?
-Myeloid (Non-Lymphoid) or lymphoid, Erythroid or granulocytic, Megakaryocytic or monocytic, T-cell or B-cell`,
-  `question: Describe the microenvironment and factors affecting differentiation of the pluripotent stem cell (PSC). Page 27. Myeloid committed cells (CFU-GEMM) can develop into RBCs WBCs and what other cell family?
-Megakaryocytic family, Lymphoid family, Plasma cell family, Monocytic family`,
-  `question: Describe the microenvironment and factors affecting differentiation of the pluripotent stem cell (PSC). Page 27. What proteins send chemical signals to promote specific cell lineage selection and maturation rate?
-Cytokines and interleukins, Hemoglobins, Albumins, Antibodies`,
-  `question: Define the myeloid:erythroid ratio. Page 29. The M:E ratio provides the approximate number of myeloid elements to what other elements in the marrow?
-Erythroid elements, Lymphoid elements, Megakaryocytic elements, Plasma cells`,
-  `question: Define the myeloid:erythroid ratio. Page 29. What is the normal Myeloid:Erythroid ratio?
-3:1 to 4:1, 1:1, 1:3, 10:1`,
-  `question: Define the myeloid:erythroid ratio. Page 29. The normal M:E ratio reflects the relationship between production and what characteristic of the various cell types?
-Life span, Size, Function, Shape`,
-  `question: Describe the bone marrow procedure methods and materials and the technician's role in ensuring the bone marrow is recovered. Page 30. What is the site of choice for a bone marrow procedure?
-Iliac crest, Sternum, Femur, Tibia`,
-  `question: Describe the bone marrow procedure methods and materials and the technician's role in ensuring the bone marrow is recovered. Page 30. What is a key role for the technician during a bone marrow aspirate?
-Locates spicules from the specimen, Performs the aspiration, Anesthetizes the patient, Generates the final report`,
-  `question: Describe the bone marrow procedure methods and materials and the technician's role in ensuring the bone marrow is recovered. Page 30. What are spicules in a bone marrow sample?
-Areas in the sample richest with cells, Fragments of bone, Clumps of fat cells, Aggregates of platelets`,
-  `question: Describe the bone marrow procedure methods and materials and the technician's role in ensuring the bone marrow is recovered. Page 30. What stain is used to evaluate iron stores in a bone marrow sample?
-Prussian blue stain, Wright's stain, New methylene blue stain, Giemsa stain`,
-  `question: Describe the bone marrow procedure methods and materials and the technician's role in ensuring the bone marrow is recovered. Page 30. Wright's stain is used to evaluate the M:E ratio overall cellularity and what else?
-Maturation of each cell line, Iron stores, Reticulocyte count, Hemoglobin content`,
-  `question: List the components of the complete blood count (CBC). Page 31. What is the most frequently ordered test in Hematology?
-Complete Blood Count (CBC), Prothrombin Time (PT), Basic Metabolic Panel (BMP), Urinalysis (UA)`,
-  `question: List the components of the complete blood count (CBC). Page 31. Which of the following CBC parameters is electronically (directly) measured?
-Red Blood Cell count (RBC), Mean Corpuscular Hemoglobin (MCH), Mean Cell Hemoglobin Content (MCHC), Red Blood Cell Distribution Width (RDW)`,
-  `question: List the components of the complete blood count (CBC). Page 31. Which of the following CBC parameters is a calculated quantity?
-Mean Corpuscular Hemoglobin (MCH), White Blood Cell count (WBC), Platelet count (PLT), Hemoglobin (Hgb)`,
-  `question: Distinguish normal and critical values in an automated CBC. Page 32. What is the normal reference range for the WBC count in an adult male or female?
-4.8-10.8 (x 10^9/L), 9-30 (x 10^9/L), 3.0-7.0 (x 10^9/L), 150-450 (x 10^9/L)`,
-  `question: Distinguish normal and critical values in an automated CBC. Page 32. What is the critical low value for Hemoglobin (Hgb)?
-7.0 g/dL, 12.0 g/dL, 3.0 g/dL, 19.0 g/dL`,
-  `question: Distinguish normal and critical values in an automated CBC. Page 32. What is the critical low value for the Platelet count (PLT)?
-20 (x10^9/L), 150 (x10^9/L), 1000 (x10^9/L), 50 (x10^9/L)`,
-  `question: Describe the importance of correlation checks in a CBC. Page 33. The correlation check between hemoglobin and hematocrit is known as what?
-The Rule of Three, The Rule of Fives, Quality Control, A Delta Check`,
-  `question: Describe the importance of correlation checks in a CBC. Page 33. What is the formula for the 'Rule of Three' correlation check?
-Hgb x 3 = Hct +/- 3, RBC x 3 = Hct, Hgb x 3 = RBC, RBC + 3 = Hgb`,
-  `question: Describe the importance of correlation checks in a CBC. Page 33. The 'Rule of Three' only applies to what type of red blood cells?
-Normocytic/normochromic, Microcytic/hypochromic, Macrocytic/normochromic, All types of red blood cells`,
-  `question: Outline erythropoiesis from origin to maturation. Page 36. Erythropoiesis originates from what type of stem cells?
-Pluripotent stem cells (PSC), Myeloid committed cells, Lymphoid committed cells, Erythroid precursors`,
-  `question: Outline erythropoiesis from origin to maturation. Page 36. What hormone released from the kidney stimulates pronormoblasts to mature into erythrocytes?
-Erythropoietin (EPO), Thrombopoietin (TPO), Granulocyte colony-stimulating factor (GCSF), Interleukin-3 (IL-3)`,
-  `question: Outline erythropoiesis from origin to maturation. Page 36. During maturation the cell size is reduced the N:C ratio decreases and the nuclear chromatin becomes what?
-More condensed, Less condensed, Fragmented, Unchanged`,
-  `question: Describe immature red cells with regard to nucleus: cytoplasm ratio, cytoplasm, nuclear structure, and size. Page 37. Comparing immature to mature red cells the N:C ratio of an immature cell is what?
-High, Low, 1:1, Absent`,
-  `question: Describe immature red cells with regard to nucleus: cytoplasm ratio, cytoplasm, nuclear structure, and size. Page 37. The cytoplasm of an immature red cell is what color?
-Blue, Salmon, Pink, Colorless`,
-  `question: Describe immature red cells with regard to nucleus: cytoplasm ratio, cytoplasm, nuclear structure, and size. Page 38. The basophilic normoblast stage exhibits what feature around the nucleus?
-Perinuclear HALO, A condensed nucleus, Orange-red cytoplasm, No nucleus`,
-  `question: Describe immature red cells with regard to nucleus: cytoplasm ratio, cytoplasm, nuclear structure, and size. Page 39. The 'dawn of hemoglobinization' occurs in which stage of RBC maturation?
-Polychromatophilic Normoblast, Pronormoblast, Basophilic Normoblast, Orthochromic Normoblast`,
-  `question: Describe immature red cells with regard to nucleus: cytoplasm ratio, cytoplasm, nuclear structure, and size. Page 39. A dense velvet-appearing homogenous chromatin (pyknotic) nucleus is characteristic of what RBC stage?
-Orthochromic Normoblast, Polychromatophilic Normoblast, Basophilic Normoblast, Pronormoblast`,
-  `question: Describe immature red cells with regard to nucleus: cytoplasm ratio, cytoplasm, nuclear structure, and size. Page 40. A reticulocyte contains remnants of RNA that can be visualized with what stain?
-New methylene blue stain, Wright's stain, Prussian blue stain, Gram stain`,
-  `question: Describe effective and ineffective erythropoiesis. Page 41. What is the term for the destruction of red blood cell precursors in the bone marrow before they reach circulation?
-Ineffective Erythropoiesis, Effective Erythropoiesis, Aplastic Anemia, Hemolytic Anemia`,
-  `question: Describe effective and ineffective erythropoiesis. Page 41. The presence of polychromasia and nucleated RBCs on a peripheral smear are signs of what process?
-Effective erythropoiesis, Ineffective erythropoiesis, Bone marrow failure, Leukemia`,
-  `question: Describe the composition of the red cell membrane with regard to key proteins and lipids. Page 42. The RBC membrane is composed of 50% protein 10% cholesterol and what percentage of phospholipid?
-40%, 20%, 30%, 50%`,
-  `question: Describe the composition of the red cell membrane with regard to key proteins and lipids. Page 42. The outer layer of the trilaminar RBC membrane contains what?
-Glycolipids and glycoproteins, Cholesterol and phospholipids, The cytoskeleton, Integral proteins`,
-  `question: Describe the composition of the red cell membrane with regard to key proteins and lipids. Page 42. The cytoskeleton of the RBC membrane is responsible for what property?
-Deformability/elasticity, Antigen structure, Molecule transport, Cell signaling`,
-  `question: Describe red cell metabolism with regard to energy needs. Page 43. Which metabolic pathway provides 90% of the ATP required to support the sodium-potassium pump in an RBC?
-Embden-Meyerhof Pathway, Pentose Phosphogluconate Pathway, Methemoglobin Reductase Pathway, Krebs Cycle`,
-  `question: Describe red cell metabolism with regard to energy needs. Page 43. Which pathway generates NADPH to protect the RBC against oxidative damage?
-Pentose Phosphogluconate Pathway, Embden-Meyerhof Pathway, Methemoglobin Reductase Pathway, Rapoport-Luebering Shunt`,
-  `question: Describe red cell metabolism with regard to energy needs. Page 43. Which pathway maintains hemoglobin iron in the Fe2+ (ferrous) state?
-Methemoglobin Reductase Pathway, Embden-Meyerhof Pathway, Pentose Phosphogluconate Pathway, Glycolytic Pathway`,
-  `question: Describe and calculate the red blood indices. Page 45. Which RBC index measures the average volume of one RBC?
-Mean corpuscular volume (MCV), Mean corpuscular hemoglobin (MCH), Mean corpuscular hemoglobin content (MCHC), Red Blood Cell Distribution Width (RDW)`,
-  `question: Describe and calculate the red blood indices. Page 45. What is the reference range for MCV?
-80-100 fL, 27-31 pg, 32%-36%, 11.5-14.5%`,
-  `question: Correlate RBC indices with RBC morphology based on Hqb Hct and RBC values. Page 46. A decreased MCV and MCHC corresponds to what RBC morphology?
-Microcytic/Hypochromic, Normocytic/Normochromic, Macrocytic/Normochromic, Macrocytic/Hypochromic`,
-  `question: Describe clinical conditions that cause valid shifts in the mean corpuscular volume. Page 47. What patient condition can create a FALSELY increased MCV?
-Cold agglutinins, Transfusion therapy, Reticulocytosis, Hyperglycemia`,
-  `question: Differentiate between microcyte and macrocyte to include clinical conditions due to variations in size. Page 47. What is the term for variation in the size of the RBCs?
-Anisocytosis, Poikilocytosis, Polychromasia, Hypochromia`,
-  `question: Differentiate between microcyte and macrocyte to include clinical conditions due to variations in size. Page 47. Iron deficiency anemia and thalassemia are clinical conditions associated with what cell size?
-Microcytes, Macrocytes, Normocytes, Spherocytes`,
-  `question: Differentiate between microcyte and macrocyte to include clinical conditions due to variations in size. Page 48. Megaloblastic anemia liver disease and alcoholism are clinical conditions associated with what cell size?
-Macrocytes, Microcytes, Normocytes, Schistocytes`,
-  `question: Identify the pathophysiology and clinical conditions that may lead to poikilocytosis. Page 49. Compact round RBCs that lack central pallor are known as what?
-Spherocyte, Ovalocyte, Echinocyte, Acanthocyte`,
-  `question: Identify the pathophysiology and clinical conditions that may lead to poikilocytosis. Page 50. Crescent-shaped cells that are rigid and inflexible are called what?
-Drepanocyte (Sickle Cell), Codocyte (Target Cell), Dacrocyte (Tear drop cell), Keratocyte (Bite cell)`,
-  `question: Describe the most common red cell inclusions and disease states in which they are observed. Page 51. Remnants of DNA that appear as round deep purple granules within an RBC are called what?
-Howell-Jolly Bodies, Pappenheimer Bodies, Basophilic Stippling, Cabot's Ring`,
-  `question: Relate clinical conditions to the variations of hemoglobin content in red blood cells. Page 52. What term describes RBCs with a faint blue color due to RNA?
-Polychromic, Hypochromic, Normochromic, Anisochromic`,
-  `question: Describe the clinical conditions that exhibit polychromatophilic cells and elevate the reticulocyte count. Page 52. Rapid blood loss and response to anemic stress will cause an elevation in what?
-Reticulocyte Count, Platelet Count, White Blood Cell Count, Hematocrit`
-];
+  `question: Describe the normal structural elements related to hemoglobin synthesis. Page 56. Heme synthesis occurs in the mitochondria and cytoplasm and involves incorporating what into a protoporphyrin ring?
+An iron atom (Fe2+), A globin chain, A polypeptide chain, A carbon atom`,
+  `question: Describe the normal structural elements related to hemoglobin synthesis. Page 56. Globin synthesis occurs on what cellular organelle via transcription of the genetic code?
+The ribosomes, The mitochondria, The nucleus, The cytoplasm`,
+  `question: Describe the normal structural elements related to hemoglobin synthesis. Page 56. Each complete hemoglobin molecule consists of how many heme structures?
+Four, Two, Six, One`,
+  `question: Describe the normal structural elements related to hemoglobin synthesis. Page 56. Each complete hemoglobin molecule consists of how many pairs of unlike globin chains?
+Two pairs, One pair, Four pairs, Three pairs`,
+  `question: Describe the normal structural elements related to hemoglobin synthesis. Page 56. An alpha-globin chain and a non-alpha globin chain bind to form what structure?
+A heterodimer, A tetramer, A monomer, A polymer`,
+  `question: Describe the normal structural elements related to hemoglobin synthesis. Page 56. Two heterodimers combine to form what final hemoglobin molecule structure?
+A tetramer, A dimer, An octamer, A trimer`,
+  `question: Describe the origin of hemoglobin synthesis in erythroid precursors. Page 56. Hemoglobin synthesis begins in which stage of RBC development?
+Polychromatophilic normoblast stage, Pronormoblast stage, Basophilic normoblast stage, Mature Red Cell stage`,
+  `question: Describe the origin of hemoglobin synthesis in erythroid precursors. Page 56. The beginning of hemoglobin synthesis in the polychromatophilic normoblast stage is known as what?
+The dawn of hemoglobinization, The end of maturation, The start of hemolysis, The globin shift`,
+  `question: Describe the origin of hemoglobin synthesis in erythroid precursors. Page 56. Hemoglobin synthesis ends in which stage of RBC development?
+Reticulocyte stage, Mature Red Cell stage, Orthochromic normoblast stage, Polychromatophilic normoblast stage`,
+  `question: Describe the origin of hemoglobin synthesis in erythroid precursors. Page 57. According to the table at which stage of RBC development does Hgb synthesis first appear?
+Polychromatophilic normoblast, Basophilic normoblast, Pronormoblast, Reticulocyte`,
+  `question: Describe the origin of hemoglobin synthesis in erythroid precursors. Page 57. According to the table is Hgb synthesis occurring in a mature red cell?
+No, Yes, Only sometimes, Only in disease states`,
+  `question: Describe the normal adult hemoglobins to include the chemical configuration and percentages of each. Page 57. What is the globin chain configuration of Hemoglobin A?
+2 alpha and 2 beta, 2 alpha and 2 delta, 2 alpha and 2 gamma, 2 zeta and 2 epsilon`,
+  `question: Describe the normal adult hemoglobins to include the chemical configuration and percentages of each. Page 57. What is the normal percentage range of Hemoglobin A in an adult?
+95-98%, >60%, 20%, 3-5%`,
+  `question: Describe the normal adult hemoglobins to include the chemical configuration and percentages of each. Page 57. What is the globin chain configuration of Hemoglobin F?
+2 alpha and 2 gamma, 2 alpha and 2 beta, 2 alpha and 2 delta, 2 zeta and 2 gamma`,
+  `question: Describe the normal adult hemoglobins to include the chemical configuration and percentages of each. Page 57. What is the normal percentage of Hemoglobin F in an adult?
+<2%, >60%, 20%, 95-98%`,
+  `question: Relate the shift from fetal hemoglobin to adult hemoglobin in terms of fetal to adult development. Page 57. Chromosome 16 contains the production genes for which globin chain?
+Alpha (a) chain, Beta (B) chain, Gamma (y) chain, Delta (6) chain`,
+  `question: Relate the shift from fetal hemoglobin to adult hemoglobin in terms of fetal to adult development. Page 57. Chromosome 11 contains the production genes for which globin chain?
+Beta (B) chain, Alpha (a) chain, Zeta (Z) chain, Epsilon (e) chain`,
+  `question: Relate the shift from fetal hemoglobin to adult hemoglobin in terms of fetal to adult development. Page 58. Embryonic hemoglobin is present up to what point post-conception?
+About 3 months, About 6 months, About 9 months, Until birth`,
+  `question: Relate the shift from fetal hemoglobin to adult hemoglobin in terms of fetal to adult development. Page 58. Fetal hemoglobin (Hgb F) is the primary hemoglobin from 3 months post-conception until what point?
+About 6 months post-birth, About 3 months post-birth, Until 1 year of age, Until puberty`,
+  `question: Relate the shift from fetal hemoglobin to adult hemoglobin in terms of fetal to adult development. Page 58. Adult hemoglobins begin to reach adult levels at about what age?
+6 months, 1 year, 2 years, Birth`,
+  `question: Describe hemoglobin function. Page 58. What is the primary function of hemoglobin?
+Pick up oxygen from lungs and provide it to tissues, Fight infection, Form blood clots, Transport nutrients`,
+  `question: Describe hemoglobin function. Page 58. Hemoglobin is able to perform its function due to its ability to do what with oxygen?
+Reversibly bind, Irreversibly bind, Covalently bond, Oxidize`,
+  `question: Describe hemoglobin function. Page 58. In addition to oxygen what waste product does hemoglobin pick up from tissues and transport to the lungs?
+Carbon dioxide, Urea, Lactic acid, Ammonia`,
+  `question: Describe hemoglobin function. Page 58. Hemoglobin also binds cellular waste such as acid (H+) and what other molecule?
+2,3-diphosphoglycerate (2,3-DPG), Glucose, ATP, Iron`,
+  `question: Describe hemoglobin function. Page 59. Normal blood pH balance is maintained by hemoglobin binding or releasing what?
+H+ atoms, O2 molecules, CO2 molecules, 2,3-DPG`,
+  `question: Outline the steps involved in oxygen delivery and the elimination of carbon dioxide. Page 59. In the lungs the release of CO2 from hemoglobin causes an allosteric change that allows hemoglobin to take on what shape?
+Relaxed shape, Tense shape, Oxidized shape, Reduced shape`,
+  `question: Outline the steps involved in oxygen delivery and the elimination of carbon dioxide. Page 59. The relaxed form of hemoglobin is also known as what?
+Oxygenated or oxyhemoglobin, De-oxygenated or deoxyhemoglobin, Methemoglobin, Carboxyhemoglobin`,
+  `question: Outline the steps involved in oxygen delivery and the elimination of carbon dioxide. Page 59. In the tissues the binding of H+ to hemoglobin causes it to take on what shape?
+Tense shape, Relaxed shape, Linear shape, Globular shape`,
+  `question: Outline the steps involved in oxygen delivery and the elimination of carbon dioxide. Page 59. The tense form of hemoglobin is also known as what?
+De-oxygenated or deoxyhemoglobin, Oxygenated or oxyhemoglobin, Sulfhemoglobin, Fetal hemoglobin`,
+  `question: Outline the steps involved in oxygen delivery and the elimination of carbon dioxide. Page 59. The tense shape of hemoglobin facilitates the release of O2 and allows what molecule to bind?
+2,3-DPG, CO2, H+, Heme`,
+  `question: Describe the oxygen dissociation curve in general terms. Page 59. What does the oxygen dissociation curve represent?
+The relationship of O2 released from hemoglobin to the tissues based upon PO2, The rate of hemoglobin synthesis, The amount of iron in hemoglobin, The lifespan of a red blood cell`,
+  `question: Describe the oxygen dissociation curve in general terms. Page 60. A shift to the right of the oxygen dissociation curve means that hemoglobin is what?
+More likely to release oxygen to tissue, Less likely to release oxygen to tissue, Permanently bound to oxygen, Unable to bind oxygen`,
+  `question: Describe the oxygen dissociation curve in general terms. Page 60. A shift to the right of the oxygen dissociation curve indicates what kind of oxygen affinity?
+Lower O2 affinity, Higher O2 affinity, No change in O2 affinity, Irreversible O2 affinity`,
+  `question: Describe the oxygen dissociation curve in general terms. Page 60. Which of the following conditions would cause a shift to the right in the oxygen dissociation curve?
+Increased H+ (Acidosis), Decreased H+ (Alkalosis), Decreased CO2 levels, Lower body temperature`,
+  `question: Describe the oxygen dissociation curve in general terms. Page 60. A shift to the left of the oxygen dissociation curve means that hemoglobin has what kind of oxygen affinity?
+Higher O2 affinity, Lower O2 affinity, A neutral O2 affinity, A complete lack of O2 affinity`,
+  `question: Describe the oxygen dissociation curve in general terms. Page 60. Which of the following conditions would cause a shift to the left in the oxygen dissociation curve?
+Decreased 2,3-DPG, Increased CO2 levels, Increased H+ (Acidosis), Anemia`,
+  `question: Differentiate the abnormal hemoglobins in terms of toxicity and oxygen capacity. Page 61. Abnormal hemoglobins can result from ingestion of harmful substances or what other cause?
+Inherited defects, Bacterial infections, Viral infections, Nutritional deficiencies`,
+  `question: Differentiate the abnormal hemoglobins in terms of toxicity and oxygen capacity. Page 61. What is the state of the iron atom in methemoglobin?
+Ferric (Fe+3), Ferrous (Fe+2), Elemental (Fe), Oxidized (Fe+4)`,
+  `question: Differentiate the abnormal hemoglobins in terms of toxicity and oxygen capacity. Page 61. The oxidized iron in methemoglobin is incapable of combining with what?
+Oxygen, Carbon dioxide, Hydrogen, Globin`,
+  `question: Differentiate the abnormal hemoglobins in terms of toxicity and oxygen capacity. Page 61. A build-up of methemoglobin in circulation can lead to what condition if the level is >10%?
+Cyanosis, Jaundice, Pallor, Erythrocytosis`,
+  `question: Differentiate the abnormal hemoglobins in terms of toxicity and oxygen capacity. Page 61. What is the abnormal hemoglobin formed by the binding of carbon monoxide to heme iron?
+Carboxyhemoglobin, Methemoglobin, Sulfhemoglobin, Hemoglobin S`,
+  `question: Differentiate the abnormal hemoglobins in terms of toxicity and oxygen capacity. Page 61. Hemoglobin's affinity for carbon monoxide is how many times greater than its affinity for oxygen?
+200x, 100x, 50x, 10x`,
+  `question: Differentiate the abnormal hemoglobins in terms of toxicity and oxygen capacity. Page 62. What abnormal hemoglobin is formed by the irreversible oxidation of hemoglobin by certain drugs like sulfonamides?
+Sulfhemoglobin, Carboxyhemoglobin, Methemoglobin, Hemoglobin M`,
+  `question: Differentiate the abnormal hemoglobins in terms of toxicity and oxygen capacity. Page 62. The oxygen affinity of sulfhemoglobin is how much lower than a normal hemoglobin?
+100X lower, 200X lower, 10X lower, 2X lower`,
+  `question: Describe terms associated with hemolytic anemia. Page 63. What is the definition of hemolysis?
+Premature destruction of red blood cells, Normal destruction of aged red blood cells, Increased production of red blood cells, Decreased production of red blood cells`,
+  `question: Describe hemolysis in terms of its effect on the bone marrow blood smear and blood chemistry. Page 63. In the bone marrow what is a clinical event or symptom of hemolysis?
+Erythroid hyperplasia, Erythroid hypoplasia, Myeloid hyperplasia, Lymphoid hyperplasia`,
+  `question: Describe hemolysis in terms of its effect on the bone marrow blood smear and blood chemistry. Page 63. An increase in polychromasia and the presence of spherocytes on a peripheral smear are signs of what?
+Hemolysis, Infection, Inflammation, Iron deficiency`,
+  `question: Describe hemolysis in terms of its effect on the bone marrow blood smear and blood chemistry. Page 63. An increased bilirubin and LDH along with a decreased haptoglobin are plasma chemistry findings in what process?
+Hemolysis, Normal RBC production, Aplastic anemia, Polycythemia`,
+  `question: Correlate extravascular and intravascular hemolysis with respect to organ of origin and laboratory diagnosis. Page 64. What type of hemolysis accounts for 90% of all hemolysis?
+Extravascular Hemolysis, Intravascular Hemolysis, Mechanical Hemolysis, Immune Hemolysis`,
+  `question: Correlate extravascular and intravascular hemolysis with respect to organ of origin and laboratory diagnosis. Page 64. Extravascular hemolysis occurs outside a blood vessel typically by macrophage ingestion in what organs?
+Spleen liver bone marrow, Heart lungs kidneys, Brain spinal cord nerves, Stomach intestines colon`,
+  `question: Correlate extravascular and intravascular hemolysis with respect to organ of origin and laboratory diagnosis. Page 65. What type of hemolysis accounts for 10% of all hemolysis and occurs within a blood vessel?
+Intravascular Hemolysis, Extravascular Hemolysis, Osmotic Hemolysis, Autoimmune Hemolysis`,
+  `question: Correlate extravascular and intravascular hemolysis with respect to organ of origin and laboratory diagnosis. Page 65. The presence of hemoglobinemia and hemoglobinuria are distinguishing conditions for what type of hemolysis?
+Intravascular Lysis, Extravascular Lysis, Normal RBC destruction, Both types of lysis`,
+  `question: Differentiate Intrinsic Red Cell Defect causes of anemia with the Extrinsic Red Cell causes. Page 66. Hemoglobinopathies red cell membrane defects and red cell enzyme defects are all examples of what?
+Intrinsic Red Cell Defects, Extrinsic Red Cell Defects, Nutritional Deficiencies, Bone Marrow Failures`,
+  `question: Differentiate Intrinsic Red Cell Defect causes of anemia with the Extrinsic Red Cell causes. Page 66. Autoimmune hemolytic anemia (AIHA) parasitic infections and venoms are all examples of what?
+Extrinsic Red Cell Defects, Intrinsic Red Cell Defects, Inherited Disorders, Stem Cell Defects`,
+  `question: Identify laboratory testing methods of hemoglobin to include the principle reference ranges and test interpretation. Page 67. The gravimetric method for Hgb screening involves dropping blood into a solution of what?
+Copper sulfate (CuSO4), Sodium chloride (NaCl), Potassium cyanide (KCN), Distilled water`,
+  `question: Identify laboratory testing methods of hemoglobin to include the principle reference ranges and test interpretation. Page 67. In the gravimetric method if a drop of blood falls to the bottom in 15 seconds it contains at least how much Hgb?
+12.5 g/dL, 10.0 g/dL, 15.0 g/dL, 7.5 g/dL`,
+  `question: Identify laboratory testing methods of hemoglobin to include the principle reference ranges and test interpretation. Page 67. The photometric method is based on Hgb's ability to combine with other substances and form what?
+Pigments measured spectrophotometrically, Precipitates measured by weight, Agglutination measured visually, Clots measured by time`,
+  `question: Identify laboratory testing methods of hemoglobin to include the principle reference ranges and test interpretation. Page 67. In the photometric method Drabkin's reagent oxidizes Hgb to methemoglobin which then combines with cyanide to form what stable pigment?
+Cyanmethemoglobin, Oxyhemoglobin, Carboxyhemoglobin, Sulfhemoglobin`,
+  `question: Identify laboratory testing methods of hemoglobin to include the principle reference ranges and test interpretation. Page 67. The cyanmethemoglobin pigment's concentration is measured at what wavelength using a spectrophotometer?
+540 nm, 450 nm, 620 nm, 340 nm`,
+  `question: Identify laboratory testing methods of hemoglobin to include the principle reference ranges and test interpretation. Page 67. Decreased hemoglobin values are seen in anemia while increased values are seen in what condition?
+Polycythemia (erythrocytosis), Leukemia, Thrombocytopenia, Leukopenia`
+]; 
 
 const quizData = generateQuizHTML(myQuestions);
 const quizForm = document.getElementById('quizForm');
