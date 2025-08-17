@@ -13,7 +13,7 @@
         /* Custom styles for button feedback */
         .correct-answer {
             background-color: #22c55e !important; /* Tailwind green-500 */
-            border-color: #16a34a !important; /* Tailwind green-600 */
+            border-color: #16a3a !important; /* Tailwind green-600 */
             color: white !important;
         }
         .wrong-answer {
@@ -50,32 +50,39 @@
     </nav>
 
     <!-- Main Quiz Content -->
-    <main class="max-w-lg mx-auto mt-4 sm:mt-8 p-3 sm:p-5 bg-stone-50 rounded-2xl shadow-lg">
-        <div class="text-center">
-            <h1 class="text-2xl sm:text-3xl font-bold text-stone-900 mb-2">WBC Identification Quiz</h1>
-            <p class="text-stone-600 mb-4 sm:mb-6">Identify the cell shown in the image below.</p>
-            
-            <!-- Score Tracker -->
-            <div id="score-container" class="text-lg font-semibold text-amber-900 mb-4 sm:mb-6">
-                Score: <span id="score">0</span> / <span id="total-questions">0</span>
+    <main class="max-w-4xl mx-auto mt-4 sm:mt-8 p-3 sm:p-5 bg-stone-50 rounded-2xl shadow-lg">
+        <div class="text-center mb-4">
+             <h1 class="text-2xl sm:text-3xl font-bold text-stone-900 mb-2">WBC Identification Quiz</h1>
+             <p class="text-stone-600">Identify the cell shown in the image below.</p>
+        </div>
+
+        <div class="flex flex-col md:flex-row md:items-start md:gap-8">
+            <!-- Left Column: Image -->
+            <div class="w-full md:w-1/2 mb-4 md:mb-0">
+                <div class="max-w-md mx-auto bg-stone-200 rounded-lg overflow-hidden border-4 border-stone-300">
+                    <img id="wbc-image" src="https://placehold.co/500x500/e5e7eb/44403c?text=Loading+Image..." alt="WBC Image" class="w-full h-auto object-cover">
+                </div>
             </div>
 
-            <!-- Image Container -->
-            <div class="mb-4 sm:mb-6 max-w-xs sm:max-w-sm mx-auto bg-stone-200 rounded-lg overflow-hidden border-4 border-stone-300">
-                <img id="wbc-image" src="https://placehold.co/500x500/e5e7eb/44403c?text=Loading+Image..." alt="WBC Image" class="w-full h-auto object-cover">
-            </div>
+            <!-- Right Column: Controls -->
+            <div class="w-full md:w-1/2 flex flex-col">
+                <!-- Score Tracker -->
+                <div id="score-container" class="text-lg font-semibold text-amber-900 mb-4 text-center md:text-left">
+                    Score: <span id="score">0</span> / <span id="total-questions">0</span>
+                </div>
 
-            <!-- Options Container -->
-            <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
-                <!-- Answer buttons will be dynamically inserted here -->
-            </div>
+                <!-- Options Container -->
+                <div id="options-container" class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                    <!-- Answer buttons will be dynamically inserted here -->
+                </div>
 
-            <!-- Feedback and Next Button -->
-            <div id="feedback-container" class="h-16">
-                 <p id="feedback-text" class="text-xl font-bold mb-4"></p>
-                 <button id="next-question-btn" class="hidden w-full md:w-1/2 mx-auto bg-amber-800 text-white font-bold py-2.5 px-6 rounded-lg hover:bg-amber-900 transition duration-300 ease-in-out transform hover:scale-105">
-                    Next Question
-                </button>
+                <!-- Feedback and Next Button -->
+                <div id="feedback-container" class="mt-auto">
+                     <p id="feedback-text" class="text-xl text-center md:text-left font-bold mb-2 min-h-[28px]"></p>
+                     <button id="next-question-btn" class="hidden w-full bg-amber-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-amber-900 transition duration-300 ease-in-out transform hover:scale-105">
+                        Next Question
+                    </button>
+                </div>
             </div>
         </div>
     </main>
@@ -176,7 +183,7 @@
             options.forEach(option => {
                 const button = document.createElement('button');
                 button.textContent = option;
-                button.classList.add('w-full', 'bg-stone-50', 'text-stone-700', 'font-semibold', 'py-2.5', 'px-4', 'border', 'border-stone-300', 'rounded-lg', 'shadow-sm', 'hover:bg-stone-100', 'transition', 'duration-200');
+                button.classList.add('w-full', 'bg-stone-50', 'text-stone-700', 'font-semibold', 'py-3', 'px-4', 'border', 'border-stone-300', 'rounded-lg', 'shadow-sm', 'hover:bg-stone-100', 'transition', 'duration-200');
                 button.onclick = () => checkAnswer(option, button);
                 optionsContainer.appendChild(button);
             });
