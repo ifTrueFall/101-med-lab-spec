@@ -93,126 +93,185 @@ function generateQuizHTML(questionList) {
 //  The first line contains the full question.
 //  The second line contains the correct answer followed by three wrong answers.
 const myQuestions = [
-  `question: Discuss the history of urinalysis and its importance in the diagnosis of disease. Page 9. The analysis of what substance is considered the beginning of laboratory medicine?
-    Urine, Blood, Saliva, Stool`,
-  `question: Discuss the history of urinalysis and its importance in the diagnosis of disease. Page 9. Early physicians noted that certain urine specimens attracted ants or tasted what?
-    Sweet, Salty, Sour, Bitter`,
-  `question: Discuss the history of urinalysis and its importance in the diagnosis of disease. Page 9. By what year were color charts developed that described the significance of 20 different urine colors?
-    1140 AD, 1694 AD, 1827 AD, 1930 AD`,
-  `question: Discuss the history of urinalysis and its importance in the diagnosis of disease. Page 9. What were the charlatans who compromised the credibility of urinalysis called?
-    Piss prophets, Urine wizards, Fluid fortune-tellers, Water weavers`,
-  `question: Discuss the history of urinalysis and its importance in the diagnosis of disease. Page 9. The discovery of what substance in 1694 was made by boiling urine?
-    Albuminuria, Glucosuria, Ketonuria, Bilirubinuria`,
-  `question: Discuss the history of urinalysis and its importance in the diagnosis of disease. Page 9. The invention of what instrument in the 17th century led to the examination of urinary sediment?
-    Microscope, Telescope, Stethoscope, Centrifuge`,
-  `question: Discuss the history of urinalysis and its importance in the diagnosis of disease. Page 9. In what year did urinalysis become part of a routine patient examination?
-    1827, 1627, 1930, 1140`,
-  `question: Discuss the history of urinalysis and its importance in the diagnosis of disease. Page 10. Which is NOT a reason for performing urinalysis?
-    Assessing respiratory function, Aiding in disease diagnosis, Screening for asymptomatic diseases, Monitoring therapy effectiveness`,
-  `question: Discuss the history of urinalysis and its importance in the diagnosis of disease. Page 10. According to the text what are two unique characteristics of a urine specimen?
-    Readily available and easily collected, Difficult to obtain and costly to test, Stable at all temperatures and requires no preservation, Only useful for kidney disease diagnosis`,
-  `question: Discuss the physiology of urine formation. Page 11. The kidneys continuously form urine as an ultrafiltrate of what bodily fluid?
-    Plasma, Lymph, Saliva, Bile`,
-  `question: Discuss the physiology of urine formation. Page 11. Approximately how many milliliters of plasma are converted to 1200 mL of urine?
-    170000, 1200, 15000, 200000`,
-  `question: Discuss the physiology of urine formation. Page 11. The kidneys excrete two to three times more urine during what period?
-    Day, Night, Evening, Morning`,
-  `question: Identify the organic and inorganic chemical constituents of urine. Page 11. Urine is normally composed of 95% water and what percentage of solutes?
-    5%, 10%, 15%, 1%`,
-  `question: Identify the organic and inorganic chemical constituents of urine. Page 11. What is the major organic solute in urine accounting for nearly half of all dissolved solids?
-    Urea, Creatinine, Uric acid, Glucose`,
-  `question: Identify the organic and inorganic chemical constituents of urine. Page 11. Urea is a metabolic waste product produced in the liver from the breakdown of protein and what else?
-    Amino acids, Carbohydrates, Lipids, Nucleic acids`,
-  `question: Identify the organic and inorganic chemical constituents of urine. Page 11. Besides urea what are the other primary organic substances found in urine?
-    Creatinine and uric acid, Glucose and ketones, Bilirubin and urobilinogen, Hormones and vitamins`,
-  `question: Identify the organic and inorganic chemical constituents of urine. Page 11. What is the major inorganic solid dissolved in urine?
-    Chloride, Sodium, Potassium, Calcium`,
-  `question: Identify the organic and inorganic chemical constituents of urine. Page 11. Besides chloride what are the next most common inorganic solids dissolved in urine?
-    Sodium and potassium, Magnesium and sulfate, Phosphate and ammonium, Calcium and bicarbonate`,
-  `question: Recognize normal and abnormal daily urine volumes. Page 12. In a healthy adult what is the normal daily urine output range?
-    1200 to 1500 mL, 600 to 1000 mL, 2000 to 2500 mL, 400 to 800 mL`,
-  `question: Recognize normal and abnormal daily urine volumes. Page 12. For laboratory testing a range of 600 mL to what volume is considered normal?
-    2000 mL, 1500 mL, 2500 mL, 1200 mL`,
-  `question: Recognize normal and abnormal daily urine volumes. Page 12. What term describes a decrease in urine output to less than 400 mL/day in adults?
-    Oliguria, Anuria, Polyuria, Nocturia`,
-  `question: Recognize normal and abnormal daily urine volumes. Page 12. A common cause of oliguria is dehydration resulting from excessive water loss from vomiting diarrhea or what?
-    Severe burns, Excessive fluid intake, Diuretic use, High salt diet`,
-  `question: Recognize normal and abnormal daily urine volumes. Page 12. What term describes the complete cessation of urine flow?
-    Anuria, Oliguria, Polyuria, Dysuria`,
-  `question: Recognize normal and abnormal daily urine volumes. Page 12. What is the term for an increase in the nocturnal excretion of urine?
-    Nocturia, Polyuria, Anuria, Oliguria`,
-  `question: Recognize normal and abnormal daily urine volumes. Page 12. An increase in daily urine volume greater than 2.5 L/day in adults is known as what?
-    Polyuria, Oliguria, Anuria, Nocturia`,
-  `question: Recognize normal and abnormal daily urine volumes. Page 12. Polyuria is often associated with diabetes mellitus and what other condition?
-    Diabetes insipidus, Kidney stones, Urinary tract infection, Hypertension`,
-  `question: Recognize normal and abnormal daily urine volumes. Page 12. Diuretics caffeine and alcohol can artificially induce polyuria by suppressing the secretion of what hormone?
-    Antidiuretic hormone, Insulin, Aldosterone, Glucagon`,
-  `question: Recognize normal and abnormal daily urine volumes. Page 12. Diabetes mellitus is caused by a defect in the production or function of what?
-    Insulin, Antidiuretic hormone, Glucose, Glycogen`,
-  `question: Recognize normal and abnormal daily urine volumes. Page 12. In diabetes mellitus the urine specimen appears dilute but has a high what?
-    Specific Gravity, pH, Ketone level, Protein level`,
-  `question: Recognize normal and abnormal daily urine volumes. Page 13. Diabetes insipidus results from a decreased production or function of what hormone?
-    ADH, Insulin, Glucagon, Aldosterone`,
-  `question: Describe collection and handling procedures of urine specimens. Page 14. Specimens must be collected in containers that are clean dry and what?
-    Leak-proof, Sterile, Brown, Refrigerated`,
-  `question: Describe collection and handling procedures of urine specimens. Page 14. What is the recommended capacity of a standard urine collection container?
-    50 mL, 12 mL, 100 mL, 25 mL`,
-  `question: Describe collection and handling procedures of urine specimens. Page 14. Specimen labels must be attached to the container and not to what part?
-    Lid, Bottom, Side, Bag`,
-  `question: Describe collection and handling procedures of urine specimens. Page 14. Which of the following is NOT listed as a reason for specimen rejection?
-    Correctly labeled container, Unlabeled container, Contaminated specimen, Insufficient sample quantity`,
-  `question: Describe collection and handling procedures of urine specimens. Page 14. Specimens should be delivered to the lab promptly and tested within how many hours?
-    2, 4, 6, 8`,
-  `question: Describe collection and handling procedures of urine specimens. Page 14. What is the primary cause of significant changes in urine sample integrity when left unpreserved at room temperature?
-    Bacteria, Oxidation, Light exposure, Evaporation`,
-  `question: Describe collection and handling procedures of urine specimens. Page 15. What is the most routinely used and preferred method of urine preservation?
-    Refrigeration, Chemical preservation, Freezing, UV light exposure`,
-  `question: Describe collection and handling procedures of urine specimens. Page 15. Refrigeration of a urine specimen can cause the precipitation of what?
-    Crystals, Bacteria, Cells, Casts`,
-  `question: Describe collection and handling procedures of urine specimens. Page 15. Before chemical testing with reagent strips a refrigerated specimen must be at what temperature?
-    Room temperature, Body temperature, Freezing temperature, Boiling temperature`,
-  `question: Describe collection and handling procedures of urine specimens. Page 15. In an unpreserved urine specimen what happens to the pH level over time?
-    Increased, Decreased, Unchanged, Stabilized`,
-  `question: Describe collection and handling procedures of urine specimens. Page 15. The breakdown of urea to ammonia by urease-producing bacteria causes an increase in what?
-    pH, Glucose, Ketones, Bilirubin`,
-  `question: Describe collection and handling procedures of urine specimens. Page 15. What analyte decreases in unpreserved urine due to glycolysis and bacterial utilization?
-    Glucose, pH, Nitrite, Bacteria`,
-  `question: Describe collection and handling procedures of urine specimens. Page 15. What analyte decreases in unpreserved urine due to exposure to light?
-    Bilirubin, Urobilinogen, Glucose, Ketones`,
-  `question: Describe collection and handling procedures of urine specimens. Page 15. The multiplication of nitrate-reducing bacteria will cause an increase in what analyte?
-    Nitrite, Glucose, Ketones, Bilirubin`,
-  `question: Describe the purpose and types of urine specimens. Page 16. What is the most commonly received urine sample due to its ease of collection?
-    Random, First Morning, 24-Hour, Catheterized`,
-  `question: Describe the purpose and types of urine specimens. Page 16. What is the ideal screening specimen because it is typically the most concentrated?
-    First Morning Void, Random, Timed, Postprandial`,
-  `question: Describe the purpose and types of urine specimens. Page 16. The first morning void is the preferred collection type for what kind of test?
-    Pregnancy, Glucose tolerance, Drug screen, Routine screening`,
-  `question: Describe the purpose and types of urine specimens. Page 16. What type of urine specimens are collected to correspond with blood samples drawn during a GTT?
-    Glucose Tolerance, Random, First Morning, 24-Hour`,
-  `question: Describe the purpose and types of urine specimens. Page 17. What type of collection is required for substances that vary with daily activities like exercise and meals?
-    24-Hour, Random, First Morning, Midstream`,
-  `question: Describe the purpose and types of urine specimens. Page 17. To obtain an accurate timed specimen the patient must begin and end the collection period with what?
-    An empty bladder, A full bladder, A sterile container, A first morning void`,
-  `question: Describe the purpose and types of urine specimens. Page 17. During a 24-hour collection how should the specimens be stored?
-    Refrigerated or on ice, At room temperature, In a dark cabinet, Frozen solid`,
-  `question: Describe the purpose and types of urine specimens. Page 17. In a 24-hour collection what does the patient do with the first specimen voided on Day 1 at 7 a.m.?
-    Discards, Collects, Tests, Refrigerates`,
-  `question: Describe the purpose and types of urine specimens. Page 17. What type of specimen is collected under sterile conditions by passing a hollow tube through the urethra into the bladder?
-    Catheterized, Midstream Clean-Catch, Suprapubic, Random`,
-  `question: Describe the purpose and types of urine specimens. Page 17. Which specimen provides a sample that is less contaminated by epithelial cells and bacteria?
-    Midstream Clean-Catch, Random, First Morning, 24-Hour`,
-  `question: Describe the purpose and types of urine specimens. Page 17. During a midstream clean-catch collection where should the patient begin to void?
-    Into the toilet, Into the container, On the cleansing towelette, Into the collection bag`,
-  `question: Describe the purpose and types of urine specimens. Page 18. What collection method involves the external introduction of a needle through the abdomen into the bladder?
-    Suprapubic Aspiration, Catheterization, Midstream Clean-Catch, Random`,
-  `question: Describe the purpose and types of urine specimens. Page 18. A suprapubic aspiration provides a sample for bacterial culture that is completely free of what?
-    Extraneous contamination, Normal urine components, White blood cells, Red blood cells`,
-  `question: Describe the purpose and types of urine specimens. Page 18. What type of collection uses soft clear plastic bags with hypoallergenic skin adhesive?
-    Pediatric, Geriatric, Adult male, Adult female`,
-  `question: Identify the organic and inorganic chemical constituents of urine. Page 11. Urine samples can be differentiated from other bodily fluids by testing for creatinine and what other substance?
-    Urea, Chloride, Sodium, Water`,
-  `question: Recognize normal and abnormal daily urine volumes. Page 12. What term describes excessive thirst often associated with diabetes mellitus and insipidus?
-    Polydipsia, Polyuria, Polyphagia, Anuria`
+  `question: Describe the formation, physiology, and specimen processing of CSF. Page 80. What is a primary function of CSF?
+Supply nutrients, Produce red blood cells, Regulate body temperature, Transport hormones`,
+
+  `question: Describe the formation, physiology, and specimen processing of CSF. Page 80. The meninges consist of three layers. What is the outer layer that lines the skull?
+Dura Mater, Arachnoid, Pia Mater, Choroid Plexus`,
+
+  `question: Describe the formation, physiology, and specimen processing of CSF. Page 80. What is the filamentous spiderlike inner membrane of the meninges called?
+Arachnoid, Dura Mater, Pia Mater, Ventricle`,
+
+  `question: Describe the formation, physiology, and specimen processing of CSF. Page 80. Which thin membrane lines the surfaces of the brain and spinal cord?
+Pia Mater, Dura Mater, Arachnoid, Ependyma`,
+
+  `question: Describe the formation, physiology, and specimen processing of CSF. Page 80. Where is cerebrospinal fluid primarily produced?
+Choroid plexuses, Arachnoid granulations, Subarachnoid space, Pituitary gland`,
+
+  `question: Describe the formation, physiology, and specimen processing of CSF. Page 80. In adults approximately how much CSF is produced every hour?
+20 mL, 50 mL, 100 mL, 5 mL`,
+
+  `question: Describe the formation, physiology, and specimen processing of CSF. Page 80. What is the normal CSF volume for an adult?
+90-150 mL, 10-60 mL, 200-250 mL, 50-75 mL`,
+
+  `question: Describe the formation, physiology, and specimen processing of CSF. Page 80. What is the normal CSF volume for a neonate?
+10-60 mL, 90-150 mL, 70-120 mL, 160-200 mL`,
+
+  `question: Describe the formation, physiology, and specimen processing of CSF. Page 80. Where is CSF reabsorbed back into the blood capillaries?
+Arachnoid granulations, Choroid plexuses, Dura mater, Pia mater`,
+
+  `question: Describe the formation, physiology, and specimen processing of CSF. Page 81. The tight-fitting structure of endothelial cells in the choroid plexuses is termed the what?
+Blood-brain barrier, Meningeal layer, Neural sheath, Ventricular wall`,
+
+  `question: Describe the formation, physiology, and specimen processing of CSF. Page 81. Which condition can disrupt the blood-brain barrier allowing leukocytes and proteins to enter the CSF?
+Meningitis, Hydrocephalus, Anemia, Hypertension`,
+
+  `question: Describe the formation, physiology, and specimen processing of CSF. Page 81. How is CSF routinely collected from a patient?
+Lumbar puncture, Venipuncture, Arterial stick, Biopsy`,
+
+  `question: Describe the formation, physiology, and specimen processing of CSF. Page 81. When collecting CSF specimens in three sterile tubes which tube is used for chemical and serologic tests?
+Tube 1, Tube 2, Tube 3, Tube 4`,
+
+  `question: Describe the formation, physiology, and specimen processing of CSF. Page 82. Which CSF collection tube is designated for microbiology?
+Tube 2, Tube 1, Tube 3, Tube 4`,
+
+  `question: Describe the formation, physiology, and specimen processing of CSF. Page 82. Which CSF collection tube is used by hematology for the cell count?
+Tube 3, Tube 1, Tube 2, Tube 4`,
+
+  `question: Describe the formation, physiology, and specimen processing of CSF. Page 82. How should the specimen for microbiology Tube 2 be stored?
+Room temperature, Frozen, Refrigerated, Incubated`,
+
+  `question: Describe the formation, physiology, and specimen processing of CSF. Page 82. How should the specimen for hematology Tube 3 be stored if analysis is delayed?
+Refrigerated, Frozen, Room temperature, In an incubator`,
+
+  `question: Describe the appearance and significance of CSF. Page 83. What term is used to describe a cloudy or turbid CSF specimen?
+Cloudy, Xanthochromic, Hemolyzed, Crystal clear`,
+
+  `question: Describe the appearance and significance of CSF. Page 83. The presence of what cell type is a common cause of cloudiness in a CSF specimen?
+WBCs, RBCs, Platelets, Ependymal cells`,
+
+  `question: Describe the appearance and significance of CSF. Page 83. What term describes CSF supernatant that is pink orange or yellow?
+Xanthochromia, Erythrocytosis, Hemolysis, Turbidity`,
+
+  `question: Describe the appearance and significance of CSF. Page 83. A yellow color in CSF supernatant is due to the conversion of oxyhemoglobin to what?
+Unconjugated bilirubin, Methemoglobin, Hemosiderin, Fibrinogen`,
+
+  `question: Describe the appearance and significance of CSF. Page 83. What does a pink CSF supernatant indicate?
+Slight amount of oxyhemoglobin, Heavy hemolysis, Bilirubin presence, High protein levels`,
+
+  `question: Differentiate between an intracranial hemorrhage and a traumatic tap. Page 84. In an intracranial hemorrhage how is blood distributed throughout the three CSF specimen tubes?
+Evenly distributed, Decreasing amounts, Increasing amounts, Only in tube 1`,
+
+  `question: Differentiate between an intracranial hemorrhage and a traumatic tap. Page 84. How will blood concentration appear in the collection tubes from a traumatic tap?
+Gradually diminishing, Evenly distributed, Gradually increasing, Only in tube 3`,
+
+  `question: Differentiate between an intracranial hemorrhage and a traumatic tap. Page 84. Which CSF collection event is more likely to cause clot formation due to the introduction of plasma fibrinogen?
+Traumatic tap, Intracranial hemorrhage, Subarachnoid bleed, Ventricular puncture`,
+
+  `question: Calculate the final results of a CSF count. Page 85. What is the most routinely performed cell count on CSF specimens?
+WBC count, RBC count, Platelet count, Total cell count`,
+
+  `question: Calculate the final results of a CSF count. Page 85. Cell counts should be performed immediately because WBCs and RBCs begin to lyse within what time frame?
+1 hour, 4 hours, 8 hours, 24 hours`,
+
+  `question: Calculate the final results of a CSF count. Page 85. What is the normal range of WBCs in adult CSF?
+0 to 5 WBCs/µL, 10 to 20 WBCs/µL, 20 to 30 WBCs/µL, 30 to 50 WBCs/µL`,
+
+  `question: Calculate the final results of a CSF count. Page 85. Up to how many mononuclear cells per microliter can be considered normal in newborns?
+30, 5, 10, 50`,
+
+  `question: Calculate the final results of a CSF count. Page 86. What counting chamber is typically used for performing CSF cell counts?
+Neubauer, Fuchs-Rosenthal, McMaster, Sedgewick-Rafter`,
+
+  `question: Calculate the final results of a CSF count. Page 86. When calculating cells/µL what factor is multiplied by the number of cells counted?
+Dilution factor, Chamber depth, Area counted, Objective power`,
+
+  `question: Calculate the final results of a CSF count. Page 86. To perform a WBC count what must be done to the RBCs in the specimen?
+Lysis, Staining, Preservation, Concentration`,
+
+  `question: Calculate the final results of a CSF count. Page 86. What reagent is used to dilute CSF specimens and lyse RBCs for a WBC count?
+3% glacial acetic acid, Normal saline, Methylene blue, Wright's stain`,
+
+  `question: Differentiate CSF cellular constituents to include their clinical significance. Page 87. How should a CSF differential count be performed?
+On a stained smear, In the counting chamber, Using flow cytometry, With a digital scanner`,
+
+  `question: Differentiate CSF cellular constituents to include their clinical significance. Page 87. What method is used to concentrate CSF specimens for a differential count?
+Cytocentrifugation, Filtration, Sedimentation, Evaporation`,
+
+  `question: Differentiate CSF cellular constituents to include their clinical significance. Page 87. When performing a differential count how many cells should ideally be counted and classified?
+100, 50, 200, 500`,
+
+  `question: Differentiate CSF cellular constituents to include their clinical significance. Page 88. What are the primary cells found in normal CSF?
+Lymphocytes and monocytes, Neutrophils and eosinophils, Basophils and mast cells, Plasma cells and macrophages`,
+
+  `question: Differentiate CSF cellular constituents to include their clinical significance. Page 88. What is the term for an increased number of normal cells in CSF?
+Pleocytosis, Leukopenia, Thrombocytosis, Anisocytosis`,
+
+  `question: Differentiate CSF cellular constituents to include their clinical significance. Page 88. A high CSF WBC count with a majority of neutrophils is indicative of what condition?
+Bacterial meningitis, Viral meningitis, Fungal meningitis, Parasitic meningitis`,
+
+  `question: Differentiate CSF cellular constituents to include their clinical significance. Page 88. An elevated CSF WBC count with a majority of lymphocytes and monocytes suggests what type of infection?
+Viral meningitis, Bacterial meningitis, Septicemia, Systemic infection`,
+
+  `question: Differentiate CSF cellular constituents to include their clinical significance. Page 89. Besides bacterial meningitis when else might increased neutrophils be seen in CSF?
+CNS hemorrhage, Viral infections, Multiple sclerosis, Leukemia`,
+
+  `question: Differentiate CSF cellular constituents to include their clinical significance. Page 89. In what conditions are increased eosinophils commonly seen in the CSF?
+Parasitic infections, Bacterial infections, Viral infections, CNS hemorrhage`,
+
+  `question: Differentiate CSF cellular constituents to include their clinical significance. Page 90. What is the primary purpose of macrophages in the CSF?
+Remove cellular debris, Produce antibodies, Fight bacterial infections, Regulate pressure`,
+
+  `question: Differentiate CSF cellular constituents to include their clinical significance. Page 90. Macrophages phagocytize RBCs during a hemorrhage and degrade them into what iron-containing granules?
+Hemosiderin granules, Hematoidin crystals, Bilirubin granules, Myelin fragments`,
+
+  `question: Differentiate CSF cellular constituents to include their clinical significance. Page 90. What non-clinically significant cells from the lining of the ventricles and neural canal can be found in CSF?
+Ependymal cells, Choroidal cells, Spindle-shaped cells, Squamous epithelial cells`,
+
+  `question: Differentiate CSF cellular constituents to include their clinical significance. Page 90. The presence of lymphoblasts myeloblasts or monoblasts in the CSF is a serious complication of what condition?
+Acute leukemia, Multiple sclerosis, Bacterial meningitis, Chronic lymphoma`,
+
+  `question: Differentiate CSF cellular constituents to include their clinical significance. Page 91. Cells from primary CNS tumors found in CSF can include astrocytomas retinoblastomas and what else?
+Medulloblastomas, Lymphomas, Carcinomas, Sarcomas`,
+
+  `question: Describe the clinical significance of proteins in the CSF. Page 92. What is the most frequently performed chemical test on CSF?
+Protein determination, Glucose level, Lactate level, Chloride measurement`,
+
+  `question: Describe the clinical significance of proteins in the CSF. Page 92. What are the normal values for total CSF protein?
+15 to 45 mg/dL, 50 to 100 mg/dL, 100 to 150 mg/dL, 5 to 10 mg/dL`,
+
+  `question: Describe the clinical significance of proteins in the CSF. Page 92. What protein makes up the majority of CSF protein?
+Albumin, Prealbumin, Globulin, Fibrinogen`,
+
+  `question: Describe the clinical significance of proteins in the CSF. Page 92. What is the second most prevalent protein fraction in CSF?
+Prealbumin, Albumin, Transferrin, Immunoglobulin`,
+
+  `question: Describe the clinical significance of proteins in the CSF. Page 92. What are the most common causes of elevated CSF protein?
+Meningitis and hemorrhage, Dehydration and trauma, Neurological disorders, Liver disease`,
+
+  `question: Describe the clinical significance of glucose in the CSF. Page 93. The normal value of CSF glucose is approximately what percentage of the plasma glucose?
+60% to 70%, 20% to 30%, 40% to 50%, 80% to 90%`,
+
+  `question: Describe the clinical significance of glucose in the CSF. Page 93. For an accurate comparison how long before the spinal tap should blood glucose be drawn?
+2 hours, 30 minutes, 4 hours, Immediately after`,
+
+  `question: Describe the clinical significance of glucose in the CSF. Page 93. A significantly low CSF glucose value is a classic sign of what condition?
+Meningitis, Hyperglycemia, Intracranial hemorrhage, Multiple sclerosis`,
+
+  `question: Describe the clinical significance of glucose in the CSF. Page 93. According to the table which type of meningitis is associated with low glucose and a high neutrophil count?
+Bacterial Meningitis, Viral Meningitis, Tubercular Meningitis, Fungal Meningitis`,
+
+  `question: Describe the clinical significance of glucose in the CSF. Page 93. Which type of meningitis is associated with normal glucose and a high lymphocyte count?
+Viral Meningitis, Bacterial Meningitis, Tubercular Meningitis, Parasitic Meningitis`,
+
+  `question: Describe the clinical significance of glucose in the CSF. Page 93. According to the table what are the expected glucose and cell findings in tubercular meningitis?
+Low glucose and lymphocytes, Low glucose and neutrophils, Normal glucose and lymphocytes, High glucose and neutrophils`,
+
+  `question: Differentiate CSF cellular constituents to include their clinical significance. Page 88. What type of meningitis tends to affect immunocompromised patients?
+Fungal meningitis, Bacterial meningitis, Viral meningitis, Tubercular meningitis`,
+
+  `question: Differentiate CSF cellular constituents to include their clinical significance. Page 90. Malignant lymphoma cells in the CSF indicate dissemination from what tissue?
+Lymphoid tissue, Bone marrow, Brain tissue, Lung tissue`
 ];
 
 const quizData = generateQuizHTML(myQuestions);
