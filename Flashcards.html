@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='-27' y='75' font-family='Courier' font-size='117' fill='%23000'%3E☕%3C/text%3E%3C/svg%3E" />
+    <title>Immunology Flashcards</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            touch-action: none; /* Prevents browser default touch actions like scroll */
+        }
+        .card-container {
+            perspective: 1000px;
+        }
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .card-front {
+            background-color: rgb(185, 181, 181);
+        }
+        .card-back {
+            background-color: #374151; /* gray-700 */
+            transform: rotateY(180deg);
+        }
+        .no-select {
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10+ */
+            user-select: none; /* Standard */
+        }
+    </style>
+</head>
+<body class="bg-gray-800 flex flex-col items-center justify-center min-h-screen p-4 no-select">
+
+    <div class="w-full max-w-md mx-auto">
+        <header class="text-center mb-4">
+            <h1 class="text-2xl font-bold text-gray-100">Immunology for Blood Bankers</h1>
+            <p id="card-counter" class="text-gray-400 mt-1"></p>
+        </header>
+
+        <div id="flashcard-container" class="card-container w-full h-80 md:h-96 mb-4">
+            <!-- Card will be injected here by JS -->
+        </div>
+
+        <div class="flex justify-between items-center w-full">
+            <button id="prev-btn" class="bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors">
+                Previous
+            </button>
+            <div class="text-gray-400 text-sm">Tap card to flip</div>
+            <button id="next-btn" class="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 transition-colors">
+                Next
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const rawData = `
+"what refers to the process by which a host organism protects itself from attacks by external and internal agents?","immune system"
+"what allows resistance to a pathogen that was previously encountered?","acquired immunity"
+"what is one of the most fundamental concepts in immunology?","the idea of self vs. nonself"
+"self refers to what?","anything that is derived from the host"
+"nonself refers to what?","anything physically outside the hist"
+"what are 2 major components of the vertebrae immune system?","cellular immunity and humoral immunity"
+"what immunity is mediated by cells like: macrophages, T cells, and dendritic cells?","cellular immunity"
+"what are soluble proteins/peptides that function as powerful mediators of immune system?","cytokines"
+"what are the 2 types of cytokines?","lymphokines and monokines (monocytes and macrophages)"
+"what destroys pathogens, and interact between cells, immunoglobulins, and complement proteins?","chemokines"
+"what recognizes foreign bodies on the surface of invading cells?","phagocytes"
+"what is a synonym for antibodies?","immunoglobulins"
+"what are the 2 major parts of the immune system?","Innate (nonspecific) and adaptive (acquired) immunity"
+"what immunity is the immediate line of defense, nonspecific, and can be present at birth?","natural/innate immunity"
+"what are the 2 major cells of the innate immune system?","phagocytic leukocytes and natural killer cells"
+"what are the 2 major phagocytic cells?","polymorphonuclear cells and mononuclear cells"
+"what are complements 3 major roles in immunity?","1. binding of the antibody 2. opsonization 3. phagocytosis 4. mediation of inflammation"
+"monocytes turn into macrophages when they enter where?","into the tissues"
+"what COATS pathogens and facilitates phagocytosis?","opsonins (antibodies and complement components in plasma)"
+"what is the major arm of the immune system, and involves contact with a pathogen or aberrant cell?","adaptive (acquired) immunity"
+"what is an antigen that an antibody is made against?","antithetical antigen"
+"antigen-antibody complexes are termed to be what?","three-dimensional interactions."
+"major cells of the immune system originate from what cell line?","the pluripotent cell line"
+"what cells are responsible for humoral immunity (antibody production)?","B-Lymphocytes"
+"when b-lymphocytes become activated, they become what?","plasma cells"
+"what cells are primarily responsible for in cell mediated immunity?","T-Lymphocytes"
+"what are the 4 functions of helper/inducer T-Cells (CD4)?","1. secrete cytokines 2. assist b-cells 3. activate suppressor cells 4. recognize antigens with MHC Class II molecule"
+"what activates macrophages?","cytokines"
+"what cells attack cells that are infected with viruses, tumor cells, bacteria, and are damaged/dysfunctional?","cytotoxic cells (CD8)"
+"what cells keep the immune response from going out of control?","regulatory suppressor T cells"
+"what cells are large, granular lymphocytes that have the ability to lyse without prior antigenic stimulation?","natural killer cells (NK cells)"
+"what cells have a main purpose of phagocytosis?","neutrophils"
+"what cells release histamines, (which causes an allergic response,) and are activated by IgE antibodies?","basophils"
+"what are the 2 important functions of eosinophils?","1. kill invading microorganisms 2. emits histaminase that helps an allergic response from getting out of control"
+"what are the 2 important functions of monocytes/macrophages?","1. engulf antigens via phagocytosis 2. serve as APCs that present antigens to lymphocytes during immune response"
+"what is an APC?","antigen-presenting cell"
+"what is an immune cell capable of taking up parts of antigens and presents them to lymphocytes?","an APC (antigen presenting cell)"
+"what cells display parts of ingested antigens and are bound to MHC on their surfaces?","an APC (antigen presenting cell)"
+"in adaptive immunity, what cells activate B-Lymphocytes that make antibodies?","CD4 cells"
+"in adaptive immunity, what cells attack and lyse other infected cells?","CD8"
+"what are the 2 major effector molecules?","chemokines and cytokines"
+"what is released by infected cells, and move through concentration gradient towards high concentrations?","chemokines"
+"what is a soluble protein/peptide molecule that activates and deactivates different cells?","cytokines"
+"what are the 2 main cytokines?","lymphokines and monokines"
+"what are the 4 different classes of cytokines?","1. interleukins 2. interferons 3. tumor necrosis factors 4. colony stimulating factors"
+"what is the region of the genome that encodes the HLA or MHF?","the major histocompatibility complex MHC"
+"what does HLA stand for?","human leukocyte antigens"
+"what does MHF stand for?","major histocompatibility complex MHC"
+"what is critical in immune recognition and regulation of antigen presentation?","MHC (major histocompatibility complex)"
+"what is present in all nucleated cells except trophoblasts and sperm?","Class 1 Molecules or CD8 Cytotoxic T Cells (3AIB)"
+"what is produced in response to transfusions and pregnancy?","IgG"
+"what is the most effective antibody for agglutination?","IgM"
+"what is present on B Lymphocytes, activated T cells, and various dendritic cells?","Class 2 Molecules (2A2B)"
+"what can cause anaphylactic transfusion reactions, and is found in secretions?","IgA"
+"what mediates the release of histamines and heparin from basophils?","IgE"
+"what immunoglobulin is responsible for immediate hypersensitivity reactions/allergic reactions/parasitic reactions. (blocked by antihistamines)","IgE"
+"what other immunoglobulin may act as receptors for antigens?","IgD"
+"what is another word for immunoglobulin?","antibody"
+"immunoglobulins are a complex protein produced by what cells?","plasma cells"
+"what are immunoglobulins classified by?","their molecular structure of their heavy chain"
+"what is another name for antigen?","immunogen"
+"what is the largest antibody and the first and main antibody involved in the primary immune response?","IgM (about 6% of Ig are this type)"
+"what acts as an antigenic receptor site on the surface of the immature b lymphocyte?","IgM"
+"what is known as the secretor antibody, is found in 13% IG, and is found in the epithelial cells of the respiratory reproductive tracts?","IgA"
+"what immunoglobulin is important in allergic reactions, present in less than 1% of the plasma, and mediates the release of histamines and heparin?","IgE"
+"what are polypeptide chains help together by?","covalent forces and disulfide bridges"
+"immunoglobulins can be cleaved into how many fragments?","3"
+"what enzymes are responsible for cleaving immunoglobulins?","papain and pepsin"
+"what are the 3 fragments immunoglobulins can be split into?","2 antigen-binding fragments (FAB), and 1 cristalizable fragment (Fc)"
+"how many FAB sites are there per antibody?","2"
+"what area of the antibody binds to a specific antigen?","variable domain"
+"what part of the antibody activates the complement cascade?","the lower stem"
+"cell mediated, the immunity will depend on what?","T cells and macrophages"
+"primary response is dependent on what antibody, and proceeds in how many phases. after a foreign antigen challenge?","IgM, 4"
+"what are the 4 phases of an antibody response?","1. lag phase (none detectable) 2. log phase (titer increases) 3. plateau phase (titer stabilizes) 4. decline phase (antibody is catabolized)"
+"describe a secondary (anamnestic response)","repeated exposure to the same foreign antigenic substance & will stimulate proliferation of the clones of memory cells, the predominant antibody is IgG, and levels are typically 10-fold or greater"
+"what are purified antibodies cloned from a single cell?","purified antibodies (they are able to recognize and bind to a specific antigen)"
+"what is produced by the fusing of lymphocytes to produce a cell line that was immortal and a producer of specific antibodies?","monoclonal antibodies"
+"what is developed from different lines of cultured myeloma cells?","hybridoma (multiplying hybrid cell culture)"
+"what are the multiple clinical applications of MAbs? (monoclonal antibodies)","typing tissue and blood, identifying infectious agents, identifying tumor antigens and autoantibodies, identifying & quantifying hormones, delivering immunotherapy"
+"the complement system is a complex group of over how many circulating and cell membrane proteins?","20"
+"what are the primary roles of the complement system?","lysis of cells and bacteria, enveloped viruses opsonization phagocytosis, production of fragment split products, and forms the MAC attack"
+"what do fragment split end products do?","plays roles in inflammatory responses"
+"what is the central event of the common final pathway?","the point of cleavage of C3 to C3b"
+"when is the classical pathway activated?","when the antibody binds to antigen (complex)"
+"what is C3 convertase also known as?","C4B2A"
+"C3B attaches to what to form C4B2A3B?","the microbial surface"
+"what pathway is older in evolution, and allows complement to be activated without acquired immunity?","alternative complement pathway"
+"what is the alternative complement pathway activated by?","polysaccharides/high molecular weight molecules"
+"Factor B is analogous to who?","C2"
+"what factor is analogous to C4B2A?","C3bBbP"
+"what is also known as C5 convertase?","C3b2BbP"
+"what is the lectin complement pathway activated by?","mannose-binding lectin"
+"what happens when C5b6789 is created?","a pore is formed in the lipid bilayer of the cell membrane and allows for osmotic lysis and subsequent death of the cell."
+"what are tests we use to quantity the antigen or antibody?","radioimmunoassay, ELISA, western blotting, immunoflourescence"
+"red cell agglutination is demonstrated in what 2 stages?","sensitization (no agglutination is present) and precipitation (agglutination is present)"
+"what is agglutination-inhibition method most useful in?","secretory studies to check for ABO substances presence in body fluids and secretions."
+"the ""fit"" between the antigen and its binding site on the antibody is referred to as what mechanism?","""the lock and key mechanism (located at the FAB site)"
+"what are factors that influence antigen-antibody reactions?","intermolecular binding forces, antibody properties, host factors, and tolerance"
+"what are factors that influence agglutination?","centrifugation, temperature, pH, incubation time, type of enhancement media used, zonal reactions (amount of antibody-antigen)"
+"primary immunity AKA","natural innate"
+"secondary immunity AKA","adaptive acquired"
+"two categories of innate immunity","physical barriers and biochemical barriers"
+"physical innate immunity barriers include","intact skin, mucous membranes, cilia, cough reflexes"
+"biochemical innate immunity barriers include","bacterial enzymes, fatty acids, sweat, digestive salivary enzymes, stomach acid, low pH"
+"three major components of innate immune system","phagocytic leukocytes, natural killer cells, complement system"
+"phagocyte found in circulation","monocyte"
+"phagocyte found in tissue","macrophage"
+"Major histocompatibility complex (MHC) associated with CD4 (helper t-cells)","MHC Class II"
+"cells involved in activating and directing the actions of other immune cells","helper T-cells (CD4)"
+"when cells are attracted to the concentration gradient moving closer to the higher concentration of chemokines produced by the affected cell","chemotaxis"
+"four functions of antibodies","bind to antithetical antigen, fix complement, facilitate phagocytosis, neutralize toxic substances in circulation"
+"a substance recognized by the body as foreign that trigger an immune response","antigen (immunogen)"
+"antigenic determinants which react specifically with an antibody or T-lymphocyte; the antigen's binding site","epitope"
+"the fixed bottom part of both heavy chains; only one per antibody","Fc site (fragment crystallizable)"
+"upper variable portion of the Y on an antibody consisting of the light chain and upper part of the heavy chain; capable of binding to an antigen","FAB site (fragment antigen binding)"
+"center portion of the antibody that allows the antibody to be FLEXIBLE to attach to the antigen","hinge region"
+"initial attraction between a single FAB site and single epitope","affinity"
+"functional combining strength of an antibody and its antigen (total strength)","avidity"
+"benefits of MAbs (monoclonal antibodies)","purity, specificity, consistency (react same way every time)"
+"three pathways of complement system","classical, alternative, lectin"
+"final step of complement activation","membrane attack complex (MAC)"
+        `;
+
+        const flashcardContainer = document.getElementById('flashcard-container');
+        const cardCounter = document.getElementById('card-counter');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        let flashcards = [];
+        let currentCardIndex = 0;
+        
+        // Swipe functionality variables
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let isSwiping = false;
+        const swipeThreshold = 50; // Minimum distance for a swipe
+
+        function parseData() {
+            const lines = rawData.trim().split('\n');
+            flashcards = lines.map(line => {
+                const parts = line.slice(1, -1).split('","');
+                if (parts.length === 2) {
+                    return { question: parts[0].replace(/\\"/g, '"'), answer: parts[1].replace(/\\"/g, '"') };
+                }
+                return null;
+            }).filter(card => card !== null);
+        }
+
+        function renderCard() {
+            if (flashcards.length === 0) return;
+
+            const cardData = flashcards[currentCardIndex];
+            flashcardContainer.innerHTML = `
+                <div class="card">
+                    <div class="card-face card-front">
+                        <p class="text-xl md:text-2xl font-medium text-gray-800">${cardData.question}</p>
+                    </div>
+                    <div class="card-face card-back">
+                        <p class="text-xl md:text-2xl font-semibold text-white">${cardData.answer}</p>
+                    </div>
+                </div>
+            `;
+            const cardElement = flashcardContainer.querySelector('.card');
+            cardElement.addEventListener('click', () => {
+                cardElement.classList.toggle('flipped');
+            });
+            
+            updateCounter();
+            updateButtonStates();
+        }
+
+        function updateCounter() {
+            cardCounter.textContent = `Card ${currentCardIndex + 1} of ${flashcards.length}`;
+        }
+
+        function updateButtonStates() {
+            prevBtn.disabled = currentCardIndex === 0;
+            nextBtn.disabled = currentCardIndex === flashcards.length - 1;
+            prevBtn.classList.toggle('opacity-50', prevBtn.disabled);
+            prevBtn.classList.toggle('cursor-not-allowed', prevBtn.disabled);
+            nextBtn.classList.toggle('opacity-50', nextBtn.disabled);
+            nextBtn.classList.toggle('cursor-not-allowed', nextBtn.disabled);
+        }
+
+        function showNextCard() {
+            if (currentCardIndex < flashcards.length - 1) {
+                currentCardIndex++;
+                renderCard();
+            }
+        }
+
+        function showPrevCard() {
+            if (currentCardIndex > 0) {
+                currentCardIndex--;
+                renderCard();
+            }
+        }
+        
+        // Swipe event handlers
+        function handleTouchStart(e) {
+            touchStartX = e.changedTouches[0].screenX;
+            isSwiping = true;
+        }
+
+        function handleTouchMove(e) {
+            if (!isSwiping) return;
+            const currentX = e.changedTouches[0].screenX;
+            const diffX = currentX - touchStartX;
+            const cardElement = flashcardContainer.querySelector('.card');
+            if (cardElement) {
+                cardElement.style.transition = 'none'; // Disable transition during swipe
+                cardElement.style.transform = `translateX(${diffX}px)`;
+            }
+        }
+        
+        function handleTouchEnd(e) {
+            if (!isSwiping) return;
+            touchEndX = e.changedTouches[0].screenX;
+            const diffX = touchEndX - touchStartX;
+            const cardElement = flashcardContainer.querySelector('.card');
+
+            if (Math.abs(diffX) > swipeThreshold) {
+                if (diffX < 0) {
+                    // Swiped left
+                    showNextCard();
+                } else {
+                    // Swiped right
+                    showPrevCard();
+                }
+            } else {
+                // Not a valid swipe, return card to original position
+                if (cardElement) {
+                   cardElement.style.transition = 'transform 0.3s ease';
+                   cardElement.style.transform = 'translateX(0px)';
+                }
+            }
+            isSwiping = false;
+        }
+
+
+        // Event Listeners
+        nextBtn.addEventListener('click', showNextCard);
+        prevBtn.addEventListener('click', showPrevCard);
+        
+        flashcardContainer.addEventListener('touchstart', handleTouchStart);
+        flashcardContainer.addEventListener('touchmove', handleTouchMove);
+        flashcardContainer.addEventListener('touchend', handleTouchEnd);
+
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            parseData();
+            renderCard();
+        });
+
+    </script>
+</body>
+</html>
+
