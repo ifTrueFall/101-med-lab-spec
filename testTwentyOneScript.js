@@ -93,125 +93,125 @@ function generateQuizHTML(questionList) {
 //  The first line contains the full question.
 //  The second line contains the correct answer followed by three wrong answers.
 const myQuestions = [
-  `Define terms associated with immunology. Page 9. What is the process by which a host organism protects itself from attacks by external and internal agents called?
+`question: Define terms associated with immunology. Page 9. What is the process by which a host organism protects itself from attacks by external and internal agents called?
 Immunity, Phagocytosis, Inflammation, Opsonization`,
-  `Define terms associated with immunology. Page 9. Acquired immunity relies on the formation of what specific complexes?
+`question: Define terms associated with immunology. Page 9. Acquired immunity relies on the formation of what specific complexes?
 Antigen-antibody, Self-nonself, Cytokine-receptor, T-cell-B-cell`,
-  `Describe the components of the immune system to include their functions. Page 10. Cellular immunity is mediated by IS cells such as macrophages dendritic cells and what other cell type?
+`question: Describe the components of the immune system to include their functions. Page 10. Cellular immunity is mediated by IS cells such as macrophages dendritic cells and what other cell type?
 T cells, B cells, NK cells, Basophils`,
-  `Describe the components of the immune system to include their functions. Page 10. What soluble protein molecules function as powerful mediators of the immune system and communicate between cells?
+`question: Describe the components of the immune system to include their functions. Page 10. What soluble protein molecules function as powerful mediators of the immune system and communicate between cells?
 Cytokines, Antigens, Antibodies, Opsonins`,
-  `Describe the components of the immune system to include their functions. Page 10. Lymphokines are produced by lymphocytes while Monokines are produced by what cells?
+`question: Describe the components of the immune system to include their functions. Page 10. Lymphokines are produced by lymphocytes while Monokines are produced by what cells?
 Monocytes and macrophages, T cells and B cells, Neutrophils and eosinophils, Dendritic cells and NK cells`,
-  `Describe the components of the immune system to include their functions. Page 10. What is the key feature of antigen-antibody reactions?
+`question: Describe the components of the immune system to include their functions. Page 10. What is the key feature of antigen-antibody reactions?
 Specificity, Sensitivity, Avidity, Affinity`,
-  `Describe the first line of defense natural immunity and adaptive immunity as body defense mechanisms. Page 11. Which type of immunity is nonspecific and present at birth?
+`question: Describe the first line of defense natural immunity and adaptive immunity as body defense mechanisms. Page 11. Which type of immunity is nonspecific and present at birth?
 Natural Immunity, Adaptive Immunity, Acquired Immunity, Humoral Immunity`,
-  `Describe the first line of defense natural immunity and adaptive immunity as body defense mechanisms. Page 11. Which type of immunity develops a memory to remember previous infecting agents?
+`question: Describe the first line of defense natural immunity and adaptive immunity as body defense mechanisms. Page 11. Which type of immunity develops a memory to remember previous infecting agents?
 Adaptive Immunity, Natural Immunity, Innate Immunity, Cellular Immunity`,
-  `Compare the innate and adaptive immunity. Page 12. Intact skin mucous membranes and cilia are examples of what type of barrier in the innate immune system?
+`question: Compare the innate and adaptive immunity. Page 12. Intact skin mucous membranes and cilia are examples of what type of barrier in the innate immune system?
 Physical Barriers, Biochemical Barriers, Cellular Barriers, Mechanical Barriers`,
-  `Compare the innate and adaptive immunity. Page 12. Polymorphonuclear cells and mononuclear cells are the two major types of what kind of cells in the innate immune system?
+`question: Compare the innate and adaptive immunity. Page 12. Polymorphonuclear cells and mononuclear cells are the two major types of what kind of cells in the innate immune system?
 Phagocytic cells, Lymphocytic cells, Plasma cells, Dendritic cells`,
-  `Compare the innate and adaptive immunity. Page 13. What are factors that coat pathogens to facilitate phagocytosis called?
+`question: Compare the innate and adaptive immunity. Page 13. What are factors that coat pathogens to facilitate phagocytosis called?
 Opsonins, Cytokines, Chemokines, Antigens`,
-  `Compare the innate and adaptive immunity. Page 13. Which arm of the immune system is the most highly evolved and allows the system to remember pathogens?
+`question: Compare the innate and adaptive immunity. Page 13. Which arm of the immune system is the most highly evolved and allows the system to remember pathogens?
 Adaptive Immunity, Innate Immunity, Natural Immunity, Humoral Immunity`,
-  `Describe the characteristics of the major cells of the immune system to include their functions. Page 13. Where do all cells of the immune system originate from?
+`question: Describe the characteristics of the major cells of the immune system to include their functions. Page 13. Where do all cells of the immune system originate from?
 Pluripotent stem cells, Mature T cells, Activated B cells, Dendritic cells`,
-  `Describe the characteristics of the major cells of the immune system to include their functions. Page 13. B-Lymphocytes are responsible for which type of immunity?
+`question: Describe the characteristics of the major cells of the immune system to include their functions. Page 13. B-Lymphocytes are responsible for which type of immunity?
 Humoral immunity, Cell-mediated immunity, Innate immunity, Natural immunity`,
-  `Describe the characteristics of the major cells of the immune system to include their functions. Page 13. When B-Lymphocytes become activated and start producing antibodies what are they called?
+`question: Describe the characteristics of the major cells of the immune system to include their functions. Page 13. When B-Lymphocytes become activated and start producing antibodies what are they called?
 Plasma cells, T-cells, Macrophages, Monocytes`,
-  `Describe the characteristics of the major cells of the immune system to include their functions. Page 14. T-Lymphocytes originate in the bone marrow and mature in which organ?
+`question: Describe the characteristics of the major cells of the immune system to include their functions. Page 14. T-Lymphocytes originate in the bone marrow and mature in which organ?
 Thymus, Spleen, Liver, Kidney`,
-  `Describe the characteristics of the major cells of the immune system to include their functions. Page 14. Which T-cells are involved in activating and directing the actions of other immune cells?
+`question: Describe the characteristics of the major cells of the immune system to include their functions. Page 14. Which T-cells are involved in activating and directing the actions of other immune cells?
 Helper/Inducer T-cells (CD4), Cytotoxic T-Cells (CD8), Regulatory Suppressor T-Cells, Memory T-cells`,
-  `Describe the characteristics of the major cells of the immune system to include their functions. Page 14. Which T-cells attack and lyse cells infected with viruses tumor cells and bacteria?
+`question: Describe the characteristics of the major cells of the immune system to include their functions. Page 14. Which T-cells attack and lyse cells infected with viruses tumor cells and bacteria?
 Cytotoxic T-Cells (CD8), Helper/Inducer T-cells (CD4), Regulatory Suppressor T-Cells, Naive T-cells`,
-  `Describe the characteristics of the major cells of the immune system to include their functions. Page 15. Which large granular lymphocytes can lyse virally infected cells without prior antigenic stimulation?
+`question: Describe the characteristics of the major cells of the immune system to include their functions. Page 15. Which large granular lymphocytes can lyse virally infected cells without prior antigenic stimulation?
 Natural Killer Cells, T-Cells, B-Cells, Macrophages`,
-  `Describe the characteristics of the major cells of the immune system to include their functions. Page 15. Which granulocytes accumulate at inflammatory sites and release histamines?
+`question: Describe the characteristics of the major cells of the immune system to include their functions. Page 15. Which granulocytes accumulate at inflammatory sites and release histamines?
 Basophils, Neutrophils, Eosinophils, Monocytes`,
-  `Describe the characteristics of the major cells of the immune system to include their functions. Page 15. Which granulocytes control allergic reactions by emitting histaminase?
+`question: Describe the characteristics of the major cells of the immune system to include their functions. Page 15. Which granulocytes control allergic reactions by emitting histaminase?
 Eosinophils, Basophils, Neutrophils, Lymphocytes`,
-  `Describe the characteristics of the major cells of the immune system to include their functions. Page 16. What do monocytes become when they enter tissues?
+`question: Describe the characteristics of the major cells of the immune system to include their functions. Page 16. What do monocytes become when they enter tissues?
 Tissue macrophages, Plasma cells, Dendritic cells, Mast cells`,
-  `Describe the characteristics of the major cells of the immune system to include their functions. Page 16. Besides phagocytosis what is the other important function of monocytes/macrophages?
+`question: Describe the characteristics of the major cells of the immune system to include their functions. Page 16. Besides phagocytosis what is the other important function of monocytes/macrophages?
 Serve as antigen-presenting cells, Produce antibodies, Release histamine, Lyse tumor cells`,
-  `Describe the major effector molecules to include their roles in an immune response. Page 17. What are the chemical signals released by infected or damaged cells that form a concentration gradient?
+`question: Describe the major effector molecules to include their roles in an immune response. Page 17. What are the chemical signals released by infected or damaged cells that form a concentration gradient?
 Chemokines, Cytokines, Antibodies, Antigens`,
-  `Describe the major effector molecules to include their roles in an immune response. Page 17. Interleukins interferons and tumor necrosis factors are classes of what molecules?
+`question: Describe the major effector molecules to include their roles in an immune response. Page 17. Interleukins interferons and tumor necrosis factors are classes of what molecules?
 Cytokines, Chemokines, Immunoglobulins, Opsonins`,
-  `Explain the function of the major histocompatibility complex (MHC) class I and II molecules. Page 18. MHC Class I molecules play a key role in the function of which cells?
+`question: Explain the function of the major histocompatibility complex (MHC) class I and II molecules. Page 18. MHC Class I molecules play a key role in the function of which cells?
 CD8 Cytotoxic T Cells, CD4 Helper T Cells, B-Lymphocytes, Natural Killer Cells`,
-  `Explain the function of the major histocompatibility complex (MHC) class I and II molecules. Page 18. On which cells are MHC Class II molecules present?
+`question: Explain the function of the major histocompatibility complex (MHC) class I and II molecules. Page 18. On which cells are MHC Class II molecules present?
 Antigen-presenting cells, All nucleated cells, Red blood cells, Platelets`,
-  `Define the terms antigen and antibody. Page 21. What is a substance recognized by the body as being foreign which causes an immune response called?
+`question: Define the terms antigen and antibody. Page 21. What is a substance recognized by the body as being foreign which causes an immune response called?
 Antigen, Antibody, Cytokine, Chemokine`,
-  `Define the terms antigen and antibody. Page 21. The antigenic determinants on an antigen that react specifically with an antibody are called what?
+`question: Define the terms antigen and antibody. Page 21. The antigenic determinants on an antigen that react specifically with an antibody are called what?
 Epitopes, Haptens, Opsonins, Adjuvants`,
-  `Describe the characteristics of the five immunoglobulin classes. Page 21. Which immunoglobulin is the most involved in immune responses and can cross the placenta?
+`question: Describe the characteristics of the five immunoglobulin classes. Page 21. Which immunoglobulin is the most involved in immune responses and can cross the placenta?
 IgG, IgM, IgA, IgE`,
-  `Describe the characteristics of the five immunoglobulin classes. Page 22. Which immunoglobulin is the largest and is the first antibody involved in the primary immune response?
+`question: Describe the characteristics of the five immunoglobulin classes. Page 22. Which immunoglobulin is the largest and is the first antibody involved in the primary immune response?
 IgM, IgG, IgA, IgD`,
-  `Describe the characteristics of the five immunoglobulin classes. Page 22. Which immunoglobulin is known as the "secretor antibody" and is found in tears saliva and breast milk?
+`question: Describe the characteristics of the five immunoglobulin classes. Page 22. Which immunoglobulin is known as the "secretor antibody" and is found in tears saliva and breast milk?
 IgA, IgG, IgM, IgE`,
-  `Describe the characteristics of the five immunoglobulin classes. Page 22. Which immunoglobulin is important in allergic reactions and mediates the release of histamines?
+`question: Describe the characteristics of the five immunoglobulin classes. Page 22. Which immunoglobulin is important in allergic reactions and mediates the release of histamines?
 IgE, IgG, IgM, IgA`,
-  `Describe a typical immunoglobulin molecular structure. Page 23. A basic immunoglobulin unit consists of two large heavy chains and how many smaller light chains?
+`question: Describe a typical immunoglobulin molecular structure. Page 23. A basic immunoglobulin unit consists of two large heavy chains and how many smaller light chains?
 2, 1, 3, 4`,
-  `Describe a typical immunoglobulin molecular structure. Page 24. What are the upper portions of the "Y" known as that are capable of antigen binding?
+`question: Describe a typical immunoglobulin molecular structure. Page 24. What are the upper portions of the "Y" known as that are capable of antigen binding?
 FAB sites, FC site, Hinge region, Constant domain`,
-  `Describe a typical immunoglobulin molecular structure. Page 24. Which part of the antibody is the lower stem portion of the "Y" and can bind to receptors on immune cells?
+`question: Describe a typical immunoglobulin molecular structure. Page 24. Which part of the antibody is the lower stem portion of the "Y" and can bind to receptors on immune cells?
 FC site, FAB sites, Variable domain, Hinge region`,
-  `Describe the four phases of an antibody response. Page 26. In which phase of an antibody response is no antibody detectable?
+`question: Describe the four phases of an antibody response. Page 26. In which phase of an antibody response is no antibody detectable?
 Lag phase, Log phase, Plateau phase, Decline phase`,
-  `Describe the four phases of an antibody response. Page 26. In which phase of an antibody response does the antibody titer increase logarithmically?
+`question: Describe the four phases of an antibody response. Page 26. In which phase of an antibody response does the antibody titer increase logarithmically?
 Log phase, Lag phase, Plateau phase, Decline phase`,
-  `Describe the characteristics of a primary and secondary response. Page 26. In a secondary (anamnestic) response which type of antibody is predominant?
+`question: Describe the characteristics of a primary and secondary response. Page 26. In a secondary (anamnestic) response which type of antibody is predominant?
 IgG, IgM, IgA, IgE`,
-  `Describe the characteristics of a primary and secondary response. Page 26. What is the initial force of attraction between a single Fab site and a single epitope called?
+`question: Describe the characteristics of a primary and secondary response. Page 26. What is the initial force of attraction between a single Fab site and a single epitope called?
 Antibody affinity, Antibody avidity, Antibody specificity, Antibody sensitivity`,
-  `Describe the method of production of a monoclonal antibody. Page 27. What is the multiplying hybrid cell culture that secretes monoclonal antibodies called?
+`question: Describe the method of production of a monoclonal antibody. Page 27. What is the multiplying hybrid cell culture that secretes monoclonal antibodies called?
 Hybridoma, Myeloma, Lymphoma, Carcinoma`,
-  `Describe the activation sequences of the three major complement pathways. Page 28. The classical alternative and lectin pathways all converge at the cleavage of which component?
+`question: Describe the activation sequences of the three major complement pathways. Page 28. The classical alternative and lectin pathways all converge at the cleavage of which component?
 C3, C1, C5, C9`,
-  `Describe the activation sequences of the three major complement pathways. Page 28. The classical pathway is initiated when what binds to an antigen?
+`question: Describe the activation sequences of the three major complement pathways. Page 28. The classical pathway is initiated when what binds to an antigen?
 Antibody, Lectin, Polysaccharide, Properdin`,
-  `Describe the activation sequences of the three major complement pathways. Page 28. Which pathway is older in evolution and can be activated without acquired immunity?
+`question: Describe the activation sequences of the three major complement pathways. Page 28. Which pathway is older in evolution and can be activated without acquired immunity?
 Alternative pathway, Classical pathway, Lectin pathway, Common pathway`,
-  `Describe the activation sequences of the three major complement pathways. Page 29. What is the final step of complement activation which forms a pore in the cell membrane called?
+`question: Describe the activation sequences of the three major complement pathways. Page 29. What is the final step of complement activation which forms a pore in the cell membrane called?
 Membrane Attack Complex, C3 Convertase, C5 Convertase, Opsonization`,
-  `Describe methods used to detect antibodies and complement bound to red blood cells (RBCs). Page 31. What is the first stage of a hemagglutination reaction where no agglutination is visible?
+`question: Describe methods used to detect antibodies and complement bound to red blood cells (RBCs). Page 31. What is the first stage of a hemagglutination reaction where no agglutination is visible?
 Sensitization, Precipitation, Lysis, Inhibition`,
-  `Describe methods used to detect antibodies and complement bound to red blood cells (RBCs). Page 31. What is the second stage of a hemagglutination reaction where a visible lattice structure is formed?
+`question: Describe methods used to detect antibodies and complement bound to red blood cells (RBCs). Page 31. What is the second stage of a hemagglutination reaction where a visible lattice structure is formed?
 Precipitation reaction, Sensitization, Hemolysis, Opsonization`,
-  `Describe the immune response including antigen-antibody reactions lymphocyte functions and host factors. Page 32. What is the "fit" between an antigen and its antibody binding site often referred to as?
+`question: Describe the immune response including antigen-antibody reactions lymphocyte functions and host factors. Page 32. What is the "fit" between an antigen and its antibody binding site often referred to as?
 Lock and key mechanism, Induced fit model, Clonal selection, Affinity maturation`,
-  `Describe the immune response including antigen-antibody reactions lymphocyte functions and host factors. Page 32. Nutritional status hormones genetics and age are all examples of what?
+`question: Describe the immune response including antigen-antibody reactions lymphocyte functions and host factors. Page 32. Nutritional status hormones genetics and age are all examples of what?
 Host factors, Antigen properties, Antibody properties, Zonal reactions`,
-  `Discuss the various factors affecting agglutination reactions. Page 34. IgM antibodies react best within what temperature range?
+`question: Discuss the various factors affecting agglutination reactions. Page 34. IgM antibodies react best within what temperature range?
 4°C to 27°C, 37°C to 40°C, 0°C to 4°C, 40°C to 56°C`,
-  `Discuss the various factors affecting agglutination reactions. Page 34. IgG antibodies are better detected at what temperature?
+`question: Discuss the various factors affecting agglutination reactions. Page 34. IgG antibodies are better detected at what temperature?
 37°C, 4°C, 25°C, 56°C`,
-  `Discuss the various factors affecting agglutination reactions. Page 35. LISS PEG and 22% Albumin are examples of what?
+`question: Discuss the various factors affecting agglutination reactions. Page 35. LISS PEG and 22% Albumin are examples of what?
 Enhancement Media, Buffer solutions, Anticoagulants, Preservatives`,
-  `Discuss the various factors affecting agglutination reactions. Page 35. What is a false negative reaction that occurs due to an excess amount of antibody called?
+`question: Discuss the various factors affecting agglutination reactions. Page 35. What is a false negative reaction that occurs due to an excess amount of antibody called?
 Prozone Reaction, Postzone Reaction, Zone of Equivalence, Zonal Reaction`,
-  `Discuss the various factors affecting agglutination reactions. Page 35. A false negative reaction that occurs due to an excess amount of antigen is called what?
+`question: Discuss the various factors affecting agglutination reactions. Page 35. A false negative reaction that occurs due to an excess amount of antigen is called what?
 Postzone Reaction, Prozone Reaction, Zone of Equivalence, Equivalence Reaction`,
-  `Describe common diseases that can affect agglutination reactions. Page 36. Which type of hypersensitivity is also called anaphylaxis and involves IgE?
+`question: Describe common diseases that can affect agglutination reactions. Page 36. Which type of hypersensitivity is also called anaphylaxis and involves IgE?
 Type I, Type II, Type III, Type IV`,
-  `Describe common diseases that can affect agglutination reactions. Page 37. Transfusion reactions and Hemolytic Disease of the Newborn (HDN) are examples of which type of hypersensitivity?
+`question: Describe common diseases that can affect agglutination reactions. Page 37. Transfusion reactions and Hemolytic Disease of the Newborn (HDN) are examples of which type of hypersensitivity?
 Type II, Type I, Type III, Type IV`,
-  `Describe common diseases that can affect agglutination reactions. Page 37. Which type of hypersensitivity is a T-cell mediated response such as graft-versus-host disease?
+`question: Describe common diseases that can affect agglutination reactions. Page 37. Which type of hypersensitivity is a T-cell mediated response such as graft-versus-host disease?
 Type IV, Type I, Type II, Type III`,
-  `Describe common diseases that can affect agglutination reactions. Page 37. Patients with multiple myeloma often demonstrate what phenomenon during testing due to abnormal immunoglobulins?
+`question: Describe common diseases that can affect agglutination reactions. Page 37. Patients with multiple myeloma often demonstrate what phenomenon during testing due to abnormal immunoglobulins?
 Rouleaux, Agglutination, Hemolysis, Precipitation`,
-  `Describe common diseases that can affect agglutination reactions. Page 37. What are antibodies produced against the host's own cells and tissues called?
+`question: Describe common diseases that can affect agglutination reactions. Page 37. What are antibodies produced against the host's own cells and tissues called?
 Autoantibodies, Alloantibodies, Monoclonal antibodies, Polyclonal antibodies`,
-  `Describe common diseases that can affect agglutination reactions. Page 38. Severe Hemolytic Disease of the Fetus and Newborn (HDFN) is most often associated with which class of antibodies?
+`question: Describe common diseases that can affect agglutination reactions. Page 38. Severe Hemolytic Disease of the Fetus and Newborn (HDFN) is most often associated with which class of antibodies?
 IgG, IgM, IgA, IgE`
 ];
 
