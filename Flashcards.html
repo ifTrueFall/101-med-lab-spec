@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='-27' y='75' font-family='Courier' font-size='117' fill='%23000'%3E☕%3C/text%3E%3C/svg%3E" />
     <title>Immunology Flashcards</title>
@@ -302,20 +302,20 @@
             const cardElement = flashcardContainer.querySelector('.card');
 
             if (Math.abs(diffX) > swipeThreshold) {
+                // It's a swipe
                 if (diffX < 0) {
-                    // Swiped left
                     showNextCard();
                 } else {
-                    // Swiped right
                     showPrevCard();
                 }
-            } else {
-                // Not a valid swipe, return card to original position
-                if (cardElement) {
-                   cardElement.style.transition = 'transform 0.3s ease';
-                   cardElement.style.transform = 'translateX(0px)';
-                }
+            } else if (cardElement) {
+                // It's a tap, not a swipe
+                cardElement.classList.toggle('flipped');
+                // Reset position smoothly in case of a small drag
+                cardElement.style.transition = 'transform 0.3s ease';
+                cardElement.style.transform = 'translateX(0px)';
             }
+            
             isSwiping = false;
         }
 
@@ -338,4 +338,5 @@
     </script>
 </body>
 </html>
+
 
