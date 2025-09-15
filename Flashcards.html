@@ -296,28 +296,32 @@
         }
         
         function handleTouchEnd(e) {
-            if (!isSwiping) return;
-            touchEndX = e.changedTouches[0].screenX;
-            const diffX = touchEndX - touchStartX;
-            const cardElement = flashcardContainer.querySelector('.card');
+    if (!isSwiping) return;
+    touchEndX = e.changedTouches[0].screenX;
+    const diffX = touchEndX - touchStartX;
+    const cardElement = flashcardContainer.querySelector('.card');
+    if (cardElement) {
+        cardElement.style.transition = 'transform 0.6s';
+    }
 
-            if (Math.abs(diffX) > swipeThreshold) {
-                // It's a swipe
-                if (diffX < 0) {
-                    showNextCard();
-                } else {
-                    showPrevCard();
-                }
-            } else if (cardElement) {
-                // It's a tap, not a swipe
-                cardElement.classList.toggle('flipped');
-                // Reset position smoothly in case of a small drag
-                cardElement.style.transition = 'transform 0.3s ease';
-                cardElement.style.transform = 'translateX(0px)';
-            }
-            
-            isSwiping = false;
+    if (Math.abs(diffX) > swipeThreshold) {
+        // This is a valid swipe
+        if (diffX < 0) {
+            // Swiped left
+            showNextCard();
+        } else {
+            // Swiped right
+            showPrevCard();
         }
+    } else if (cardElement) {
+        e.preventDefault(); 
+        
+        cardElement.classList.toggle('flipped');
+        cardElement.style.transform = 'translateX(0px)';
+    }
+    
+    isSwiping = false;
+}
 
 
         // Event Listeners
