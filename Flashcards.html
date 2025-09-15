@@ -22,7 +22,6 @@
             position: relative;
             transform-style: preserve-3d;
             transition: transform 0.6s;
-            cursor: pointer;
         }
         .card.flipped {
             transform: rotateX(180deg); /* Changed to rotateX for vertical flip */
@@ -66,11 +65,13 @@
             <!-- Card will be injected here by JS -->
         </div>
 
-        <div class="flex justify-between items-center w-full">
+        <div class="flex justify-center items-center w-full space-x-4">
             <button id="prev-btn" class="bg-gray-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 transition-colors">
                 Previous
             </button>
-            <div class="text-gray-400 text-sm">Swipe Up to Flip</div>
+            <button id="reveal-btn" class="bg-green-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 transition-colors">
+                Reveal
+            </button>
             <button id="next-btn" class="bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 transition-colors">
                 Next
             </button>
@@ -207,14 +208,13 @@
         const cardCounter = document.getElementById('card-counter');
         const prevBtn = document.getElementById('prev-btn');
         const nextBtn = document.getElementById('next-btn');
+        const revealBtn = document.getElementById('reveal-btn');
 
         let flashcards = [];
         let currentCardIndex = 0;
-        
-        // Swipe functionality variables
-        let touchStartX = 0, touchEndX = 0, touchStartY = 0, touchEndY = 0;
+        let touchStartX = 0, touchEndX = 0;
         let isSwiping = false;
-        const swipeThreshold = 50; // Minimum distance for a swipe
+        const swipeThreshold = 50;
 
         function parseData() {
             const lines = rawData.trim().split('\n');
@@ -241,11 +241,6 @@
                     </div>
                 </div>
             `;
-            const cardElement = flashcardContainer.querySelector('.card');
-            // This click listener is for desktop users
-            cardElement.addEventListener('click', () => {
-                cardElement.classList.toggle('flipped');
-            });
             
             updateCounter();
             updateButtonStates();
@@ -281,7 +276,6 @@
         // Swipe event handlers
         function handleTouchStart(e) {
             touchStartX = e.changedTouches[0].screenX;
-            touchStartY = e.changedTouches[0].screenY;
             isSwiping = true;
         }
 
@@ -299,37 +293,18 @@
         function handleTouchEnd(e) {
             if (!isSwiping) return;
             touchEndX = e.changedTouches[0].screenX;
-            touchEndY = e.changedTouches[0].screenY;
             const diffX = touchEndX - touchStartX;
-            const diffY = touchEndY - touchStartY;
             const cardElement = flashcardContainer.querySelector('.card');
 
             if (!cardElement) return;
 
-            // Check if horizontal swipe is the dominant gesture
-            if (Math.abs(diffX) > Math.abs(diffY)) {
-                if (Math.abs(diffX) > swipeThreshold) {
-                    if (diffX < 0) {
-                        showNextCard();
-                    } else {
-                        showPrevCard();
-                    }
+            if (Math.abs(diffX) > swipeThreshold) {
+                if (diffX < 0) {
+                    showNextCard();
                 } else {
-                    // Not a big enough swipe, snap back
-                    cardElement.style.transition = 'transform 0.3s ease';
-                    cardElement.style.transform = 'translateX(0px)';
+                    showPrevCard();
                 }
-            } 
-            // Otherwise, check if vertical swipe is the dominant gesture
-            else {
-                if (Math.abs(diffY) > swipeThreshold) {
-                    if (diffY < 0) { // Swiped Up
-                        cardElement.classList.add('flipped');
-                    } else { // Swiped Down
-                        cardElement.classList.remove('flipped');
-                    }
-                }
-                // Always snap back horizontal position after a vertical swipe attempt
+            } else {
                 cardElement.style.transition = 'transform 0.3s ease';
                 cardElement.style.transform = 'translateX(0px)';
             }
@@ -340,6 +315,12 @@
         // Event Listeners
         nextBtn.addEventListener('click', showNextCard);
         prevBtn.addEventListener('click', showPrevCard);
+        revealBtn.addEventListener('click', () => {
+            const cardElement = flashcardContainer.querySelector('.card');
+            if (cardElement) {
+                cardElement.classList.toggle('flipped');
+            }
+        });
         
         flashcardContainer.addEventListener('touchstart', handleTouchStart);
         flashcardContainer.addEventListener('touchmove', handleTouchMove);
