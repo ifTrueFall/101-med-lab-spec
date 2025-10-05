@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLT 107 Unit 1 & 2 Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles inspired by the provided example */
+        body {
+            background-color: #333;
+            color: #f0f0f0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        .quiz-container {
+            background-color: #444;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+        .btn-answer {
+            background-color: #555;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-answer:hover {
+            background-color: #666;
+            transform: translateY(-2px);
+        }
+        .btn-answer.correct {
+            background-color: #28a745; /* Green for correct */
+            border-color: #28a745;
+        }
+        .btn-answer.wrong {
+            background-color: #dc3545; /* Red for wrong */
+            border-color: #dc3545;
+        }
+        .btn-answer.correct, .btn-answer.wrong {
+            color: white;
+            pointer-events: none; /* Disable clicking after an answer is shown */
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div id="quiz-container" class="quiz-container w-full max-w-2xl mx-auto rounded-lg p-6 md:p-8">
+        <!-- Progress and Question Section -->
+        <div class="mb-6">
+            <div id="progress-container" class="flex justify-between items-center text-sm text-gray-300 mb-4">
+                <p id="progress-text">Question 1 / 264</p>
+                <p>MLT 107 Review</p>
+            </div>
+            <div id="question-container" class="bg-gray-700 p-4 rounded-md min-h-[120px] flex items-center justify-center">
+                <h2 id="question-text" class="text-lg md:text-xl text-center font-semibold">Loading question...</h2>
+            </div>
+        </div>
+
+        <!-- Answer Buttons Section -->
+        <div id="answer-buttons" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Answer buttons will be generated here -->
+        </div>
+    </div>
+
+    <script>
+        const questionTextElement = document.getElementById('question-text');
+        const answerButtonsElement = document.getElementById('answer-buttons');
+        const progressTextElement = document.getElementById('progress-text');
+
+        let shuffledQuestions, currentQuestionIndex;
+
+        // --- Data extracted from the PDF ---
+        const quizData = [
+    { question: "Neisseria spp. are both oxidase and catalase _____", answer: "POSITIVE" },
+    { question: "Neisseria spp. virulence factors", answer: "Capsule (N. meningitidis), Pili (fimbriae), cell membrane proteins, lipooligosaccharide (LOS)/endotoxin, IgA protease, receptors for human transferrin" },
+    { question: "most common symptoms of gonorrhea in males", answer: "dysuria (painful pee), purulent (pus) discharge" },
+    { question: "most common complications of gonorrhea in males", answer: "epididymitis, urethral stricture, prostatitis" },
+    { question: "symptoms of gonorrhea in females", answer: "dysuria, vaginal discharge, lower ab pain" },
+    { question: "complications of gonorrhea in women", answer: "pelvic inflammatory disease (PID), sterility, ectopic pregnancy, perihepatitis (Fitz-Hugh-Curtis syndrome)" },
+    { question: "When direct plating of gonorrhea isn't possible, inoculated swabs should be placed in a transport system such as ____ and transported to the lab within ____.", answer: "Amies medium with charcoal, 6 hours" },
+    { question: "time to plate when using Amies medium for gonorrhea", answer: "6 hours" },
+    { question: "microscopic morphology diagnostic of gonorrhea in males (89% correlation)", answer: "gram-neg intracellular diplococci (kidney-bean shaped)" },
+    { question: "In females, gram-negative intracellular diplococci is only 50-70% indicative of gonorrhea due to ____, so a ____ is necessary for ID.", answer: "commensal vaginal flora that look similar, culture" },
+    { question: "only sugar gonorrhea will test positive for during carb utilization test", answer: "glucose" },
+    { question: "commensal flora of N. meningitidis found in mucosal surfaces of the ____ or ____.", answer: "nasopharynx, oropharynx" },
+    { question: "N. meningitidis has also been recovered from urogenital and rectal sites from ____ contact.", answer: "oral-genital" },
+    { question: "N. meningitidis primarily affects ____ & ____.", answer: "infants, adolescents" },
+    { question: "Increased risk for N. meningitidis is associated with being ____ or living in ____.", answer: "immunocompromised, crowded living spaces (barracks, dorms)" },
+    { question: "symptoms of meningitis", answer: "fever, frontal headache, stiff neck, confusion, photophobia" },
+    { question: "symptoms of meningococcemia (sepsis)", answer: "skin petechiae, pura pura, tachycardia, hypotension, thrombosis" },
+    { question: "modes of recovery for N. meningitidis", answer: "CSF, blood, nasopharyngeal swabs, aspirates" },
+    { question: "What can improve detection of N. meningitidis on a direct CSF exam?", answer: "concentration of CSF" },
+    { question: "At least 1 mL of CSF should be centrifuged for ____ at ____.", answer: "10 min, 1000xg" },
+    { question: "Blood culture systems using SPS can ____ N. meningitidis.", answer: "inhibit" },
+    { question: "Suspected N. meningitidis isolates should be handled in a ____.", answer: "BSL 2 cabinet" },
+    { question: "N. meningitis uses these carbs:", answer: "glucose, maltose" },
+    { question: "N. lactamia (may mimic N.meningitidis) uses these carbs:", answer: "glucose, maltose, lactose" },
+    { question: "medicine for confirmed meningitis", answer: "penicillin" },
+    { question: "important opportunistic pathogen that is normal to the upper resp tract and ONLY ISOLATED IN HUMANS", answer: "Moraxella catarrhalis" },
+    { question: "specimen collection for Moraxella catarrhalis", answer: "middle ear effusion, nasopharynx, sinus, sputum, bronchial aspirates" },
+    { question: "Culture for Moraxella catarrhalis is grown on ____ & ____.", answer: "SBA (hockey-puck), CHOC agar (wagon-wheel)" },
+    { question: "Moraxella catarrhalis can tolerate lower temps and grows well at ____.", answer: "28 C" },
+    { question: "treatment for Moraxella catarrhalis", answer: "amoxicillin-clavulanic acid, extended spectrum cephalosporins, trimethoprim-sulfamethoxazole, azithromycin, quinolones" },
+    { question: "pathogenic Neisseria species (the rest are opportunistic)", answer: "N. gonorrhea, N. meningitidis" },
+    { question: "characteristics of Haemophilus & Pasteurella (family Pasteurellacaea)", answer: "gram-negative coccoid rod shape, non-motile, aerobic to facultatively anaerobic, convert nitrate to nitrite, oxidase & catalase pos, ferment carbohydrates" },
+    { question: "Haemophilus requires ____ to grow.", answer: "X & V factors" },
+    { question: "X factor is ____.", answer: "hemin (hematin)" },
+    { question: "V factor is ____.", answer: "nicotinamide-adenine dinucleotide (NAD)" },
+    { question: "When grown anaerobically, Haemophilus does not require ____ but still requires ____.", answer: "X factor (hemin), V factor (NAD)" },
+    { question: "H. parainfluenzae produces ____ and requires ____.", answer: "X factor, V factor" },
+    { question: "phenomenon of fastidious organisms growing around other bacteria that release necessary growth factors or break down toxic products", answer: "satellitism" },
+    { question: "Haemophilus influenzae, the major pathogen in Haemophilus genus, is normal flora in the upper respiratory tract of up to ____% of adults.", answer: "10" },
+    { question: "What plays the most significant role of all virulence factors for Haemophilus influenzae when present?", answer: "capsule (typeable/encapsulate)" },
+    { question: "Haemophilus influenzae is present in ____% of children from birth, with up to 60% colonization in day care centers.", answer: "2-6" },
+    { question: "H. aegyptius & H. influenzae biogroup aegyptius can cause what condition, particularly in children?", answer: "acute, contagious, pink eye" },
+    { question: "H. aegyptius is also known as ____.", answer: "Koch-Weeks bacillus" },
+    { question: "opportunistic pathogen usually associated with endocarditis after dental procedures", answer: "H. parainfluenzae" },
+    { question: "common sources for Haemophilus species", answer: "blood, CSF, middle ear exudate, joint fluids, upper/lower resp tract, swabs from conjuctivae, vaginal swabs, abscess drainage" },
+    { question: "H. influenzae is incubated between ____C in an atmosphere of ____% CO2.", answer: "33-37, 5-10" },
+    { question: "H. ducreyi is incubated at ____C in an atmosphere of ____% CO2 for up to ____.", answer: "33, 5-10, 7 days" },
+    { question: "Haemophilis influenzae has a ____ odor; its colonies are ____, and encapsulated strains appear more ____.", answer: "mousy (musty)/bleach-like, translucent, smooth, convex, mucoid" },
+    { question: "H. ducreyi cocobacilli are arranged in groups resembling ____, ____, or ____.", answer: "school of fish, railroad tracks, fingerprints" },
+    { question: "alternative method for differentiating the heme-producing species of Haemophilus (X factor)", answer: "porphyrin test" },
+    { question: "In the porphyrin test, if Kovacs reagent is used, a ____ color is produced in the lower part of the tube if positive for ____.", answer: "red, porphobilinogen" },
+    { question: "In the porphyrin test, if using a Wood's ultraviolet lamp, cultures that ____ are positive for porphyrins.", answer: "fluoresce reddish orange" },
+    { question: "Quadrant I of Haemophilus quad plate contains:", answer: "Factor X only (heme)" },
+    { question: "Quadrant II of Haemophilus quad plate contains:", answer: "V factor only (NAD)" },
+    { question: "Quadrant III of Haemophilus quad plate contains:", answer: "X & V factors" },
+    { question: "Quadrant IV of Haemophilus quad plate contains:", answer: "X & V factors with horse blood" },
+    { question: "treatment for Haemophilus with life-threatening illness", answer: "cefotaxime, ceftriaxone" },
+    { question: "alternative treatments for Haemophilus", answer: "imipenem, ciprofloxacin, trimethoprim sulfamethoxazole, chloramphenicol with ampicillin, azithromycin" },
+    { question: "drugs recommended for treatment of H. ducreyi", answer: "ceftriaxone, azithromycin, ciprofloxacin, erythromycin" },
+    { question: "Normal flora of the upper respiratory tract include all the following EXCEPT:", answer: "Neisseria gonorrhoeae" },
+    { question: "Describe the microscopic morphology of Neisseria gonorrhoeae.", answer: "gram-negative intracellular diplococci" },
+    { question: "What type of swab would you use to rule out Neisseria gonorrhoeae?", answer: "Dacron or Rayon swab" },
+    { question: "Disseminated gonococcal disease causes all of the following conditions except?", answer: "Runny Nose" },
+    { question: "Untreated cervicitis can lead to what condition in women?", answer: "Pelvic inflammatory disease" },
+    { question: "How do newborns acquire Opthalmia neonatorum?", answer: "During birth, passing through the birth canal infected with N. gonorrhoeae" },
+    { question: "Of the following, which is an acceptable transport media for Neisseria gonorrhoeae?", answer: "Amies medium with charcoal" },
+    { question: "Describe the macroscopic appearance of Neisseria gonorrhea on MTM.", answer: "Raised Small gray to tan translucent colonies" },
+    { question: "What is the significance of suppressing normal flora growth on a MTM plate?", answer: "Increase selectivity of the MTM plate; increase recovery of N. gonorrhoeae" },
+    { question: "Neisseria gonorrhoeae colonies are incubated at 35C and 5% CO2.", answer: "true" },
+    { question: "Commensal flora spread by respiratory droplets found in mucosal surfaces; recovered from oral-genital and rectal site.", answer: "Neisseria meningitides" },
+    { question: "The virulence factors for Neisseria spp. include all of the following EXCEPT:", answer: "Exotoxin" },
+    { question: "Colony morphology, microscopic identification and the oxidase test can be used to presumptively identify N. meningitides.", answer: "true" },
+    { question: "Which of the Major outer membrane proteins (MOMP) are important for antigenic variation of Neisseria spp?", answer: "All of these" },
+    { question: "What are the recovery sites for Neisseria meningitides?", answer: "Oral genital, urogenital and rectal" },
+    { question: "What Neisseria spp. spreads quickly in crowded living conditions?", answer: "Neisseria meningitides" },
+    { question: "Which organism is described as an opportunistic pathogen for the upper respiratory tract for children and the elderly?", answer: "Moraxella catarrhalis" },
+    { question: "All of the following are symptoms of Meningococcal meningitis EXCEPT:", answer: "Polycythemia vera" },
+    { question: "What tests are instrumental for the diagnostic determination of meningitis?", answer: "CSF and Blood Culture" },
+    { question: "Gram negative diplococci that are both intracellular and extracellular describe what species of Neisseria?", answer: "Neisseria meningitides" },
+    { question: "What Neisseria spp. spreads quickly via sexual contact?", answer: "Neisseria gonorrhoeae" },
+    { question: "The ONPG test is used to differentiate what organism?", answer: "Neisseria meningitides and Neisseria lactamica" },
+    { question: "Moraxella catarrhalis is a commensal it can cause upper respiratory infections in healthy children and the elderly.", answer: "t" },
+    { question: "Which of the following antibiotics would NOT be prescribed to treat a Moraxella catarrhalis infection?", answer: "Tylenol Motrin and Water" },
+    { question: "Which of the following organisms belongs to the family Moraxellaceae and is isolated only in humans?", answer: "Moraxella catarrhalis" },
+    { question: "The colony morphology of Moraxella catarrhalis is...", answer: "All of these" },
+    { question: "What are the specimen collection sites for the recovery of Moraxella catarrhalis?", answer: "all" },
+    { question: "What is the oxidase/catalase reaction for Moraxella catarrhalis?", answer: "Oxidase and catalase positive" },
+    { question: "The oxidase/catalase reaction for Neisseria spp. is?", answer: "Oxidase and catalase positive" },
+    { question: "What is unique in regards to the incubation of a Moraxella catarrhalis culture?", answer: "Can tolerate lower temperatures and grows well at 28 C" },
+    { question: "Which of the following describe Haemophilus spp.?", answer: "Oxidase positive non-motile gram negative coccobacilli" },
+    { question: "Haemophilus spp. can convert nitrate into nitrite; Aerobic to facultative bacteria.", answer: "t" },
+    { question: "All of the following are roles of the Haemophilus influenza capsule; EXCEPT:", answer: "Digestion of extracellular nutrients" },
+    { question: "What nutrients are required for the growth of Haemophilus spp.?", answer: "X & V" },
+    { question: "What haemophilus strain is rarely associated with endocarditis?", answer: "Heamophilus parainfluenzae" },
+    { question: "What haemophilus strain can cause contagious conjunctivitis and is also known as Koch-Weeks bacillus?", answer: "Heamophilus influenza biogroup aegyptius" },
+    { question: "Describe the macroscopic description of Haemophilus influenzae.", answer: "Translucent moist smooth convex colonies" },
+    { question: "What medications are available for treatment of haemophilus infections?", answer: "all" },
+    { question: "Which of the following describes members of the HACEK group?", answer: "Haemophilus spp., A. actinomycetemcomitans, C. hominis, E. corrodens, Kingella" },
+    { question: "Mousy or bleach like odor is associated with which Haemophilus species?", answer: "Haemophilus influenzae" },
+    { question: "Which of the following bacterial species can infect a human after a dog or cat bite?", answer: "Pasteurella spp." },
+    { question: "Pasturella multocida is the most commonly isolated pasturella species.", answer: "t" },
+    { question: "What are the incubation requirements for Haemophilus influenzae?", answer: "33°C-37°C, 5% to 10%" },
+    { question: "A petri dish with nails was submitted to the laboratory for a patient for a Haemophilus work up. What's next?", answer: "Reject the sample (Wrong site); request a blood joint or middle ear exudate" },
+    { question: "What are the symptoms experienced by a patient with a Haemophilus ducreyi chancroid infection?", answer: "Painful lesions of the penis labia or vagina" },
+    { question: "Nicotinamide-adenine dinucleotide (NAD) is essential for?", answer: "Anaerobic Haemophilus spp., Work up without heme" },
+    { question: "What special ingredients are found in the Haemophilus quad plate?", answer: "Factor X Factor V, Factor X and V heme and NAD" },
+    { question: "Chocolate agar is essential in the recovery of fastidious organisms and presumptive identification all; EXCEPT:", answer: "Streptococcus pneumonieae" },
+    { question: "What are the methods utilized when conducting the porphyrin test?", answer: "Agar, Broth or Disk" },
+    { question: "Describe a positive reaction for a woods lamp technique for the porphyrins test.", answer: "Fluoresce reddish-orange under UV light" },
+    { question: "Aggregatibacter actinomycetemcomitans is catalase positive and oxidase ____.", answer: "Variable" },
+    { question: "What species has yellow granular convex colonies on chocolate agar and is the most prevalent species of the HACEK group?", answer: "Aggregatibacter aphrophilus" },
+    { question: "Francisella tularensis is responsible for causing what disease?", answer: "Rabbit Fever" },
+    { question: "Legionella pneumophila causes ____ because it produces symptoms that are different from a Streptococcus infection.", answer: "Community-acquired pneumonia" },
+    { question: "Azithromycin and fluoroquinolone can be used to treat?", answer: "Early legionella pneumophilia infections" },
+    { question: "What methods would a microbiologist use to identify Legionella spp?", answer: "all" },
+    { question: "What is the microscopic morphology of Legionella pneumophilia?", answer: "Pleomorphic, thin, weakly staining, gram-negative rods" },
+    { question: "What are the acceptable specimen for a Legionella spp. culture?", answer: "Sputum, Broncho alveolar lavage, bronchial washing" },
+    { question: "A febrile disease with pneumonia caused by Legionella pneumophilia is termed as ____.", answer: "Legionnaires' disease" },
+    { question: "A febrile disease without pneumonia (pulmonary involvement) caused by Legionella pneumophilia is termed as ____.", answer: "Pontiac fever" },
+    { question: "Microbiological cultures are optional when ruling out Legionella pneumophilia.", answer: "f" },
+    { question: "What is the storage temperature when culture of a specimen to rule out Legionella spp. is delayed for more than 2 hours?", answer: "Refrigerate the specimen and freeze at -70 if delayed for several days" },
+    { question: "Why is serological testing for Bordetella pertussis not widely used?", answer: "All of these" },
+    { question: "What is the preferred selective media for the recovery of Bordetella pertussis?", answer: "Bordet-Gengou (Potato infusion) agar" },
+    { question: "Bordetella pertussis and Bordetella parapertussis are responsible for causing ____?", answer: "Whooping cough" },
+    { question: "Bordetella pertussis can be ruled out via culture or PCR of a nasopharyngeal swab.", answer: "t" },
+    { question: "cephalosporins used to treat N. gonorrhoeae", answer: "cetriaxone, cefixime" },
+    { question: "Haemophilus is also known as ____.", answer: "blood lover" },
+    { question: "H. aegyptius requires ____ on chocolate agar.", answer: "1% isovitalex" },
+    { question: "Haemophilus that only needs V factor to grow", answer: "H. parainfluenzae" },
+    { question: "When streaking an XV quad plate, care must be taken to avoid ____.", answer: "digging into media and transferring factors from one quadrant to another" },
+    { question: "List the organisms in the HACEK group.", answer: "Haemophilus spp, Aggregatibacter actinomycetemcomitans, Cardiobacterium hominis, Eikenella corrodens, Kingella" },
+    { question: "most prevalent species in HACEK group involved in endocarditis", answer: "Aggregatibacter aphrophilus" },
+    { question: "differentiating characteristics of Aggregatibacter actinomycetemcomitans", answer: "ferments carbs (not lactose or sucrose), catalase pos, oxidase variable, no growth on MAC, negative for X & V growth factors, negative for urease, indole, esculin and citrate" },
+    { question: "Associated infections from Eikenella corrodens are usually ____ and occur as result of trauma (broken skin by human teeth bites/fights).", answer: "polymicrobial" },
+    { question: "most frequently isolated Pasturella species", answer: "Pasturella multocida" },
+    { question: "Pasturella multocida colonizes the upper resp tract and GI tract of mammals/birds; this type of disease is transmitted by dog and cat bites", answer: "zoonosis" },
+    { question: "serogroups of Pasturella multocida", answer: "five (A,B,D,E,F)" },
+    { question: "people at highest risk for Brucella spp", answer: "animal handlers, lab workers" },
+    { question: "most common species for human brucellosis", answer: "B. melitensis (most common) (goat), B. abortus (cattle), B. canis (dog), B. suis (swine)" },
+    { question: "Francisella species causes ____.", answer: "tularemia (acute granulomatous disease with rapid onset and flulike symptoms)" },
+    { question: "Francisella spp is a category ____ select agent, handle it in a ____ lab.", answer: "A, BSL-3" },
+    { question: "With Francisella spp, diagnosis with serological testing is ____.", answer: "safer and more accurate" },
+    { question: "Tularemia caused by Francisella spp is also known as ____.", answer: "rabbit, deerfly, lemming fever" },
+    { question: "Legionella is present in ____.", answer: "environmental water sources (lakes, rivers, man-made water treatment systems)" },
+    { question: "Legionella is transmitted by ____.", answer: "aerosolized water particles" },
+    { question: "Febrile disease WITH pneumonia (pulmonary involvement) caused by Legionella", answer: "Legionnaire's disease" },
+    { question: "Febrile disease WITHOUT pulmonary involvement (pneumonia) caused by Legionella", answer: "Pontiac fever" },
+    { question: "predominant specimens for Legionella", answer: "urine, respiratory" },
+    { question: "What organism demonstrates 'ground-glass' looking grayish-white or blue-green convex colonies under microscope?", answer: "Legionella pneumophilia" },
+    { question: "Legionella are pleomorphic, thin, weakly staining, gram-neg rods found within macrophages and neutrophils, but ____ as well.", answer: "extracellular" },
+    { question: "For lab ID, Legionella requires ____ for growth, does not grow on ____, and is cultured on ____.", answer: "L-cysteine, routine media, buffered charcoal yeast extract (BCYE)" },
+    { question: "Incubate Legionella in ____ atmosphere at ____C for at least ____.", answer: "normal, 35-37, seven days" },
+    { question: "Humans are the only known reservoir for this Bordetella species", answer: "Bordetella pertussis/parapertussis" },
+    { question: "virulence factors of Bordetella", answer: "filamentous hemagglutinin (FHA), Pertussis toxin, adenylate cyclase toxin, tracheal toxin (ciliostasis)" },
+    { question: "phases of Whooping cough caused by Bordetella", answer: "catarrhal - flulike symptoms, highly contagious; paroxysmal - severe repetition coughing; convalescent - recovery begins after 4 weeks" },
+    { question: "For collection of Bordetella pertussis, ____ are preferred for culture, DFA, or PCR.", answer: "nasopharyngeal aspirates/swabs (Rayon or Dacron)" },
+    { question: "transport medium for Bordetella pertussis", answer: "Regan-Lowe, directly to transport medium" },
+    { question: "Culture for Bordetella is performed on ____.", answer: "Bordet-Gengou potato infusion agar" }
+];
+
+        function startQuiz() {
+            shuffledQuestions = quizData.sort(() => Math.random() - 0.5);
+            currentQuestionIndex = 0;
+            setNextQuestion();
+        }
+
+        function setNextQuestion() {
+            resetState();
+            if (currentQuestionIndex >= shuffledQuestions.length) {
+                // Recycle the quiz
+                currentQuestionIndex = 0;
+                shuffledQuestions = quizData.sort(() => Math.random() - 0.5); 
+            }
+            showQuestion(shuffledQuestions[currentQuestionIndex]);
+        }
+
+        function showQuestion(questionData) {
+            progressTextElement.innerText = `Question ${currentQuestionIndex + 1} / ${quizData.length}`;
+            questionTextElement.innerText = questionData.question;
+
+            // Generate answer options
+            const correctAnswer = questionData.answer;
+            const otherAnswers = quizData
+                .map(q => q.answer)
+                .filter(answer => answer !== correctAnswer);
+
+            // Shuffle other answers and pick 3 distractors
+            const distractors = otherAnswers.sort(() => Math.random() - 0.5).slice(0, 3);
+            
+            const answerOptions = [...distractors, correctAnswer].sort(() => Math.random() - 0.5);
+
+            answerOptions.forEach(answer => {
+                const button = document.createElement('button');
+                button.innerText = answer;
+                button.classList.add('btn-answer', 'w-full', 'text-left', 'p-4', 'rounded-md', 'border', 'border-gray-600', 'text-white');
+                if (answer === correctAnswer) {
+                    button.dataset.correct = true;
+                }
+                button.addEventListener('click', selectAnswer);
+                answerButtonsElement.appendChild(button);
+            });
+        }
+
+        function resetState() {
+            while (answerButtonsElement.firstChild) {
+                answerButtonsElement.removeChild(answerButtonsElement.firstChild);
+            }
+        }
+
+        function selectAnswer(e) {
+            const selectedButton = e.target;
+            const correct = selectedButton.dataset.correct === 'true';
+
+            setStatusClass(selectedButton, correct);
+
+            Array.from(answerButtonsElement.children).forEach(button => {
+                if (button.dataset.correct) {
+                    setStatusClass(button, true);
+                }
+                button.disabled = true; // Disable all buttons after selection
+            });
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+                setNextQuestion();
+            }, 1500); // Wait 1.5 seconds before moving to the next question
+        }
+
+        function setStatusClass(element, correct) {
+            if (correct) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('wrong');
+            }
+        }
+
+        // Start the quiz when the page loads
+        startQuiz();
+    </script>
+
+</body>
+</html>
+

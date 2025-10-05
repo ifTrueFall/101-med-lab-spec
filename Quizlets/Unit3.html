@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLT 107 Unit 1 & 2 Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles inspired by the provided example */
+        body {
+            background-color: #333;
+            color: #f0f0f0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        .quiz-container {
+            background-color: #444;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+        .btn-answer {
+            background-color: #555;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-answer:hover {
+            background-color: #666;
+            transform: translateY(-2px);
+        }
+        .btn-answer.correct {
+            background-color: #28a745; /* Green for correct */
+            border-color: #28a745;
+        }
+        .btn-answer.wrong {
+            background-color: #dc3545; /* Red for wrong */
+            border-color: #dc3545;
+        }
+        .btn-answer.correct, .btn-answer.wrong {
+            color: white;
+            pointer-events: none; /* Disable clicking after an answer is shown */
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div id="quiz-container" class="quiz-container w-full max-w-2xl mx-auto rounded-lg p-6 md:p-8">
+        <!-- Progress and Question Section -->
+        <div class="mb-6">
+            <div id="progress-container" class="flex justify-between items-center text-sm text-gray-300 mb-4">
+                <p id="progress-text">Question 1 / 264</p>
+                <p>MLT 107 Review</p>
+            </div>
+            <div id="question-container" class="bg-gray-700 p-4 rounded-md min-h-[120px] flex items-center justify-center">
+                <h2 id="question-text" class="text-lg md:text-xl text-center font-semibold">Loading question...</h2>
+            </div>
+        </div>
+
+        <!-- Answer Buttons Section -->
+        <div id="answer-buttons" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Answer buttons will be generated here -->
+        </div>
+    </div>
+
+    <script>
+        const questionTextElement = document.getElementById('question-text');
+        const answerButtonsElement = document.getElementById('answer-buttons');
+        const progressTextElement = document.getElementById('progress-text');
+
+        let shuffledQuestions, currentQuestionIndex;
+
+        // --- Data extracted from the PDF ---
+        const quizData = [
+            { question: "destruction of all forms of life", answer: "sterilization" },
+            { question: "elimination of a defined scope of microorganisms, including some spores; defined by joseph lister", answer: "disinfection" },
+            { question: "chemical agents applied to inanimate objects", answer: "disinfectant" },
+            { question: "substance applied to the skin the eliminate or reduced number of bacteria present", answer: "antiseptic" },
+            { question: "most resistant infectious agent", answer: "prion" },
+            { question: "number of organisms present; dictates the exposure time that is necessary for 99.9% of microorganisms", answer: "microbial load (bioburden)" },
+            { question: "presence of organic material can inactivate chemical agents; a common example of this can be seen with bleach", answer: "organic material" },
+            { question: "disinfectants are usually stored at", answer: "20-22C (RT/ambient)" },
+            { question: "when two disinfectants work better together", answer: "synergy" },
+            { question: "two disinfectants that inactivate each other", answer: "antagony" },
+            { question: "physical methods of disinfection/sterilization that involve heat", answer: "moist heat (autoclave), dry heat (used for glassware), boiling, pasteurization" },
+            { question: "two heat methods of disinfection that DO NOT achieve sterilization", answer: "pasteurization, boiling" },
+            { question: "chemosterilizers exert killing effects by", answer: "reaction with thiol groups of enzymes, denaturation of cellular proteins, damage DNA & RNA" },
+            { question: "Iodophors are used only as disinfectants because they are not", answer: "sporicidal" },
+            { question: "iodophors require free iodine therefore is vital", answer: "proper dilution" },
+            { question: "most common and best-known preoperative skin prep in the US", answer: "povidone-iodine (5-10%)" },
+            { question: "this disinfectant is INEXPENSIVE and has broad-spectrum killing power; not used as a sterilant because of the long exposure time required", answer: "sodium hypochlorite (bleach)" },
+            { question: "this disinfectant DISRUPTS THE CELLULAR MEMBRANE and is not generally effective against endospores and nonenveloped viruses", answer: "chlorhexidine gluconate (.5-4%)" },
+            { question: "this disinfectant is used primarily is skin applications like hand washing and surgical scrubs, primarily against gram-positive bacteria", answer: "chloroxylenol (.5-4%)" },
+            { question: "Triclosan kills by disrupting cell wall, it's not affected by organics and performs poorly against", answer: "fungi" },
+            { question: "previously used prophylactically for gonococcal conjunctivitis in newborns", answer: "silver nitrate" },
+            { question: "is widely used in hospitals for materials that cannot withstand steam sterilization", answer: "gas sterilization" },
+            { question: "most common gas used for sterilization", answer: "ethylene oxide" },
+            { question: "the goal of HYGIENIC hand washing/ waterless hand rubs it to eliminate transient flora and reduce", answer: "spread of pathogenic bacteria" },
+            { question: "the goal of SURGICAL hand scrubs and waterless surgical hand scrubs is to eliminate transient and most residential flora and prevent", answer: "surgical infections" },
+            { question: "section of the lab with the highest risk of acquiring an infection", answer: "microbiology" },
+            { question: "all blood/body fluids except sweat treated as infectious", answer: "universal/standard precautions" },
+            { question: "the most common exposure risk is needle stick SO is integral in maintaining universal precautions", answer: "appropriate sharps disposal" },
+            { question: "three transmission-based precautions", answer: "contact (MRSA, clostridium difficile), droplet (neisseria meningitides, bordatella), airborne (mycobacterium tuberculosis, brucella, francisella tularensis)" },
+            { question: "PPE used in the micro lab", answer: "gloves, lab coat, mask, respirator, face shield, safety glasses" },
+            { question: "two major sources of biologic risk in the micro lab", answer: "processing of patient specimens, handling active cultures" },
+            { question: "how many WHO risk groups", answer: "four" },
+            { question: "risk group 1 has low/no individual risk and low/no community risk", answer: "low/no, low/no" },
+            { question: "risk group 2 has moderate individual risk and low community risk; this is the group we see the most in micro lab", answer: "moderate, low" },
+            { question: "risk group 3 has high individual risk and low community risk; causes serious damage but not easily spread", answer: "high, low" },
+            { question: "risk group 4 has high individual risk and high community risk; causes serious damage and is easily spread", answer: "high, high" },
+            { question: "when working with fungal cultures, they are sealed and only worked up in a", answer: "biosafety cabinet (hood)" },
+            { question: "biosafety level where there is POTENTIAL AEROSOL TRANSMISSION; i.e. tuberculosis, encephalitis, brucella, burnetii", answer: "BSL-3" },
+            { question: "biosafety level that involves dangerous and exotic pathogens such as marburg and congo-crimean hemorrhagic fever", answer: "BSL-4" },
+            { question: "when dealing with infectious waste, the bio lab must follow", answer: "local, state, and national regulations" },
+            { question: "infectious waste is usually discarded of through", answer: "autoclave, incineration" },
+            { question: "the employee right to know laws provide for a chemical hygiene plan in which employees have a thorough working knowledge of chemicals being used", answer: "chemical hygiene plan" },
+            { question: "all chemicals must be labeled with", answer: "National Fire Protection Association (NFPA) hazard rating diamond" },
+            { question: "safety data sheets include", answer: "manufacturer info, nature of chemical/other names, ingredients, precautions and controls, emergency/first aid procedures, spill cleanup procedures, disposal recommendations" },
+            { question: "what does the fire safety acronym RACE stand for", answer: "Rescue, Alarm, Contain, Extinguish" },
+            { question: "electrical safety preventative maintenance includes", answer: "cords checked for fraying, grounded three-prong plugs, grounding and leakage checks" },
+            { question: "measures designed to ensure medical reliability of lab data", answer: "quality control (QC)" },
+            { question: "OSHA stabdards required by", answer: "The Joint Commission" },
+            { question: "preanalytical activity includes", answer: "test ordering, specimen collection" },
+            { question: "analytical activity includes", answer: "actual lab testing" },
+            { question: "postanalytical activity includes", answer: "result review and delivery" },
+            { question: "temperature checks are required on all temperature-dependent laboratory equipment aside from shower/eye washing station", answer: "daily" },
+            { question: "thermometers used to calibrate other thermometers", answer: "National Institute of Standards and Technology (NIST)-calibrated" },
+            { question: "the CLSI requires that media QC records must be maintained for", answer: "2 years" },
+            { question: "reagents are tested against positive and negative controls", answer: "each day they're in use" },
+            { question: "some common reagents used in the micro lab include", answer: "beta-lactamase, nitrate, optochin" },
+            { question: "antimicrobial susceptibility testing use only specific strains of", answer: "American Type Culture Collection (ATCC) control organisms" },
+            { question: "when it comes to personnel competency in the lab; is used", answer: "proficiency testing, twice yearly" },
+            { question: "three facets of proficiency testing of personnel in the lab", answer: "unknowns designed to test identification skill, done at least twice a year, test same as all patient samples" },
+            { question: "when using stock cultures, the culture should be grown in broth and aliquots can be stored in freezer at -70C for", answer: "1 year" },
+            { question: "the microbiologist plays a role in", answer: "getting a snapshot of the specimen, determining possible cause of disease, improvement of treatment" },
+            { question: "types of microorganisms", answer: "bacteria, parasites, fungi, viruses" },
+            { question: "bacteria are prokaryotes and lack a", answer: "nuclear membrane" },
+            { question: "parasites are", answer: "eukaryotic" },
+            { question: "viruses require host cells for replication and are usually specific", answer: "host/host cell" },
+            { question: "when identifying an organism, the nomenclature rules dictate that the Genus is capitalized and the entire classification is", answer: "italicized/underlined" },
+            { question: "cell envelope structure can include", answer: "plasma membrane, cell wall, cell appendages" },
+            { question: "phospholipid bilayer with hydrophilic polar heads (water loving) and hydrophobic nonpolar tails (water hating)", answer: "plasma membrane" },
+            { question: "the function of this cell envelope structure is to provide rigidity and strength to the exterior of the cell", answer: "cell wall" },
+            { question: "short projection cell appendage (3-10um) used for locomotion", answer: "cilia" },
+            { question: "longer projection cell appendage that are external rotating filaments", answer: "flagella" },
+            { question: "consist of RNA and protein found free in the cytoplasm, and attached to the cytoplasmic membrane", answer: "bacterial ribosomes" },
+            { question: "small, dormant (inactive) asexual spores that develop inside the bacterial cell as a means of survival", answer: "endospores" },
+            { question: "made up of phospholipids and proteins but DOES NOT contain STEROLS, unlike its counterpart", answer: "prokaryotic phospholipid membrane (PM)" },
+            { question: "the cell wall of prokaryotes prevents the cell from bursting due to the", answer: "high osmotic pressure inside of it" },
+            { question: "the different types of cell wall structures in bacteria have been categorized based on their", answer: "staining characteristics" },
+            { question: "the gram-positive cell wall is composed of a very thick protective peptidoglycan (murein) layer; stains a very characteristic color", answer: "purple" },
+            { question: "the gram-negative cell wall is composed of two layers and stains", answer: "pink" },
+            { question: "the inner layer of the gram-neg cell wall is much thinner than the gram-positive layer, and the outer layer is an additional membrane composed mainly of", answer: "lipopolysaccharide (LPS)" },
+            { question: "the function of the outer membrane in the gram-neg cell wall is to", answer: "act as a barrier to hydrophobic compounds and harmful substances, act as a sieve (allowing water-soluble substances to pass through), provide attachment sites that enhances adhesion to host cells" },
+            { question: "waxy layer of glycolipids and fatty acids, major component is mycolic acid", answer: "acid-fast cell walls" },
+            { question: "an acid-fast stain, carbofuchsin is used to treat the cell wall to allow penetration of the dye either by heat or detergent", answer: "Ziehl-Neelsen, Kinyoun method" },
+            { question: "size of bacteria", answer: "0.4-2 um" },
+            { question: "basic microscopic bacterial circle shape", answer: "cocci" },
+            { question: "basic microscopic bacterial shape that looks like a Mike N' Ike", answer: "bacilli" },
+            { question: "basic microscopic bacterial shape that looks like a spiral", answer: "spirochetes" },
+            { question: "understanding the growth requirements of potential pathogens enables the miscrobiologist to", answer: "select correct media for primary culture, optimize the chance of isolating pathogenic organism" },
+            { question: "types of growth media", answer: "Minimal, Nutrient, Selective, Transport, Differential, Enriched" },
+            { question: "bacteria CAN be grown at 25C or 42C but routinely grown at in labs", answer: "35-37C" },
+            { question: "obligate aerobes require for growth", answer: "oxygen" },
+            { question: "obligate ANAEROBES cannot grow in the presence of oxygen and make up 90% of the microbial flora in", answer: "large intestine" },
+            { question: "can survive in the presence of oxygen, but do not use oxygen in metabolism", answer: "aerotolerant anaerobes" },
+            { question: "mechanisms of gene transfer", answer: "transformation, transduction, conjugation, restriction enzymes" },
+            { question: "uptake and incorporation of naked DNA into a bacterial cell", answer: "transformation" },
+            { question: "transfer of bacterial genes by BACTERIOPHAGE (virus-infected bacterium) from one cell to another", answer: "transduction" },
+            { question: "transfer of genetic material from donor bacterial strain to a recipient strain", answer: "conjugation" },
+            { question: "SPECIFIC ENZYMES are produced that cut incoming, foreign DNA at specific DNA sequences", answer: "restriction enzymes" },
+            { question: "most microorganisms live in moist areas such as", answer: "skin folds" },
+            { question: "the stomach is normally sterile, PH helps protect it from microbial attack, some exceptions would be", answer: "acidic, endospores, parasitic cysts, H. pylori" },
+            { question: "can significantly alter the usual flora", answer: "antibiotics" },
+            { question: "sterile sites in the genitourinary tract", answer: "kidneys, bladder, fallopian tubes" },
+            { question: "opportunistic infections occur when the individual becomes infected with their own flora that cause disease when habitat is damaged or changed, seen in bowel perforation due to a weakened immune system", answer: "opportunistic infections" },
+            { question: "usually don't cause infection except under special circumstances such as highly invasive medical procedures", answer: "opportunistic pathogens" },
+            { question: "organisms that can establish infection with a relatively low infective dose are considered more virulent than organisms that require high numbers for infection", answer: "virulent" },
+            { question: "play a major role in clearing bacterial infection", answer: "phagocytes" },
+            { question: "the most common mechanism for evading phagocytosis; enveloped in a polysaccharide surface", answer: "capsule" },
+            { question: "kills phagocytes; it's produced by staphylococci", answer: "Panton-Valentine leukocidin" },
+            { question: "host cells must possess specific receptors to adhesins in order for attachment", answer: "adhesins" },
+            { question: "things in the micro lab that need QC", answer: "temp, equipment, media, reagent, anti-microbial susceptibility" },
+            { question: "equipment preventative maintenance includes", answer: "replacing filters, oiling and cleaning instruments, reaclibrating instruments" },
+            { question: "some examples of complex media that require QC include", answer: "chocolate agar, neisseria, campylobacter" },
+            { question: "factors that influence microbial growth", answer: "pH, temperature, gaseous composition of atmosphere" },
+            { question: "when the pathogen has spread from initial infection site to distant sites", answer: "dissemination" },
+            { question: "poisonous substance secreted by organism", answer: "toxin" },
+            { question: "bonding subunit that allows toxin to enter cell", answer: "exotoxin" },
+            { question: "lipopolysaccharide cell wall component in gram-neg bacteria", answer: "endotoxins" },
+            { question: "effects of endotoxins", answer: "hypotension, fever, initiates coagulation" },
+            { question: "host resistance to microbial invasion includes cleansing mechanisms such as", answer: "desquamation of skin, movement of liquids, cilia" },
+            { question: "antimicrobial substances that serve as host resistance factors include", answer: "long-chain fatty acids on the skin, low pH environment on the skin" },
+            { question: "route of microorganism transmission from the bite of an insect", answer: "arthropods" },
+            { question: "route of microorganism that comes from contact with animals", answer: "zoonosis" },
+            { question: "the data generated by the laboratory is influenced by", answer: "quality of specimen, condition of specimen when received" },
+            { question: "each ward should have a well-written collection handbook available to assist hospital personnel in acquiring highest quality specimen", answer: "well-written collection handbook" },
+            { question: "the primary goal of collection is to maintain the specimen as close to original state as possible; minimal deterioration and prevent leakage", answer: "maintain specimen integrity" },
+            { question: "aspirated material should be placed into a", answer: "sterile tube or anaerobe transport system" },
+            { question: "often collected to detect bacterial pneumonia", answer: "sputum" },
+            { question: "two methods of obtaining sputum", answer: "expectorated (rinse mouth with water, then deep cough), induced (collected by resp. therapy tech)" },
+            { question: "four most important things to properly label specimen", answer: "name, ID number, date of collection, time of collection" },
+            { question: "biggest points of information to include on test requisitions", answer: "name/ ID number, DOB, gender, specific anatomic site" },
+            { question: "holding (transport) media contain substances that do not promote growth of microorganisms but ensure preservation", answer: "ensure preservation" },
+            { question: "two regulatory agencies involved with shipping infectious substances", answer: "US DOT, USPS" },
+            { question: "types of specimens considered to be critical/invasive", answer: "amniotic fluid, blood, brain, CSF, heart valves, pericardial fluid" },
+            { question: "types of specimens that are considered to be unpreserved", answer: "body fluids not listed elsewhere, bone, drainage from wounds, feces, sputum, tissue" },
+            { question: "types of specimens where quantitation is required", answer: "urine, catheter tip" },
+            { question: "if physician requires culture on a sub-par specimen, like recollection not possible or invasive", answer: "plate anyway, note the potentially compromised test results" },
+            { question: "things that can be observed macroscopically", answer: "swab/aspirate, stool consistency, blood/mucus present, volume of specimen, turbidity of fluid, adequacy of specimen" },
+            { question: "two main uses for microscopy", answer: "determine quality of specimen, dictate need for non-routine/ additional testing" },
+            { question: "the process of adding a specimen to media in order to support further growth", answer: "Inoculation" },
+            { question: "support growth of non fastidious organisms, sheep blood agar", answer: "nonselective media" },
+            { question: "support growth of one type or group of microbes, columbia nalidixic acid agar (CNA agar)", answer: "selective media" },
+            { question: "allows grouping of microbes based on demonstrated characteristics; MacConkey agar", answer: "differential media" },
+            { question: "growth enhancers added to nonselective media to allow fastidious organisms to grow; chocolate agar", answer: "enriched media" },
+            { question: "supplement to an agar to detect small numbers of aerobes, anaerobes, microaerophiles thioglycolate broth", answer: "broth media" },
+            { question: "colonial morphology prevents, helps maintain, to", answer: "time-consuming testing that yields few results, jump-start therapy, accuracy of commercial/automated systems" },
+            { question: "in colonial morphology, the microbiologist must be able to and direct the workup toward", answer: "differentiate between normal flora and potential pathogens, potential pathogens" },
+            { question: "troubleshooting mixed cultures/commercial equipment errors happens by", answer: "correlating the colony characteristics to which organism is suspected" },
+            { question: "the initial observation of cultures should happen", answer: "18-24 hrs post culture" },
+            { question: "comparative examination of the colony morphology of microorganisms growing on various culture media.", answer: "plate reading" },
+            { question: "four media categories", answer: "enrichment (enhances growth of specific organisms), supportive (growth of non-fastidious organisms), selective (grows some, inhibits others), differential (factors demonstrate different characteristics)" },
+            { question: "grows most organisms", answer: "blood agar (BAP)" },
+            { question: "grows fastidious and most organisms", answer: "chocolate agar (CHOC)" },
+            { question: "grows gram-negative organisms (lactose fermenters)", answer: "MacConkey's agar (MAC)" },
+            { question: "lactose fermenters will produce a ___ colony on a MAC plate", answer: "pink" },
+            { question: "non-lactose fermenters will produce a ___ colony on a MAC plate", answer: "colorless" },
+            { question: "Escherichia/Citrobacter-like organisms produce ___ colonies, surrounded by ___", answer: "dry, pink, halo of pink precipitated bile salts" },
+            { question: "klebsiella/enterobacter-like organisms produce", answer: "large, mucoid pink colonies that occasionally have cream-colored centers" },
+            { question: "microorganisms grow on culture media in which they're present in specimen", answer: "In the same proportion/concentration" },
+            { question: "report growth, size, color, and HEMOLYSIS on a ___ plate", answer: "sheep blood agar" },
+            { question: "On a CNA plate, you report", answer: "growth, size, color" },
+            { question: "CNA grows ___ bacteria", answer: "gram-positive (purple in microscope)" },
+            { question: "MAC plate grows ___ bacteria, is a differential for ___", answer: "gram-negative, bacteria that ferments lactose" },
+            { question: "colony characteristics include", answer: "hemolysis, size, form/margin, elevation, density, color, consistency, pigment, odor" },
+            { question: "hemolysis where blood is partially cleared that results in GREEN DISCOLORATION of medium", answer: "alpha" },
+            { question: "hemolysis where there is a COMPLETE clearing of blood cells around/under colonies", answer: "beta" },
+            { question: "non-hemolytic colonies are referred to as", answer: "gamma" },
+            { question: "the form/margin refers to the ___ of the colony", answer: "edge" },
+            { question: "four typical forms/margins of colonies", answer: "smooth, filamentous, rough/rhizoid, irregular" },
+            { question: "this type of colonial form is when there is a hazy blanket of growth on surface of plate", answer: "swarming" },
+            { question: "common form seen in yeast colonies (candida albicans)", answer: "feet/stars" },
+            { question: "typical colors seen in colonial observation", answer: "white, gray, yellow, buff" },
+            { question: "odor of S. aureus is", answer: "old sock" },
+            { question: "odor of P. aeruginosa is", answer: "fruity or grapelike" },
+            { question: "odor of Proteus mirabilis is", answer: "putrid" },
+            { question: "odor of Haemophilus spp. is", answer: "musty basement" },
+            { question: "odor of Nocardia spp. is", answer: "freshly plowed field" },
+            { question: "when using liquid media, the ___ is observed, usually seen because of the production of ___", answer: "turbidity, gas bubbles" },
+            { question: "the identification of bacteria has typically been based on & which are all based on", answer: "colony morphology, gram staining, biochemical testing, phenotype of microorganisms" },
+            { question: "next generation testing such as ___ are based on the ___ of the organism", answer: "nucleic acid assays, genotype" },
+            { question: "examples of sugars used by bacterias aside from lactose used to differentiate bacteria include", answer: "maltose, rhamnose, sucrose, raffinose, arabinose" },
+            { question: "if a bacteria exhibits oxidization, you know that it", answer: "utilizes carbohydrates aerobically" },
+            { question: "if a bacteria exhibits fermentation, you know that it", answer: "utilizes carbohydrates anaerobically" },
+            { question: "if a bacteria is asaccharolytic, it does not utilize carbohydrates, instead it uses ___ for energy", answer: "other organic molecules like amino acids" },
+            { question: "when using basal media, an oxidizer/fermenter demonstrates acid production by the color indicator changing to ___ both with and without ___", answer: "yellow, O2" },
+            { question: "when inoculating triple sugar iron or kliglar's iron agar", answer: "stab the butt almost all the way to the bottom of the tube, move needle back and forth over surface of the slant all the way to top of tube" },
+            { question: "when performing TSI/KIA an alkaline slant/alkaline butt would yield", answer: "no fermentation (no black)" },
+            { question: "when performing TSI/KIA, an alkaline slant/acid butt would yield", answer: "glucose fermentation (black bottom, yellow top)" },
+            { question: "when performing TSI/KIA, an acid slant/acid butt would yield", answer: "lactose/sucrose fermentation" },
+            { question: "when performing TSI/KIA, H2S production causes", answer: "black precipitate" },
+            { question: "if gas is present in results of KIA/TSI, you would see", answer: "bubbles, splitting of media" },
+            { question: "test that distinguished delayed lactose fermenters from non-lactose fermenters", answer: "ONPG (ortho-nitrophenyl-beta-D-Galactopyranoside)" },
+            { question: "in the methyl-red and voges-proskauer test (MRVP), a positive methyl red test would yield ___ : indicative of ___", answer: "bright red color, mixed acid fermentation" },
+            { question: "test used to measure enzymatic ability of an organism to decarboxylate an amino acid to form an amine", answer: "decarboxylase/dihydrolase" },
+            { question: "if a decarboxylase/dihydrolase test is positive, you would see a ___ if negative a ___", answer: "purple color change, lack of color change" },
+            { question: "during citrate utilization testing, the ___ that results from the use of ammonium salts changes the pH indicator (bromthymol blue) in the medium from ___", answer: "alkaline pH, green to blue" },
+            { question: "two things that signify positive result during citrate utilization", answer: "growth (with or w/o color change), color change green to blue in indicator" },
+            { question: "the indole production test used to determine", answer: "organism's ability to hydrolyze tryptophan to form indole compound" },
+            { question: "in motility testing, the inoculum is stabbed into center of semisolid medium, positive results are indicated by", answer: "hazy appearance throughout media/movement away from stab" },
+            { question: "Oxidase aids in identification of", answer: "Neisseria, Aeromonas, Vibrio, Campylobacter spp." },
+            { question: "during oxidase testing, positive results are indicated by ___ negative by ___", answer: "dark purple color within 10 seconds, no color change" },
+            { question: "in the Lysine Iron Agar (LIA) test, the agar contains", answer: "lysine, peptones, small amt of glucose, ferric ammonium citrate, sodium thiosulfate" },
+            { question: "you can get results in as little as ___ with rapid identification systems", answer: "4 hours" },
+            { question: "antimicrobial agents include", answer: "antiseptics, antibiotics, preservatives, sterilants, disinfectants" },
+            { question: "antimicrobial agents have the capacity to", answer: "kill or suppress growth of microorganisms" },
+            { question: "antibiotic targets/mechanisms of action", answer: "inhibition of bacterial cell wall synthesis, inhibition of folate synthesis, interference with replication (DNA), interference with transcription (DNA/RNA), interference with translation (mRNA)" },
+            { question: "drug names of beta-lactams (most widely used antibiotics)", answer: "penicillins (-cillins), cephalosporins (cef-), carbapenems (imipenem), monobactems, penems" },
+            { question: "the structure found in the beta-lactam medications that is the active moiety is the", answer: "four-member beta-lactam ring" },
+            { question: "the structure similarity of the beta-lactam antibiotics and D-alanyl-D-alanine facilitates ___ and causes ___ resulting in ___", answer: "binding to active site of pbps, inhibition of transpeptidation reaction, bacterial lysis/cell death" },
+            { question: "drug names of GLYCOPEPTIDES and GLYCOLIPOPEPTIDES", answer: "vancomycin, teicoplanin" },
+            { question: "glycopeptides bind to the ___ whereas penicillin binds to ___ this prevents their incorporation into the peptidoglycan chain by ___", answer: "substrate of the transpeptidation enzyme, enzyme mediating the transpeptidation reaction, blocking transpeptidation step in cell wall biosynthesis" },
+            { question: "common class of drugs that interfere with DNA SYNTHESIS", answer: "rifamycins" },
+            { question: "three drugs that interfere with DNA synthesis", answer: "rifamycin, rifampin, rifapentine" },
+            { question: "drug that is used in combo with other antibiotic classes to treat Mycobacterium tuberculosis", answer: "rifampin" },
+            { question: "during interference with mRNA translation, the ___ is the primary target", answer: "bacteria ribosome" },
+            { question: "the two ribosomal subunits most commonly targeted by antibiotics that interfere with mRNA translation", answer: "30S, 50S" },
+            { question: "aminoglycosides react with a specific region of the ___ in the ___", answer: "16S ribosomal ribonucleic acid (RNA), 30S ribosomal subunit" },
+            { question: "antibiotics that are members of the polyketide class", answer: "tetracyclines" },
+            { question: "two other common drug names for tetracycline", answer: "doxycycline, minocycline" },
+            { question: "three drug names for macrolides", answer: "clarithromycin, erythromycin, azythromycin" },
+            { question: "macrolides primarily target", answer: "50S ribosome" },
+            { question: "___ is a global health issue uniting scientists", answer: "antibiotic resistance" },
+            { question: "common factors of intrinsic resistance and acquired resistance are", answer: "efflux pumps, enzymatic inactivation" },
+            { question: "enzymatic inactivation is one of most commonly acquired and intrinsic resistance mechanisms for ___ antibiotics", answer: "beta-lactam" },
+            { question: "during beta-lactam enzyme inactivation, ___ in an effort to curb this, ___ were developed, they act as ___ to reduce the detrimental effects on beta-lactam antibiotics", answer: "beta-lactamases hydrolyze antibiotics, beta-lactamase-inhibitors (BLI), substrates for the beta-lactamase" },
+            { question: "inhibition zone size and minimal inhibitory concentration (MIC) are established by careful analysis of", answer: "microbiologic data, pharmacokinetic data, FDA approved chemical studies" },
+            { question: "factors to consider in susceptibility testing", answer: "extraction site, presence of other bacteria/quality of specimen, host status" },
+            { question: "antimicrobial susceptibility test methods are based on", answer: "McFarland turbidity standards (standardization of bacteria concentration)" },
+            { question: "lowest concentration of antimicrobial agent required to inhibit growth of a bacterial isolate", answer: "minimal inhibitory concentration (MIC)" },
+            { question: "three results possible when interpreting dilution method for MIC", answer: "susceptible (organism responds to therapy), intermediate (slow and subtle response), resistant (unlikely to be inhibited due to lack of response to dosages normally administered)" },
+            { question: "media formulation for disk diffusion is", answer: "Meuller-Hinton" },
+            { question: "___ that uses the principle of establishing an antimicrobial density gradient to determine antimicrobial susceptibility", answer: "E-test" },
+            { question: "E-tests use ___ impregnated with an ___ on the undersurface", answer: "thin plastic test strips, antimicrobial concentration gradient" },
+            { question: "beta-lactamase tests are used to detect resistance of beta-lactams in organisms such as", answer: "H. influenza, N. gonorrhoeae, M. catarrhalis, Staphylococcus spp., Bacteroides spp." },
+            { question: "major advantage of beta-lactamase testing", answer: "rapid" },
+            { question: "streptococci do not grow well on", answer: "Mueller-Hinton medium" },
+            { question: "in order to test for streptococci, you should supplemented with ___ or ___", answer: "broth, 2-5% lysed horse blood, 5% sheep blood agar" },
+            { question: "automated antimicrobial susceptibility testing methods use the principle of ___ in a ___ medium using a ___ to examine test wells", answer: "turbidimetric detection of bacterial growth, broth medium, photometer (light)" },
+            { question: "overall antimicrobial susceptibility profile of a bacterial isolate to a battery of antimicrobial agents", answer: "antibiogram" },
+            { question: "most widely used QC measure is the use of ___ to verify results generated on patient results", answer: "antibiograms" },
+            { question: "when atypical antibiograms are seen, results must be verified by", answer: "reexamination of disk diffusion/MIC tray, checking px history for previous atypical antibiogram, repeat test, if necessary" },
+            { question: "you see colonies that resemble stars on agar what will it most likely be?", answer: "candidia albicans" },
+            { question: "plate reading is an examination of growth on different medias", answer: "True" },
+            { question: "An oxidizer is identified by ___ because it produces ___ in an open tube only?", answer: "color change, acid" },
+            { question: "Which test is used to indicate acetoin production?", answer: "Voges-Proskauer" },
+            { question: "Name some B-lactam antibiotics", answer: "Penecillins, monobactams, carbapenems, penems" },
+            { question: "Name some drugs that target 50S ribosome.", answer: "Macrolides, Streptrogramins, Lincosamides, Oxazolidinomes" },
+            { question: "Which type of antibiotic binds to substrate of transpeptidation enzyme to disrupt cell wall contruction?", answer: "glycopeptides" },
+            { question: "Which antibiotics affect 30S ribosomes?", answer: "Tetracyclines and Aminoglycosides" },
+            { question: "These antibiotics belong to the polyketide class of antibiotics?", answer: "Tetracycline, doxycycline, minocycline" },
+            { question: "B-lactamases can act as extended spectrum B-lactamases by hydrolyzing specific sets of antibiotics?", answer: "Penecillins, cephalsporins, monobactams" },
+            { question: "Due to increased secretion of drugs macrolides resistance can be acquired by what bacteria?", answer: "Streptococcus pyogenes and Streptococcus pneumoniae" },
+            { question: "What are indications for antimicrobial susceptibility testing?", answer: "Epidemiological cut-off values, Probable cause to suspect isolate is cause of infection, Susceptibility against particular antimicrobials is uncertain" },
+            { question: "Why is antimicrobial testing not done on normal flora?", answer: "Will be treated as the cause of infection and ignore real cause of disease" },
+            { question: "What is the most critical step to ensure proper antimicrobial susceptibility testing?", answer: "Inoculum preparation" },
+            { question: "If a species of bacteria does not grow well on Mueller-Hinton agar what supplement can be added to allow growth?", answer: "5% horse blood" },
+            { question: "___ uses confluent growth plate with disk diffusion containing antimicrobial concentrations.", answer: "Kirby-Bauer" },
+            { question: "Name some organisms that produce B-lactamase.", answer: "H. influenzae, N. gonorrhoeae, M. cartarhalis, Staphylococcus spp." },
+            { question: "What does it mean when an organism is classified as resistant to an antimicrobial?", answer: "The achievable drug concentration in a human will not inhibit the growth" },
+            { question: "How does Etest differ from Kirby-Bauer?", answer: "Has a concentration gradient in agar" },
+            { question: "The pharmacist and therapeutic community decide the drugs used in their hospital from list of CLSI recommended drugs.", answer: "false (FDA)" },
+            { question: "during fermentation, ___ enters the ___ resulting in the formation of pyruvic acid, which is then ___", answer: "glucose, glycolysis pathway, oxidized into other acid products and gases" },
+            { question: "disk diffusion testing is performed with ___ test, which uses the ___ standard and a paper disk containing antibiotic concentrations", answer: "Kirby-Bauer, McFarland" },
+            { question: "rapid test examples", answer: "ONPG, oxidase, spot indole, catalase, bile solubility, PYR, rapid urease, rapid hippurate hydrolysis, MUG, LAP" },
+            { question: "what would be considered pathogenic on a MAC plate", answer: "clear, colorless colony" }
+        ];
+
+        function startQuiz() {
+            shuffledQuestions = quizData.sort(() => Math.random() - 0.5);
+            currentQuestionIndex = 0;
+            setNextQuestion();
+        }
+
+        function setNextQuestion() {
+            resetState();
+            if (currentQuestionIndex >= shuffledQuestions.length) {
+                // Recycle the quiz
+                currentQuestionIndex = 0;
+                shuffledQuestions = quizData.sort(() => Math.random() - 0.5); 
+            }
+            showQuestion(shuffledQuestions[currentQuestionIndex]);
+        }
+
+        function showQuestion(questionData) {
+            progressTextElement.innerText = `Question ${currentQuestionIndex + 1} / ${quizData.length}`;
+            questionTextElement.innerText = questionData.question;
+
+            // Generate answer options
+            const correctAnswer = questionData.answer;
+            const otherAnswers = quizData
+                .map(q => q.answer)
+                .filter(answer => answer !== correctAnswer);
+
+            // Shuffle other answers and pick 3 distractors
+            const distractors = otherAnswers.sort(() => Math.random() - 0.5).slice(0, 3);
+            
+            const answerOptions = [...distractors, correctAnswer].sort(() => Math.random() - 0.5);
+
+            answerOptions.forEach(answer => {
+                const button = document.createElement('button');
+                button.innerText = answer;
+                button.classList.add('btn-answer', 'w-full', 'text-left', 'p-4', 'rounded-md', 'border', 'border-gray-600', 'text-white');
+                if (answer === correctAnswer) {
+                    button.dataset.correct = true;
+                }
+                button.addEventListener('click', selectAnswer);
+                answerButtonsElement.appendChild(button);
+            });
+        }
+
+        function resetState() {
+            while (answerButtonsElement.firstChild) {
+                answerButtonsElement.removeChild(answerButtonsElement.firstChild);
+            }
+        }
+
+        function selectAnswer(e) {
+            const selectedButton = e.target;
+            const correct = selectedButton.dataset.correct === 'true';
+
+            setStatusClass(selectedButton, correct);
+
+            Array.from(answerButtonsElement.children).forEach(button => {
+                if (button.dataset.correct) {
+                    setStatusClass(button, true);
+                }
+                button.disabled = true; // Disable all buttons after selection
+            });
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+                setNextQuestion();
+            }, 1500); // Wait 1.5 seconds before moving to the next question
+        }
+
+        function setStatusClass(element, correct) {
+            if (correct) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('wrong');
+            }
+        }
+
+        // Start the quiz when the page loads
+        startQuiz();
+    </script>
+
+</body>
+</html>
+

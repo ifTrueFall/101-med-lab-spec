@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLT 107 Unit 1 & 2 Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles inspired by the provided example */
+        body {
+            background-color: #333;
+            color: #f0f0f0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        .quiz-container {
+            background-color: #444;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+        .btn-answer {
+            background-color: #555;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-answer:hover {
+            background-color: #666;
+            transform: translateY(-2px);
+        }
+        .btn-answer.correct {
+            background-color: #28a745; /* Green for correct */
+            border-color: #28a745;
+        }
+        .btn-answer.wrong {
+            background-color: #dc3545; /* Red for wrong */
+            border-color: #dc3545;
+        }
+        .btn-answer.correct, .btn-answer.wrong {
+            color: white;
+            pointer-events: none; /* Disable clicking after an answer is shown */
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div id="quiz-container" class="quiz-container w-full max-w-2xl mx-auto rounded-lg p-6 md:p-8">
+        <!-- Progress and Question Section -->
+        <div class="mb-6">
+            <div id="progress-container" class="flex justify-between items-center text-sm text-gray-300 mb-4">
+                <p id="progress-text">Question 1 / 264</p>
+                <p>MLT 107 Review</p>
+            </div>
+            <div id="question-container" class="bg-gray-700 p-4 rounded-md min-h-[120px] flex items-center justify-center">
+                <h2 id="question-text" class="text-lg md:text-xl text-center font-semibold">Loading question...</h2>
+            </div>
+        </div>
+
+        <!-- Answer Buttons Section -->
+        <div id="answer-buttons" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Answer buttons will be generated here -->
+        </div>
+    </div>
+
+    <script>
+        const questionTextElement = document.getElementById('question-text');
+        const answerButtonsElement = document.getElementById('answer-buttons');
+        const progressTextElement = document.getElementById('progress-text');
+
+        let shuffledQuestions, currentQuestionIndex;
+
+        // --- Data extracted from the PDF ---
+        const quizData = [
+    { question: "only oxidase positive Enteric", answer:  "Plesiomonas spp." },
+    { question: "plate used to differentiate between Salmonella and Shigella", answer:  "xylose lysine deoxycholate (XLD)" },
+    { question: "colorless or red colonies on a Xylose lysine deoxycholate (XLD) agar indicative of", answer:  "Shigella" },
+    { question: "red colonies with a black center on a xylose deoxycholate (XLD) agar are indicative of", answer:  "Salmonella" },
+    { question: "Enteric bacteria have antibiotic resistance to", answer:  "-lactamases (ESBL)" },
+    { question: "dry pink colony with a halo on MAC plate indicative of", answer:  "E. coli (Escherichia coli)" },
+    { question: "E. coli produces what kind of colony on eosin methylene blue (EMB) plate", answer:  "green metallic sheen" },
+    { question: "most common cause of UTIs in humans", answer:  "uropathogenic E. coli" },
+    { question: "in uropathogenic E. coli, kill immune cells and inhibit phagocytosis", answer:  "cytolysins" },
+    { question: "category of enteric bacteria that causes diarrhea in INFANTs and ADULTS, esp in tropical/subtropical climates", answer:  "Enterotoxigenic (ETEC)" },
+    { question: "category of enteric bacteria cause diarrhea in children less than 1 year, outbreaks in nurseries and child care centers have occured", answer:  "Enteropathogenic (EPEC)" },
+    { question: "category of enteric bacteria that causes watery diarrhea that leads to bloody diarrhea and colitis, can be fatal in young children and elderly", answer:  "Enterohemorrhagic (EHEC)(E. coli 0157:H7)" },
+    { question: "with an Enterohemorrhagic (EHEC) bacteria E. coli 0157:H7), the stool contains which distinguishes it from", answer:  "no leukocytes, Shigella" },
+    { question: "E. coli remains clinically significant isolate in from adults", answer:  "blood cultures" },
+    { question: "what kind of plate is used to differentiate E. coli O157:H7 from other E. coli", answer:  "MAC agar with sorbitol (SMAC)" },
+    { question: "E. coli O157:H7 sorbitol after 48 hours, so it will appear on a SMAC plate", answer:  "does not, colorless" },
+    { question: "newest species added to Escherichia species", answer:  "E. albertii" },
+    { question: "most common isolate within Klebsiella spp.", answer:  "Klebsiella pneumoniae" },
+    { question: "moist, mucoid, pink colonies on a MAC plate indicative of", answer:  "Klebsiella pneumoniae" },
+    { question: "K. pneumoniae subspecies primarily found in Africa and South America", answer:  "rhinoscleromatis" },
+    { question: "two most isolated clinically significant Enterobacter spp.", answer:  "E. cloacae, E. aerogenes" },
+    { question: "opportunistic pathogen associated with outbreak in health care settings", answer:  "Serratia spp." },
+    { question: "Serratia spp. is highly resistant to", answer:  "antimicrobials" },
+    { question: "considered the most clinically significant genera in Serratia spp.", answer:  "Serratia marcescens" },
+    { question: "Serratia spp. most commonly found in", answer:  "hosp. acquired infections of urinary/resp. tract, bacteremia outbreaks in nurseries, cardiac and burn units" },
+    { question: "two spp. in Proteus genus that produce swarming", answer:  "P. mirabilis, P. vulgaris" },
+    { question: "most commonly isolated species in Proteus genus, typically produces on a plate with a distinct", answer:  "P. mirabilis, swarming, burnt chocolate" },
+    { question: "this species is isolated in UTIs and identified as a cause of neonatal sepsis", answer:  "Morganella spp." },
+    { question: "Providencia species of the five total that's implicated in nosocomial outbreaks and burn unit outbreaks", answer:  "P. stuartii" },
+    { question: "Providencia species is difficult to treat due to", answer:  "high antimicrobial resistance" },
+    { question: "all species of Citrobacter spp. are citrate", answer:  "positive" },
+    { question: "only pathogen in Edwarsiella genus (opportunistic)", answer:  "E. tarda" },
+    { question: "Citrobacter spp. that are most often isolated", answer:  "C. freundii, C. koseri, C. braakii" },
+    { question: "Citrobacter spp. documented as the cause of nursery outbreaks of neonatal meningitis and brain abscesses", answer:  "C. koseri" },
+    { question: "most prevalent spp of Salmonella", answer:  "S. typhii" },
+    { question: "rare species of Salmonella", answer:  "S. bongori" },
+    { question: "six subspecies of Salmonella enterica", answer:  "enterica, salamae, arizonae, diarizonae, houtenae, indica" },
+    { question: "S. enterica virulence factor involved in gastroenteritis", answer:  "enterotoxin" },
+    { question: "S. enterica is most typically associated with", answer:  "food poisoning with vomiting and diarrhea (acute gastroenteritis/ salmonellosis)" },
+    { question: "gastroenteritis (food poisoning) as a result of Salmonella enterica, symptoms present after ingestion of contaminated food; this sickness is also so the symptoms disappear within a few days", answer:  "8-36 hours, self-limiting" },
+    { question: "Typhoid fever causes; it's carried in the", answer:  "febrile disease, gall bladder" },
+    { question: "S. tyhpi is usually found in", answer:  "feces of carriers" },
+    { question: "Shigella is NOT a member of your normal Gl flora, and is very similar to Escherichia", answer:  "T" },
+    { question: "how many groups of Shigella", answer:  "4" },
+    { question: "most common Shigella isolate in the US", answer:  "S. sonnel (group D)" },
+    { question: "can flies spread Shigella", answer:  "yes" },
+    { question: "all species of Shigella can cause anal prolapse, bleeding", answer:  "dysentary" },
+    { question: "most common Shigella isolate in poor, developing countries", answer:  "S. dysenteriae (group A)" },
+    { question: "are the only known reservoir for Shigella", answer:  "humans" },
+    { question: "dysentary caused by Shigella symptoms appear after ingestion", answer:  "24-48 hours" },
+    { question: "like S. enterica, Shigella infections are usually", answer:  "non-fatal, self-limiting" },
+    { question: "S. sonnei (group D, most common) is ONPG and ornithine decarboxylase", answer:  "positive" },
+    { question: "tenesmes", answer:  "rectal prolapse" },
+    { question: "biochemical ID of Shigella", answer:  "pretty much everything is negative (except S. sonnei)" },
+    { question: "S. flexneri is for ONPG and ornithine decarboxylase", answer:  "negative" },
+    { question: "Yersinia spp. that causes plague", answer:  "Yersinia pestis" },
+    { question: "bubonic form of Yersinia Pestis plague spread by", answer:  "fleas" },
+    { question: "what shape is Yersinia typically microscopically", answer:  "safety-pin" },
+    { question: "three human pathogenic Yersinia spp.", answer:  "pestis (class A bioterrorism agent), enterocolitica, pseudotuberculosis" },
+    { question: "Yersinia spp. in which refrigeration is ineffective bc it survives in the cold, also causes arthritis following a Gl episode", answer:  "Y, enterocolitica" },
+    { question: "best means of transport for Yersinia", answer:  "Cary-Blair" },
+    { question: "Y. enterocolitica is grown on", answer:  "Cefsulodin-irgasan-novobiocin (CIN) agar" },
+    { question: "Yersinia is most commonly found in", answer:  "Europe" },
+    { question: "Y. tuberculosis is typically only found in", answer:  "animals" },
+    { question: "the newer genera of Enterobacteriaceae that resemble E. coli on MAC plate", answer:  "Kluyvera spp." },
+    { question: "most common clinical isolate of Kluyvera spp.", answer:  "K. ascorbata" },
+    { question: "in stool cultures, complete identification should be directed only toward", answer:  "true intestinal pathogens" },
+    { question: "direct microscopic examination of Enterobacteriacaea is", answer:  "not helpful in differentiating species" },
+    { question: "Enteric PATHOGENS to look for when screening stool specimens", answer:  "Salmonella, Shigella, Yersinia, E. coli O157:H7, Aeromonas, Campylobacter, Vibrio, Plesiomonas shigelloides" },
+    { question: "all fecal specimens should be routinely screened for", answer:  "Salmonella, Shigella, Campylobacter" },
+    { question: "where do you most likely find vibrio? what does it cause", answer:  "salty-water environment (during warmer months), seafood (oysters), gastroenteritis w/rice-water stools" },
+    { question: "most common Vibrio spp., causes massive dehydration; not commonly reported in US (India, Bangledesh)", answer:  "Vibrio cholerae" },
+    { question: "Vibrio cholerae spread through", answer:  "contam water, Improperly handled food from bad water" },
+    { question: "V. parahemolyticus AKA", answer:  "summer diarrhea of Japan" },
+    { question: "second most common Vibrio spp. that develops 24-48 hrs after eating contaminated seafood", answer:  "Vibrio parahemolyticus" },
+    { question: "best treatment for Vibrio", answer:  "IV" },
+    { question: "Vibrio vulnificus is also known as it is also unique in the Vibrio genus bc it's the only one that", answer:  "\"lactose-positive Vibrio\", answer:  is required by CDC to be reported to local and state publich health dept" },
+    { question: "you show symptoms of Vibrio is after ingestion", answer:  "24-48 hours" },
+    { question: "rarely isolated and least pathogenic Vibrio spp", answer:  "Vibrio alginolyticus" },
+    { question: "when collecting Vibrio, dont use", answer:  "buffered glycerol saline (inhibits growth)" },
+    { question: "Vibrio spp. is catalase", answer:  "positive" },
+    { question: "Resistance in Vibriostat disk (used to differentiate Vibrios from Aeromonas) is common in", answer:  "V. cholerae" },
+    { question: "Vibrio is on gram stain", answer:  "curved, pleomorphic shapes" },
+    { question: "If Vibrios are identified using a rapid or semi-automated system, ID should be confirmed with", answer:  "reference lab, state public health dept lab" },
+    { question: "two tests to differentiate Aeromonas from Vibrios", answer:  "string test, Virbrostat test" },
+    { question: "best medium for Vibrio growth", answer:  "TCBS plate (thiosulfate, citrate, bile salts, sucrose)" },
+    { question: "Aeromonas diarrhea AKA", answer:  "traveler's diarrhea" },
+    { question: "is most frequently associated with gastrointestinal infections, especially in neonate and pediatric populations", answer:  "A. caviae" },
+    { question: "to differentiate Aeromonas, a spot indole test would be", answer:  "positive" },
+    { question: "this spp often overlooked on MAC as normal colon flora because it ferments lactose", answer:  "Aeromonas" },
+    { question: "two spots you don't typically see infected from Aeromonas", answer:  "lungs, brain (except meningitis)" },
+    { question: "only species in Plesiomonas genus", answer:  "P. shigelloides" },
+    { question: "P. shigelloides is commonly found in", answer:  "soil, aquatic environments" },
+    { question: "P. shigelloides can cause watery diarrhea, dysenteric from colitis, and", answer:  "subacute or chronic disease lasting from 2 weeks to 3 months" },
+    { question: "can enhance isolation of P. shigelloides", answer:  "Inositol brilliant green bile agar (IBB)" },
+    { question: "the biochemical identification of Plesiomonas tracks them as being", answer:  "motile, oxidase positive, glucose fermenting w/o gas production" },
+    { question: "when differentiating Plesiomonas, oxidase pos results", answer:  "rule out other Enterobacteriaceae" },
+    { question: "when differentiating Plesiomonas, sensitivity to Vibriostatic agent", answer:  "rules out Aeromonas" },
+    { question: "when differentiating Plesiomonas, no growth in high salt", answer:  "rules out Vibrio" },
+    { question: "confirms Plesiomonas", answer:  "Inositol fermentation" },
+    { question: "Campylobacter spp is", answer:  "microaerophilic (require oxygen, but less than room air 5% is optimal)" },
+    { question: "Campylobacter is commonly contracted from", answer:  "cats, dogs, birds" },
+    { question: "most common cause of gastroenteritis diarrhea worldwide, also associated with Guillian-Barre syndrome", answer:  "Campylobacter jejuni" },
+    { question: "bacteria that lives in mucus covering the surface of the stomach damaging tissue resulting in gastric, peptic, and duodenal ulcers; associated with causing gastric carcinoma (STOMACH CANCER)", answer:  "Helicobacter pylori" },
+    { question: "two unique culture types used to identify Campylobacter", answer:  "campy blood agar plates (Brucella agar base, 10% sheep blood), Skirrow media (blood agar base, lysed horse RBC)" },
+    { question: "microscopic morphology of Campylobacter", answer:  "long spirals, S, or seagull-wing shape" },
+    { question: "Campylobacter exhibits a motility on hanging drop preps or when visualized under phase contrast microscopy", answer:  "darting" },
+    { question: "Campylobacter must be incubate in a atmosphere at for", answer:  "microaerophilic (5-10% 02), capnophilic (10% CO2), 42C, 72 hours" },
+    { question: "genus associated with urea/urease testing (breath test, biospy test for urease, rapid urea test)", answer:  "Helicobacter" },
+    { question: "most nonfermentive, gram-neg bacilli are oxidase differentiating them from Enterobacteriacaea", answer:  "positive" },
+    { question: "nonfermentive, gram-neg bacilli do not ferment and grow only in an environment", answer:  "carbohydrates, aerobic" },
+    { question: "long, thin, gram-neg bacilli or coccobacilli is usually with flagella", answer:  "motile" },
+    { question: "1%-3% of all nosocomial infections", answer:  "Acinetobacter spp." },
+    { question: "5-15% of all nosocomial infections", answer:  "Pseudomonas aeruginosa" },
+    { question: "third most common nonfermentative, gram-neg bacillus isolated in clinical lab", answer:  "Strenotrophomonas maltophilia" },
+    { question: "most commonly seen members of the Pseudomonas flourescent group", answer:  "P. aeruginosa, P. flourescens" },
+    { question: "leading cause of nosocomial respiratory tract infections", answer:  "P. aeruginosa" },
+    { question: "significant virulence factors of P. aeruginosa", answer:  "Endotoxins (LPS), Exotoxins (exotoxin A), motility" },
+    { question: "fruity grape-like odor", answer:  "P. aeruginosa" },
+    { question: "P. aeruginosa produces and", answer:  "pyoverdin, pyocyanin" },
+    { question: "P. aeruginosa grows best at and is indole", answer:  "42C, negative" },
+    { question: "P. aeruginosa incidence of resistance much higher in", answer:  "nosocomial strains" },
+    { question: "P. fluorescens and P. putida nitrate to nitrite", answer:  "do not reduce" },
+    { question: "when using gelatin hydrolysis,", answer:  "P. putida is negative, P. fluorescens is positive" },
+    { question: "wrinkly leather adherent colonies that may produce a light yellow/brown pigment Indicative of", answer:  "P. stutzeri" },
+    { question: "contaminants within the Pseudomonas spp", answer:  "mendocina, pseudoalcaligenes, alcaligenes" },
+    { question: "25% of adults carry this organism on skin, only 7% in pharynx, 45% of tracheostomy patients may be colonized", answer:  "Acinetobacter spp." },
+    { question: "microscopic morphology of Acinetobacter spp.", answer:  "gram-neg coccobacilli/cocci, can appear as gram positive cocci" },
+    { question: "P. aeruginosa is susceptible to", answer:  "fluoroquinolones, carbapenems" },
+    { question: "A. baumannii has resistance to", answer:  "carbapenems" },
+    { question: "common contaminant of blood drawing equipment, disinfectants, transducers; not considered part of normal flora, but can quickly colonize resp tract of hospitalized patients", answer:  "Stenotrophomonas maltophilia" },
+    { question: "S. maltophilia is oxidase negative (everything else pos)", answer:  "oxidase" },
+    { question: "drug of choice for most S. maltophilia infections (along with a lot of other non-fermenting gram-neg bacilli infections)", answer:  "SXT" },
+    { question: "majority of non-fermenters are oxidase", answer:  "positive" },
+    { question: "% of all gram-neg nonfermenters are nosocomial infections", answer:  "15" },
+    { question: "P. aeruginosa often seen in patients with", answer:  "Cystic Fibrosis" },
+    { question: "Acinetobacter has spp most commonly seen;", answer:  "3, A. baumannii, A. Iwoffii, A. haemolyticus" },
+    { question: "infections of B. cepacia and B. gladioli mainly seen in", answer:  "patients with CF and CGD" },
+    { question: "B. cepacia plates lose viability in", answer:  "3-4 days" },
+    { question: "selective media for recovery of B. cepacia", answer:  "PC, OFPBL, BCSA" },
+    { question: "B. cepacia is oxidase", answer:  "neg" },
+    { question: "Burkholderia mallei causes", answer:  "Glanders (resp tract zoonosis, rare in humans)" },
+    { question: "B. mallei is considered by CDC to be", answer:  "bioterrorism agent" },
+    { question: "Burkholderia pseudomallei causes", answer:  "melliodosis (aggressive granulomatous pulmonary disease)" },
+    { question: "B. pseudomallei is commonly seen in", answer:  "Vietnam, Thailand, N. Australia, Mexico" },
+    { question: "Ashdown medium plate with, wrinkled, deep pink, earthy odor growth indicative", answer:  "B. pseudomallei" },
+    { question: "motility of Marxella spp", answer:  "non-motile" },
+    { question: "Alcaligenes and Achromobacter spp are resistant to", answer:  "disinfectants such as chlorhexidine, quaternary ammonium compounds" },
+    { question: "morphology of Alcaligenes and Achromobacter spp", answer:  "gram-neg bacilli, possess peritrichous flagella" },
+    { question: "oxidase neg non-fermenters", answer:  "Acinetobacter spp, S. maltophilia, Pseudomonas luteola, P. oryihabitans, Pseudomonas cepacia" },
+    { question: "Escherichia coli is Indole positive, Methyle red positive VP negative and Citrate", answer:  "negative" },
+    { question: "Salmonella infections are most commonly associated with ingesting bad", answer:  "poultry products" },
+    { question: "Yersinia spp. causes that occurs in and forms.", answer:  "Plague, bubonic, septicemic, pneumonic" },
+    { question: "Increased consumption of uncooked seafood, travel to coastal or cholera endemic areas are risk factors for infection.", answer:  "Vibrio spp." },
+    { question: "Yellow colonies on Thiosulfate citrate bile salts sucrose agar (TCBS) indicative of what Vibrio spp.", answer:  "V. cholerae, V. alginolyticus, V. fluvalis" },
+    { question: "Green colonies on Thiosulfate citrate bile salts sucrose agar (TCBS) indicative of what Vibrio spp.", answer:  "V. damsela, V. vulnificus, V. mimicus" },
+    { question: "This organism is catalase positive, oxidase positive, reduces nitrate to nitrite, susceptible to vibriostatic CPD $0/129$", answer:  "Vibrio spp." },
+    { question: "causes gastroenteritis, and a cholera like disease with rice water stool.", answer:  "Vibrio cholera" },
+    { question: "and are the three major types of gastroenteritis.", answer:  "Watery diarrhea, chronic disease, dysenteric form resembling colitis" },
+    { question: "Mild abdominal pain cramps, bloody diarrhea with chills and fever are symptoms of the most common cause of", answer:  "Campylobacter jejuni, Bacterial diarrhea" },
+    { question: "E. Meningosepticum causes and", answer:  "Pneumonia, endocarditis, meningitis" },
+    { question: "Campylobacter spp. are microaerophilic, incubated at 42 degrees centigrade and transported using a caryblair -medium.", answer:  "T" },
+    { question: "A gastric biopsy is utilized during a rapid reactions that requires with a color change after hours.", answer:  "Urease, Christensen's urea medium 2 hours" },
+    { question: "Describe the gram stain morphology of Campylobacter spp.", answer:  "Tiny curved gram negative rods that are s-shaped resembling Seagal wings" },
+    { question: "What is the oxidase/catalase reaction for Moraxella catarrhalis?", answer:  "both positive" },
+    { question: "Bacteria that do not ferment carbohydrates are termed as prefer environments and grow only in environments.", answer:  "Nonfermenters-, moist, aerobic" },
+    { question: "This organism is oxidase positive, motile, grows at 42 °C, citrate and ADH positive. (causes pneumonia in CF patients)", answer:  "Pseudomonas aeruginosa" },
+    { question: "Pseudomonas stutzeri belongs to the non-florescent group, is a rare pathogen that causes", answer:  "septic arthritis, conjunctivitis, UTI, endocarditis" },
+    { question: "The presence of in causes this bacteria to have a fruity and grape like odor.", answer:  "2-aminoacetophenone, Pseudomonas aeruginosa" },
+    { question: "Chronic granulomatous disease and cystic fibrosis patients can develop from an opportunistic infections.", answer:  "Pneumonia, Burkholderia cepacia" },
+    { question: "All of the following are characteristics of Acinetobacter Iwoffi except?", answer:  "Saccharolytic and glucose positive" },
+    { question: "All of the following are characteristics of A. baumanni, a now clinically significant infection EXCЕРТ:", answer:  "Saccharolytic and glucose positive" },
+    { question: "All of the following are characteristics of Stenotrophomonas maltophilia EXCEPT;", answer:  "X & V factors are required for the successful treatment of S. maltophilia" },
+    { question: "Cystic fibrosis patients are susceptible to pulmonary disease caused by because of its virulence factor", answer:  "Pseudomonas aeruginosa, alginate" },
+    { question: "Endotoxins exotoxins and capsule formation are all virulence factors of Pseudomonas aeruginosa", answer:  "T" },
+    { question: "Fluroquinolones carbapenems and aminoglycosides are effective antimicrobials for Pseudomonas Aeruginosa", answer:  "T" },
+    { question: "Escherichia coli O157:H7 is associated with which conditions?", answer:  "Watery diarrhea progressing to bloody diarrhea, Colitis, Hemolytic-uremic syndrome" },
+    { question: "Describe the microscopic and macroscopic morphology of Klebsiella pneumoniae.", answer:  "Gram-negative coccobacilli or straight rods, large moist gray colonies" },
+    { question: "and _ are the two clinically significant species of Enterobacter spp.", answer:  "Enterobacter cloacae, Enterobacter aerogenes" },
+    { question: "Klebsiella, Enterobacter, serratia, pontoea cronobacter and Hania spp. are associated mostly with", answer:  "Opportunistic infections., Nosocomial infections" },
+    { question: "is implicated in nosocomial outbreaks in burn units, and isolated in urine cultures that are difficult to treat due to", answer:  "Providencia stuartii, a high resistance to antimicrobials" },
+    { question: "PFC Who Gotcha, observed a swarming colony on SBA that had a burnt chocolate odor. The colony is presumptively?", answer:  "Proteus vulgaris" },
+    { question: "Edwardsiella tarda grows well on Simmon's citrate agar.", answer:  "F" },
+    { question: "most commonly isolated Citrobacter species?", answer:  "Citrobacter braakii, Citrobacter freundii, Citrobacter koseri" },
+    { question: "is associated with neonatal meningitis where as is associated with UTI's.", answer:  "Citrobacter koseri, Citrobacter freundil" },
+    { question: "Describe Salmonella spp. macroscopically.", answer:  "Clear colorless colonies with black centers on MAC" },
+    { question: "Isolated from respiratory, urine, and blood cultures, may produce a reddish blue or violet pigment", answer:  "Kluyvera spp." },
+    { question: "MAC agar with sorbital (SMAC) is essential for the identification of which will appear", answer:  "E. coli 0157:H7, clear" },
+    { question: "Aeromonas spp. are oxidase and indole", answer:  "positive, positive" },
+    { question: "Vets and zookeepers are at an increased risk of infections whose colonies are oxidase", answer:  "Plesiomonas, positive" },
+    { question: "This organism exhibits a darting motility causes a selflimiting -illness that may be treated with erythromycin?", answer:  "Campylobacter spp." },
+    { question: "These bacteria is associated with transfusion associated septicemia hospital equipment and fluids?", answer:  "Pseudomonas flourescens, Pseudomonas putida" },
+    { question: "is caused by Burkholderia a non fermenter considered a potential Bioterror agent?", answer:  "Glanders disease (respiratory tract zoonosis), mallei" },
+    { question: "Burkholderia causes melioidosis, an aggressive granulomatous pulmonary disease?", answer:  "pseudomallei" },
+    { question: "For successful presumptive testing of Aeromonads the following tests are required.", answer:  "Oxidase testing (Positive reaction), B-Hemolytic colonies on SBA, Spot Indole testing (Positive reaction)" },
+    { question: "Definitive identification of Aeromonads is accomplished via ?", answer:  "Esculin hydrolysis testing, Voges- Proskauer, API 20 strips" }
+];
+
+
+        function startQuiz() {
+            shuffledQuestions = quizData.sort(() => Math.random() - 0.5);
+            currentQuestionIndex = 0;
+            setNextQuestion();
+        }
+
+        function setNextQuestion() {
+            resetState();
+            if (currentQuestionIndex >= shuffledQuestions.length) {
+                // Recycle the quiz
+                currentQuestionIndex = 0;
+                shuffledQuestions = quizData.sort(() => Math.random() - 0.5); 
+            }
+            showQuestion(shuffledQuestions[currentQuestionIndex]);
+        }
+
+        function showQuestion(questionData) {
+            progressTextElement.innerText = `Question ${currentQuestionIndex + 1} / ${quizData.length}`;
+            questionTextElement.innerText = questionData.question;
+
+            // Generate answer options
+            const correctAnswer = questionData.answer;
+            const otherAnswers = quizData
+                .map(q => q.answer)
+                .filter(answer => answer !== correctAnswer);
+
+            // Shuffle other answers and pick 3 distractors
+            const distractors = otherAnswers.sort(() => Math.random() - 0.5).slice(0, 3);
+            
+            const answerOptions = [...distractors, correctAnswer].sort(() => Math.random() - 0.5);
+
+            answerOptions.forEach(answer => {
+                const button = document.createElement('button');
+                button.innerText = answer;
+                button.classList.add('btn-answer', 'w-full', 'text-left', 'p-4', 'rounded-md', 'border', 'border-gray-600', 'text-white');
+                if (answer === correctAnswer) {
+                    button.dataset.correct = true;
+                }
+                button.addEventListener('click', selectAnswer);
+                answerButtonsElement.appendChild(button);
+            });
+        }
+
+        function resetState() {
+            while (answerButtonsElement.firstChild) {
+                answerButtonsElement.removeChild(answerButtonsElement.firstChild);
+            }
+        }
+
+        function selectAnswer(e) {
+            const selectedButton = e.target;
+            const correct = selectedButton.dataset.correct === 'true';
+
+            setStatusClass(selectedButton, correct);
+
+            Array.from(answerButtonsElement.children).forEach(button => {
+                if (button.dataset.correct) {
+                    setStatusClass(button, true);
+                }
+                button.disabled = true; // Disable all buttons after selection
+            });
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+                setNextQuestion();
+            }, 1500); // Wait 1.5 seconds before moving to the next question
+        }
+
+        function setStatusClass(element, correct) {
+            if (correct) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('wrong');
+            }
+        }
+
+        // Start the quiz when the page loads
+        startQuiz();
+    </script>
+
+</body>
+</html>
+

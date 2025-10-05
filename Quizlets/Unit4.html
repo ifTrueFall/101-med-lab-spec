@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLT 107 Unit 1 & 2 Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles inspired by the provided example */
+        body {
+            background-color: #333;
+            color: #f0f0f0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        .quiz-container {
+            background-color: #444;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+        .btn-answer {
+            background-color: #555;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-answer:hover {
+            background-color: #666;
+            transform: translateY(-2px);
+        }
+        .btn-answer.correct {
+            background-color: #28a745; /* Green for correct */
+            border-color: #28a745;
+        }
+        .btn-answer.wrong {
+            background-color: #dc3545; /* Red for wrong */
+            border-color: #dc3545;
+        }
+        .btn-answer.correct, .btn-answer.wrong {
+            color: white;
+            pointer-events: none; /* Disable clicking after an answer is shown */
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div id="quiz-container" class="quiz-container w-full max-w-2xl mx-auto rounded-lg p-6 md:p-8">
+        <!-- Progress and Question Section -->
+        <div class="mb-6">
+            <div id="progress-container" class="flex justify-between items-center text-sm text-gray-300 mb-4">
+                <p id="progress-text">Question 1 / 264</p>
+                <p>MLT 107 Review</p>
+            </div>
+            <div id="question-container" class="bg-gray-700 p-4 rounded-md min-h-[120px] flex items-center justify-center">
+                <h2 id="question-text" class="text-lg md:text-xl text-center font-semibold">Loading question...</h2>
+            </div>
+        </div>
+
+        <!-- Answer Buttons Section -->
+        <div id="answer-buttons" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Answer buttons will be generated here -->
+        </div>
+    </div>
+
+    <script>
+        const questionTextElement = document.getElementById('question-text');
+        const answerButtonsElement = document.getElementById('answer-buttons');
+        const progressTextElement = document.getElementById('progress-text');
+
+        let shuffledQuestions, currentQuestionIndex;
+
+        // --- Data extracted from the PDF ---
+        const quizData = [
+    { question: "staphylococcus and micrococcus spp are arranged in", answer: "clusters (grape bunches)" },
+    { question: "virulence factors of staphylococcus aureus", answer: "enterotoxins, toxic shock syndrome toxin-1, exfoliative toxin (epidermolytic toxin), cytolytic toxins, enzymes, protein A" },
+    { question: "enterotoxins of S. aureus that are most commonly associated with gastrointestinal disturbances", answer: "toxin A, toxin B, toxin D" },
+    { question: "Scalded Skin Syndrome occurs mainly in", answer: "newborns, previously healthy young children" },
+    { question: "Scalded Skin Syndrome is caused by the ____ produced by S. aureus.", answer: "staphylococcal exfoliative or epidermolytic toxin" },
+    { question: "staphylococcus EPIDERMIDIS is predominantly ____.", answer: "nosocomial" },
+    { question: "staphylococcus SAPROPHYTICUS is primarily seen in ____ because it ____.", answer: "sexually active women, adheres more effectively to the epithelial cells lining urogenital tract" },
+    { question: "two most clinically significant and commonly recovered coagulase negative staphylococci", answer: "S. epidermidis, S. saprophyticus" },
+    { question: "S. Lugdunensis is known to carry the ____ gene that causes resistance to ____.", answer: "mecA, oxacillin" },
+    { question: "staphylococci grows easily on routine media, particularly ____.", answer: "sheep blood agar (SBA) plate" },
+    { question: "test used to differentiate coagulase-neg staph isolated from urine samples", answer: "novobiocin susceptibility" },
+    { question: "S. saprophyticus is resistant to ____.", answer: "novobiocin" },
+    { question: "S. aureus is ____-hemolytic.", answer: "beta" },
+    { question: "gold standard for MRSA detection is", answer: "detection of mecA gene by nucleic acid probes or PCR amplification" },
+    { question: "colony characteristics of staphylococcus epidermidis", answer: "small-medium, non-hemolytic, gray-white" },
+    { question: "streptococcus pyogenes colony characteristics", answer: "small, transparent, smooth, wide zone of beta-hemolysis" },
+    { question: "S. agalactiae colony characteristics", answer: "grayish-white, small zone of beta-hemolysis" },
+    { question: "Strep. pneumoniae colony characteristic", answer: "large zone of alpha-hemolysis" },
+    { question: "four groups of strep spp, based of physiology", answer: "pyogenic Streptococci, Lactococci, Enterococci, Viridians streptococci" },
+    { question: "gram-positive cocci are usually observed as", answer: "pairs, chains, clusters" },
+    { question: "gram-positive cell wall composed of", answer: "thick peptidoglycan layer, teichoic acid" },
+    { question: "some species of gram-positive bact. can produce a", answer: "type-specific polysaccharide capsule" },
+    { question: "adhesion molecules that mediate attachment to host cells", answer: "protein F (fibronectin-binding protein), lipoteichoic acid" },
+    { question: "virulence factors of strep pyogenes", answer: "M protein, protein F, capsule prevents phagocytosis, streptolysin O, streptolysin S, DNases, hyaluronidase, streptococcal pyrogenic exotoxins" },
+    { question: "one of top invasive gram-pos infections for the death of newborns in the US if not treated quickly", answer: "Strep. agalactiae (group B)" },
+    { question: "Strep. pneumoniae clinical infections", answer: "pneumonia, sinusitis, otitis media, meningitis, bacteremia" },
+    { question: "Viridans Streptococci species is normal flora of the", answer: "upper respiratory tract, female genital tract, GI tract" },
+    { question: "differential tests used to determine Group D from Enterococcus", answer: "bile esculin, 6.5% NaCl broth, PYR" },
+    { question: "Enterococcus cell wall is composed of (same as streptococcus)", answer: "thick peptidoglycan layer, teichoic acid" },
+    { question: "classification schemes for the laboratory diagnosis of Streptococcacae", answer: "hemolytic patterns on SBA, physiologic characteristics, Lancefield classification system, biochemical characteristics" },
+    { question: "useful test for differentiating S. agalactiae from other beta-hemolytic streptococci", answer: "hippurate hydrolysis (2 hr rapid test)" },
+    { question: "The ____ and ____ tests have been mainstays in identification schemes for non-hemolytic, catalase-negative, gram-positive cocci.", answer: "bile esculin hydrolysis, bile salt tolerance (6.5%)" },
+    { question: "staph aureus most commonly known for", answer: "gastrointestinal issue" },
+    { question: "staph aureus is usually ____-hemolytic, and rarely produces ____ pigment.", answer: "beta, yellow" },
+    { question: "key test for S. agalactiae; if it's negative, then order a ____.", answer: "rapid latex agglutination, throat culture" },
+    { question: "most common sites for Corynebacterium diptheria", answer: "tonsils, pharynx" },
+    { question: "Corynebacterium diptheria microscopic morphology (diptheroid)", answer: "slightly curved gram-positive bacilli with unparalleled sides, 'club-shaped', palisade formation" },
+    { question: "differential testing of Corynebacterium diptheria", answer: "catalase-positive, non-motile, reduces nitrate to nitrite, Babes-Ernst granules" },
+    { question: "Corynebacteria most commonly associated with UTI", answer: "C. urealyticum" },
+    { question: "Listeria monocytogenes most commonly affect", answer: "pregnant women 3rd trimester (spontaneous abortion), newborns/neonates, immunocompromised adults (elderly)" },
+    { question: "differential testing for Listeria monocytogenes", answer: "umbrella motility, tumbling motility when viewed microscopically, CAMP test, positive for hippurate hydrolysis" },
+    { question: "Novobiocin is used for the presumptive identification of which organism?", answer: "S. saprophyticus" },
+    { question: "What best describes the colony morphology of S. epidermidis and it's clinical significance?", answer: "Medium, y-hemolytic, grey color, primarily a hospital acquire infection" },
+    { question: "Staphylococcus saprophyticus is associated with what infections?", answer: "UTI in young females" },
+    { question: "What are the most common CONS isolated?", answer: "S. epidermidis and S. saprophyticus" },
+    { question: "Staphylococcus aureus is know to?", answer: "Produces a beta hemolytic zone and rarely yellow pigmentation" },
+    { question: "What virulence factor causes gastrointestinal disturbances to include diarrhea and vomiting from S. aureus?", answer: "enterotoxins" },
+    { question: "Coagulase distinguishes which Staphylococcus from others?", answer: "S. aureus" },
+    { question: "What are the opportunistic Staphylococcus species?", answer: "S. warneri, S. schleiferi, S. simulans" },
+    { question: "Toxic shock syndrome symptoms include?", answer: "Fever, chills, vomiting, diarrhea, muscle aches, rash" },
+    { question: "Where can you find staphylococci on the human body normally?", answer: "Axillae, pharynx, nares" },
+    { question: "White, smooth, and round describe the colony morphology of what organism?", answer: "S. aureus" },
+    { question: "Coagulase and Latex agglutination are used to distinguished what Staphylococcus from other Staphylococcus?", answer: "S. aureus" },
+    { question: "What is the first test run on a suspected staphylococcal specimen?", answer: "coagulase" },
+    { question: "What is the arrangement of Streptococci spp on a gram stain?", answer: "pairs, chains" },
+    { question: "extended incubation of S. aureus can lead to", answer: "yellow pigmentation" },
+    { question: "Which of the following is found as normal flora in the GI tract and upper respiratory tract?", answer: "Viridans streptococci" },
+    { question: "Pneumonia, bacteremia, and meningitis are cause by which Streptococcus species?", answer: "S. pneumoniae" },
+    { question: "Bile esculin and 6.5% NaCl are use to distinguish what two species?", answer: "Enterococcus, group D Streptococcus" },
+    { question: "What does S. agalactiae look like on SBA plate?", answer: "Grayish white colonies with a small area of B-hemolysis" },
+    { question: "What does S. pyogenes look like on SBA plate?", answer: "Transparent colonies with a wide zone of B-hemolysis" },
+    { question: "What test should be done to confirm a negative rapid group A test?", answer: "Throat culture should be performed" },
+    { question: "Bile esculin and salt tolerance tests are performed as part of which organisms identification scheme?", answer: "Non-hemolytic, catalase-negative, gram-positive cocci" },
+    { question: "Hippurate hydrolysis differentiates other B-hemolytic Streptococcus from which organism?", answer: "S. agalactiae" },
+    { question: "Physiologic characteristic divide Streptococcal species into the following groups:", answer: "Enterococci, Lactococci, pyogenic streptococci, viridans streptococci" },
+    { question: "S. pyogenes exotoxins cause?", answer: "Scarlet Fever" },
+    { question: "Bacillus anthracis laboratory ID", answer: "non-motile, medusa head/beaten egg-white, bamboo, large, square-ended gram-pos rods" },
+    { question: "Tsukamurella is seen in", answer: "chronic lung infection, subcutaneous abscess, cutaneous lesions, catheter-related bacteremia, peritonitis" },
+    { question: "most frequent cause of cutaneous nocardiosis", answer: "N. brasiliensis" },
+    { question: "most pulmonary infections cause by these two species", answer: "Nocardia cyriacigeorgica, N. facinica" },
+    { question: "In 2000, ____ was approved by FDA to treat anthrax until susceptibility results are known.", answer: "ciprofloxacin" },
+    { question: "proteins commonly associated with anthrax", answer: "edema factor (EF), protective antigen (PA), lethal factor (LF)" },
+    { question: "Spontaneous abortion can be caused by what organism?", answer: "Listeria monocytogenes" },
+    { question: "What are Streptococcus-like organisms?", answer: "Aerococcus, Gamella, Lactococcus" },
+    { question: "Streptococcus pneumoniae has a coin appearance due to?", answer: "Growth in the center dies due to autolysis" },
+    { question: "Which Streptococci has a capsule as a virulence factor?", answer: "S. pneumoniae" },
+    { question: "Which organism has become a global problem?", answer: "Vancomycin-resistant Enterococcus" },
+    { question: "CAMP differentiates what species?", answer: "Group B strep from other Streptococcus" },
+    { question: "Invasive disease of the newborn is cause by?", answer: "S. agalactiae" },
+    { question: "M protein is the cellular structure essential for virulence in what species?", answer: "S. pyogenes" },
+    { question: "What organism can Optochin presumptively identify?", answer: "S. pneumoniae" },
+    { question: "PYR can distinguish between what?", answer: "B-hemolytic group A streptococci and other B-hemolytic streptococci" },
+    { question: "Bacitracin presumptively identifies what organism?", answer: "S. pyogenes" },
+    { question: "S. pyogenes produces extracellular products: Streptococcal pyrogenic exotoxins, hyaluronidase, and hemolysins S and O.", answer: "true" },
+    { question: "Streptococcus and Staphylococcus are differentiated by what test?", answer: "catalase" },
+    { question: "Corynebacterium diphtheria produces what granules when gram-stained?", answer: "Babes-Ernst granules" },
+    { question: "Listeria monocytogenes exhibits what kind of motility?", answer: "End-over-end tumbling" },
+    { question: "What best describe Bacillus anthracis?", answer: "Large, square-ended, GPB, non-hemolytic, non-motile" },
+    { question: "What bacteria causes chronic lung infection, conjunctivitis, and knee prosthesis infection?", answer: "Tsukamurella paurametabola" },
+    { question: "What best describes Streptomyces?", answer: "Resembles aerobic actinomycetes, found in soil, primarily saprophytic" },
+    { question: "Filamentous, branching if stained with carbolfuchsin and weak acid decolorizer, but not with Kinyoun describes what?", answer: "Nocardia spp." },
+    { question: "N. brasilensis is most frequently the cause of?", answer: "cutaneous infections" },
+    { question: "N. cyriacigeorgia is the main cause of?", answer: "Confluent bronchopneumonia" },
+    { question: "B. cereus is associated with?", answer: "food poisoning" },
+    { question: "Ciprofloxacin can be used to treat?", answer: "B. anthrax" },
+    { question: "Which form of Anthrax causes abdominal pain, bloody diarrhea, and vomiting?", answer: "Gastrointestinal" },
+    { question: "Corynebacterium can be described as?", answer: "Club-shaped or Chinese letters as view in gram-stain, GPB, slightly curved" },
+    { question: "Why is it important to have the results back before treating Nocardia spp?", answer: "Resistant to penicillins, susceptible to sulfonamides, anti-fungals do not work" },
+    { question: "What are some facts about Nocardia spp?", answer: "Infects immunocompromised, grows slowly (over a week), standard media used" },
+    { question: "Which of the following two species are very similar to each other?", answer: "B. anthracis and B. cereus" },
+    { question: "Meningitis is a secondary infection in 5% of patients that contract?", answer: "B. anthrax" },
+    { question: "Cyanosis, dyspnea, and disorientation is associated with witch type of anthrax?", answer: "Inhalation" },
+    { question: "Woolsorter's disease is associated with witch type of anthrax?", answer: "Pulmonary" },
+    { question: "How do animals contract Anthrax?", answer: "Eating the spores in their contaminated food" },
+    { question: "Which of the following species is mostly considered a contaminant in the lab?", answer: "Bacillus" },
+    { question: "What are the general characteristics of Bacillus?", answer: "GPB, aerobic, endospore forming" },
+    { question: "Which of the following belong to Arcanobacterium genus?", answer: "A. pyogenes, A. bernardiae, A. haemolyticum" },
+    { question: "Which of the following is associated with immunocompromised patients?", answer: "C. jeikeium" },
+    { question: "Which media are used to cultivate C. diphtheria?", answer: "SBA, Loeffler agar, Cystine-tellurite blood" },
+    { question: "Diptheria toxin is the major virulence factor for which organism?", answer: "C. diphtheria" },
+    { question: "What are the virulence factors for Streptococcus pyogenes?", answer: "Hemolysins, exotoxins, enzymes" }
+];
+        function startQuiz() {
+            shuffledQuestions = quizData.sort(() => Math.random() - 0.5);
+            currentQuestionIndex = 0;
+            setNextQuestion();
+        }
+
+        function setNextQuestion() {
+            resetState();
+            if (currentQuestionIndex >= shuffledQuestions.length) {
+                // Recycle the quiz
+                currentQuestionIndex = 0;
+                shuffledQuestions = quizData.sort(() => Math.random() - 0.5); 
+            }
+            showQuestion(shuffledQuestions[currentQuestionIndex]);
+        }
+
+        function showQuestion(questionData) {
+            progressTextElement.innerText = `Question ${currentQuestionIndex + 1} / ${quizData.length}`;
+            questionTextElement.innerText = questionData.question;
+
+            // Generate answer options
+            const correctAnswer = questionData.answer;
+            const otherAnswers = quizData
+                .map(q => q.answer)
+                .filter(answer => answer !== correctAnswer);
+
+            // Shuffle other answers and pick 3 distractors
+            const distractors = otherAnswers.sort(() => Math.random() - 0.5).slice(0, 3);
+            
+            const answerOptions = [...distractors, correctAnswer].sort(() => Math.random() - 0.5);
+
+            answerOptions.forEach(answer => {
+                const button = document.createElement('button');
+                button.innerText = answer;
+                button.classList.add('btn-answer', 'w-full', 'text-left', 'p-4', 'rounded-md', 'border', 'border-gray-600', 'text-white');
+                if (answer === correctAnswer) {
+                    button.dataset.correct = true;
+                }
+                button.addEventListener('click', selectAnswer);
+                answerButtonsElement.appendChild(button);
+            });
+        }
+
+        function resetState() {
+            while (answerButtonsElement.firstChild) {
+                answerButtonsElement.removeChild(answerButtonsElement.firstChild);
+            }
+        }
+
+        function selectAnswer(e) {
+            const selectedButton = e.target;
+            const correct = selectedButton.dataset.correct === 'true';
+
+            setStatusClass(selectedButton, correct);
+
+            Array.from(answerButtonsElement.children).forEach(button => {
+                if (button.dataset.correct) {
+                    setStatusClass(button, true);
+                }
+                button.disabled = true; // Disable all buttons after selection
+            });
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+                setNextQuestion();
+            }, 1500); // Wait 1.5 seconds before moving to the next question
+        }
+
+        function setStatusClass(element, correct) {
+            if (correct) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('wrong');
+            }
+        }
+
+        // Start the quiz when the page loads
+        startQuiz();
+    </script>
+
+</body>
+</html>
+

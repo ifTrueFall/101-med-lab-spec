@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLT 107 Unit 1 & 2 Quiz</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles inspired by the provided example */
+        body {
+            background-color: #333;
+            color: #f0f0f0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        .quiz-container {
+            background-color: #444;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+        .btn-answer {
+            background-color: #555;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-answer:hover {
+            background-color: #666;
+            transform: translateY(-2px);
+        }
+        .btn-answer.correct {
+            background-color: #28a745; /* Green for correct */
+            border-color: #28a745;
+        }
+        .btn-answer.wrong {
+            background-color: #dc3545; /* Red for wrong */
+            border-color: #dc3545;
+        }
+        .btn-answer.correct, .btn-answer.wrong {
+            color: white;
+            pointer-events: none; /* Disable clicking after an answer is shown */
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div id="quiz-container" class="quiz-container w-full max-w-2xl mx-auto rounded-lg p-6 md:p-8">
+        <!-- Progress and Question Section -->
+        <div class="mb-6">
+            <div id="progress-container" class="flex justify-between items-center text-sm text-gray-300 mb-4">
+                <p id="progress-text">Question 1 / 264</p>
+                <p>MLT 107 Review</p>
+            </div>
+            <div id="question-container" class="bg-gray-700 p-4 rounded-md min-h-[120px] flex items-center justify-center">
+                <h2 id="question-text" class="text-lg md:text-xl text-center font-semibold">Loading question...</h2>
+            </div>
+        </div>
+
+        <!-- Answer Buttons Section -->
+        <div id="answer-buttons" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Answer buttons will be generated here -->
+        </div>
+    </div>
+
+    <script>
+        const questionTextElement = document.getElementById('question-text');
+        const answerButtonsElement = document.getElementById('answer-buttons');
+        const progressTextElement = document.getElementById('progress-text');
+
+        let shuffledQuestions, currentQuestionIndex;
+
+        // --- Data extracted from the PDF ---
+        const quizData = [
+    { question: "increase in CO2 (5-10%), reduced O2 (15%)", answer: "capnophilic" },
+    { question: "oxygen reduced to 5% or less", answer: "microaerophilic" },
+    { question: "killed in the presence of oxygen", answer: "obligate (strict) anaerobes" },
+    { question: "obligate anaerobes do not have or enzymes to protect them, which is why oxygen kills them (aerobes do)", answer: "superoxidase dismutase, catalase" },
+    { question: "organism from outside of the body that was ingested or gained entrance through trauma", answer: "exogenous" },
+    { question: "examples of exogenous organisms", answer: "Clostridium, Sarcina, Fusobacterium" },
+    { question: "organism from within the body that is in the wrong place becoming source of infection", answer: "endogenous" },
+    { question: "most commonly seen cause of bacteremia", answer: "B. fragilis group" },
+    { question: "myonecrosis is commonly seen as a result of", answer: "Clostridium perfringens" },
+    { question: "causative agent of food poisoning", answer: "Clostridium perfringens" },
+    { question: "Propionibacterium is normal flora of NOT in GI tract", answer: "skin" },
+    { question: "Clostridium is normal flora of NOT on skin", answer: "Gl tract" },
+    { question: "instances in which bacteria is able to gain entry and have ideal conditions for a perfect growth environment (predispose patient to anaerobic infection)", answer: "bite wounds, aspiration of oral flora into deep lung, oral surgery, puncture wounds or burns w/ soil contam" },
+    { question: "Boxcar, large square rods gram-positive bacillus, double zone of hemolysis, subterminal spores", answer: "Clostridium perfringens" },
+    { question: "Slow growing, heavily swarming, terminal spores", answer: "Clostridium tetani" },
+    { question: "Clostridium family is", answer: "gram-positive, spore forming, anaerobic bacilli" },
+    { question: "gray-white, circular to irregular shape, beta-hemolytic, subterminal spores", answer: "Clostridium botulinum" },
+    { question: "Clinical infections caused by Clostridium", answer: "food poisoning, botulism, tetanus, myonecrosis, bacteremia, Clostridium difficile- Associated Diseases (extreme diarrhea)" },
+    { question: "symptoms for Clostridium perfringens type A are symptoms occur after ingestion linked to", answer: "diarrhea and cramps, 8-30 hrs, sporulation" },
+    { question: "symptoms for Clostridium perfingens type C more sever than A) are and may be accompanied by as soon as", answer: "severe ab pain/bloody diarrhea, vomiting, 5-6 hours" },
+    { question: "Botulism is caused by", answer: "Clostridium botulinum" },
+    { question: "in Botulism, are produced; types are associated with human disease usually resulting from", answer: "Botulinum toxins, A, B, E, Botox (A)" },
+    { question: "sources of botulism", answer: "home canning, home-cured meats, Honey (infant botulism)" },
+    { question: "botulinum toxins prevent the release of", answer: "acetylcholine" },
+    { question: "disease that acts on inhibitory neurons, preventing the release of neurotransmitters", answer: "Tetanus" },
+    { question: "symptoms of Tetanus (Clostridium tetani)", answer: "Muscular rigidity of the jaw, neck, and lumbar region, difficulty breathing" },
+    { question: "most common cause of myonecrosis", answer: "C. perfringens" },
+    { question: "most common isolate from blood cultures", answer: "C. perfringens" },
+    { question: "marker organism for malignancy of Gl tract", answer: "C. septicum" },
+    { question: "Actinomyces is normally found in", answer: "upper respiratory tract" },
+    { question: "C. difficile a common cause of", answer: "nosocomial associated infection" },
+    { question: "does Mobiluncus have spores?", answer: "no" },
+    { question: "in Bacterial Vaginosis, causes a shift in the vaginal biota occurs, resulting in", answer: "Lactobacillus spp., overgrowth of other endogenous anaerobes" },
+    { question: "Anaerobic GRAM-NEG BACILLI genera most commonly encountered in clinical specimens", answer: "Bacteroides fragilis group, Porphyromonas, Prevotella, Fusobacterium, Bilophilia (very rare)" },
+    { question: "most common species of anaerobic bacteria isolated from soft tissue and anaerobic bacteremia", answer: "Bacteroides fragilis group" },
+    { question: "acceptable specimens for anaerobic testing", answer: "aspirates (stuff from under the skin)" },
+    { question: "unacceptable specimens for testing anaerobes", answer: "dental, ear nose throat specimens, pulmonary, female genital tract, urinary tract, feces, ulcers/wound, any material adjacent to mucous membrane" },
+    { question: "anaerobic specimens require to prevent (minimize exposure to oxygen and keep it from drying out)", answer: "rapid processing, shocking the anaerobes" },
+    { question: "processing clinical samples of anaerobic bacteria", answer: "macro and microscopic examination of specimen using gram stain, inoculation of appropriate plated and tubed media, anaerobic incubation of inoculated media" },
+    { question: "big things to look for macroscopically", answer: "is it black?, does it have foul odor, does it contain sulfur granules, does it fluoresce UV light" },
+    { question: "CLSI recommends gram stains on", answer: "all anaerobic specimens" },
+    { question: "gram stains a definitive ID of bacteria", answer: "do not provide" },
+    { question: "importance of gram stain on anaerobes", answer: "aids in selecting culture media, polymicrobial v monomicrobial infection, presumptive ID, determines quality of specimen, use methanol as fixative instead of heat, absence of leukocytes may indicate necrotizing toxins, recognize morphology with presumptive ID" },
+    { question: "most ideal way to incubate anaerobic culures", answer: "anaerobic chambers" },
+    { question: "anaerobes are incubated for at C; for if Actinomyces is suspected", answer: "5-7 days, 35-37, 10 days" },
+    { question: "indications of presence of anaerobes in cultures", answer: "foul odor when you open culture, characteristic colonial morphology on anaerobic plates but not aerobic plates, unique morphology on gram stain of clinical specimens or isolates, good growth on Bacteroides bile-esculin (BBE) agar, double zone of hemolysis on blood agar, brick-red fluorescence on kanamycin vancomycin laked blood (KVLB) agar" },
+    { question: "processing colonies suspected of being anaerobes", answer: "describe colony morphology and what media was used, describe gram stain reaction and morphology, set up an aerotolerance test, Inoculate pure culture/subculture plate and add appropriate disks, magnify plate to observe fine details of each colony type to pick colonies for isolation" },
+    { question: "in the aerotolerance test, you use a plate and compare the growth with anaerobic plate, some spp. will be aerotolerant and", answer: "chocolate agar, grow on chocolate but not as heavily" },
+    { question: "Bacteroides group are they WILL NOT grow on", answer: "obligate anaerobe, chocolate agar" },
+    { question: "test to separate Clostridium spp from Bacillus", answer: "catalase test" },
+    { question: "special potency disks are used to", answer: "determine true gram stain reaction of the isolate" },
+    { question: "special potency disk used to differentiate Peptostreptococcus anaerobius (susceptible) and Peptinophilus assacharolyticus (resistent)", answer: "Sodium polyanethol sulfonate (SPS) disk" },
+    { question: "all spore-forming, anaerobic bacilli are classified in the group and collectively called grouped according to", answer: "Clostridium, clostridia, location of endospore within cell" },
+    { question: "boxcar, large, square rods", answer: "Clostridium perfringens" },
+    { question: "Prevotella spp. and Porphyromonas spp. produce under long-wave UV light", answer: "brick-red fluorescence" },
+    { question: "only gram-neg cocci we covered", answer: "Veillonella" },
+    { question: "testing is performed on ALL anerobes", answer: "B-lactamase" },
+    { question: "common primary antimicrobial choice for treatment of gram pos and neg anaerobes", answer: "Clindamycin" },
+    { question: "treatment of Anaerobe-Associated diseases", answer: "Surgical therapy, Hyperbaric oxygen chamber, Antimicrobial therapy, Antitoxins to reduce virulence factors" },
+    { question: "A sodium polyanethol sulfonate (SPS) disk aids in identification of anaerobic gram-positive cocci such as P. anaerobius.", answer: "T" },
+    { question: "what's done to presumptively identify an anaerobe", answer: "Pure culture/subculture plate is inoculated and appropriate disks are added, Gram stain morphology and reaction is observed, An aerotolerance test is set up" },
+    { question: "Enzyme inactivators can be used to treat anaerobic infections.", answer: "F" },
+    { question: "Alpha toxin causes?", answer: "Tissue necrosis, deeper tissue invasion, and potentially amputation" },
+    { question: "C. difficile is cause of nosocomial infections and associated with the intestines.", answer: "a common" },
+    { question: "C. diff strain B1/NAPI/027 has a high resistance to what drug?", answer: "Fluoroquinolone" },
+    { question: "Actinomycosis is a chronic, granulomatous disease, what are the causative agents?", answer: "Bifidobacterium, Propionibacterium, Actinomyces israelii" },
+    { question: "Dense clumps of bacteria that can be colored describes?", answer: "sulfur granules" },
+    { question: "is the most common species of bacteria isolated from infectious processes of soft tissue and anaerobic bacteremia", answer: "B. fragilis, anaerobic" },
+    { question: "Fusobacterium, Porphyromonas, Prevotella are associated with diabetic foot ulcer's as well as decubitus pressure sores?", answer: "T" },
+    { question: "Peptostreptococcus has been reclassified into what 5 genera?", answer: "Peptostreptococcus, Anaerococcus, Finegoldia, Parvimonas, Peptoniphilus" },
+    { question: "Blood cultures are collected?", answer: "Aerobically and Anaerobically" },
+    { question: "Clostridium tetani causes tetanus and is characterized by swarming, slow growing, and terminal spores?", answer: "T" },
+    { question: "Macroscopic examination of a specimen includes?", answer: "Smell, proper transport, proper collection" },
+    { question: "An anaerobic blood agar supports the growth of?", answer: "Almost all obligate & facultative anaerobes, best for anaerobic GPC" },
+    { question: "Brucella blood agar is best for recovering gram bacteria.", answer: "negative" },
+    { question: "Porphyromonas and Prevotella pigment is described as while Veillonella pigment is described as ?", answer: "Brick-red, Red" },
+    { question: "Peptostreptococcus anaerobius is and Peptoniphilus asaccharolyticus is on the SPS disk test?", answer: "Susceptible, resistant" },
+    { question: "Nitrate disk tests the ability for an organism to?", answer: "Reduce nitrite to nitrate" },
+    { question: "Egg yolk agar has valuable reactions used to differentiate?", answer: "Clostridia spp." },
+    { question: "C. Perfringens gram stain is described as a large box-cars\", describe the hemolysis.", answer: "Double zone of beta hemolysis" },
+    { question: "Acute onset of severe abdominal pain, bloody diarrhea, and may be accompanied by vomiting is associated with", answer: "Type C; C. perfringens" },
+    { question: "CCFA agar is for C. difficile ?", answer: "Both selective and differential" },
+    { question: "C. difficile colonies have a yellow ground glass appearance and a smell when grown on a plate?", answer: "Horse stable, CCFA" },
+    { question: "Actinomyces is an endogenous anaerobe, frequently isolated from infections from", answer: "upper respiratory tract, oral cavity" },
+    { question: "B. uniformis would result as when performing a Esculin hydrolysis test?", answer: "Negative" },
+    { question: "Peptococcus niger is pigmented", answer: "black" },
+    { question: "Peptococcus anaerobius is pigmented", answer: "not black" },
+    { question: "The CLSI document Approved Standard, M11-A8 provides guidance for", answer: "Antimicrobial Susceptibility Testing of Anaerobic Bacteria" },
+    { question: "According to the CLSI anaerobes from stool specimens should always have susceptibility testing performed.", answer: "F" },
+    { question: "B. fragilis, Prevotella, Clostridium Fusobacterium & B. wadsworthia should always have Antimicrobial Susceptibility Test", answer: "T" },
+    { question: "Aspiration of oral flora into deep lung tissue, bite wounds, and oral surgery are associated with anaerobic infections.", answer: "T" },
+    { question: "What are the primary Setup Media Recommended for Recovery of Anaerobes?", answer: "BRU/BA and KVLB, PEA and CNA, CDC and BBE" },
+    { question: "Prepared by boiling, autoclaving, and replacing any air with an O2 free gas mixture, describes what type of media?", answer: "PRAS" },
+    { question: "Eswab transport system is the only liquid-based multipurpose collection & transport system that maintains viability of", answer: "aerobic, anaerobic and fastidious bacteria" }
+];
+
+        function startQuiz() {
+            shuffledQuestions = quizData.sort(() => Math.random() - 0.5);
+            currentQuestionIndex = 0;
+            setNextQuestion();
+        }
+
+        function setNextQuestion() {
+            resetState();
+            if (currentQuestionIndex >= shuffledQuestions.length) {
+                // Recycle the quiz
+                currentQuestionIndex = 0;
+                shuffledQuestions = quizData.sort(() => Math.random() - 0.5); 
+            }
+            showQuestion(shuffledQuestions[currentQuestionIndex]);
+        }
+
+        function showQuestion(questionData) {
+            progressTextElement.innerText = `Question ${currentQuestionIndex + 1} / ${quizData.length}`;
+            questionTextElement.innerText = questionData.question;
+
+            // Generate answer options
+            const correctAnswer = questionData.answer;
+            const otherAnswers = quizData
+                .map(q => q.answer)
+                .filter(answer => answer !== correctAnswer);
+
+            // Shuffle other answers and pick 3 distractors
+            const distractors = otherAnswers.sort(() => Math.random() - 0.5).slice(0, 3);
+            
+            const answerOptions = [...distractors, correctAnswer].sort(() => Math.random() - 0.5);
+
+            answerOptions.forEach(answer => {
+                const button = document.createElement('button');
+                button.innerText = answer;
+                button.classList.add('btn-answer', 'w-full', 'text-left', 'p-4', 'rounded-md', 'border', 'border-gray-600', 'text-white');
+                if (answer === correctAnswer) {
+                    button.dataset.correct = true;
+                }
+                button.addEventListener('click', selectAnswer);
+                answerButtonsElement.appendChild(button);
+            });
+        }
+
+        function resetState() {
+            while (answerButtonsElement.firstChild) {
+                answerButtonsElement.removeChild(answerButtonsElement.firstChild);
+            }
+        }
+
+        function selectAnswer(e) {
+            const selectedButton = e.target;
+            const correct = selectedButton.dataset.correct === 'true';
+
+            setStatusClass(selectedButton, correct);
+
+            Array.from(answerButtonsElement.children).forEach(button => {
+                if (button.dataset.correct) {
+                    setStatusClass(button, true);
+                }
+                button.disabled = true; // Disable all buttons after selection
+            });
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+                setNextQuestion();
+            }, 1500); // Wait 1.5 seconds before moving to the next question
+        }
+
+        function setStatusClass(element, correct) {
+            if (correct) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('wrong');
+            }
+        }
+
+        // Start the quiz when the page loads
+        startQuiz();
+    </script>
+
+</body>
+</html>
+
