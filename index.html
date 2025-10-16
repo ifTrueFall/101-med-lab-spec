@@ -1,35 +1,340 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <link rel="icon" type="image/svg+xml"
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='-27' y='75' font-family='Courier' font-size='117' fill='%23000'%3E☕%3C/text%3E%3C/svg%3E" />
-<title>MLT 106, ABOGroup</title> 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="style.css">
+    <title>Test Navigation</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px 0;
+            background-color: #1e1e1e;
+            font-family: sans-serif;
+            color: #e0e0e0;
+        }
+
+        .nav-container {
+            text-align: center;
+            width: 95%;
+            max-width: 1400px;
+        }
+
+        .nav-title {
+            color: #a8802e;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        .current-test a {
+            display: inline-block;
+            background-color: #c0b739;
+            color: #1e1e1e;
+            padding: 15px 30px;
+            margin-bottom: 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.3em;
+            font-weight: bold;
+            border: 2px solid #c0b739;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+
+        .current-test a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 229, 255, 0.3);
+        }
+
+        .main-content-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 30px;
+            width: 100%;
+        }
+
+        .test-groups-container {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .external-links-container {
+            flex: 1;
+            position: sticky;
+            top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .test-group {
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 8px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        @media (max-width: 900px) {
+            .main-content-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .external-links-container {
+                width: 100%;
+                max-width: 600px;
+                position: static;
+            }
+            .test-groups-container {
+                width: 100%;
+                max-width: 600px;
+            }
+        }
+        
+        .collapsible-header {
+            color: #a8802e;
+            margin: 0;
+            padding: 18px 20px;
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+            transition: background-color 0.3s ease;
+            text-align: left;
+        }
+        
+        .collapsible-header:hover {
+            background-color: #333;
+        }
+        
+        .collapsible-header::after {
+            content: '+';
+            font-family: monospace;
+            font-weight: bold;
+            font-size: 1.8em;
+            color: #a8802e;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+        
+        .collapsible-header.active::after {
+            content: '−';
+        }
+        
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+            background-color: #2c2c2c;
+            padding: 0 20px; /* Add padding for internal content */
+        }
+
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+        }
+        
+        .link-subgroup {
+            padding: 15px 0;
+            border-bottom: 1px solid #444;
+        }
+
+        .link-subgroup:first-child {
+            padding-top: 20px;
+        }
+        
+        .link-subgroup:last-child {
+            border-bottom: none;
+            padding-bottom: 20px;
+        }
+
+        .link-subgroup h4 {
+            color: #c0b739;
+            text-align: left;
+            margin: 0 0 15px 0;
+            font-size: 1.1em;
+        }
+
+        .external-links-container .nav-buttons {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0;
+            gap: 8px;
+        }
+
+
+        .nav-buttons a {
+            display: inline-block;
+            background-color: #333;
+            color: #a8802e;
+            padding: 10px 18px;
+            font-size: 0.9em;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 2px solid #a8802e;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+        }
+
+        .nav-buttons a:hover,
+        .nav-buttons a:focus {
+            background-color: #c0b739;
+            color: #1e1e1e;    
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 229, 255, 0.3);
+        }
+    </style>
 </head>
 <body>
+    <div class="nav-container">
+        <h1 class="nav-title">Practice Tests</h1>
+        
+        <div class="current-test">
+             <a href="test27.html">Current test: Test27: AutoImmunity</a>
+        </div>
 
-<nav class="navbar">
-        <a href="navigation.html" class="navbar-brand">Other MLT Quizzes</a>
-        <ul class="navbar-links">
-          <li><a href="test24.html">Other Blood Groups</a></li>
-          <li><a href="test24Pt2.html">Antiglobulin Testing</a></li>
-          <li><a href="test24Pt3.html">Antibody Identification</a></li>
-          <li><a href="test24Pt4.html">Specialized Testing</a></li>
-        </ul>
-      </nav>
+        <div class="main-content-container">
 
-<div class="main-content">
-  <h1>MLT 106 ABOGroup</h1>
-  <p style="text-align: center;">Instructions: Select the best answer for each question.</p>
+            <div class="test-groups-container">
+                <div class="test-group">
+                    <h2 class="collapsible-header">MLT 1-2</h2>
+                    <div class="collapsible-content">
+                        <div class="nav-buttons">
+                            <a href="OldTests/Test1.html">Test1: Intro</a>
+                            <a href="OldTests/Test2.html">Test2: Phlebotomy</a>
+                            <a href="OldTests/testThree.html">Test3: ChemIntro</a>
+                            <a href="OldTests/test4.html">Test4: ChemMath</a>
+                            <a href="OldTests/Test5.html">Test5: ChemLabAcid/Base</a>
+                            <a href="OldTests/Test6.html">Test6: Spectrometry/Base</a>
+                            <a href="OldTests/Test7.html">Test7: Carbs</a>
+                            <a href="OldTests/Test8.html">Test8: Lipids</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="test-group">
+                    <h2 class="collapsible-header">MLT 3</h2>
+                    <div class="collapsible-content">
+                        <div class="nav-buttons">
+                            <a href="OldTests/test9.html">Test9: DNA</a>
+                            <a href="OldTests/test10.html">Test10: Enzymes</a>
+                            <a href="OldTests/test11.html">Test11: Renal and Gas Exchange</a>
+                            <a href="OldTests/test12.html">Test12: Endocrine</a>
+                            <a href="OldTests/test13.html">test13: TCM</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="test-group">
+                    <h2 class="collapsible-header">MLT 4</h2>
+                    <div class="collapsible-content">
+                        <div class="nav-buttons">
+                            <a href="OldTests/test14.html">test14: Hematopoiesis</a>
+                            <a href="OldTests/test15.html">test15: Hemoglobin Pathologies</a>
+                            <a href="OldTests/test16.html">test16: Leukocytes</a>
+                            <a href="OldTests/test17.html">test17: Peripheral Analysis</a>
+                            <a href="OldTests/test18.html">test18: Coagulation</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="test-group">
+                    <h2 class="collapsible-header">MLT 5</h2>
+                    <div class="collapsible-content">
+                        <div class="nav-buttons">
+                            <a href="OldTests/test19.html">Test19: Urinalysis & More</a>
+                            <a href="OldTests/test20.html">Test20: Bodily Fluids</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="test-group">
+                    <h2 class="collapsible-header">MLT 6</h2>
+                    <div class="collapsible-content">
+                        <div class="nav-buttons">
+                            <a href="OldTests/test21.html">Test21: Immun</a>
+                            <a href="OldTests/test23.html">Test23: ABO</a>
+                            <a href="OldTests/test24.html">Test24: Other Blood Groups</a>
+                            <a href="OldTests/test25.html">Test25: Transfusions</a>
+                            <a href="OldTests/test26.html">Test26: TransDiseases</a>
+                            <a href="OldTests/test27.html">Test26: AutoDiseases</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-  <form id="quizForm">
-    <p>Loading quiz...</p>
-  </form>
-</div>
+            <div class="external-links-container">
+                <div class="test-group">
+                    <h2 class="collapsible-header">External Links</h2>
+                    <div class="collapsible-content">
+                        <div class="link-subgroup">
+                            <h4>Quizlets</h4>
+                            <div class="nav-buttons">
+                                <a href="https://quizlet.com/user/Maliha_Ataullah/sets" target="_blank">Maliha's quizlets</a>
+                            </div>
+                        </div>
+                        <div class="link-subgroup">
+                            <h4>MLT 108</h4>
+                            <div class="nav-buttons">
+                                 <a href="#">Example Link 1</a>
+                            </div>
+                        </div>
+                        <div class="link-subgroup">
+                            <h4>MLT 107</h4>
+                            <div class="nav-buttons">
+                                <a href="Quizlets/Unit1.html">Units 1 and 2</a>
+                                <a href="Quizlets/Unit3.html">Unit 3</a>
+                                <a href="Quizlets/Unit4.html">Unit 4</a>
+                                <a href="Quizlets/Unit5.html">Unit 5</a>
+                                <a href="Quizlets/Unit6.html">Unit 6</a>
+                                <a href="Quizlets/Unit7.html">Unit 7</a>
+                            </div>
+                        </div>
+                        <div class="link-subgroup">
+                            <h4>MLT 106</h4>
+                            <div class="nav-buttons">
+                                <a href="#">Example Link 2</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<script src="testTwentyFourScript.js"></script>
+        </div> 
+    </div> 
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var collapsibles = document.querySelectorAll(".collapsible-header");
+
+            collapsibles.forEach(function(header) {
+                header.addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                    }
+                });
+            });
+
+            const externalLinksHeader = document.querySelector(".external-links-container .collapsible-header");
+            if(externalLinksHeader && !externalLinksHeader.classList.contains('active')) {
+                externalLinksHeader.click();
+            }
+        });
+    </script>
 </body>
 </html>
+
