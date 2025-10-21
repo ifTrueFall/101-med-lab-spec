@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='-27' y='75' font-family='Courier' font-size='117' fill='%23000'%3E☕%3C/text%3E%3C/svg%3E" />
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='-27' y='75' font-family='Courier' font-size='117' fill='%23000'%3E☕%3C/text%3E%3C/svg%3E" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WBC Identification Quiz</title>
+    <title>Microbe Identification Quiz</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -14,13 +14,13 @@
         }
         /* Custom styles for button feedback */
         .correct-answer {
-            background-color: #22c55e !important; /* Tailwind green-500 */
-            border-color: #16a34a !important; /* Tailwind green-600 */
+            background-color: #556B2F !important;
+            border-color: #4A5D28 !important;
             color: white !important;
         }
         .wrong-answer {
-            background-color: #ef4444 !important; /* Tailwind red-500 */
-            border-color: #dc2626 !important; /* Tailwind red-600 */
+            background-color: #8B4513 !important;
+            border-color: #7A3E12 !important;
             color: white !important;
         }
         .disabled-options button {
@@ -29,21 +29,21 @@
         }
     </style>
 </head>
-<body class="bg-stone-200 text-stone-800">
+<body class="bg-amber-950 text-stone-300">
 
     <!-- Navigation Bar -->
-    <nav class="bg-stone-50 shadow-md">
+    <nav class="bg-stone-800 shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <!-- Left side of Navbar -->
                 <div class="flex-shrink-0">
-                    <a href="test16.html" class="text-xl font-bold text-amber-900 hover:text-amber-950">WBC's</a>
+                    <a href="https://iftruefall.github.io/101-med-lab-spec/navigation.html" class="text-xl font-bold text-amber-300 hover:text-amber-200">Nav</a>
                 </div>
                 <!-- Right side of Navbar -->
                 <div class="hidden md:block">
                     <div class="ml-4 flex items-center md:ml-6">
                         <ul class="flex space-x-4">
-                            <li><a href="../navigation.html" class="text-stone-600 hover:bg-stone-200 hover:text-stone-900 px-3 py-2 rounded-md text-sm font-medium">Other MLT's</a></li>
+                            <li><a href="#" class="text-stone-300 hover:bg-stone-700 hover:text-stone-200 px-3 py-2 rounded-md text-sm font-medium"></a></li> <!--not sure what i wanna link yet-->
                         </ul>
                     </div>
                 </div>
@@ -52,24 +52,24 @@
     </nav>
 
     <!-- Main Quiz Content -->
-    <main class="max-w-4xl mx-auto mt-4 sm:mt-8 p-3 sm:p-5 bg-stone-50 rounded-2xl shadow-lg">
+    <main class="max-w-4xl mx-auto mt-4 sm:mt-8 p-3 sm:p-5 bg-stone-800 rounded-2xl shadow-lg">
         <div class="text-center mb-4">
-             <h1 class="text-2xl sm:text-3xl font-bold text-stone-900 mb-2">WBC Identification Quiz</h1>
-             <p class="text-stone-600">Identify the cell shown in the image below.</p>
+            <h1 class="text-2xl sm:text-3xl font-bold text-amber-200 mb-2">Microbe Identification Quiz</h1>
+            <p class="text-stone-400">Identify the microbes shown in the image below.</p>
         </div>
 
         <div class="flex flex-col md:flex-row md:items-start md:gap-8">
             <!-- Left Column: Image -->
             <div class="w-full md:w-1/2 mb-4 md:mb-0">
-                <div class="max-w-md mx-auto bg-stone-200 rounded-lg overflow-hidden border-4 border-stone-300">
-                    <img id="wbc-image" src="https://placehold.co/500x500/e5e7eb/44403c?text=Loading+Image..." alt="WBC Image" class="w-full h-auto object-cover">
+                <div class="max-w-md mx-auto bg-stone-900 rounded-lg overflow-hidden border-4 border-stone-700">
+                    <img id="Microbe-image" src="https://placehold.co/500x500/1c1917/a8a29e?text=Loading+Image..." alt="Microbe Image" class="w-full h-auto object-cover">
                 </div>
             </div>
 
             <!-- Right Column: Controls -->
             <div class="w-full md:w-1/2 flex flex-col">
                 <!-- Score Tracker -->
-                <div id="score-container" class="text-lg font-semibold text-amber-900 mb-4 text-center md:text-left">
+                <div id="score-container" class="text-lg font-semibold text-amber-400 mb-4 text-center md:text-left">
                     Score: <span id="score">0</span> / <span id="total-questions">0</span>
                 </div>
 
@@ -80,8 +80,8 @@
 
                 <!-- Feedback and Next Button -->
                 <div id="feedback-container" class="mt-auto">
-                     <p id="feedback-text" class="text-xl text-center md:text-left font-bold mb-2 min-h-[28px]"></p>
-                     <button id="next-question-btn" class="hidden w-full bg-amber-800 text-white font-bold py-3 px-6 rounded-lg hover:bg-amber-900 transition duration-300 ease-in-out transform hover:scale-105">
+                    <p id="feedback-text" class="text-xl text-center md:text-left font-bold mb-2 min-h-[28px]"></p>
+                    <button id="next-question-btn" class="hidden w-full bg-amber-700 text-amber-50 font-bold py-3 px-6 rounded-lg hover:bg-amber-600 transition duration-300 ease-in-out transform hover:scale-105">
                         Next Question
                     </button>
                 </div>
@@ -91,10 +91,7 @@
 
     <script>
         // --- DATA SETUP ---
-        // An array of objects, each representing a WBC type and the number of images available.
-        // NOTE: You can change the 'count' for each cell type based on how many images you have.
-        // The image files should be named like "Lymph1.png", "Lymph2.png", etc.
-        const BacTypes = [
+        const MicTypes = [
             { name: "Hymenolepis diminuta", count: 2 },
             { name: "Dipylidium caninum", count: 2 },
             { name: "Dientamoeba fragilis", count: 5 },
@@ -112,7 +109,6 @@
             { name: "Wuchereria bancrofti", count: 2 },
             { name: "Fasciola hepatica", count: 3 },
             { name: "Giardia lamblia", count: 4 },
-            { name: "Fasciola hepatica", count: 3 },
             { name: "Paragon west", count: 2 },
             { name: "Taenia spp", count: 2 },
             { name: "Balantidium coli", count: 2 },
@@ -123,12 +119,11 @@
             { name: "Babesia spp", count: 2 },
             { name: "Trypanosoma cruzi", count: 1 },
             { name: "Entamoeba coli", count: 2 },
-            { name: "Trichinella", count: 1 },
-            { name: "Trichinella", count: 1 }
+            { name: "Trichinella spiralis", count: 1 }
         ];
 
         // --- DOM ELEMENT REFERENCES ---
-        const wbcImage = document.getElementById('wbc-image');
+        const MicrobeImage = document.getElementById('Microbe-image');
         const optionsContainer = document.getElementById('options-container');
         const feedbackText = document.getElementById('feedback-text');
         const nextQuestionBtn = document.getElementById('next-question-btn');
@@ -170,13 +165,14 @@
             // 1. Reset the UI state
             isAnswered = false;
             feedbackText.textContent = '';
+            feedbackText.className = 'text-xl text-center md:text-left font-bold mb-2 min-h-[28px]'; // Reset classes
             nextQuestionBtn.classList.add('hidden');
             optionsContainer.innerHTML = '';
             optionsContainer.classList.remove('disabled-options');
 
-            // 2. Select a random WBC type for the correct answer
-            const correctTypeIndex = getRandomInt(BacTypes.length);
-            const correctType = BacTypes[correctTypeIndex];
+            // 2. Select a random Microbe type for the correct answer
+            const correctTypeIndex = getRandomInt(MicTypes.length);
+            const correctType = MicTypes[correctTypeIndex];
             currentCorrectAnswer = correctType.name;
 
             // 3. Select a random image number for that type
@@ -184,15 +180,17 @@
             const imageName = `${correctType.name}${imageNumber}.png`;
             
             // 4. Update the image source
-            // This now combines the 'cells' folder path with the generated image name.
-            wbcImage.src = `Bacteria/${imageName}`;
-            wbcImage.alt = `Image of a ${correctType.name}`;
+            MicrobeImage.src = `MicTeria/${imageName}`;
+            MicrobeImage.alt = `Image of a ${correctType.name}`;
+            MicrobeImage.onerror = () => {
+                MicrobeImage.src = `https://placehold.co/500x500/1c1917/a8a29e?text=Image+not+found`;
+            }
 
             // 5. Generate answer options (1 correct, 3 incorrect)
             const options = [correctType.name];
-            const wrongTypes = BacTypes.filter(type => type.name !== correctType.name);
+            const wrongTypes = MicTypes.filter(type => type.name !== correctType.name);
             shuffleArray(wrongTypes); // Randomize the incorrect options
-            for (let i = 0; i < 3; i++) {
+            for (let i = 0; i < 3 && i < wrongTypes.length; i++) {
                 options.push(wrongTypes[i].name);
             }
             
@@ -202,7 +200,7 @@
             options.forEach(option => {
                 const button = document.createElement('button');
                 button.textContent = option;
-                button.classList.add('w-full', 'bg-stone-50', 'text-stone-700', 'font-semibold', 'py-3', 'px-4', 'border', 'border-stone-300', 'rounded-lg', 'shadow-sm', 'hover:bg-stone-100', 'transition', 'duration-200');
+                button.classList.add('w-full', 'bg-stone-700', 'text-stone-200', 'font-semibold', 'py-3', 'px-4', 'border', 'border-stone-600', 'rounded-lg', 'shadow-sm', 'hover:bg-stone-600', 'transition', 'duration-200');
                 button.onclick = () => checkAnswer(option, button);
                 optionsContainer.appendChild(button);
             });
@@ -226,14 +224,12 @@
                 score++;
                 scoreEl.textContent = score;
                 feedbackText.textContent = 'Correct!';
-                feedbackText.classList.add('text-green-500');
-                feedbackText.classList.remove('text-red-500');
+                feedbackText.classList.add('text-lime-400');
                 buttonElement.classList.add('correct-answer');
             } else {
                 // Incorrect Answer
                 feedbackText.textContent = `Incorrect! The answer was ${currentCorrectAnswer}.`;
-                feedbackText.classList.add('text-red-500');
-                feedbackText.classList.remove('text-green-500');
+                feedbackText.classList.add('text-orange-400');
                 buttonElement.classList.add('wrong-answer');
                 
                 // Highlight the correct answer
