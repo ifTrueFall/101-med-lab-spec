@@ -20,15 +20,21 @@ get started by using the live version of the quiz hub.
 
 ## 💻 About the Project
 
-This project is a static website, meaning it runs entirely in your browser. The quizzes are built using:
+This project is a static website, meaning it runs entirely in your browser. Many of the scripts walk through how they are used in their comments before the script initialization. This will aide in replication for future changes or user read. Its mostly changing the data structures within the quizzes.
 
+The quizzes are built using:
 * **HTML** for the structure of the pages.
 * **CSS** for styling and layout.
 * **JavaScript** to handle the quiz logic, such as checking answers and showing results.
 
 ## 🤝 Contributing
 
-Contributions are welcome! If you would like to add more quizzes, fix a bug, or improve an existing quiz, please feel free to:
+Contributions are welcome! 
+If you would like to add more quizzes or resources, fix a bug, or improve an existing quiz please feel free to reach out to me.
+Em: jawn.priest100@gmail.com
+
+You can also download the project and fix at your own accord. Due to the nature of the course you will find I did not have much time for file structuring. Naturally, I would backtrack to fix previous errors. Although this also lead to me failing to organize the files for readability. I also failed in aspects of using the standards for naming conventions and commenting in the name of rushing to create study material.
+
 
 ## 📄 License
 

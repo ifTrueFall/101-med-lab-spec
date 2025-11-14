@@ -92,6 +92,7 @@ function generateQuizHTML(questionList) {
 //  DEFINE YOUR QUESTIONS HERE
 //  The first line contains the full question.
 //  The second line contains the correct answer followed by three wrong answers.
+//  The script will automatically randomize the order when the page is loaded.
 const myQuestions = [
   `question: Define the terms associated with sterilization disinfection and antiseptic. Which early scientist demonstrated that handwashing can prevent disease? Page 7.
 Semmelweis, Lister, Pasteur, Koch`,
