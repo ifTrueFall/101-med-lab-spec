@@ -51,6 +51,39 @@
             box-shadow: 0 4px 8px rgba(0, 229, 255, 0.3);
         }
 
+        .contribution-note {
+            background-color: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: left;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .contribution-note p {
+            margin: 0 0 15px 0;
+        }
+        
+        .contribution-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        .contribution-note a {
+            color: #c0b739;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .contribution-note a:hover {
+            text-decoration: underline;
+        }
+
+        .contribution-note strong {
+            color: #c0b739;
+            font-size: 1.1em;
+        }
+
         .main-content-container {
             display: flex;
             flex-direction: row;
@@ -138,7 +171,10 @@
             overflow: hidden;
             transition: max-height 0.5s ease-out, padding 0.5s ease-out;
             background-color: #2c2c2c;
-            padding: 0 20px; /* Add padding for internal content */
+        }
+
+        .collapsible-content.padded {
+            padding: 0 20px;
         }
 
         .nav-buttons {
@@ -202,9 +238,18 @@
 <body>
     <div class="nav-container">
         <h1 class="nav-title">Practice Tests</h1>
-        
-        <div class="current-test">
-             <a href="test27.html">Current test: Test27: AutoImmunity</a>
+
+        <div class="test-group" style="margin-bottom: 40px; max-width: 900px; margin-left: auto; margin-right: auto;">
+            <h2 class="collapsible-header">Info</h2>
+            <div class="collapsible-content">
+                <div class="contribution-note">
+                    <p><strong>Hope the Site was helpful, Contributions are appreciated!</strong></p>
+                    <p>People learn different ways, so if you would like to suggest quizzes or resources, fix a bug, or improve an existing quiz please feel free to reach out to me. <br>
+                    Em: jawn.priest100@gmail.com</p>
+                    <p>You can also download the project and fix at your own accord. Due to the nature of the course you will find I did not have much time for file structuring. Naturally, I would backtrack to fix previous errors. Although this also lead to me failing to organize the files for readability.<br>
+                    For the project github: <a href="https://github.com/ifTrueFall/101-med-lab-spec" target="_blank" rel="noopener noreferrer">https://github.com/ifTrueFall/101-med-lab-spec</a></p>
+                </div>
+            </div>
         </div>
 
         <div class="main-content-container">
@@ -212,7 +257,7 @@
             <div class="test-groups-container">
                 <div class="test-group">
                     <h2 class="collapsible-header">MLT 1-2</h2>
-                    <div class="collapsible-content">
+                    <div class="collapsible-content padded">
                         <div class="nav-buttons">
                             <a href="OldTests/Test1.html">Test1: Intro</a>
                             <a href="OldTests/Test2.html">Test2: Phlebotomy</a>
@@ -227,7 +272,7 @@
                 </div>
                 <div class="test-group">
                     <h2 class="collapsible-header">MLT 3</h2>
-                    <div class="collapsible-content">
+                    <div class="collapsible-content padded">
                         <div class="nav-buttons">
                             <a href="OldTests/test9.html">Test9: DNA</a>
                             <a href="OldTests/test10.html">Test10: Enzymes</a>
@@ -239,7 +284,7 @@
                 </div>
                 <div class="test-group">
                     <h2 class="collapsible-header">MLT 4</h2>
-                    <div class="collapsible-content">
+                    <div class="collapsible-content padded">
                         <div class="nav-buttons">
                             <a href="OldTests/test14.html">test14: Hematopoiesis</a>
                             <a href="OldTests/test15.html">test15: Hemoglobin Pathologies</a>
@@ -251,7 +296,7 @@
                 </div>
                 <div class="test-group">
                     <h2 class="collapsible-header">MLT 5</h2>
-                    <div class="collapsible-content">
+                    <div class="collapsible-content padded">
                         <div class="nav-buttons">
                             <a href="OldTests/test19.html">Test19: Urinalysis & More</a>
                             <a href="OldTests/test20.html">Test20: Bodily Fluids</a>
@@ -260,7 +305,7 @@
                 </div>
                 <div class="test-group">
                     <h2 class="collapsible-header">MLT 6</h2>
-                    <div class="collapsible-content">
+                    <div class="collapsible-content padded">
                         <div class="nav-buttons">
                             <a href="OldTests/test21.html">Test21: Immun</a>
                             <a href="OldTests/test23.html">Test23: ABO</a>
@@ -272,11 +317,28 @@
                     </div>
                 </div>
             </div>
+            <div class="test-group">
+                    <h2 class="collapsible-header">MLT 7</h2>
+                    <div class="collapsible-content padded">
+                        <div class="nav-buttons">
+                            <a href="OldTests/test28.html">Test28: microLab</a>
+                            <a href="OldTests/test29.html">Test29: Colony Morphology</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="test-group">
+                    <h2 class="collapsible-header">MLT 8</h2>
+                    <div class="collapsible-content padded">
+                        <div class="nav-buttons">
+                            <a href="BacteriaSlides.html">Parasite Identification quiz</a>
+                        </div>
+                    </div>
+                </div>
 
             <div class="external-links-container">
                 <div class="test-group">
                     <h2 class="collapsible-header">External Links</h2>
-                    <div class="collapsible-content">
+                    <div class="collapsible-content padded">
                         <div class="link-subgroup">
                             <h4>Quizlets</h4>
                             <div class="nav-buttons">
@@ -286,7 +348,7 @@
                         <div class="link-subgroup">
                             <h4>MLT 108</h4>
                             <div class="nav-buttons">
-                                 <a href="#">Example Link 1</a>
+                                 <a href="#">ExampleLink, not made yet</a>
                             </div>
                         </div>
                         <div class="link-subgroup">
@@ -328,13 +390,7 @@
                     }
                 });
             });
-
-            const externalLinksHeader = document.querySelector(".external-links-container .collapsible-header");
-            if(externalLinksHeader && !externalLinksHeader.classList.contains('active')) {
-                externalLinksHeader.click();
-            }
         });
     </script>
 </body>
 </html>
-
