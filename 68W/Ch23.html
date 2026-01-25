@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 23: Allergic Reaction & Anaphylaxis - Study Quiz</title>
+    <style>
+        :root {
+            --primary-color: #003366; /* Army/Medical Blue */
+            --secondary-color: #f4f4f4;
+            --correct-color: #2e7d32;
+            --incorrect-color: #c62828;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #e9ecef;
+            color: #333;
+        }
+
+        /* Navigation Styles */
+        .top-nav {
+            background-color: var(--primary-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .top-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .meta-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .option-label:hover {
+            background-color: var(--secondary-color);
+        }
+
+        input[type="radio"] {
+            margin-right: 12px;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none;
+            font-size: 0.95em;
+        }
+
+        .feedback.correct {
+            background-color: #e8f5e9;
+            color: var(--correct-color);
+            border: 1px solid #a5d6a7;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background-color: #ffebee;
+            color: var(--incorrect-color);
+            border: 1px solid #ef9a9a;
+            display: block;
+        }
+
+        .citation {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.85em;
+            font-style: italic;
+            color: #555;
+        }
+
+        .controls {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: #002244;
+        }
+
+        #score-display {
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            padding: 15px;
+            background: var(--secondary-color);
+            border-radius: 4px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="Ch22.html">← Back to Chapter 22</a>
+    <a href="Ch24.html">Next: Chapter 24 →</a>
+</nav>
+
+<div class="container">
+    <header>
+        <h1>Chapter 23: Allergic Reaction & Anaphylaxis</h1>
+        <div class="meta-info">EMT Basic / 68K Study Review</div>
+    </header>
+
+    <div id="quiz-content">
+        </div>
+
+    <div class="controls">
+        <button onclick="submitQuiz()">Submit Answers</button>
+        <button onclick="location.reload()" style="background-color: #6c757d;">Reset Quiz</button>
+    </div>
+
+    <div id="score-display"></div>
+</div>
+
+<script>
+    // Quiz Data Source
+    const questions = [
+        {
+            q: "What is the primary chemical mediator released by mast cells during an allergic reaction?",
+            options: [
+                "Insulin",
+                "Adrenaline",
+                "Histamine",
+                "Glucose"
+            ],
+            answer: 2,
+            explanation: "Histamine is the chemical released by mast cells and basophils that causes vasodilation, bronchoconstriction, and leaky capillaries.",
+            cite: "Page 660"
+        },
+        {
+            q: "Which of the following defines Anaphylaxis?",
+            options: [
+                "A localized rash from poison ivy",
+                "A severe, life-threatening systemic allergic reaction",
+                "A mild reaction to pollen",
+                "A bacterial infection of the skin"
+            ],
+            answer: 1,
+            explanation: "Anaphylaxis is a severe, life-threatening allergic reaction that involves multiple body systems (typically respiratory and circulatory).",
+            cite: "Page 660"
+        },
+        {
+            q: "What are the two most common signs of anaphylaxis that indicate a life-threatening emergency?",
+            options: [
+                "Hives and itching",
+                "Sneezing and coughing",
+                "Respiratory distress and signs of shock (hypoperfusion)",
+                "Abdominal pain and nausea"
+            ],
+            answer: 2,
+            explanation: "While hives are common, the presence of respiratory distress (airway swelling) and shock (hypotension) defines the life threat.",
+            cite: "Page 662"
+        },
+        {
+            q: "Which skin condition is commonly known as 'hives'?",
+            options: [
+                "Eczema",
+                "Urticaria",
+                "Psoriasis",
+                "Cyanosis"
+            ],
+            answer: 1,
+            explanation: "Urticaria refers to red, itchy, raised blotches on the skin often seen in allergic reactions.",
+            cite: "Page 662"
+        },
+        {
+            q: "What is Angioedema?",
+            options: [
+                "Swelling of the face, lips, tongue, or airway",
+                "A fast heart rate",
+                "Low blood pressure",
+                "Constriction of the pupils"
+            ],
+            answer: 0,
+            explanation: "Angioedema is swelling of the tissues beneath the skin, often around the face and airway, which can lead to obstruction.",
+            cite: "Page 662"
+        },
+        {
+            q: "What effect does Epinephrine have on the blood vessels?",
+            options: [
+                "Vasodilation (widens them)",
+                "Vasoconstriction (constricts them)",
+                "It has no effect on blood vessels",
+                "It causes them to leak fluid"
+            ],
+            answer: 1,
+            explanation: "Epinephrine causes vasoconstriction (Alpha effect), which helps raise blood pressure and reduce swelling/leakage.",
+            cite: "Page 669"
+        },
+        {
+            q: "What effect does Epinephrine have on the lungs (bronchioles)?",
+            options: [
+                "Bronchodilation (opens them)",
+                "Bronchoconstriction (closes them)",
+                "It increases mucus production",
+                "It slows the respiratory rate"
+            ],
+            answer: 0,
+            explanation: "Epinephrine causes bronchodilation (Beta-2 effect), which opens the airways and improves breathing.",
+            cite: "Page 669"
+        },
+        {
+            q: "What is the standard adult dose for an epinephrine autoinjector?",
+            options: [
+                "0.15 mg",
+                "0.30 mg",
+                "0.50 mg",
+                "1.0 mg"
+            ],
+            answer: 1,
+            explanation: "The standard adult dose (for patients >66 lbs or 30 kg) is 0.30 mg.",
+            cite: "Page 669"
+        },
+        {
+            q: "What is the standard pediatric dose for an epinephrine autoinjector?",
+            options: [
+                "0.15 mg",
+                "0.30 mg",
+                "0.05 mg",
+                "0.50 mg"
+            ],
+            answer: 0,
+            explanation: "The pediatric dose (for patients usually between 33-66 lbs) is 0.15 mg.",
+            cite: "Page 669"
+        },
+        {
+            q: "Which high-pitched sound indicates swelling of the upper airway?",
+            options: [
+                "Wheezing",
+                "Rhonchi",
+                "Stridor",
+                "Crackles"
+            ],
+            answer: 2,
+            explanation: "Stridor is a high-pitched sound heard on inspiration, indicating obstruction or swelling in the upper airway.",
+            cite: "Page 663"
+        },
+        {
+            q: "How long should you hold an epinephrine autoinjector in place against the thigh?",
+            options: [
+                "1 second",
+                "3 seconds (or as per manufacturer instructions, typically 3-10 seconds)",
+                "30 seconds",
+                "1 minute"
+            ],
+            answer: 1,
+            explanation: "Guidelines typically recommend holding it for at least 3 seconds (some older protocols say 10) to ensure medication delivery.",
+            cite: "Page 672"
+        },
+        {
+            q: "What is a common side effect of epinephrine administration?",
+            options: [
+                "Drowsiness",
+                "Bradycardia (slow heart rate)",
+                "Tachycardia (rapid heart rate) and anxiety",
+                "Hypoglycemia"
+            ],
+            answer: 2,
+            explanation: "Because it mimics adrenaline, patients often feel anxious, have a racing heart (tachycardia), and may have tremors.",
+            cite: "Page 670"
+        },
+        {
+            q: "You have administered one dose of epinephrine to a patient in anaphylaxis. Their condition has not improved after 5-10 minutes. You should:",
+            options: [
+                "Wait another 20 minutes",
+                "Administer a second dose if protocols allow and medical direction approves",
+                "Give oral glucose",
+                "Perform CPR"
+            ],
+            answer: 1,
+            explanation: "If the patient does not improve, a second dose may be authorized by medical direction after 5-10 minutes.",
+            cite: "Page 670"
+        },
+        {
+            q: "Which of the following allergens is most likely to cause a reaction via injection (envenomation)?",
+            options: [
+                "Peanuts",
+                "Penicillin",
+                "Bee or Wasp sting",
+                "Latex gloves"
+            ],
+            answer: 2,
+            explanation: "Insects like bees, wasps, and hornets cause allergic reactions through injection of venom (envenomation).",
+            cite: "Page 661"
+        },
+        {
+            q: "During anaphylaxis, blood vessels dilate and capillaries become leaky. This leads to which type of shock?",
+            options: [
+                "Cardiogenic shock",
+                "Hypovolemic shock",
+                "Distributive (Anaphylactic) shock",
+                "Obstructive shock"
+            ],
+            answer: 2,
+            explanation: "Anaphylactic shock is a form of distributive shock caused by widespread vasodilation and fluid shift.",
+            cite: "Page 661"
+        },
+        {
+            q: "When assessing a patient with a possible allergic reaction, which question is most critical in the 'H' of SAMPLE history?",
+            options: [
+                "Have you eaten today?",
+                "Do you have a history of allergies or anaphylaxis?",
+                "How long have you felt sick?",
+                "Does your head hurt?"
+            ],
+            answer: 1,
+            explanation: "Asking about a history of allergies (and previous severe reactions) helps confirm the likelihood of anaphylaxis.",
+            cite: "Page 665"
+        },
+        {
+            q: "You arrive to find a patient with hives and itching but NO respiratory distress and NO signs of shock. This is likely:",
+            options: [
+                "Anaphylaxis",
+                "A mild/local allergic reaction",
+                "Cardiac arrest",
+                "Stroke"
+            ],
+            answer: 1,
+            explanation: "Without respiratory compromise or shock, the reaction is generally considered mild or local, though it requires monitoring.",
+            cite: "Page 666"
+        },
+        {
+            q: "What is the proper location for administering an epinephrine autoinjector?",
+            options: [
+                "Upper arm (Deltoid)",
+                "Buttocks",
+                "Lateral mid-thigh",
+                "Abdomen"
+            ],
+            answer: 2,
+            explanation: "The lateral mid-thigh is the preferred site for intramuscular injection of epinephrine via autoinjector.",
+            cite: "Page 672"
+        },
+        {
+            q: "Why do we reassess a patient immediately after administering epinephrine?",
+            options: [
+                "To check if the battery on the device worked",
+                "To monitor for therapeutic effects (improved breathing) and side effects",
+                "To see if they are hungry",
+                "To ask for insurance information"
+            ],
+            answer: 1,
+            explanation: "Reassessment determines if the drug worked (airway clearing, BP rising) or if the patient is deteriorating.",
+            cite: "Page 673"
+        },
+        {
+            q: "If a patient carries an EpiPen but is too confused or weak to use it themselves, you should:",
+            options: [
+                "Do nothing until paramedics arrive",
+                "Assist them or administer it for them (per protocol)",
+                "Give them water",
+                "Wait for them to wake up"
+            ],
+            answer: 1,
+            explanation: "EMTs are generally authorized to assist or administer the patient's own prescribed epinephrine in emergencies.",
+            cite: "Page 668"
+        }
+    ];
+
+    function renderQuiz() {
+        const quizContainer = document.getElementById('quiz-content');
+        let html = '';
+
+        questions.forEach((q, index) => {
+            html += `
+                <div class="question-card" id="q${index}">
+                    <div class="question-text">${index + 1}. ${q.q}</div>
+                    <div class="options">
+                        ${q.options.map((opt, i) => `
+                            <label class="option-label">
+                                <input type="radio" name="q${index}" value="${i}">
+                                ${opt}
+                            </label>
+                        `).join('')}
+                    </div>
+                    <div class="feedback" id="feedback-${index}">
+                        <strong><span id="result-text-${index}"></span></strong><br>
+                        ${q.explanation}
+                        <span class="citation">Source: ${q.cite}</span>
+                    </div>
+                </div>
+            `;
+        });
+
+        quizContainer.innerHTML = html;
+    }
+
+    function submitQuiz() {
+        let score = 0;
+        let answered = 0;
+
+        questions.forEach((q, index) => {
+            const selected = document.querySelector(`input[name="q${index}"]:checked`);
+            const feedbackEl = document.getElementById(`feedback-${index}`);
+            const resultTextEl = document.getElementById(`result-text-${index}`);
+
+            if (selected) {
+                answered++;
+                feedbackEl.style.display = 'block';
+                if (parseInt(selected.value) === q.answer) {
+                    score++;
+                    feedbackEl.className = 'feedback correct';
+                    resultTextEl.textContent = "Correct!";
+                } else {
+                    feedbackEl.className = 'feedback incorrect';
+                    resultTextEl.textContent = "Incorrect.";
+                }
+            } else {
+                feedbackEl.style.display = 'none';
+            }
+        });
+
+        const scoreDisplay = document.getElementById('score-display');
+        scoreDisplay.style.display = 'block';
+        if (answered === questions.length) {
+            scoreDisplay.textContent = `You scored ${score} out of ${questions.length} (${Math.round(score/questions.length*100)}%)`;
+        } else {
+            scoreDisplay.textContent = `You answered ${answered} out of ${questions.length} questions. Please answer all to see your final grade.`;
+        }
+    }
+
+    // Initialize
+    renderQuiz();
+</script>
+
+</body>
+</html>
