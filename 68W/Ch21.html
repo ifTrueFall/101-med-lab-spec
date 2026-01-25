@@ -112,6 +112,11 @@
             background-color: var(--secondary-color);
         }
 
+        /* Highlight selected option slightly */
+        input[type="radio"]:checked + span {
+            font-weight: bold;
+        }
+
         input[type="radio"] {
             margin-right: 12px;
         }
@@ -120,7 +125,7 @@
             margin-top: 15px;
             padding: 15px;
             border-radius: 4px;
-            display: none;
+            display: none; /* Hidden by default */
             font-size: 0.95em;
         }
 
@@ -154,7 +159,7 @@
         }
 
         button {
-            background-color: var(--primary-color);
+            background-color: #6c757d; /* Grey for reset */
             color: white;
             border: none;
             padding: 12px 24px;
@@ -166,26 +171,16 @@
         }
 
         button:hover {
-            background-color: #002244;
+            background-color: #5a6268;
         }
 
-        #score-display {
-            text-align: center;
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-top: 20px;
-            padding: 15px;
-            background: var(--secondary-color);
-            border-radius: 4px;
-            display: none;
-        }
     </style>
 </head>
 <body>
 
 <nav class="top-nav">
-    <a href="../navigation.html">← Navigation</a>
-    <a href="Ch22.html"> Ch22 →</a>
+    <a href="../navigation.html">← Back to Navigation</a>
+    <a href="Ch22.html">Next: Chapter 22 →</a>
 </nav>
 
 <div class="container">
@@ -198,11 +193,8 @@
         </div>
 
     <div class="controls">
-        <button onclick="submitQuiz()">Submit Answers</button>
-        <button onclick="location.reload()" style="background-color: #6c757d;">Reset Quiz</button>
+        <button onclick="location.reload()">Reset Quiz</button>
     </div>
-
-    <div id="score-display"></div>
 </div>
 
 <script>
@@ -218,7 +210,7 @@
             ],
             answer: 2,
             explanation: "Ventricular Fibrillation (VF) is the most common electrical disturbance in sudden cardiac arrest, caused by uncoordinated electrical impulses.",
-            cite: "Page 584 "
+            cite: "Page 584"
         },
         {
             q: "What term describes irregular, gasping breaths that often precede apnea and death in cardiac arrest patients?",
@@ -230,7 +222,7 @@
             ],
             answer: 1,
             explanation: "Agonal respirations are irregular, gasping breaths that are a primal reflex during cardiac arrest and should not be confused with normal breathing.",
-            cite: "Page 585 "
+            cite: "Page 585"
         },
         {
             q: "For an adult patient, what is the recommended depth of chest compressions?",
@@ -242,7 +234,7 @@
             ],
             answer: 2,
             explanation: "For adults, rescuers should compress to a depth of at least 2 inches (5 cm) to ensure adequate displacement of blood.",
-            cite: "Page 592 "
+            cite: "Page 592"
         },
         {
             q: "What is the recommended compression rate for high-quality CPR in adults?",
@@ -254,7 +246,7 @@
             ],
             answer: 1,
             explanation: "The chest should be compressed at a rate of 100–120 compressions per minute to generate adequate perfusion pressure.",
-            cite: "Page 592 "
+            cite: "Page 592"
         },
         {
             q: "What term describes the percentage of time chest compressions are being performed compared to the total time of patient contact?",
@@ -266,7 +258,7 @@
             ],
             answer: 1,
             explanation: "Compression fraction measures the time compressions are performed vs. total time. High-performance systems aim for >90%.",
-            cite: "Page 593 "
+            cite: "Page 593"
         },
         {
             q: "Which type of cardiac arrest is caused by systemic hypoxia and is commonly seen in pediatric patients?",
@@ -278,7 +270,7 @@
             ],
             answer: 2,
             explanation: "Asphyxial cardiac arrest implies the heart stopped due to systemic hypoxia (e.g., choking, shock), which is common in children.",
-            cite: "Page 585 "
+            cite: "Page 585"
         },
         {
             q: "Which two rhythms are recognized by an AED as 'shockable'?",
@@ -290,7 +282,7 @@
             ],
             answer: 1,
             explanation: "AEDs are designed to recognize and shock Ventricular Fibrillation (VF) and Ventricular Tachycardia (V-Tach).",
-            cite: "Page 596 "
+            cite: "Page 596"
         },
         {
             q: "Why is 'Asystole' considered a non-shockable rhythm?",
@@ -302,7 +294,7 @@
             ],
             answer: 1,
             explanation: "In asystole, there is no electrical distribution to reset, so defibrillation is useless.",
-            cite: "Page 597 "
+            cite: "Page 597"
         },
         {
             q: "What is the compression-to-ventilation ratio for two-rescuer infant CPR?",
@@ -314,7 +306,7 @@
             ],
             answer: 1,
             explanation: "In pediatric patients, if two rescuers are present, the ratio is adjusted to 15 compressions to 2 ventilations.",
-            cite: "Page 593 "
+            cite: "Page 593"
         },
         {
             q: "In the 'Triangle of Life' high-performance CPR model, where is 'Provider 1' (P1) typically located?",
@@ -326,7 +318,7 @@
             ],
             answer: 2,
             explanation: "Provider 1 is usually at the patient's side (right) to perform compressions, while Provider 2 is on the left (AED) and Provider 3 is at the head.",
-            cite: "Page 599 "
+            cite: "Page 599"
         },
         {
             q: "During the primary assessment of an unresponsive patient, how long should you check for a pulse?",
@@ -338,7 +330,7 @@
             ],
             answer: 2,
             explanation: "Check the carotid pulse for no more than 10 seconds. If no pulse is found, start compressions immediately.",
-            cite: "Page 587 "
+            cite: "Page 587"
         },
         {
             q: "If a patient has a visible pacemaker lump below the clavicle, how should AED pads be placed?",
@@ -350,7 +342,7 @@
             ],
             answer: 2,
             explanation: "Do not put the pad over the pacemaker. Place it at least several inches away while staying in the general target area.",
-            cite: "Page 615 "
+            cite: "Page 615"
         },
         {
             q: "What is the primary indicator that a patient has achieved Return of Spontaneous Circulation (ROSC)?",
@@ -362,7 +354,7 @@
             ],
             answer: 2,
             explanation: "ROSC is recognized by the patient starting to breathe, moving, or regaining a palpable pulse.",
-            cite: "Page 599 "
+            cite: "Page 599"
         },
         {
             q: "If a patient is found lying in a pool of water, what must be done before using an AED?",
@@ -374,7 +366,7 @@
             ],
             answer: 1,
             explanation: "Water conducts electricity. You must move the patient out of the wet environment and dry the chest before defibrillating.",
-            cite: "Page 614 "
+            cite: "Page 614"
         },
         {
             q: "How does the defibrillation protocol change for a patient with severe hypothermia?",
@@ -386,7 +378,7 @@
             ],
             answer: 2,
             explanation: "Current recommendations are to attempt defibrillation once, then wait until core temperature is at least 86°F (30°C) before repeating.",
-            cite: "Page 613 "
+            cite: "Page 613"
         },
         {
             q: "If pediatric AED pads are not available for a child in cardiac arrest, what should you do?",
@@ -398,7 +390,7 @@
             ],
             answer: 1,
             explanation: "If no pediatric device is available, use adult pads. It is better to defibrillate with adult pads than not at all. Use anterior-posterior placement if needed to prevent overlap.",
-            cite: "Page 609 "
+            cite: "Page 609"
         },
         {
             q: "Why might a patient with a Left Ventricular Assist Device (LVAD) not have a palpable pulse even if they are alive?",
@@ -410,7 +402,7 @@
             ],
             answer: 1,
             explanation: "LVADs often provide a continuous flow of blood, meaning there is no variation in pressure to create a pulse.",
-            cite: "Page 615 "
+            cite: "Page 615"
         },
         {
             q: "Why is allowing full chest recoil important during CPR?",
@@ -422,7 +414,7 @@
             ],
             answer: 1,
             explanation: "Full recoil creates negative pressure inside the chest that draws blood back into the heart, priming it for the next compression.",
-            cite: "Page 592 "
+            cite: "Page 592"
         },
         {
             q: "What is 'Commotio Cordis'?",
@@ -434,7 +426,7 @@
             ],
             answer: 1,
             explanation: "Commotio cordis is sudden cardiac arrest caused by a blunt force blow to the anterior chest during a specific moment in the cardiac cycle.",
-            cite: "Page 585 "
+            cite: "Page 585"
         },
         {
             q: "In an infant, where should you palpate to check for a pulse?",
@@ -446,7 +438,7 @@
             ],
             answer: 2,
             explanation: "In infants and small children, the brachial (or femoral) pulse is used because the carotid is difficult to assess.",
-            cite: "Page 587 "
+            cite: "Page 587"
         }
     ];
 
@@ -460,9 +452,9 @@
                     <div class="question-text">${index + 1}. ${q.q}</div>
                     <div class="options">
                         ${q.options.map((opt, i) => `
-                            <label class="option-label">
+                            <label class="option-label" onclick="checkAnswer(${index}, ${i})">
                                 <input type="radio" name="q${index}" value="${i}">
-                                ${opt}
+                                <span>${opt}</span>
                             </label>
                         `).join('')}
                     </div>
@@ -478,37 +470,20 @@
         quizContainer.innerHTML = html;
     }
 
-    function submitQuiz() {
-        let score = 0;
-        let answered = 0;
+    function checkAnswer(qIndex, optIndex) {
+        const q = questions[qIndex];
+        const feedbackEl = document.getElementById(`feedback-${qIndex}`);
+        const resultTextEl = document.getElementById(`result-text-${qIndex}`);
 
-        questions.forEach((q, index) => {
-            const selected = document.querySelector(`input[name="q${index}"]:checked`);
-            const feedbackEl = document.getElementById(`feedback-${index}`);
-            const resultTextEl = document.getElementById(`result-text-${index}`);
+        // Show feedback immediately
+        feedbackEl.style.display = 'block';
 
-            if (selected) {
-                answered++;
-                feedbackEl.style.display = 'block';
-                if (parseInt(selected.value) === q.answer) {
-                    score++;
-                    feedbackEl.className = 'feedback correct';
-                    resultTextEl.textContent = "Correct!";
-                } else {
-                    feedbackEl.className = 'feedback incorrect';
-                    resultTextEl.textContent = "Incorrect.";
-                }
-            } else {
-                feedbackEl.style.display = 'none';
-            }
-        });
-
-        const scoreDisplay = document.getElementById('score-display');
-        scoreDisplay.style.display = 'block';
-        if (answered === questions.length) {
-            scoreDisplay.textContent = `You scored ${score} out of ${questions.length} (${Math.round(score/questions.length*100)}%)`;
+        if (optIndex === q.answer) {
+            feedbackEl.className = 'feedback correct';
+            resultTextEl.textContent = "Correct!";
         } else {
-            scoreDisplay.textContent = `You answered ${answered} out of ${questions.length} questions. Please answer all to see your final grade.`;
+            feedbackEl.className = 'feedback incorrect';
+            resultTextEl.textContent = "Incorrect.";
         }
     }
 
