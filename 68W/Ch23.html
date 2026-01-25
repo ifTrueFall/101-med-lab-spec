@@ -112,6 +112,11 @@
             background-color: var(--secondary-color);
         }
 
+        /* Highlight selected option slightly */
+        input[type="radio"]:checked + span {
+            font-weight: bold;
+        }
+
         input[type="radio"] {
             margin-right: 12px;
         }
@@ -120,7 +125,7 @@
             margin-top: 15px;
             padding: 15px;
             border-radius: 4px;
-            display: none;
+            display: none; /* Hidden by default */
             font-size: 0.95em;
         }
 
@@ -154,7 +159,7 @@
         }
 
         button {
-            background-color: var(--primary-color);
+            background-color: #6c757d; /* Grey for reset */
             color: white;
             border: none;
             padding: 12px 24px;
@@ -166,19 +171,9 @@
         }
 
         button:hover {
-            background-color: #002244;
+            background-color: #5a6268;
         }
 
-        #score-display {
-            text-align: center;
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-top: 20px;
-            padding: 15px;
-            background: var(--secondary-color);
-            border-radius: 4px;
-            display: none;
-        }
     </style>
 </head>
 <body>
@@ -198,11 +193,8 @@
         </div>
 
     <div class="controls">
-        <button onclick="submitQuiz()">Submit Answers</button>
-        <button onclick="location.reload()" style="background-color: #6c757d;">Reset Quiz</button>
+        <button onclick="location.reload()">Reset Quiz</button>
     </div>
-
-    <div id="score-display"></div>
 </div>
 
 <script>
@@ -460,9 +452,9 @@
                     <div class="question-text">${index + 1}. ${q.q}</div>
                     <div class="options">
                         ${q.options.map((opt, i) => `
-                            <label class="option-label">
+                            <label class="option-label" onclick="checkAnswer(${index}, ${i})">
                                 <input type="radio" name="q${index}" value="${i}">
-                                ${opt}
+                                <span>${opt}</span>
                             </label>
                         `).join('')}
                     </div>
@@ -478,37 +470,20 @@
         quizContainer.innerHTML = html;
     }
 
-    function submitQuiz() {
-        let score = 0;
-        let answered = 0;
+    function checkAnswer(qIndex, optIndex) {
+        const q = questions[qIndex];
+        const feedbackEl = document.getElementById(`feedback-${qIndex}`);
+        const resultTextEl = document.getElementById(`result-text-${qIndex}`);
 
-        questions.forEach((q, index) => {
-            const selected = document.querySelector(`input[name="q${index}"]:checked`);
-            const feedbackEl = document.getElementById(`feedback-${index}`);
-            const resultTextEl = document.getElementById(`result-text-${index}`);
+        // Show feedback immediately
+        feedbackEl.style.display = 'block';
 
-            if (selected) {
-                answered++;
-                feedbackEl.style.display = 'block';
-                if (parseInt(selected.value) === q.answer) {
-                    score++;
-                    feedbackEl.className = 'feedback correct';
-                    resultTextEl.textContent = "Correct!";
-                } else {
-                    feedbackEl.className = 'feedback incorrect';
-                    resultTextEl.textContent = "Incorrect.";
-                }
-            } else {
-                feedbackEl.style.display = 'none';
-            }
-        });
-
-        const scoreDisplay = document.getElementById('score-display');
-        scoreDisplay.style.display = 'block';
-        if (answered === questions.length) {
-            scoreDisplay.textContent = `You scored ${score} out of ${questions.length} (${Math.round(score/questions.length*100)}%)`;
+        if (optIndex === q.answer) {
+            feedbackEl.className = 'feedback correct';
+            resultTextEl.textContent = "Correct!";
         } else {
-            scoreDisplay.textContent = `You answered ${answered} out of ${questions.length} questions. Please answer all to see your final grade.`;
+            feedbackEl.className = 'feedback incorrect';
+            resultTextEl.textContent = "Incorrect.";
         }
     }
 
