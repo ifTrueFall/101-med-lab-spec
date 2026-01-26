@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 25: Poisoning & Overdose - Study Quiz</title>
+    <style>
+        :root {
+            --primary-color: #003366; /* Army/Medical Blue */
+            --secondary-color: #f4f4f4;
+            --correct-color: #2e7d32;
+            --incorrect-color: #c62828;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #e9ecef;
+            color: #333;
+        }
+
+        /* Navigation Styles */
+        .top-nav {
+            background-color: var(--primary-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .top-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .meta-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .option-label:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Highlight selected option slightly */
+        input[type="radio"]:checked + span {
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-right: 12px;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none; /* Hidden by default */
+            font-size: 0.95em;
+        }
+
+        .feedback.correct {
+            background-color: #e8f5e9;
+            color: var(--correct-color);
+            border: 1px solid #a5d6a7;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background-color: #ffebee;
+            color: var(--incorrect-color);
+            border: 1px solid #ef9a9a;
+            display: block;
+        }
+
+        .citation {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.85em;
+            font-style: italic;
+            color: #555;
+        }
+
+        .controls {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            background-color: #6c757d; /* Grey for reset */
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: #5a6268;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="Ch24.html">← Back to Chapter 24</a>
+    <a href="Ch26.html">Next: Chapter 26 →</a>
+</nav>
+
+<div class="container">
+    <header>
+        <h1>Chapter 25: Poisoning & Overdose Emergencies</h1>
+        <div class="meta-info">EMT Basic / 68W Study Review</div>
+    </header>
+
+    <div id="quiz-content">
+        </div>
+
+    <div class="controls">
+        <button onclick="location.reload()">Reset Quiz</button>
+    </div>
+</div>
+
+<script>
+    // Quiz Data Source
+    const questions = [
+        {
+            q: "What is the most common route of exposure for poisoning in the United States?",
+            options: [
+                "Inhalation",
+                "Ingestion",
+                "Absorption",
+                "Injection"
+            ],
+            answer: 1,
+            explanation: "Ingested poisons (swallowed) are the most common route of exposure.",
+            cite: "Page 699"
+        },
+        {
+            q: "What is the primary action of Activated Charcoal?",
+            options: [
+                "It induces vomiting",
+                "It coats the stomach lining to prevent irritation",
+                "It adsorbs (binds to) poisons to prevent absorption into the body",
+                "It neutralizes acids chemically"
+            ],
+            answer: 2,
+            explanation: "Activated charcoal works through 'adsorption,' meaning the poison binds to the surface of the charcoal and is excreted rather than absorbed by the body.",
+            cite: "Page 702"
+        },
+        {
+            q: "Which of the following is a Contraindication for the administration of Activated Charcoal?",
+            options: [
+                "The patient has ingested Tylenol",
+                "The patient is alert and oriented",
+                "The patient has an altered mental status or cannot swallow",
+                "The patient ingested the poison 30 minutes ago"
+            ],
+            answer: 2,
+            explanation: "You cannot give charcoal to a patient who cannot swallow or has an altered mental status due to the high risk of aspiration.",
+            cite: "Page 703"
+        },
+        {
+            q: "Carbon Monoxide (CO) is dangerous primarily because:",
+            options: [
+                "It destroys the alveoli in the lungs",
+                "It displaces oxygen from hemoglobin, causing cellular hypoxia",
+                "It causes the heart to stop immediately",
+                "It is a strong acid that burns the throat"
+            ],
+            answer: 1,
+            explanation: "CO binds to hemoglobin 200 times more strongly than oxygen, effectively starving the cells of oxygen even if the patient is breathing.",
+            cite: "Page 708"
+        },
+        {
+            q: "What is the hallmark sign of Carbon Monoxide poisoning (though often a late sign)?",
+            options: [
+                "Cyanosis (blue skin)",
+                "Jaundice (yellow skin)",
+                "Cherry-red skin",
+                "Pale, cool skin"
+            ],
+            answer: 2,
+            explanation: "Cherry-red skin is the classic sign of CO poisoning, but it is typically a late finding. Early signs resemble the flu (headache, nausea).",
+            cite: "Page 709"
+        },
+        {
+            q: "The 'Opioid Triad' of severe overdose symptoms includes:",
+            options: [
+                "Hypertension, Tachycardia, Dilated pupils",
+                "Coma (unconsciousness), Pinpoint pupils, Respiratory depression",
+                "Violence, Hallucinations, Sweating",
+                "Vomiting, Diarrhea, Abdominal pain"
+            ],
+            answer: 1,
+            explanation: "The classic presentation of opioid overdose is the triad: Coma (depressed mental status), Pinpoint pupils, and Respiratory depression (slow/shallow breathing).",
+            cite: "Page 716"
+        },
+        {
+            q: "What is the medication of choice for reversing an opioid overdose?",
+            options: [
+                "Epinephrine",
+                "Naloxone (Narcan)",
+                "Activated Charcoal",
+                "Atropine"
+            ],
+            answer: 1,
+            explanation: "Naloxone is an opioid antagonist that reverses the effects of narcotics, specifically respiratory depression.",
+            cite: "Page 717"
+        },
+        {
+            q: "Delirium Tremens (DTs) is a severe, life-threatening condition associated with withdrawal from which substance?",
+            options: [
+                "Heroin",
+                "Cocaine",
+                "Alcohol",
+                "Marijuana"
+            ],
+            answer: 2,
+            explanation: "DTs are a severe form of alcohol withdrawal characterized by sweating, trembling, anxiety, and hallucinations. It can be fatal.",
+            cite: "Page 712"
+        },
+        {
+            q: "If a dry powder poison comes into contact with a patient's skin, you should first:",
+            options: [
+                "Wash it off with water immediately",
+                "Brush off the powder, then wash with copious amounts of water",
+                "Neutralize it with vinegar",
+                "Cover it with a dry sterile dressing"
+            ],
+            answer: 1,
+            explanation: "Always brush off dry chemicals first. Adding water to some dry chemicals (like lime) can activate them and cause a heat reaction.",
+            cite: "Page 711"
+        },
+        {
+            q: "Acetaminophen (Tylenol) overdose is particularly dangerous because:",
+            options: [
+                "It causes immediate respiratory arrest",
+                "It causes delayed, irreversible liver damage",
+                "It causes internal bleeding immediately",
+                "It causes severe hallucinations"
+            ],
+            answer: 1,
+            explanation: "Acetaminophen overdose symptoms may be mild at first, but massive liver failure can occur days later, which is often fatal.",
+            cite: "Page 704"
+        },
+        {
+            q: "Which of the following substances is classified as a 'Stimulant' (Upper)?",
+            options: [
+                "Heroin",
+                "Alcohol",
+                "Cocaine",
+                "Sleeping pills"
+            ],
+            answer: 2,
+            explanation: "Cocaine, amphetamines, and methamphetamine are stimulants that excite the CNS, causing tachycardia and dilated pupils.",
+            cite: "Page 713"
+        },
+        {
+            q: "The standard adult dose for Activated Charcoal is typically:",
+            options: [
+                "1 gram per kilogram of body weight",
+                "10 grams total",
+                "100 mg",
+                "0.3 mg"
+            ],
+            answer: 0,
+            explanation: "The standard dosage is 1 g/kg of body weight. For a typical adult, this is often 25–50 grams.",
+            cite: "Page 703"
+        },
+        {
+            q: "When treating a patient who has inhaled a poison (e.g., chlorine gas or smoke), your FIRST priority is:",
+            options: [
+                "Administering oxygen",
+                "Scene safety (ensuring you are not exposed)",
+                "Checking a pulse",
+                "Identifying the exact chemical"
+            ],
+            answer: 1,
+            explanation: "Scene safety is paramount. You cannot help the patient if you become a casualty of the gas or smoke yourself.",
+            cite: "Page 707"
+        },
+        {
+            q: "What is the recommended treatment time for irrigating eyes or skin exposed to liquid poisons?",
+            options: [
+                "5 minutes",
+                "At least 20 minutes",
+                "Until the pain stops",
+                "1 hour"
+            ],
+            answer: 1,
+            explanation: "Standard protocol for absorbed poisons (liquids in eyes or on skin) is continuous irrigation with clean water for at least 20 minutes.",
+            cite: "Page 711"
+        },
+        {
+            q: "Which of the following is NOT an indication for Naloxone?",
+            options: [
+                "Respiratory depression",
+                "Pinpoint pupils",
+                "Suspected opioid overdose",
+                "Chest pain"
+            ],
+            answer: 3,
+            explanation: "Naloxone is indicated for respiratory depression caused by opioids. It does not treat chest pain or cardiac issues unrelated to opioids.",
+            cite: "Page 717"
+        },
+        {
+            q: "Volatile chemicals (like cleaning fluid or glue) that are inhaled to produce a high are known as:",
+            options: [
+                "Uppers",
+                "Downers",
+                "Inhalants",
+                "Narcotics"
+            ],
+            answer: 2,
+            explanation: "These are classified as inhalants. 'Huffing' these chemicals can tragically change heart rhythm and cause sudden death.",
+            cite: "Page 719"
+        },
+        {
+            q: "Activated Charcoal is generally NOT used for ingestion of:",
+            options: [
+                "Aspirin",
+                "Tylenol",
+                "Strong acids or alkalis (e.g., drain cleaner)",
+                "Food poisoning"
+            ],
+            answer: 2,
+            explanation: "Charcoal does not bind well to strong acids/alkalis, and it may obscure the view if an endoscopy is needed later to check for burns.",
+            cite: "Page 703"
+        },
+        {
+            q: "What should you do if a patient vomits after taking Activated Charcoal?",
+            options: [
+                "Do nothing, the dose is lost",
+                "Administer a second dose if medical direction approves",
+                "Give them water to wash it down",
+                "Force them to vomit again"
+            ],
+            answer: 1,
+            explanation: "If the patient vomits shortly after administration, you may need to repeat the dose, but always consult medical direction first.",
+            cite: "Page 704"
+        },
+        {
+            q: "Food poisoning caused by bacteria (like Salmonella) usually presents with:",
+            options: [
+                "Immediate respiratory arrest",
+                "Nausea, vomiting, abdominal cramps, and diarrhea",
+                "Hallucinations",
+                "Chest pain"
+            ],
+            answer: 1,
+            explanation: "Gastrointestinal distress (nausea, vomiting, diarrhea) is the classic presentation of food poisoning.",
+            cite: "Page 706"
+        },
+        {
+            q: "If you are unsure what a patient ingested, who is the best resource to contact (via dispatch or directly)?",
+            options: [
+                "The patient's family doctor",
+                "The Poison Control Center",
+                "The pharmacy",
+                "The police"
+            ],
+            answer: 1,
+            explanation: "The Poison Control Center (1-800-222-1222) has a vast database of substances and antidotes and supports EMS providers.",
+            cite: "Page 700"
+        }
+    ];
+
+    function renderQuiz() {
+        const quizContainer = document.getElementById('quiz-content');
+        let html = '';
+
+        questions.forEach((q, index) => {
+            html += `
+                <div class="question-card" id="q${index}">
+                    <div class="question-text">${index + 1}. ${q.q}</div>
+                    <div class="options">
+                        ${q.options.map((opt, i) => `
+                            <label class="option-label" onclick="checkAnswer(${index}, ${i})">
+                                <input type="radio" name="q${index}" value="${i}">
+                                <span>${opt}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                    <div class="feedback" id="feedback-${index}">
+                        <strong><span id="result-text-${index}"></span></strong><br>
+                        ${q.explanation}
+                        <span class="citation">Source: ${q.cite}</span>
+                    </div>
+                </div>
+            `;
+        });
+
+        quizContainer.innerHTML = html;
+    }
+
+    function checkAnswer(qIndex, optIndex) {
+        const q = questions[qIndex];
+        const feedbackEl = document.getElementById(`feedback-${qIndex}`);
+        const resultTextEl = document.getElementById(`result-text-${qIndex}`);
+
+        // Show feedback immediately
+        feedbackEl.style.display = 'block';
+
+        if (optIndex === q.answer) {
+            feedbackEl.className = 'feedback correct';
+            resultTextEl.textContent = "Correct!";
+        } else {
+            feedbackEl.className = 'feedback incorrect';
+            resultTextEl.textContent = "Incorrect.";
+        }
+    }
+
+    // Initialize
+    renderQuiz();
+</script>
+
+</body>
+</html>
