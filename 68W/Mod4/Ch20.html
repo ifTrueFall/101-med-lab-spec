@@ -1,1 +1,495 @@
-Sample
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 20: Cardiac Emergencies - Study Quiz</title>
+    <style>
+        :root {
+            --primary-color: #003366; /* Army/Medical Blue */
+            --secondary-color: #f4f4f4;
+            --correct-color: #2e7d32;
+            --incorrect-color: #c62828;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #e9ecef;
+            color: #333;
+        }
+
+        /* Navigation Styles */
+        .top-nav {
+            background-color: var(--primary-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .top-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .meta-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .option-label:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Highlight selected option slightly */
+        input[type="radio"]:checked + span {
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-right: 12px;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none; /* Hidden by default */
+            font-size: 0.95em;
+        }
+
+        .feedback.correct {
+            background-color: #e8f5e9;
+            color: var(--correct-color);
+            border: 1px solid #a5d6a7;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background-color: #ffebee;
+            color: var(--incorrect-color);
+            border: 1px solid #ef9a9a;
+            display: block;
+        }
+
+        .citation {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.85em;
+            font-style: italic;
+            color: #555;
+        }
+
+        .controls {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            background-color: #6c757d; /* Grey for reset */
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: #5a6268;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="Ch19.html">← Back to Chapter 19</a>
+    <a href="Ch21.html">Next: Chapter 21 →</a>
+</nav>
+
+<div class="container">
+    <header>
+        <h1>Chapter 20: Cardiac Emergencies</h1>
+        <div class="meta-info">EMT Basic / 68W Study Review</div>
+    </header>
+
+    <div id="quiz-content">
+        </div>
+
+    <div class="controls">
+        <button onclick="location.reload()">Reset Quiz</button>
+    </div>
+</div>
+
+<script>
+    // Quiz Data Source
+    const questions = [
+        {
+            q: "Which arteries are responsible for supplying oxygenated blood to the heart muscle itself?",
+            options: [
+                "Carotid arteries",
+                "Coronary arteries",
+                "Subclavian arteries",
+                "Femoral arteries"
+            ],
+            answer: 1,
+            explanation: "The coronary arteries branch off the aorta and supply the myocardium (heart muscle) with oxygen. Blockage here causes heart attacks.",
+            cite: "Standard Cardiac Curriculum"
+        },
+        {
+            q: "Acute Coronary Syndrome (ACS) is a blanket term that refers to:",
+            options: [
+                "Only cardiac arrest",
+                "Any time the heart is not getting enough oxygen",
+                "High blood pressure",
+                "Congestive Heart Failure"
+            ],
+            answer: 1,
+            explanation: "ACS covers a spectrum of conditions where the heart muscle is not receiving enough oxygen, ranging from Angina to Acute Myocardial Infarction.",
+            cite: "Standard Cardiac Curriculum"
+        },
+        {
+            q: "What is the primary difference between Angina Pectoris and Acute Myocardial Infarction (AMI)?",
+            options: [
+                "Angina is painful; AMI is painless",
+                "Angina resolves with rest or nitroglycerin and causes no permanent damage; AMI causes tissue death",
+                "Angina occurs only at night",
+                "AMI is caused by exercise; Angina is caused by blood clots"
+            ],
+            answer: 1,
+            explanation: "Angina is 'ischemia' (lack of O2) that resolves; AMI is 'infarction' (death of tissue) that does not resolve.",
+            cite: "Standard Cardiac Curriculum"
+        },
+        {
+            q: "Which of the following is a classic symptom of a heart attack?",
+            options: [
+                "Sharp pain that changes when breathing",
+                "Crushing, heavy chest pressure radiating to the left arm or jaw",
+                "Headache and photophobia",
+                "Right lower quadrant abdominal pain"
+            ],
+            answer: 1,
+            explanation: "Classic AMI pain is described as crushing pressure (Levine's sign) radiating to the jaw, neck, or left arm.",
+            cite: "Standard Cardiac Curriculum"
+        },
+        {
+            q: "Certain populations (women, diabetics, and the elderly) often present with 'atypical' cardiac symptoms, such as:",
+            options: [
+                "Extreme hunger",
+                "Violent behavior",
+                "Nausea, fatigue, weakness, or indigestion without chest pain",
+                "Hives"
+            ],
+            answer: 2,
+            explanation: "These groups often do not experience the classic 'crushing chest pain' and may only report flu-like symptoms, nausea, or profound fatigue.",
+            cite: "Standard Cardiac Curriculum"
+        },
+        {
+            q: "What is the mechanism of action of Nitroglycerin?",
+            options: [
+                "It thins the blood",
+                "It slows the heart rate",
+                "It dilates blood vessels (vasodilation), reducing the workload of the heart",
+                "It increases blood pressure"
+            ],
+            answer: 2,
+            explanation: "Nitroglycerin relaxes the smooth muscle of blood vessels, causing dilation. This lowers blood pressure and reduces the heart's O2 demand.",
+            cite: "Standard Cardiac Curriculum"
+        },
+        {
+            q: "Which of the following is a Contraindication for administering Nitroglycerin?",
+            options: [
+                "The patient has taken erectile dysfunction (ED) medication in the last 24-48 hours",
+                "The patient has a headache",
+                "The patient has a history of heart attack",
+                "The systolic blood pressure is 130 mmHg"
+            ],
+            answer: 0,
+            explanation: "ED medications (Viagra, Cialis) are also vasodilators. Combining them with Nitro can cause a fatal drop in blood pressure.",
+            cite: "Standard Cardiac Curriculum"
+        },
+        {
+            q: "What is the standard dose for Aspirin in a suspected cardiac chest pain event?",
+            options: [
+                "81 mg (1 pill)",
+                "324 mg (4 baby aspirin of 81mg each)",
+                "650 mg",
+                "1000 mg"
+            ],
+            answer: 1,
+            explanation: "Protocols typically call for 162mg to 324mg (usually 4 chewable 81mg baby aspirins) to prevent further clot formation.",
+            cite: "Standard Cardiac Curriculum"
+        },
+        {
+            q: "Why do we administer Aspirin to a patient with chest pain?",
+            options: [
+                "For pain relief",
+                "To lower body temperature",
+                "To prevent platelets from clumping together (anti-platelet effect)",
+                "To dissolve the clot"
+            ],
+            answer: 2,
+            explanation: "Aspirin makes platelets 'slippery,' preventing the clot in the coronary artery from getting bigger. It does not dissolve existing clots.",
+            cite: "Standard Cardiac Curriculum"
+        },
+        {
+            q: "Congestive Heart Failure (CHF) occurs when:",
+            options: [
+                "The heart stops beating completely",
+                "The heart cannot pump effectively, causing fluid to back up into the lungs or body",
+                "The heart beats too fast",
+                "The aorta ruptures"
+            ],
+            answer: 1,
+            explanation: "CHF is a mechanical failure where the pump is inefficient, leading to fluid congestion (backup) in the pulmonary or systemic circulation.",
+            cite: "Standard Cardiac Curriculum"
+        },
+        {
+            q: "Signs of Left-Sided Heart Failure typically include:",
+            options: [
+                "JVD and pedal edema",
+                "Pulmonary edema (fluid in lungs), crackles, and difficulty breathing",
+                "Abdominal distention",
+                "Clear lung sounds"
+            ],
+            answer: 1,
+            explanation: "The Left side pumps to the body. If it fails, blood backs up into the lungs, causing pulmonary edema (pink frothy sputum).",
+            cite: "Standard Cardiac Curriculum"
+        },
+        {
+            q: "Signs of Right-Sided Heart Failure typically include:",
+            options: [
+                "Pulmonary edema",
+                "Jugular Vein Distention (JVD) and pedal (foot) edema",
+                "Flash pulmonary edema",
+                "Coughing up blood"
+            ],
+            answer: 1,
+            explanation: "The Right side pumps to the lungs. If it fails, blood backs up into the body, causing swelling in the feet and neck veins (JVD).",
+            cite: "Standard Cardiac Curriculum"
+        },
+        {
+            q: "Before administering Nitroglycerin, you must check the patient's:",
+            options: [
+                "Blood Glucose",
+                "Blood Pressure",
+                "Temperature",
+                "Pupils"
+            ],
+            answer: 1,
+            explanation: "Because Nitro dilates vessels, it drops blood pressure. You typically need a systolic BP > 90 or 100 mmHg (depending on protocol) to administer.",
+            cite: "Standard Cardiac Curriculum"
+        },
+        {
+            q: "What is an Aortic Aneurysm?",
+            options: [
+                "A blockage in the aorta",
+                "A weakened section of the aortic wall that balloons outward",
+                "An infection of the heart valve",
+                "A tear in the vena cava"
+            ],
+            answer: 1,
+            explanation: "An aneurysm is a weakening of the artery wall. If it ruptures, it causes massive, often fatal, internal bleeding.",
+            cite: "Standard Cardiac Curriculum"
+        },
+        {
+            q: "A patient describes 'tearing' pain radiating to their back. You should suspect:",
+            options: [
+                "Myocardial Infarction",
+                "Angina",
+                "Aortic Dissection",
+                "Pulmonary Embolism"
+            ],
+            answer: 2,
+            explanation: "Tearing pain, especially radiating to the back (between shoulder blades), is the hallmark sign of an aortic dissection.",
+            cite: "Standard Cardiac Curriculum"
+        },
+        {
+            q: "What is the correct sequence for the Chain of Survival?",
+            options: [
+                "CPR, Defibrillation, Recognition, ALS",
+                "Recognition/Activation, Early CPR, Rapid Defibrillation, Basic/Advanced EMS, Post-Arrest Care",
+                "Transport, CPR, Defibrillation",
+                "Meds, CPR, Shock"
+            ],
+            answer: 1,
+            explanation: "The Chain of Survival emphasizes calling 911 (Recognition), then CPR, then AED, then EMS arrival.",
+            cite: "Standard Cardiac Curriculum"
+        },
+        {
+            q: "If you encounter an unresponsive patient with no pulse and no breathing, your immediate action is:",
+            options: [
+                "Apply the AED",
+                "Start chest compressions",
+                "Give two rescue breaths",
+                "Check a blood pressure"
+            ],
+            answer: 1,
+            explanation: "In unwitnessed arrest or while waiting for the AED, start high-quality chest compressions immediately (C-A-B).",
+            cite: "Standard Cardiac Curriculum"
+        },
+        {
+            q: "Most sudden cardiac arrests in adults are caused by which rhythm?",
+            options: [
+                "Sinus Tachycardia",
+                "Ventricular Fibrillation (V-Fib)",
+                "Asystole",
+                "Bradycardia"
+            ],
+            answer: 1,
+            explanation: "V-Fib is the most common initial rhythm in sudden cardiac arrest and is treatable with early defibrillation.",
+            cite: "Standard Cardiac Curriculum"
+        },
+        {
+            q: "When applying AED pads, if the patient has a medication patch (like Nitro) on their chest, you should:",
+            options: [
+                "Place the pad directly over it",
+                "Remove the patch and wipe the skin before placing the pad",
+                "Place the pad at least 1 inch away",
+                "Do not use the AED"
+            ],
+            answer: 1,
+            explanation: "Remove the patch (using gloves) and wipe the residue, or the electrical arc could cause a burn.",
+            cite: "Standard Cardiac Curriculum"
+        },
+        {
+            q: "For a patient with chest pain and an O2 saturation of 93%, you should:",
+            options: [
+                " withhold oxygen",
+                "Administer oxygen to maintain saturation of at least 94%",
+                "Hyperventilate with a BVM",
+                "Only give oxygen if they go below 90%"
+            ],
+            answer: 1,
+            explanation: "Current guidelines recommend titrating oxygen to maintain saturation ≥ 94%. Hypoxia makes cardiac damage worse.",
+            cite: "Standard Cardiac Curriculum"
+        }
+    ];
+
+    function renderQuiz() {
+        const quizContainer = document.getElementById('quiz-content');
+        let html = '';
+
+        questions.forEach((q, index) => {
+            html += `
+                <div class="question-card" id="q${index}">
+                    <div class="question-text">${index + 1}. ${q.q}</div>
+                    <div class="options">
+                        ${q.options.map((opt, i) => `
+                            <label class="option-label" onclick="checkAnswer(${index}, ${i})">
+                                <input type="radio" name="q${index}" value="${i}">
+                                <span>${opt}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                    <div class="feedback" id="feedback-${index}">
+                        <strong><span id="result-text-${index}"></span></strong><br>
+                        ${q.explanation}
+                        <span class="citation">Source: ${q.cite}</span>
+                    </div>
+                </div>
+            `;
+        });
+
+        quizContainer.innerHTML = html;
+    }
+
+    function checkAnswer(qIndex, optIndex) {
+        const q = questions[qIndex];
+        const feedbackEl = document.getElementById(`feedback-${qIndex}`);
+        const resultTextEl = document.getElementById(`result-text-${qIndex}`);
+
+        // Show feedback immediately
+        feedbackEl.style.display = 'block';
+
+        if (optIndex === q.answer) {
+            feedbackEl.className = 'feedback correct';
+            resultTextEl.textContent = "Correct!";
+        } else {
+            feedbackEl.className = 'feedback incorrect';
+            resultTextEl.textContent = "Incorrect.";
+        }
+    }
+
+    // Initialize
+    renderQuiz();
+</script>
+
+</body>
+</html>
