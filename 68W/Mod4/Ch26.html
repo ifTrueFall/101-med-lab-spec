@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 26: Abdominal Emergencies - Study Quiz</title>
+    <style>
+        :root {
+            --primary-color: #003366; /* Army/Medical Blue */
+            --secondary-color: #f4f4f4;
+            --correct-color: #2e7d32;
+            --incorrect-color: #c62828;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #e9ecef;
+            color: #333;
+        }
+
+        /* Navigation Styles */
+        .top-nav {
+            background-color: var(--primary-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .top-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .meta-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .option-label:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Highlight selected option slightly */
+        input[type="radio"]:checked + span {
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-right: 12px;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none; /* Hidden by default */
+            font-size: 0.95em;
+        }
+
+        .feedback.correct {
+            background-color: #e8f5e9;
+            color: var(--correct-color);
+            border: 1px solid #a5d6a7;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background-color: #ffebee;
+            color: var(--incorrect-color);
+            border: 1px solid #ef9a9a;
+            display: block;
+        }
+
+        .citation {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.85em;
+            font-style: italic;
+            color: #555;
+        }
+
+        .controls {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            background-color: #6c757d; /* Grey for reset */
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: #5a6268;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="Ch25.html">← Back to Chapter 25</a>
+    <a href="Ch27.html">Next: Chapter 27 →</a>
+</nav>
+
+<div class="container">
+    <header>
+        <h1>Chapter 26: Abdominal Emergencies</h1>
+        <div class="meta-info">EMT Basic / 68W Study Review</div>
+    </header>
+
+    <div id="quiz-content">
+        </div>
+
+    <div class="controls">
+        <button onclick="location.reload()">Reset Quiz</button>
+    </div>
+</div>
+
+<script>
+    // Quiz Data Source
+    const questions = [
+        {
+            q: "Pain that is described as dull, achy, diffuse, and difficult to locate is known as:",
+            options: [
+                "Parietal pain",
+                "Visceral pain",
+                "Tearing pain",
+                "Referred pain"
+            ],
+            answer: 1,
+            explanation: "Visceral pain originates from the organs (viscera). Because organs have fewer nerve endings, the pain is dull and hard to pinpoint.",
+            cite: "Page 730"
+        },
+        {
+            q: "Which type of pain is sharp, intense, and typically localized to a specific area?",
+            options: [
+                "Visceral pain",
+                "Referred pain",
+                "Parietal pain",
+                "Chronic pain"
+            ],
+            answer: 2,
+            explanation: "Parietal pain arises from the lining of the abdominal cavity (peritoneum), which has many efficient nerve endings, making the pain sharp and easy to locate.",
+            cite: "Page 730"
+        },
+        {
+            q: "Pain in the right shoulder due to a diseased gallbladder is an example of:",
+            options: [
+                "Visceral pain",
+                "Referred pain",
+                "Phantom pain",
+                "Tearing pain"
+            ],
+            answer: 1,
+            explanation: "Referred pain is felt in a location other than where the pain originates due to shared nerve pathways.",
+            cite: "Page 730"
+        },
+        {
+            q: "What is the classic description of pain associated with a dissecting Abdominal Aortic Aneurysm (AAA)?",
+            options: [
+                "Dull ache in the lower quadrants",
+                "Sharp/tearing pain in the back",
+                "Cramping around the umbilicus",
+                "Burning sensation in the chest"
+            ],
+            answer: 1,
+            explanation: "As the inner layer of the aorta tears, patients often describe a tearing or sharp pain radiating to the back.",
+            cite: "Page 730"
+        },
+        {
+            q: "Which of the following is an organ located in the Retroperitoneal space?",
+            options: [
+                "Liver",
+                "Spleen",
+                "Kidneys",
+                "Stomach"
+            ],
+            answer: 2,
+            explanation: "The kidneys, pancreas, and aorta lie behind the peritoneum in the retroperitoneal space.",
+            cite: "Page 728"
+        },
+        {
+            q: "You are assessing a patient with a pulsating mass in the abdomen. You should:",
+            options: [
+                "Palpate it firmly to determine its size",
+                "Palpate it once gently, then do not touch it again",
+                "Ask the patient to cough while you hold it",
+                "Apply a pressure dressing over it"
+            ],
+            answer: 1,
+            explanation: "If you feel a pulsating mass (AAA), gentle palpation is enough to confirm. Repeated or firm palpation could rupture the aneurysm.",
+            cite: "Page 739"
+        },
+        {
+            q: "Appendicitis typically presents with pain initially around the umbilicus that later localizes to the:",
+            options: [
+                "Right Upper Quadrant (RUQ)",
+                "Left Lower Quadrant (LLQ)",
+                "Right Lower Quadrant (RLQ)",
+                "Epigastric region"
+            ],
+            answer: 2,
+            explanation: "The appendix is located in the Right Lower Quadrant (RLQ), and pain typically settles there.",
+            cite: "Page 731"
+        },
+        {
+            q: "What is the general rule of thumb regarding women of childbearing age with abdominal pain?",
+            options: [
+                "Assume it is menstrual cramps",
+                "Assume it is appendicitis",
+                "Assume it is an ectopic pregnancy until proven otherwise",
+                "Assume it is a urinary tract infection"
+            ],
+            answer: 2,
+            explanation: "Ectopic pregnancy is a life threat. You must assume this is the cause until it is ruled out by a physician.",
+            cite: "Page 734"
+        },
+        {
+            q: "A patient vomiting 'coffee grounds' material is likely suffering from:",
+            options: [
+                "Lower GI bleeding",
+                "Upper GI bleeding",
+                "Gallstones",
+                "Kidney stones"
+            ],
+            answer: 1,
+            explanation: "Coffee-grounds emesis is caused by blood being partially digested by stomach acids, indicating bleeding in the stomach or upper bowel.",
+            cite: "Page 732"
+        },
+        {
+            q: "Cholecystitis (gallbladder inflammation) is often aggravated by:",
+            options: [
+                "Drinking water",
+                "Ingestion of foods high in fat",
+                "Exercise",
+                "Lying flat"
+            ],
+            answer: 1,
+            explanation: "The gallbladder releases bile to digest fats. Fatty foods trigger contraction, causing pain if the duct is blocked.",
+            cite: "Page 731"
+        },
+        {
+            q: "The medical term for 'vomiting bright red blood' is:",
+            options: [
+                "Hematochezia",
+                "Hemoptysis",
+                "Hematemesis",
+                "Melena"
+            ],
+            answer: 2,
+            explanation: "Hematemesis refers to vomiting blood. (Melena is tarry stool; Hemoptysis is coughing up blood).",
+            cite: "Page 732"
+        },
+        {
+            q: "When palpating the abdomen of a patient with pain, you should:",
+            options: [
+                "Palpate the painful area first to get it over with",
+                "Palpate the painful area last",
+                "Only palpate the painful area",
+                "Start at the umbilicus and move outward"
+            ],
+            answer: 1,
+            explanation: "Palpate the area with pain LAST. Palpating it first may cause guarding or severe pain that masks findings in other quadrants.",
+            cite: "Page 739"
+        },
+        {
+            q: "A patient writhing in pain, unable to find a comfortable position, and complaining of flank pain radiating to the groin most likely has:",
+            options: [
+                "Appendicitis",
+                "Renal Colic (Kidney Stones)",
+                "Peritonitis",
+                "Gastric Ulcer"
+            ],
+            answer: 1,
+            explanation: "This 'writhing' behavior and radiation pattern is classic for kidney stones (renal colic).",
+            cite: "Page 733"
+        },
+        {
+            q: "Dark, black, tarry stools indicating digested blood are called:",
+            options: [
+                "Melena",
+                "Hematochezia",
+                "Coffee grounds",
+                "Hematuria"
+            ],
+            answer: 0,
+            explanation: "Melena is dark/tarry stool caused by digested blood moving through the digestive tract.",
+            cite: "Page 732"
+        },
+        {
+            q: "Which condition is often associated with a history of chronic alcohol abuse and causes epigastric pain radiating to the back?",
+            options: [
+                "Appendicitis",
+                "Pancreatitis",
+                "Kidney stones",
+                "Hernia"
+            ],
+            answer: 1,
+            explanation: "Pancreatitis is common in alcoholics. The pancreas is retroperitoneal, so pain often radiates to the back.",
+            cite: "Page 732"
+        },
+        {
+            q: "What is 'Guarding'?",
+            options: [
+                "The patient fighting you",
+                "A voluntary or involuntary tensing of abdominal muscles to protect the abdomen",
+                "A surgical dressing",
+                "A type of hernia"
+            ],
+            answer: 1,
+            explanation: "Guarding is the tensing of muscles (stiffness) to protect sensitive underlying organs from movement or touch.",
+            cite: "Page 739"
+        },
+        {
+            q: "Why might a geriatric patient with a severe abdominal emergency have a 'normal' pulse rate?",
+            options: [
+                "They have stronger hearts",
+                "They may be taking beta-blocker medications",
+                "They do not feel pain",
+                "Shock does not affect the elderly"
+            ],
+            answer: 1,
+            explanation: "Beta-blockers prevent the heart rate from rising, masking one of the primary signs of shock (tachycardia).",
+            cite: "Page 738"
+        },
+        {
+            q: "Epigastric pain (upper center abdomen) should always be considered ________ until proven otherwise.",
+            options: [
+                "Indigestion",
+                "Cardiac in nature (Heart Attack)",
+                "A muscle strain",
+                "Food poisoning"
+            ],
+            answer: 1,
+            explanation: "Myocardial infarction (heart attack) frequently presents as indigestion or epigastric discomfort, especially in women and the elderly.",
+            cite: "Page 733"
+        },
+        {
+            q: "Which position is generally most comfortable for a patient with severe abdominal pain?",
+            options: [
+                "Supine with legs straight",
+                "Prone (face down)",
+                "Lateral recumbent with knees drawn up (fetal position)",
+                "Standing up"
+            ],
+            answer: 2,
+            explanation: "Drawing the knees up relaxes the abdominal muscles and reduces tension on the peritoneum, providing relief.",
+            cite: "Page 742"
+        },
+        {
+            q: "What is the primary role of the EMT in treating abdominal emergencies?",
+            options: [
+                "Diagnose the exact cause",
+                "Administer pain medication immediately",
+                "Treat for shock and transport promptly",
+                "Give the patient fluids to drink"
+            ],
+            answer: 2,
+            explanation: "You do not need to diagnose. Your job is to identify life threats, treat for shock, and transport. Never give anything by mouth.",
+            cite: "Page 726"
+        }
+    ];
+
+    function renderQuiz() {
+        const quizContainer = document.getElementById('quiz-content');
+        let html = '';
+
+        questions.forEach((q, index) => {
+            html += `
+                <div class="question-card" id="q${index}">
+                    <div class="question-text">${index + 1}. ${q.q}</div>
+                    <div class="options">
+                        ${q.options.map((opt, i) => `
+                            <label class="option-label" onclick="checkAnswer(${index}, ${i})">
+                                <input type="radio" name="q${index}" value="${i}">
+                                <span>${opt}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                    <div class="feedback" id="feedback-${index}">
+                        <strong><span id="result-text-${index}"></span></strong><br>
+                        ${q.explanation}
+                        <span class="citation">Source: ${q.cite}</span>
+                    </div>
+                </div>
+            `;
+        });
+
+        quizContainer.innerHTML = html;
+    }
+
+    function checkAnswer(qIndex, optIndex) {
+        const q = questions[qIndex];
+        const feedbackEl = document.getElementById(`feedback-${qIndex}`);
+        const resultTextEl = document.getElementById(`result-text-${qIndex}`);
+
+        // Show feedback immediately
+        feedbackEl.style.display = 'block';
+
+        if (optIndex === q.answer) {
+            feedbackEl.className = 'feedback correct';
+            resultTextEl.textContent = "Correct!";
+        } else {
+            feedbackEl.className = 'feedback incorrect';
+            resultTextEl.textContent = "Incorrect.";
+        }
+    }
+
+    // Initialize
+    renderQuiz();
+</script>
+
+</body>
+</html>
