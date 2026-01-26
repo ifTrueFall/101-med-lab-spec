@@ -1,1 +1,495 @@
-Sample
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 18: General Pharmacology - Study Quiz</title>
+    <style>
+        :root {
+            --primary-color: #003366; /* Army/Medical Blue */
+            --secondary-color: #f4f4f4;
+            --correct-color: #2e7d32;
+            --incorrect-color: #c62828;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #e9ecef;
+            color: #333;
+        }
+
+        /* Navigation Styles */
+        .top-nav {
+            background-color: var(--primary-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .top-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .meta-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .option-label:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Highlight selected option slightly */
+        input[type="radio"]:checked + span {
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-right: 12px;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none; /* Hidden by default */
+            font-size: 0.95em;
+        }
+
+        .feedback.correct {
+            background-color: #e8f5e9;
+            color: var(--correct-color);
+            border: 1px solid #a5d6a7;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background-color: #ffebee;
+            color: var(--incorrect-color);
+            border: 1px solid #ef9a9a;
+            display: block;
+        }
+
+        .citation {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.85em;
+            font-style: italic;
+            color: #555;
+        }
+
+        .controls {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            background-color: #6c757d; /* Grey for reset */
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: #5a6268;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="../navigation.html">← Back to Navigation</a>
+    <a href="Ch19.html">Next: Chapter 19 →</a>
+</nav>
+
+<div class="container">
+    <header>
+        <h1>Chapter 18: General Pharmacology</h1>
+        <div class="meta-info">EMT Basic / 68W Study Review</div>
+    </header>
+
+    <div id="quiz-content">
+        </div>
+
+    <div class="controls">
+        <button onclick="location.reload()">Reset Quiz</button>
+    </div>
+</div>
+
+<script>
+    // Quiz Data Source
+    const questions = [
+        {
+            q: "What is the study of drugs, their sources, characteristics, and effects called?",
+            options: [
+                "Physiology",
+                "Pharmacology",
+                "Anatomy",
+                "Pathophysiology"
+            ],
+            answer: 1,
+            explanation: "Pharmacology is the branch of medicine concerned with the uses, effects, and modes of action of drugs.",
+            cite: "Standard Pharmacology Curriculum"
+        },
+        {
+            q: "Which of the following medications is commonly carried on the ambulance and administered by EMTs?",
+            options: [
+                "Insulin",
+                "Antibiotics",
+                "Aspirin",
+                "Morphine"
+            ],
+            answer: 2,
+            explanation: "Aspirin, Oral Glucose, Oxygen, Activated Charcoal, and sometimes Naloxone/Epi are standard EMT medications. Morphine is typically Paramedic level.",
+            cite: "Standard Pharmacology Curriculum"
+        },
+        {
+            q: "What is an 'Indication' for a medication?",
+            options: [
+                "A situation where the drug should definitely NOT be given",
+                "Specific signs or circumstances under which it is appropriate to administer a drug",
+                "A side effect of the drug",
+                "The way the drug is eliminated from the body"
+            ],
+            answer: 1,
+            explanation: "An indication is the medical reason you are giving the drug (e.g., Chest pain is an indication for Aspirin).",
+            cite: "Standard Pharmacology Curriculum"
+        },
+        {
+            q: "What is a 'Contraindication'?",
+            options: [
+                "A reason why you should give the drug",
+                "A situation in which the drug should not be given because it may cause harm",
+                "The intended effect of the drug",
+                "The generic name of the drug"
+            ],
+            answer: 1,
+            explanation: "A contraindication is a specific situation where a drug, procedure, or surgery should not be used because it may be harmful to the person.",
+            cite: "Standard Pharmacology Curriculum"
+        },
+        {
+            q: "Which of the following is NOT one of the 'Five Rights' (or Six Rights) of medication administration?",
+            options: [
+                "Right Patient",
+                "Right Medication",
+                "Right Dose",
+                "Right Price"
+            ],
+            answer: 3,
+            explanation: "The Rights are: Patient, Medication, Dose, Route, Time, and Documentation. Price is irrelevant to clinical care.",
+            cite: "Standard Pharmacology Curriculum"
+        },
+        {
+            q: "What route of administration involves placing a medication under the tongue to dissolve?",
+            options: [
+                "Oral (PO)",
+                "Sublingual (SL)",
+                "Intramuscular (IM)",
+                "Intravenous (IV)"
+            ],
+            answer: 1,
+            explanation: "Sublingual (SL) administration involves placing a pill or spray under the tongue where it is absorbed rapidly by the mucous membranes.",
+            cite: "Standard Pharmacology Curriculum"
+        },
+        {
+            q: "Aspirin is administered to patients with chest pain primarily because it:",
+            options: [
+                "Relieves pain immediately",
+                "Reduces the ability of platelets to clump together (anti-platelet)",
+                "Dissolves blood clots",
+                "Lowers blood pressure"
+            ],
+            answer: 1,
+            explanation: "Aspirin is an anti-platelet agent. It prevents the clot in the heart from getting bigger. It does not dissolve existing clots.",
+            cite: "Standard Pharmacology Curriculum"
+        },
+        {
+            q: "Oral Glucose is indicated for patients who:",
+            options: [
+                "Have chest pain",
+                "Have an altered mental status and a history of diabetes",
+                "Are unconscious",
+                "Have high blood pressure"
+            ],
+            answer: 1,
+            explanation: "Oral glucose is for conscious patients with a history of diabetes who have altered mental status due to suspected hypoglycemia.",
+            cite: "Standard Pharmacology Curriculum"
+        },
+        {
+            q: "What is the primary action of Epinephrine when used for anaphylaxis?",
+            options: [
+                "Vasodilation and Bronchoconstriction",
+                "Vasoconstriction and Bronchodilation",
+                "Slows the heart rate",
+                "Causes sleepiness"
+            ],
+            answer: 1,
+            explanation: "Epinephrine constricts blood vessels (raising BP) and dilates bronchioles (opening the airway), reversing the effects of anaphylaxis.",
+            cite: "Standard Pharmacology Curriculum"
+        },
+        {
+            q: "Activated Charcoal is used to:",
+            options: [
+                "Treat dehydration",
+                "Adsorb (bind) ingested poisons in the stomach",
+                "Increase blood sugar",
+                "Treat allergic reactions"
+            ],
+            answer: 1,
+            explanation: "Activated Charcoal binds to poisons in the stomach, preventing them from being absorbed by the body.",
+            cite: "Standard Pharmacology Curriculum"
+        },
+        {
+            q: "Naloxone (Narcan) is an antidote used to reverse the effects of:",
+            options: [
+                "Alcohol",
+                "Benzodiazepines",
+                "Narcotics / Opioids",
+                "Cocaine"
+            ],
+            answer: 2,
+            explanation: "Naloxone specifically targets opioid receptors to reverse respiratory depression caused by narcotics/opioids.",
+            cite: "Standard Pharmacology Curriculum"
+        },
+        {
+            q: "The 'Intramuscular' (IM) route involves injecting medication into:",
+            options: [
+                "A vein",
+                "The layer of fat under the skin",
+                "The muscle",
+                "The bone marrow"
+            ],
+            answer: 2,
+            explanation: "IM injections (like the EpiPen) go directly into the muscle tissue for rapid absorption.",
+            cite: "Standard Pharmacology Curriculum"
+        },
+        {
+            q: "What is the generic name for a bronchodilator commonly used in inhalers for asthma?",
+            options: [
+                "Nitroglycerin",
+                "Albuterol",
+                "Epinephrine",
+                "Aspirin"
+            ],
+            answer: 1,
+            explanation: "Albuterol is the most common beta-agonist bronchodilator used in rescue inhalers.",
+            cite: "Standard Pharmacology Curriculum"
+        },
+        {
+            q: "Before assisting a patient with their prescribed Nitroglycerin, you must check their blood pressure to ensure the systolic pressure is above:",
+            options: [
+                "90 or 100 mmHg (depending on local protocol)",
+                "150 mmHg",
+                "80 mmHg",
+                "60 mmHg"
+            ],
+            answer: 0,
+            explanation: "Nitroglycerin lowers blood pressure. Giving it to a hypotensive patient (below 90-100 systolic) can cause a dangerous crash.",
+            cite: "Standard Pharmacology Curriculum"
+        },
+        {
+            q: "A 'Side Effect' is defined as:",
+            options: [
+                "The main reason for giving the drug",
+                "Any action of a drug other than the desired action",
+                "An allergic reaction",
+                "The expiration date"
+            ],
+            answer: 1,
+            explanation: "Side effects are actions other than the desired therapeutic effect. They can be predictable (like a headache from nitro) or adverse.",
+            cite: "Standard Pharmacology Curriculum"
+        },
+        {
+            q: "Which form of medication is a suspension containing solid particles in liquid?",
+            options: [
+                "Tablet",
+                "Gel",
+                "Suspension",
+                "Gas"
+            ],
+            answer: 2,
+            explanation: "A suspension (like Activated Charcoal) involves solid particles mixed in liquid that must be shaken before administration.",
+            cite: "Standard Pharmacology Curriculum"
+        },
+        {
+            q: "The 'Trade Name' of a drug is:",
+            options: [
+                "The scientific chemical structure",
+                "The generic name assigned by the government",
+                "The brand name given by the manufacturer (e.g., Tylenol)",
+                "The street name"
+            ],
+            answer: 2,
+            explanation: "The Trade (Brand) name is capitalized and marketed by a specific company (e.g., Tylenol), whereas Acetaminophen is the generic name.",
+            cite: "Standard Pharmacology Curriculum"
+        },
+        {
+            q: "What is the route of administration for an EpiPen?",
+            options: [
+                "Oral",
+                "Intravenous",
+                "Intramuscular (Auto-injector)",
+                "Inhaled"
+            ],
+            answer: 2,
+            explanation: "EpiPens are auto-injectors designed to deliver an Intramuscular (IM) dose into the lateral thigh.",
+            cite: "Standard Pharmacology Curriculum"
+        },
+        {
+            q: "If you are unsure about a medication order from medical control, you should:",
+            options: [
+                "Give the drug anyway",
+                "Ask your partner",
+                "Repeat the order back for confirmation ('Echo' technique)",
+                "Guess the dose"
+            ],
+            answer: 2,
+            explanation: "Always use closed-loop communication. Repeat the order back word-for-word to confirm you heard it correctly before administering.",
+            cite: "Standard Pharmacology Curriculum"
+        },
+        {
+            q: "Which of the following is a potential side effect of Nitroglycerin?",
+            options: [
+                "High blood pressure",
+                "Headache",
+                "Constipation",
+                "Hyperactivity"
+            ],
+            answer: 1,
+            explanation: "Because Nitro dilates vessels in the head as well as the heart, a pounding headache is a very common side effect.",
+            cite: "Standard Pharmacology Curriculum"
+        }
+    ];
+
+    function renderQuiz() {
+        const quizContainer = document.getElementById('quiz-content');
+        let html = '';
+
+        questions.forEach((q, index) => {
+            html += `
+                <div class="question-card" id="q${index}">
+                    <div class="question-text">${index + 1}. ${q.q}</div>
+                    <div class="options">
+                        ${q.options.map((opt, i) => `
+                            <label class="option-label" onclick="checkAnswer(${index}, ${i})">
+                                <input type="radio" name="q${index}" value="${i}">
+                                <span>${opt}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                    <div class="feedback" id="feedback-${index}">
+                        <strong><span id="result-text-${index}"></span></strong><br>
+                        ${q.explanation}
+                        <span class="citation">Source: ${q.cite}</span>
+                    </div>
+                </div>
+            `;
+        });
+
+        quizContainer.innerHTML = html;
+    }
+
+    function checkAnswer(qIndex, optIndex) {
+        const q = questions[qIndex];
+        const feedbackEl = document.getElementById(`feedback-${qIndex}`);
+        const resultTextEl = document.getElementById(`result-text-${qIndex}`);
+
+        // Show feedback immediately
+        feedbackEl.style.display = 'block';
+
+        if (optIndex === q.answer) {
+            feedbackEl.className = 'feedback correct';
+            resultTextEl.textContent = "Correct!";
+        } else {
+            feedbackEl.className = 'feedback incorrect';
+            resultTextEl.textContent = "Incorrect.";
+        }
+    }
+
+    // Initialize
+    renderQuiz();
+</script>
+
+</body>
+</html>
