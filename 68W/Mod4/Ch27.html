@@ -1,1 +1,495 @@
-Sample
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 27: Behavioral Emergencies - Study Quiz</title>
+    <style>
+        :root {
+            --primary-color: #003366; /* Army/Medical Blue */
+            --secondary-color: #f4f4f4;
+            --correct-color: #2e7d32;
+            --incorrect-color: #c62828;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #e9ecef;
+            color: #333;
+        }
+
+        /* Navigation Styles */
+        .top-nav {
+            background-color: var(--primary-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .top-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .meta-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .option-label:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Highlight selected option slightly */
+        input[type="radio"]:checked + span {
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-right: 12px;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none; /* Hidden by default */
+            font-size: 0.95em;
+        }
+
+        .feedback.correct {
+            background-color: #e8f5e9;
+            color: var(--correct-color);
+            border: 1px solid #a5d6a7;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background-color: #ffebee;
+            color: var(--incorrect-color);
+            border: 1px solid #ef9a9a;
+            display: block;
+        }
+
+        .citation {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.85em;
+            font-style: italic;
+            color: #555;
+        }
+
+        .controls {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            background-color: #6c757d; /* Grey for reset */
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: #5a6268;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="Ch26.html">← Back to Chapter 26</a>
+    <a href="Ch28.html">Next: Chapter 28 →</a>
+</nav>
+
+<div class="container">
+    <header>
+        <h1>Chapter 27: Behavioral Emergencies & Suicide</h1>
+        <div class="meta-info">EMT Basic / 68W Study Review</div>
+    </header>
+
+    <div id="quiz-content">
+        </div>
+
+    <div class="controls">
+        <button onclick="location.reload()">Reset Quiz</button>
+    </div>
+</div>
+
+<script>
+    // Quiz Data Source
+    const questions = [
+        {
+            q: "How is a 'behavioral emergency' defined?",
+            options: [
+                "Any time a patient is loud or rude",
+                "When a patient exhibits abnormal behavior within a given situation that is unacceptable or intolerable",
+                "When a patient has a diagnosed history of schizophrenia",
+                "When a patient refuses medical care"
+            ],
+            answer: 1,
+            explanation: "A behavioral emergency is defined by behavior that is abnormal *for the situation* and is unacceptable to the patient, family, or community.",
+            cite: "Page 747"
+        },
+        {
+            q: "Which of the following is a physical (medical) cause that can mimic a behavioral emergency?",
+            options: [
+                "Hypoglycemia (low blood sugar)",
+                "Hypertension",
+                "High cholesterol",
+                "Arthritis"
+            ],
+            answer: 0,
+            explanation: "Low blood sugar (hypoglycemia) is a classic cause of altered mental status and aggressive behavior that mimics a psychiatric issue.",
+            cite: "Page 749"
+        },
+        {
+            q: "You are assessing a patient who appears to be having a behavioral emergency. Your FIRST priority is:",
+            options: [
+                "Restraining the patient immediately",
+                "Identifying the underlying cause",
+                "Your own safety and scene safety",
+                "Transporting the patient"
+            ],
+            answer: 2,
+            explanation: "Scene safety is always priority #1. Behavioral emergencies can turn violent quickly.",
+            cite: "Page 753"
+        },
+        {
+            q: "What is 'Acute Psychosis'?",
+            options: [
+                "A severe fear of heights",
+                "A state of delusion where the patient is out of touch with reality",
+                "A temporary loss of consciousness",
+                "A reaction to too much caffeine"
+            ],
+            answer: 1,
+            explanation: "Psychosis is characterized by a break from reality, often involving hallucinations (seeing things) or delusions (false beliefs).",
+            cite: "Page 751"
+        },
+        {
+            q: "When communicating with a patient experiencing hallucinations, you should:",
+            options: [
+                "Play along and pretend you see them too",
+                "Argue with the patient and tell them they are crazy",
+                "Confirm that you do not see them, but acknowledge the patient is upset",
+                "Ignore the patient completely"
+            ],
+            answer: 2,
+            explanation: "Do not play along, as this reinforces the delusion. Do not argue. Simply state you don't see it but understand they are distressed.",
+            cite: "Page 756"
+        },
+        {
+            q: "Which of the following is a key risk factor for suicide?",
+            options: [
+                "Recent sudden improvement in depression",
+                "Being young and female",
+                "Having a low stress job",
+                "Never having attempted suicide before"
+            ],
+            answer: 0,
+            explanation: "A sudden improvement in depression can actually be a warning sign, as the patient may have made the decision to end their pain and feels relief.",
+            cite: "Page 758"
+        },
+        {
+            q: "What is 'Excited Delirium' (also called Agitated Delirium)?",
+            options: [
+                "A calm, catatonic state",
+                "A condition characterized by bizarre and aggressive behavior, shouting, paranoia, and extraordinary strength",
+                "A mild panic attack",
+                "A side effect of antidepressants"
+            ],
+            answer: 1,
+            explanation: "Excited delirium is a dangerous condition often involving drug use where the patient is hyper-aggressive, insensitive to pain, and hyperthermic.",
+            cite: "Page 759"
+        },
+        {
+            q: "A patient with Excited Delirium is at high risk for:",
+            options: [
+                "Sudden cardiac arrest",
+                "Hypothermia",
+                "Low blood pressure",
+                "Sleepiness"
+            ],
+            answer: 0,
+            explanation: "Due to extreme exertion and acidosis, these patients can go into sudden cardiac arrest, often immediately after being restrained.",
+            cite: "Page 759"
+        },
+        {
+            q: "What is 'Positional Asphyxia'?",
+            options: [
+                "Choking on food",
+                "Inadequate breathing caused by body position restricting chest movement",
+                "Holding breath while swimming",
+                "Hyperventilation from anxiety"
+            ],
+            answer: 1,
+            explanation: "This occurs when a patient is restrained in a way (usually prone) that prevents them from expanding their chest to breathe.",
+            cite: "Page 760"
+        },
+        {
+            q: "When restraining a patient, how many personnel are ideally required?",
+            options: [
+                "One strong person",
+                "Two people",
+                "Four to five people (one for each limb and the head)",
+                "No personnel, use chemical restraints only"
+            ],
+            answer: 2,
+            explanation: "Ideally, you want 4-5 people: one for each limb and one to monitor the head/airway, to ensure safety for everyone.",
+            cite: "Page 760"
+        },
+        {
+            q: "Which position should you NEVER use to restrain a patient?",
+            options: [
+                "Supine (face up)",
+                "Lateral recumbent (on side)",
+                "Prone (face down)",
+                "Sitting up"
+            ],
+            answer: 2,
+            explanation: "Prone restraint is strictly forbidden because it significantly increases the risk of positional asphyxia and death.",
+            cite: "Page 760"
+        },
+        {
+            q: "When assessing a potential suicide patient, you must specifically ask:",
+            options: [
+                "Why would you do that?",
+                "Do you have a plan and the means to carry it out?",
+                "Don't you care about your family?",
+                "Are you just looking for attention?"
+            ],
+            answer: 1,
+            explanation: "You must determine intent, plan, and means. A patient with a specific plan and the gun/pills/means to do it is an immediate emergency.",
+            cite: "Page 758"
+        },
+        {
+            q: "If a patient is spitting at rescuers, what is the appropriate protection?",
+            options: [
+                "Wrap their entire head in a pillowcase",
+                "Place a surgical mask on the patient (if safe)",
+                "Tape their mouth shut",
+                "Turn them face down"
+            ],
+            answer: 1,
+            explanation: "A surgical mask (or a spit hood if allowed) is appropriate. Never use materials that obstruct breathing or visual monitoring of the airway.",
+            cite: "Page 761"
+        },
+        {
+            q: "Hypoxia (low oxygen) can cause behavioral changes such as:",
+            options: [
+                "Anxiety and confusion",
+                "Extreme happiness",
+                "Hunger",
+                "Itchy skin"
+            ],
+            answer: 0,
+            explanation: "Hypoxia is a common medical cause of anxiety, confusion, and combativeness, especially in the elderly.",
+            cite: "Page 749"
+        },
+        {
+            q: "Once physical restraints are applied, you must:",
+            options: [
+                "Remove them if the patient calms down",
+                "Check distal circulation (pulse, motor, sensory) frequently",
+                "Leave the patient alone in the back of the ambulance",
+                "Tighten them as much as possible"
+            ],
+            answer: 1,
+            explanation: "You must constantly monitor the patient's airway and circulation (PMS) to ensure the restraints aren't cutting off blood flow.",
+            cite: "Page 761"
+        },
+        {
+            q: "Which mnemonic is often used to recall medical conditions that can cause altered mental status?",
+            options: [
+                "SAMPLE",
+                "OPQRST",
+                "AEIOU-TIPS",
+                "DCAP-BTLS"
+            ],
+            answer: 2,
+            explanation: "AEIOU-TIPS covers Alcohol, Epilepsy, Insulin, Overdose, Uremia, Trauma, Infection, Psych, Stroke/Shock.",
+            cite: "Page 749"
+        },
+        {
+            q: "When talking to a patient experiencing a behavioral emergency, you should:",
+            options: [
+                "Speak loudly and assertively to show dominance",
+                "Speak calmly, slowly, and clearly",
+                "Stand as close as possible",
+                "Cross your arms to protect yourself"
+            ],
+            answer: 1,
+            explanation: "Calm, slow, and clear communication helps de-escalate the situation. Avoid threatening body language.",
+            cite: "Page 755"
+        },
+        {
+            q: "If a patient has engaged in self-harm (e.g., cutting wrists), your medical priority is:",
+            options: [
+                "Psychological counseling",
+                "Treating the trauma/bleeding and assessing for shock",
+                "Restraining them immediately",
+                "Finding out why they did it"
+            ],
+            answer: 1,
+            explanation: "Medical issues (ABCs, bleeding) always take priority over psychiatric evaluation.",
+            cite: "Page 758"
+        },
+        {
+            q: "Who generally has the legal authority to force a patient to be transported against their will for psychiatric evaluation?",
+            options: [
+                "The EMT",
+                "The patient's neighbor",
+                "Law Enforcement (or a physician/mental health professional via specific laws)",
+                "No one"
+            ],
+            answer: 2,
+            explanation: "EMTs generally rely on police or specific legal statutes (like the Baker Act) to transport patients against their will.",
+            cite: "Page 761"
+        },
+        {
+            q: "What is the safest way to approach a potentially violent patient?",
+            options: [
+                "Alone, to build trust",
+                "Rapidly, to catch them off guard",
+                "With a plan, ensuring you have an exit route",
+                "From behind"
+            ],
+            answer: 2,
+            explanation: "Always have a plan and never let the patient get between you and the door (your exit route).",
+            cite: "Page 753"
+        }
+    ];
+
+    function renderQuiz() {
+        const quizContainer = document.getElementById('quiz-content');
+        let html = '';
+
+        questions.forEach((q, index) => {
+            html += `
+                <div class="question-card" id="q${index}">
+                    <div class="question-text">${index + 1}. ${q.q}</div>
+                    <div class="options">
+                        ${q.options.map((opt, i) => `
+                            <label class="option-label" onclick="checkAnswer(${index}, ${i})">
+                                <input type="radio" name="q${index}" value="${i}">
+                                <span>${opt}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                    <div class="feedback" id="feedback-${index}">
+                        <strong><span id="result-text-${index}"></span></strong><br>
+                        ${q.explanation}
+                        <span class="citation">Source: ${q.cite}</span>
+                    </div>
+                </div>
+            `;
+        });
+
+        quizContainer.innerHTML = html;
+    }
+
+    function checkAnswer(qIndex, optIndex) {
+        const q = questions[qIndex];
+        const feedbackEl = document.getElementById(`feedback-${qIndex}`);
+        const resultTextEl = document.getElementById(`result-text-${qIndex}`);
+
+        // Show feedback immediately
+        feedbackEl.style.display = 'block';
+
+        if (optIndex === q.answer) {
+            feedbackEl.className = 'feedback correct';
+            resultTextEl.textContent = "Correct!";
+        } else {
+            feedbackEl.className = 'feedback incorrect';
+            resultTextEl.textContent = "Incorrect.";
+        }
+    }
+
+    // Initialize
+    renderQuiz();
+</script>
+
+</body>
+</html>
