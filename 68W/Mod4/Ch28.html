@@ -1,1 +1,495 @@
-Sample
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 28: Hematologic & Renal Emergencies - Study Quiz</title>
+    <style>
+        :root {
+            --primary-color: #003366; /* Army/Medical Blue */
+            --secondary-color: #f4f4f4;
+            --correct-color: #2e7d32;
+            --incorrect-color: #c62828;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #e9ecef;
+            color: #333;
+        }
+
+        /* Navigation Styles */
+        .top-nav {
+            background-color: var(--primary-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .top-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .meta-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .option-label:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Highlight selected option slightly */
+        input[type="radio"]:checked + span {
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-right: 12px;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none; /* Hidden by default */
+            font-size: 0.95em;
+        }
+
+        .feedback.correct {
+            background-color: #e8f5e9;
+            color: var(--correct-color);
+            border: 1px solid #a5d6a7;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background-color: #ffebee;
+            color: var(--incorrect-color);
+            border: 1px solid #ef9a9a;
+            display: block;
+        }
+
+        .citation {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.85em;
+            font-style: italic;
+            color: #555;
+        }
+
+        .controls {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            background-color: #6c757d; /* Grey for reset */
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: #5a6268;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="Ch27.html">← Back to Chapter 27</a>
+    <a href="../navigation.html">Finish Module 4 (Menu)</a>
+</nav>
+
+<div class="container">
+    <header>
+        <h1>Chapter 28: Hematologic & Renal Emergencies</h1>
+        <div class="meta-info">EMT Basic / 68W Study Review</div>
+    </header>
+
+    <div id="quiz-content">
+        </div>
+
+    <div class="controls">
+        <button onclick="location.reload()">Reset Quiz</button>
+    </div>
+</div>
+
+<script>
+    // Quiz Data Source
+    const questions = [
+        {
+            q: "Which component of the blood is primarily responsible for carrying oxygen?",
+            options: [
+                "White blood cells",
+                "Platelets",
+                "Plasma",
+                "Red blood cells (RBCs)"
+            ],
+            answer: 3,
+            explanation: "Red blood cells contain hemoglobin, which binds to oxygen and transports it to the tissues.",
+            cite: "Page 765"
+        },
+        {
+            q: "What is the primary function of platelets?",
+            options: [
+                "Fighting infection",
+                "Transporting carbon dioxide",
+                "Clotting blood",
+                "Regulating body temperature"
+            ],
+            answer: 2,
+            explanation: "Platelets are fragments that adhere to damaged vessel walls and to each other to form clots and stop bleeding.",
+            cite: "Page 765"
+        },
+        {
+            q: "Anemia is a condition characterized by:",
+            options: [
+                "Excessive white blood cells",
+                "A lack of a normal number of red blood cells",
+                "Inability to form clots",
+                "High blood pressure"
+            ],
+            answer: 1,
+            explanation: "Anemia is a deficiency in the number of red blood cells (or hemoglobin), reducing the blood's ability to carry oxygen.",
+            cite: "Page 767"
+        },
+        {
+            q: "Sickle Cell Anemia (SCA) is an inherited disease that primarily affects which population?",
+            options: [
+                "Asian descent",
+                "African, Middle Eastern, and Indian descent",
+                "Northern European descent",
+                "Native American descent"
+            ],
+            answer: 1,
+            explanation: "SCA is most common in patients of African descent, but also occurs in those of Middle Eastern or Indian descent.",
+            cite: "Page 767"
+        },
+        {
+            q: "What causes the pain associated with a Sickle Cell Crisis?",
+            options: [
+                "The spleen enlarging rapidly",
+                "Misshapen red blood cells blocking small capillaries (sludging)",
+                "High blood pressure",
+                "Infection in the bone marrow"
+            ],
+            answer: 1,
+            explanation: "The sickle-shaped cells become rigid and block microcirculation (capillaries), causing ischemia and severe pain (vaso-occlusive crisis).",
+            cite: "Page 768"
+        },
+        {
+            q: "Which organ is often destroyed early in life in patients with Sickle Cell Anemia due to blocked blood flow?",
+            options: [
+                "Liver",
+                "Kidneys",
+                "Spleen",
+                "Pancreas"
+            ],
+            answer: 2,
+            explanation: "The spleen filters blood and often becomes blocked by sickled cells, leading to infarction and loss of function early in life.",
+            cite: "Page 768"
+        },
+        {
+            q: "What is the primary role of the kidneys?",
+            options: [
+                "To produce insulin",
+                "To filter blood and remove waste products/excess fluid",
+                "To store bile",
+                "To digest food"
+            ],
+            answer: 1,
+            explanation: "The kidneys filter arterial blood, remove toxins and excess water, and excrete them as urine.",
+            cite: "Page 771"
+        },
+        {
+            q: "Renal Failure refers to:",
+            options: [
+                "Inability to urinate due to obstruction",
+                "Loss of the kidneys' ability to filter blood and remove toxins",
+                "Infection of the bladder",
+                "Kidney stones"
+            ],
+            answer: 1,
+            explanation: "Renal failure is the loss of the kidneys' ability to filter the blood and remove toxins and excess fluid from the body.",
+            cite: "Page 771"
+        },
+        {
+            q: "Which of the following is a common cause of Chronic Renal Failure?",
+            options: [
+                "Appendicitis",
+                "Diabetes and Hypertension (High Blood Pressure)",
+                "Pneumonia",
+                "Trauma"
+            ],
+            answer: 1,
+            explanation: "Uncontrolled Diabetes and Hypertension are the leading causes of chronic kidney disease and failure.",
+            cite: "Page 771"
+        },
+        {
+            q: "Hemodialysis involves:",
+            options: [
+                "Using the peritoneal cavity to filter blood",
+                "Taking medication to increase urination",
+                "Filtering the patient's blood through a machine externally",
+                "Surgical removal of the kidney"
+            ],
+            answer: 2,
+            explanation: "Hemodialysis pumps the patient's blood through a machine (dialyzer) to filter it and returns it to the body.",
+            cite: "Page 773"
+        },
+        {
+            q: "Peritoneal Dialysis is different from Hemodialysis because:",
+            options: [
+                "It is only done in a hospital",
+                "It uses the lining of the abdominal cavity (peritoneum) as a filter",
+                "It requires needle sticks every time",
+                "It is faster than hemodialysis"
+            ],
+            answer: 1,
+            explanation: "Peritoneal dialysis uses the large surface area of the peritoneum to filter blood via a special fluid introduced into the abdomen.",
+            cite: "Page 774"
+        },
+        {
+            q: "A common complication of Peritoneal Dialysis is:",
+            options: [
+                "Pneumonia",
+                "Peritonitis (infection of the abdominal lining)",
+                "Stroke",
+                "Kidney stones"
+            ],
+            answer: 1,
+            explanation: "Bacteria can enter the catheter site, causing peritonitis. The fluid drained may appear cloudy.",
+            cite: "Page 774"
+        },
+        {
+            q: "Patients with End-Stage Renal Disease (ESRD) who miss their dialysis appointments are at high risk for:",
+            options: [
+                "Dehydration",
+                "Fluid overload and electrolyte imbalances (high potassium)",
+                "Low blood pressure",
+                "Hypothermia"
+            ],
+            answer: 1,
+            explanation: "Without dialysis, fluid and toxins (like potassium) build up, leading to pulmonary edema and dangerous dysrhythmias.",
+            cite: "Page 775"
+        },
+        {
+            q: "What is an A-V Fistula (arteriovenous fistula)?",
+            options: [
+                "A cancerous tumor",
+                "A surgical connection between an artery and a vein used for dialysis access",
+                "A blockage in the heart",
+                "A type of hernia"
+            ],
+            answer: 1,
+            explanation: "An AV fistula connects an artery and vein (usually in the arm) to create high blood flow for hemodialysis needles.",
+            cite: "Page 773"
+        },
+        {
+            q: "If an AV fistula is bleeding, how should you control it?",
+            options: [
+                "Apply a tourniquet immediately",
+                "Use direct pressure, but avoid a tourniquet unless absolutely necessary",
+                "Let it bleed to clean the wound",
+                "Pack the wound with gauze deeply"
+            ],
+            answer: 1,
+            explanation: "Fistulas have high pressure. Use direct pressure first. A tourniquet may damage the fistula, so it is a last resort for life-threatening bleeding.",
+            cite: "Page 778"
+        },
+        {
+            q: "Why should you NOT take a blood pressure on the arm with an AV fistula?",
+            options: [
+                "It will be too painful",
+                "The reading will be inaccurately low",
+                "It can damage the fistula or cause clotting",
+                "It will cause the machine to alarm"
+            ],
+            answer: 2,
+            explanation: "Compressing the fistula with a BP cuff can damage the surgical site or cause a clot to form, ruining the dialysis access.",
+            cite: "Page 778"
+        },
+        {
+            q: "Severe pain caused by a kidney stone usually presents in the:",
+            options: [
+                "Right upper quadrant",
+                "Flank, radiating to the groin",
+                "Center of the chest",
+                "Left shoulder"
+            ],
+            answer: 1,
+            explanation: "Renal colic typically causes severe unilateral flank pain that radiates anteriorly toward the groin.",
+            cite: "Page 771"
+        },
+        {
+            q: "Acute Acute Renal Failure (sudden onset) is often caused by:",
+            options: [
+                "Genetics",
+                "Shock (hypoperfusion), toxins, or dehydration",
+                "Eating too much sugar",
+                "Lack of exercise"
+            ],
+            answer: 1,
+            explanation: "Acute renal failure is often reversible and caused by sudden insults like shock (loss of blood flow) or toxic ingestions.",
+            cite: "Page 771"
+        },
+        {
+            q: "Dysrhythmias in renal failure patients are most often caused by an excess of which electrolyte?",
+            options: [
+                "Sodium",
+                "Calcium",
+                "Potassium",
+                "Iron"
+            ],
+            answer: 2,
+            explanation: "Hyperkalemia (high potassium) is common when kidneys fail and causes dangerous heart rhythms (dysrhythmias).",
+            cite: "Page 775"
+        },
+        {
+            q: "When treating a patient in Sickle Cell Crisis, apart from pain management, what is a key treatment?",
+            options: [
+                "Apply ice packs to joints",
+                "Administer supplemental oxygen and keep the patient warm",
+                "Have the patient exercise",
+                "Withhold fluids"
+            ],
+            answer: 1,
+            explanation: "Hypoxia triggers sickling, so oxygen is crucial. Cold can worsen vasoconstriction, so keep them warm.",
+            cite: "Page 769"
+        }
+    ];
+
+    function renderQuiz() {
+        const quizContainer = document.getElementById('quiz-content');
+        let html = '';
+
+        questions.forEach((q, index) => {
+            html += `
+                <div class="question-card" id="q${index}">
+                    <div class="question-text">${index + 1}. ${q.q}</div>
+                    <div class="options">
+                        ${q.options.map((opt, i) => `
+                            <label class="option-label" onclick="checkAnswer(${index}, ${i})">
+                                <input type="radio" name="q${index}" value="${i}">
+                                <span>${opt}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                    <div class="feedback" id="feedback-${index}">
+                        <strong><span id="result-text-${index}"></span></strong><br>
+                        ${q.explanation}
+                        <span class="citation">Source: ${q.cite}</span>
+                    </div>
+                </div>
+            `;
+        });
+
+        quizContainer.innerHTML = html;
+    }
+
+    function checkAnswer(qIndex, optIndex) {
+        const q = questions[qIndex];
+        const feedbackEl = document.getElementById(`feedback-${qIndex}`);
+        const resultTextEl = document.getElementById(`result-text-${qIndex}`);
+
+        // Show feedback immediately
+        feedbackEl.style.display = 'block';
+
+        if (optIndex === q.answer) {
+            feedbackEl.className = 'feedback correct';
+            resultTextEl.textContent = "Correct!";
+        } else {
+            feedbackEl.className = 'feedback incorrect';
+            resultTextEl.textContent = "Incorrect.";
+        }
+    }
+
+    // Initialize
+    renderQuiz();
+</script>
+
+</body>
+</html>
