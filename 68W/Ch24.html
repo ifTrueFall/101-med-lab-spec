@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 24: Infectious Diseases & Sepsis - Study Quiz</title>
+    <style>
+        :root {
+            --primary-color: #003366; /* Army/Medical Blue */
+            --secondary-color: #f4f4f4;
+            --correct-color: #2e7d32;
+            --incorrect-color: #c62828;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #e9ecef;
+            color: #333;
+        }
+
+        /* Navigation Styles */
+        .top-nav {
+            background-color: var(--primary-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .top-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .meta-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .option-label:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Highlight selected option slightly */
+        input[type="radio"]:checked + span {
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-right: 12px;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none; /* Hidden by default */
+            font-size: 0.95em;
+        }
+
+        .feedback.correct {
+            background-color: #e8f5e9;
+            color: var(--correct-color);
+            border: 1px solid #a5d6a7;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background-color: #ffebee;
+            color: var(--incorrect-color);
+            border: 1px solid #ef9a9a;
+            display: block;
+        }
+
+        .citation {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.85em;
+            font-style: italic;
+            color: #555;
+        }
+
+        .controls {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            background-color: #6c757d; /* Grey for reset */
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: #5a6268;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="Ch23.html">← Back to Chapter 23</a>
+    <a href="Ch25.html">Next: Chapter 25 →</a>
+</nav>
+
+<div class="container">
+    <header>
+        <h1>Chapter 24: Infectious Diseases & Sepsis</h1>
+        <div class="meta-info">EMT Basic / 68W Study Review</div>
+    </header>
+
+    <div id="quiz-content">
+        </div>
+
+    <div class="controls">
+        <button onclick="location.reload()">Reset Quiz</button>
+    </div>
+</div>
+
+<script>
+    // Quiz Data Source
+    const questions = [
+        {
+            q: "What is Sepsis?",
+            options: [
+                "A localized skin infection",
+                "A life-threatening condition resulting from an abnormal and counterproductive body response to an infection",
+                "A viral infection of the liver",
+                "An allergic reaction to medication"
+            ],
+            answer: 1,
+            explanation: "Sepsis occurs when the body's immune system overreacts to an infection, damaging its own tissues and organs.",
+            cite: "Page 683"
+        },
+        {
+            q: "Which three criteria make up the qSOFA (quick Sepsis Related Organ Failure Assessment) score?",
+            options: [
+                "Altered mental status, Systolic BP ≤ 100 mmHg, Respiratory rate ≥ 22",
+                "Fever > 101°F, Heart rate > 100, Pain > 7/10",
+                "Unconsciousness, Absent radial pulse, Apnea",
+                "Vomiting, Diarrhea, Abdominal pain"
+            ],
+            answer: 0,
+            explanation: "The qSOFA score relies on three rapid findings: Altered mental status (GCS < 15), Systolic BP ≤ 100 mmHg, and Respiratory rate ≥ 22 breaths/min.",
+            cite: "Page 685"
+        },
+        {
+            q: "Septic Shock is defined as:",
+            options: [
+                "Any infection with a fever",
+                "Sepsis combined with hypotension that does not correct with fluid resuscitation",
+                "Anaphylactic shock caused by bacteria",
+                "A seizure caused by high fever"
+            ],
+            answer: 1,
+            explanation: "Septic shock is a subset of sepsis where circulatory and cellular/metabolic abnormalities are profound enough to increase mortality, often identified by refractory hypotension.",
+            cite: "Page 684"
+        },
+        {
+            q: "What is the single most effective way to prevent the spread of infection?",
+            options: [
+                "Wearing a mask",
+                "Taking prophylactic antibiotics",
+                "Hand hygiene (washing hands)",
+                "Isolating all patients"
+            ],
+            answer: 2,
+            explanation: "Hand washing is universally cited as the single most effective measure to prevent disease transmission.",
+            cite: "Page 678"
+        },
+        {
+            q: "Which specific PPE is required when treating a patient with suspected Tuberculosis (TB)?",
+            options: [
+                "Surgical mask",
+                "N95 or HEPA respirator",
+                "Gown and sterile gloves only",
+                "Face shield only"
+            ],
+            answer: 1,
+            explanation: "Because TB is airborne, an N95 or HEPA respirator is required to filter out the bacteria.",
+            cite: "Page 691"
+        },
+        {
+            q: "Which of the following is a common sign of Meningitis?",
+            options: [
+                "Jaundice (yellow skin)",
+                "Bullseye rash",
+                "Nuchal rigidity (stiff neck) and photophobia",
+                "Productive cough with blood"
+            ],
+            answer: 2,
+            explanation: "Classic signs of meningitis include fever, headache, photophobia (sensitivity to light), and a stiff neck (nuchal rigidity).",
+            cite: "Page 690"
+        },
+        {
+            q: "What defines a 'Vector-borne' disease?",
+            options: [
+                "Transmission via coughing or sneezing",
+                "Transmission through sexual contact",
+                "Transmission via an animal or insect (e.g., tick or mosquito)",
+                "Transmission through contaminated water"
+            ],
+            answer: 2,
+            explanation: "Vector-borne diseases are transmitted by a living organism (vector), such as a mosquito (West Nile, Malaria) or tick (Lyme disease).",
+            cite: "Page 680"
+        },
+        {
+            q: "What is the characteristic skin presentation of Lyme Disease?",
+            options: [
+                "Jaundice",
+                "Purpura (purple spots)",
+                "Erythema migrans (Bullseye rash)",
+                "Fluid-filled blisters"
+            ],
+            answer: 2,
+            explanation: "Lyme disease often presents early with a 'bullseye' rash (erythema migrans) at the site of the tick bite.",
+            cite: "Page 695"
+        },
+        {
+            q: "SIRS (Systemic Inflammatory Response Syndrome) criteria includes which of the following?",
+            options: [
+                "Heart rate > 90 and Temperature > 100.4°F or < 96.8°F",
+                "Blood pressure > 140/90",
+                "Respiratory rate < 10",
+                "Blood glucose < 60"
+            ],
+            answer: 0,
+            explanation: "SIRS criteria include Temp > 38°C or < 36°C, HR > 90, RR > 20, and abnormal WBC count.",
+            cite: "Page 684"
+        },
+        {
+            q: "How is Hepatitis A primarily transmitted?",
+            options: [
+                "Blood-to-blood contact",
+                "Sexual contact",
+                "Fecal-oral route (contaminated food/water)",
+                "Airborne droplets"
+            ],
+            answer: 2,
+            explanation: "Hepatitis A is transmitted via the fecal-oral route, often through contaminated food or water.",
+            cite: "Page 692"
+        },
+        {
+            q: "Which type of Hepatitis is a major concern for EMS providers due to bloodborne transmission and lack of a cure?",
+            options: [
+                "Hepatitis A",
+                "Hepatitis B",
+                "Hepatitis C",
+                "Hepatitis E"
+            ],
+            answer: 2,
+            explanation: "Hepatitis C is bloodborne and currently has no vaccine, making it a significant risk. (Hep B is also bloodborne but has a vaccine).",
+            cite: "Page 693"
+        },
+        {
+            q: "A patient presents with a cough producing rust-colored or green sputum, fever, and sharp chest pain that worsens when breathing. You suspect:",
+            options: [
+                "Pneumonia",
+                "Asthma",
+                "Anaphylaxis",
+                "Stroke"
+            ],
+            answer: 0,
+            explanation: "These are classic signs of pneumonia: fever, productive cough (colored sputum), and pleuritic chest pain.",
+            cite: "Page 688"
+        },
+        {
+            q: "What is the incubation period for Chickenpox (Varicella)?",
+            options: [
+                "24 hours",
+                "2-3 days",
+                "10-21 days",
+                "3 months"
+            ],
+            answer: 2,
+            explanation: "Chickenpox has a relatively long incubation period of 10-21 days before symptoms appear.",
+            cite: "Page 689"
+        },
+        {
+            q: "Shingles (Herpes Zoster) is a reactivation of which virus?",
+            options: [
+                "Epstein-Barr virus",
+                "Influenza virus",
+                "Varicella-zoster (Chickenpox) virus",
+                "Herpes Simplex Type 1"
+            ],
+            answer: 2,
+            explanation: "Shingles occurs when the dormant chickenpox virus reactivates along a nerve root (dermatome).",
+            cite: "Page 690"
+        },
+        {
+            q: "Why is C. diff (Clostridioides difficile) particularly challenging in healthcare settings?",
+            options: [
+                "It is airborne",
+                "Alcohol-based hand sanitizers do NOT kill the spores",
+                "It causes immediate respiratory arrest",
+                "It is transmitted by mosquitoes"
+            ],
+            answer: 1,
+            explanation: "C. diff spores are resistant to alcohol sanitizers. You must wash hands with soap and water to physically remove them.",
+            cite: "Page 694"
+        },
+        {
+            q: "Which legislative act requires emergency response agencies to have a designated officer for infectious disease exposure notifications?",
+            options: [
+                "HIPAA",
+                "The Ryan White CARE Act",
+                "The Good Samaritan Law",
+                "OSHA Bloodborne Pathogen Standard"
+            ],
+            answer: 1,
+            explanation: "The Ryan White CARE Act mandates a mechanism for emergency responders to be notified if they were exposed to life-threatening infectious diseases.",
+            cite: "Page 681"
+        },
+        {
+            q: "Influenza (the flu) is primarily transmitted via:",
+            options: [
+                "Vector-borne (ticks)",
+                "Bloodborne contact",
+                "Droplets (coughing/sneezing)",
+                "Contaminated water"
+            ],
+            answer: 2,
+            explanation: "Influenza spreads mainly through droplets produced when people with flu cough, sneeze, or talk.",
+            cite: "Page 695"
+        },
+        {
+            q: "Which pathogen is known for causing 'Whooping Cough'?",
+            options: [
+                "Streptococcus",
+                "Staphylococcus",
+                "Bordetella pertussis",
+                "Mycobacterium tuberculosis"
+            ],
+            answer: 2,
+            explanation: "Pertussis (Whooping cough) is caused by the bacterium Bordetella pertussis and is highly contagious.",
+            cite: "Page 690"
+        },
+        {
+            q: "When treating a patient with a high suspicion of Sepsis, your priority treatment in the field is:",
+            options: [
+                "Administering aspirin",
+                "Applying a tourniquet",
+                "Rapid identification, Oxygen/Ventilation support, and ALS intercept for fluids",
+                "Waiting on scene to check temperature repeatedly"
+            ],
+            answer: 2,
+            explanation: "Sepsis requires aggressive fluid resuscitation (often by ALS) and oxygen support. Rapid transport and early notification are key.",
+            cite: "Page 686"
+        },
+        {
+            q: "Standard Precautions assume that:",
+            options: [
+                "Only patients with visible blood are infectious",
+                "Only patients with a fever are infectious",
+                "All body fluids (except sweat) are potentially infectious",
+                "You only need gloves for elderly patients"
+            ],
+            answer: 2,
+            explanation: "Standard Precautions operate on the principle that all blood and body fluids (except sweat) should be treated as infectious.",
+            cite: "Page 679"
+        }
+    ];
+
+    function renderQuiz() {
+        const quizContainer = document.getElementById('quiz-content');
+        let html = '';
+
+        questions.forEach((q, index) => {
+            html += `
+                <div class="question-card" id="q${index}">
+                    <div class="question-text">${index + 1}. ${q.q}</div>
+                    <div class="options">
+                        ${q.options.map((opt, i) => `
+                            <label class="option-label" onclick="checkAnswer(${index}, ${i})">
+                                <input type="radio" name="q${index}" value="${i}">
+                                <span>${opt}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                    <div class="feedback" id="feedback-${index}">
+                        <strong><span id="result-text-${index}"></span></strong><br>
+                        ${q.explanation}
+                        <span class="citation">Source: ${q.cite}</span>
+                    </div>
+                </div>
+            `;
+        });
+
+        quizContainer.innerHTML = html;
+    }
+
+    function checkAnswer(qIndex, optIndex) {
+        const q = questions[qIndex];
+        const feedbackEl = document.getElementById(`feedback-${qIndex}`);
+        const resultTextEl = document.getElementById(`result-text-${qIndex}`);
+
+        // Show feedback immediately
+        feedbackEl.style.display = 'block';
+
+        if (optIndex === q.answer) {
+            feedbackEl.className = 'feedback correct';
+            resultTextEl.textContent = "Correct!";
+        } else {
+            feedbackEl.className = 'feedback incorrect';
+            resultTextEl.textContent = "Incorrect.";
+        }
+    }
+
+    // Initialize
+    renderQuiz();
+</script>
+
+</body>
+</html>
