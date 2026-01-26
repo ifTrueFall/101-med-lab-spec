@@ -1,1 +1,495 @@
-Sample
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 19: Respiratory Emergencies - Study Quiz</title>
+    <style>
+        :root {
+            --primary-color: #003366; /* Army/Medical Blue */
+            --secondary-color: #f4f4f4;
+            --correct-color: #2e7d32;
+            --incorrect-color: #c62828;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #e9ecef;
+            color: #333;
+        }
+
+        /* Navigation Styles */
+        .top-nav {
+            background-color: var(--primary-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .top-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .meta-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .option-label:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Highlight selected option slightly */
+        input[type="radio"]:checked + span {
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-right: 12px;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none; /* Hidden by default */
+            font-size: 0.95em;
+        }
+
+        .feedback.correct {
+            background-color: #e8f5e9;
+            color: var(--correct-color);
+            border: 1px solid #a5d6a7;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background-color: #ffebee;
+            color: var(--incorrect-color);
+            border: 1px solid #ef9a9a;
+            display: block;
+        }
+
+        .citation {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.85em;
+            font-style: italic;
+            color: #555;
+        }
+
+        .controls {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            background-color: #6c757d; /* Grey for reset */
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: #5a6268;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="Ch18.html">← Back to Chapter 18</a>
+    <a href="Ch20.html">Next: Chapter 20 →</a>
+</nav>
+
+<div class="container">
+    <header>
+        <h1>Chapter 19: Respiratory Emergencies</h1>
+        <div class="meta-info">EMT Basic / 68W Study Review</div>
+    </header>
+
+    <div id="quiz-content">
+        </div>
+
+    <div class="controls">
+        <button onclick="location.reload()">Reset Quiz</button>
+    </div>
+</div>
+
+<script>
+    // Quiz Data Source
+    const questions = [
+        {
+            q: "Which breath sound is typically associated with constriction of the bronchioles, as seen in asthma?",
+            options: [
+                "Stridor",
+                "Wheezing",
+                "Crackles (Rales)",
+                "Rhonchi"
+            ],
+            answer: 1,
+            explanation: "Wheezing is a high-pitched musical sound created by air moving through narrowed lower airway passages (bronchoconstriction).",
+            cite: "Standard Respiratory Curriculum"
+        },
+        {
+            q: "A patient with Chronic Obstructive Pulmonary Disease (COPD) is driven to breathe primarily by:",
+            options: [
+                "High Carbon Dioxide levels",
+                "Low Oxygen levels (Hypoxic Drive)",
+                "High pH levels",
+                "Low blood pressure"
+            ],
+            answer: 1,
+            explanation: "In advanced COPD, the body becomes accustomed to high CO2, so the drive to breathe shifts to monitoring low oxygen levels (Hypoxic Drive).",
+            cite: "Standard Respiratory Curriculum"
+        },
+        {
+            q: "What is the primary action of a prescribed inhaler (Albuterol) for an asthma attack?",
+            options: [
+                "Vasodilation",
+                "Bronchodilation",
+                "Pain relief",
+                "Decreasing inflammation"
+            ],
+            answer: 1,
+            explanation: "Albuterol is a Beta-2 agonist that relaxes the smooth muscles of the bronchioles, causing bronchodilation.",
+            cite: "Standard Respiratory Curriculum"
+        },
+        {
+            q: "A 'Spontaneous Pneumothorax' is most common in which demographic?",
+            options: [
+                "Elderly females",
+                "Tall, thin males",
+                "Children under 5",
+                "Obese adults"
+            ],
+            answer: 1,
+            explanation: "Spontaneous pneumothorax (collapsed lung without trauma) is statistically most common in tall, thin men due to weak spots (blebs) on the lung.",
+            cite: "Standard Respiratory Curriculum"
+        },
+        {
+            q: "Continuous Positive Airway Pressure (CPAP) is primarily indicated for patients with:",
+            options: [
+                "Respiratory arrest (not breathing)",
+                "Pulmonary edema or severe respiratory distress who are alert",
+                "Pneumothorax",
+                "Vomiting"
+            ],
+            answer: 1,
+            explanation: "CPAP pushes fluid out of the alveoli and is excellent for Pulmonary Edema/CHF. The patient must be alert and breathing to use it.",
+            cite: "Standard Respiratory Curriculum"
+        },
+        {
+            q: "Which of the following is a Contraindication for CPAP?",
+            options: [
+                "Blood pressure > 100 mmHg",
+                "Pulse oximetry < 90%",
+                "Inability to follow commands or maintain own airway",
+                "History of asthma"
+            ],
+            answer: 2,
+            explanation: "If the patient cannot follow commands or protect their airway (e.g., vomiting risk), CPAP is dangerous and contraindicated.",
+            cite: "Standard Respiratory Curriculum"
+        },
+        {
+            q: "Pulmonary Edema (fluid in the lungs) is most commonly caused by:",
+            options: [
+                "Left-sided Heart Failure",
+                "Right-sided Heart Failure",
+                "Asthma",
+                "Dehydration"
+            ],
+            answer: 0,
+            explanation: "When the left side of the heart fails, blood backs up into the lungs, forcing fluid into the alveoli (Pulmonary Edema).",
+            cite: "Standard Respiratory Curriculum"
+        },
+        {
+            q: "A patient with a Pulmonary Embolism (blood clot in the lung) will typically present with:",
+            options: [
+                "Sudden onset of sharp chest pain and dyspnea",
+                "Gradual onset of fever and cough",
+                "Wheezing and hives",
+                "Productive cough with green sputum"
+            ],
+            answer: 0,
+            explanation: "PE typically presents with sudden, sharp (pleuritic) chest pain and shortness of breath, often with a history of DVT or immobility.",
+            cite: "Standard Respiratory Curriculum"
+        },
+        {
+            q: "Stridor is a harsh, high-pitched sound indicating:",
+            options: [
+                "Fluid in the alveoli",
+                "Bronchoconstriction in the lungs",
+                "Upper airway obstruction",
+                "Mucus in the bronchi"
+            ],
+            answer: 2,
+            explanation: "Stridor is heard on inspiration and indicates a blockage or swelling in the upper airway (trachea/larynx).",
+            cite: "Standard Respiratory Curriculum"
+        },
+        {
+            q: "When coaching a patient to use a Metered Dose Inhaler (MDI), you should instruct them to:",
+            options: [
+                "Exhale deeply, put lips around opening, inhale deeply as they depress canister, and hold breath",
+                "Inhale first, then spray the medication",
+                "Spray the medication into the air and walk into it",
+                "Spray continuously while breathing rapidly"
+            ],
+            answer: 0,
+            explanation: "The 'spacer' method or timing is key: Exhale fully, trigger the spray while inhaling deeply, and hold breath to absorb the med.",
+            cite: "Standard Respiratory Curriculum"
+        },
+        {
+            q: "Which signs indicate a child is in Respiratory Failure (not just distress)?",
+            options: [
+                "Crying loudly",
+                "Altered mental status and slow/irregular breathing",
+                "Nasal flaring",
+                "Retractions"
+            ],
+            answer: 1,
+            explanation: "Distress includes effort (flaring, retractions). Failure is when the system collapses: altered mental status, bradycardia, or slowing breathing.",
+            cite: "Standard Respiratory Curriculum"
+        },
+        {
+            q: "Epiglottitis is a dangerous bacterial infection that causes:",
+            options: [
+                "Swelling of the lower airways",
+                "Swelling of the epiglottis, causing drooling and upper airway obstruction",
+                "Fluid in the lungs",
+                "Collapse of the lung"
+            ],
+            answer: 1,
+            explanation: "Epiglottitis swells the flap covering the trachea. Never insert anything into the mouth of a drooling child with this suspected condition.",
+            cite: "Standard Respiratory Curriculum"
+        },
+        {
+            q: "Hyperventilation Syndrome is characterized by:",
+            options: [
+                "Rapid, deep breathing often triggered by anxiety, causing carpopedal spasms",
+                "Slow, shallow breathing",
+                "Wheezing",
+                "Low oxygen saturation"
+            ],
+            answer: 0,
+            explanation: "Hyperventilation blows off too much CO2, leading to numbness/tingling in hands/face and hand cramping (carpopedal spasms).",
+            cite: "Standard Respiratory Curriculum"
+        },
+        {
+            q: "Which lung sound typically resembles 'bubbling' or 'crackling' and does not clear with coughing?",
+            options: [
+                "Wheezing",
+                "Rhonchi",
+                "Crackles (Rales)",
+                "Stridor"
+            ],
+            answer: 2,
+            explanation: "Crackles (rales) indicate fluid in the tiny air sacs (alveoli) and are common in pneumonia and heart failure.",
+            cite: "Standard Respiratory Curriculum"
+        },
+        {
+            q: "Croup (Laryngotracheobronchitis) is typically identified by:",
+            options: [
+                "A 'seal-bark' cough",
+                "Drooling",
+                "Chest pain",
+                "Wheezing"
+            ],
+            answer: 0,
+            explanation: "Croup is a viral infection in children that causes swelling of the larynx, leading to a classic seal-like barking cough.",
+            cite: "Standard Respiratory Curriculum"
+        },
+        {
+            q: "If a patient with respiratory distress has a 'Silent Chest' (no sounds heard upon auscultation), this indicates:",
+            options: [
+                "They are cured",
+                "Severe obstruction/constriction where little to no air is moving",
+                "They are holding their breath",
+                "Normal finding"
+            ],
+            answer: 1,
+            explanation: "A silent chest in an asthma attack is an ominous sign. It means airflow is so restricted that not even a wheeze can be produced. Respiratory arrest is imminent.",
+            cite: "Standard Respiratory Curriculum"
+        },
+        {
+            q: "What is the correct flow rate for a Non-Rebreather Mask (NRB)?",
+            options: [
+                "1-6 LPM",
+                "6-10 LPM",
+                "10-15 LPM (enough to keep the bag inflated)",
+                "25 LPM"
+            ],
+            answer: 2,
+            explanation: "An NRB requires 10-15 LPM, or enough flow to ensure the reservoir bag does not fully collapse on inhalation.",
+            cite: "Standard Respiratory Curriculum"
+        },
+        {
+            q: "Pneumonia is primarily an infection of the:",
+            options: [
+                "Trachea",
+                "Lungs (alveoli and bronchioles)",
+                "Heart",
+                "Pleural space"
+            ],
+            answer: 1,
+            explanation: "Pneumonia infects the lung tissue itself, filling alveoli with pus/fluid and interfering with gas exchange.",
+            cite: "Standard Respiratory Curriculum"
+        },
+        {
+            q: "Which of the following patients is the best candidate for an Albuterol nebulizer?",
+            options: [
+                "A patient with chest pain",
+                "A patient with wheezing and a history of asthma",
+                "A patient with fluid in the lungs (crackles)",
+                "A patient who is not breathing"
+            ],
+            answer: 1,
+            explanation: "Albuterol treats bronchoconstriction (wheezing). It does not help fluid (crackles) or cardiac chest pain.",
+            cite: "Standard Respiratory Curriculum"
+        },
+        {
+            q: "The medical term for 'Shortness of Breath' is:",
+            options: [
+                "Apnea",
+                "Dyspnea",
+                "Hypoxia",
+                "Ischemia"
+            ],
+            answer: 1,
+            explanation: "Dyspnea is the subjective sensation of difficulty breathing.",
+            cite: "Standard Respiratory Curriculum"
+        }
+    ];
+
+    function renderQuiz() {
+        const quizContainer = document.getElementById('quiz-content');
+        let html = '';
+
+        questions.forEach((q, index) => {
+            html += `
+                <div class="question-card" id="q${index}">
+                    <div class="question-text">${index + 1}. ${q.q}</div>
+                    <div class="options">
+                        ${q.options.map((opt, i) => `
+                            <label class="option-label" onclick="checkAnswer(${index}, ${i})">
+                                <input type="radio" name="q${index}" value="${i}">
+                                <span>${opt}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                    <div class="feedback" id="feedback-${index}">
+                        <strong><span id="result-text-${index}"></span></strong><br>
+                        ${q.explanation}
+                        <span class="citation">Source: ${q.cite}</span>
+                    </div>
+                </div>
+            `;
+        });
+
+        quizContainer.innerHTML = html;
+    }
+
+    function checkAnswer(qIndex, optIndex) {
+        const q = questions[qIndex];
+        const feedbackEl = document.getElementById(`feedback-${qIndex}`);
+        const resultTextEl = document.getElementById(`result-text-${qIndex}`);
+
+        // Show feedback immediately
+        feedbackEl.style.display = 'block';
+
+        if (optIndex === q.answer) {
+            feedbackEl.className = 'feedback correct';
+            resultTextEl.textContent = "Correct!";
+        } else {
+            feedbackEl.className = 'feedback incorrect';
+            resultTextEl.textContent = "Incorrect.";
+        }
+    }
+
+    // Initialize
+    renderQuiz();
+</script>
+
+</body>
+</html>
