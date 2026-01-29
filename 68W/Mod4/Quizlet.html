@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 4: Comprehensive Quizlet Review</title>
+    <style>
+        :root {
+            --primary-color: #003366; /* Army/Medical Blue */
+            --secondary-color: #f4f4f4;
+            --correct-color: #2e7d32;
+            --incorrect-color: #c62828;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #e9ecef;
+            color: #333;
+        }
+
+        /* Navigation Styles */
+        .top-nav {
+            background-color: var(--primary-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .top-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .meta-info {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .option-label:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Highlight selected option slightly */
+        input[type="radio"]:checked + span {
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-right: 12px;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 4px;
+            display: none; /* Hidden by default */
+            font-size: 0.95em;
+        }
+
+        .feedback.correct {
+            background-color: #e8f5e9;
+            color: var(--correct-color);
+            border: 1px solid #a5d6a7;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background-color: #ffebee;
+            color: var(--incorrect-color);
+            border: 1px solid #ef9a9a;
+            display: block;
+        }
+
+        .citation {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.85em;
+            font-style: italic;
+            color: #555;
+        }
+
+        .controls {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        button {
+            background-color: #6c757d; /* Grey for reset */
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background-color: #5a6268;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="../navigation.html">← Back to Menu</a>
+</nav>
+
+<div class="container">
+    <header>
+        <h1>Module 4: Quizlet Review</h1>
+        <div class="meta-info">Based on 68W Mod 4 Study Guide Flashcards</div>
+    </header>
+
+    <div id="quiz-content">
+        </div>
+
+    <div class="controls">
+        <button onclick="location.reload()">Reset Quiz</button>
+    </div>
+</div>
+
+<script>
+    // Quiz Data Source based on the uploaded Quizlet PDF
+    const questions = [
+        {
+            q: "What is the study of drugs, their sources, characteristics, and effects?",
+            options: [
+                "Physiology",
+                "Pharmacology",
+                "Pathology",
+                "Anatomy"
+            ],
+            answer: 1,
+            explanation: "Pharmacology is the branch of medicine concerned with the uses, effects, and modes of action of drugs.",
+            cite: "Quizlet: Pharmacology"
+        },
+        {
+            q: "What is the standard maximum field dosage for Aspirin?",
+            options: [
+                "81 mg",
+                "162 mg",
+                "324 mg (4 tablets)",
+                "650 mg"
+            ],
+            answer: 2,
+            explanation: "The max field dosage is 324 mg, which typically equates to 4 baby aspirin tablets (81mg each).",
+            cite: "Quizlet: Aspirin Dosage"
+        },
+        {
+            q: "Who should NOT receive Aspirin (Contraindications)?",
+            options: [
+                "Patients with chest pain",
+                "Patients with asthma, GI tract bleeding, or allergies to Aspirin",
+                "Patients with high blood pressure",
+                "Patients with diabetes"
+            ],
+            answer: 1,
+            explanation: "Contraindications include allergy, bleeding disorders (GI bleeds), and often asthma due to sensitivity.",
+            cite: "Quizlet: Aspirin Contraindications"
+        },
+        {
+            q: "Oral Glucose is indicated for which type of patient?",
+            options: [
+                "Unconscious patients",
+                "Conscious patients who can swallow and have altered mental status (hypoglycemia)",
+                "Patients with high blood sugar",
+                "Patients with chest pain"
+            ],
+            answer: 1,
+            explanation: "Oral glucose requires the patient to be conscious and able to swallow to prevent aspiration.",
+            cite: "Quizlet: Oral Glucose"
+        },
+        {
+            q: "What is the primary action of Nitroglycerin?",
+            options: [
+                "Constricts blood vessels",
+                "Dilates blood vessels (vasodilation) and drops blood pressure",
+                "Increases heart rate",
+                "Clots blood"
+            ],
+            answer: 1,
+            explanation: "Nitroglycerin relaxes blood vessels, which decreases the workload on the heart but also lowers blood pressure.",
+            cite: "Quizlet: Nitroglycerin"
+        },
+        {
+            q: "You must NOT give Nitroglycerin if the patient has taken which type of medication?",
+            options: [
+                "Antibiotics",
+                "Antidepressants",
+                "Erectile Dysfunction (ED) medications (e.g., Viagra, Cialis)",
+                "Pain killers"
+            ],
+            answer: 2,
+            explanation: "Combining Nitro with ED meds can cause a fatal drop in blood pressure.",
+            cite: "Quizlet: Nitro Contraindications"
+        },
+        {
+            q: "What is a common side effect of Nitroglycerin?",
+            options: [
+                "Hyperactivity",
+                "Headache (due to vasodilation)",
+                "Constipation",
+                "Hunger"
+            ],
+            answer: 1,
+            explanation: "The dilation of blood vessels in the head often causes a pounding headache.",
+            cite: "Quizlet: Nitro Side Effects"
+        },
+        {
+            q: "Which medication is an 'Auto-Injector' used for anaphylaxis?",
+            options: [
+                "Albuterol",
+                "Nitroglycerin",
+                "Epinephrine",
+                "Insulin"
+            ],
+            answer: 2,
+            explanation: "Epinephrine (EpiPen) is the auto-injector used to reverse severe allergic reactions.",
+            cite: "Quizlet: Epinephrine"
+        },
+        {
+            q: "What is the difference between Angina Pectoris and Myocardial Infarction (AMI)?",
+            options: [
+                "Angina is a heart attack; AMI is just pain",
+                "Angina resolves with rest/nitro; AMI involves tissue death and pain typically persists",
+                "AMI is painless",
+                "There is no difference"
+            ],
+            answer: 1,
+            explanation: "Angina is temporary ischemia (lack of oxygen) that resolves. AMI is the death of heart muscle tissue.",
+            cite: "Quizlet: Cardiac Conditions"
+        },
+        {
+            q: "Congestive Heart Failure (CHF) is characterized by:",
+            options: [
+                "Excessive fluid buildup in the lungs and/or other organs due to inadequate pumping",
+                "A blockage in the coronary arteries",
+                "Low blood pressure",
+                "Sudden cardiac arrest"
+            ],
+            answer: 0,
+            explanation: "CHF is 'pump failure' resulting in fluid backing up (congestion) into the lungs (pulmonary edema) or body (pedal edema).",
+            cite: "Quizlet: CHF"
+        },
+        {
+            q: "What is the most common cause of sudden cardiac arrest in adults?",
+            options: [
+                "Asystole",
+                "Ventricular Fibrillation (V-Fib)",
+                "Choking",
+                "Stroke"
+            ],
+            answer: 1,
+            explanation: "V-Fib is the most common initial rhythm in sudden arrest and is shockable.",
+            cite: "Quizlet: Cardiac Arrest"
+        },
+        {
+            q: "Hypoglycemia (low blood sugar) often presents with:",
+            options: [
+                "Warm, dry skin and excessive thirst",
+                "Cool, pale, moist (clammy) skin and altered mental status",
+                "Deep, rapid breathing",
+                "Fruity breath odor"
+            ],
+            answer: 1,
+            explanation: "Hypoglycemia hits fast: cool/clammy skin, confusion, and sometimes behavior mimicking intoxication.",
+            cite: "Quizlet: Diabetic Emergencies"
+        },
+        {
+            q: "What breathing sound indicates bronchoconstriction (narrowing of lower airways), common in asthma?",
+            options: [
+                "Stridor",
+                "Wheezing",
+                "Gurgling",
+                "Snoring"
+            ],
+            answer: 1,
+            explanation: "Wheezing is the high-pitched musical sound of air forcing through narrowed bronchioles.",
+            cite: "Quizlet: Respiratory Sounds"
+        },
+        {
+            q: "Anaphylaxis is defined as:",
+            options: [
+                "A mild rash",
+                "A severe, life-threatening allergic reaction involving respiratory distress and/or shock",
+                "Food poisoning",
+                "A panic attack"
+            ],
+            answer: 1,
+            explanation: "Anaphylaxis involves multiple body systems and threatens the airway or circulation (shock).",
+            cite: "Quizlet: Allergic Reactions"
+        },
+        {
+            q: "Visceral pain is typically described as:",
+            options: [
+                "Sharp and localized",
+                "Dull, achy, and difficult to locate (originating from organs)",
+                "Tearing",
+                "Burning"
+            ],
+            answer: 1,
+            explanation: "Visceral pain comes from the organs themselves and is often vague or dull.",
+            cite: "Quizlet: Abdominal Pain"
+        },
+        {
+            q: "Parietal pain is typically described as:",
+            options: [
+                "Dull and diffuse",
+                "Sharp, constant, and localized (irritation of the lining)",
+                "Intermittent cramping",
+                "Referred pain"
+            ],
+            answer: 1,
+            explanation: "Parietal pain indicates irritation of the peritoneum (lining) and is usually sharp and easy to pinpoint.",
+            cite: "Quizlet: Abdominal Pain"
+        },
+        {
+            q: "What is 'Referred Pain'?",
+            options: [
+                "Pain felt in the location of the injury",
+                "Pain felt in a location other than where the pain originates",
+                "Pain that comes and goes",
+                "Pain caused by stress"
+            ],
+            answer: 1,
+            explanation: "Nerve pathways can cause pain from an organ (like the gallbladder) to be felt elsewhere (like the shoulder).",
+            cite: "Quizlet: Pain Types"
+        },
+        {
+            q: "Status Epilepticus is defined as:",
+            options: [
+                "A brief seizure",
+                "Two or more seizures without regaining consciousness in between, or a prolonged seizure (>5-10 mins)",
+                "A seizure caused by fever",
+                "Fainting"
+            ],
+            answer: 1,
+            explanation: "Status epilepticus is a life-threatening emergency requiring immediate intervention.",
+            cite: "Quizlet: Seizures"
+        },
+        {
+            q: "A stroke (CVA) occurs when:",
+            options: [
+                "The heart stops beating",
+                "An artery in the brain is blocked or ruptures",
+                "Blood sugar drops too low",
+                "The patient faints"
+            ],
+            answer: 1,
+            explanation: "A stroke is the death of brain tissue due to a blockage (ischemic) or bleeding (hemorrhagic) in the brain.",
+            cite: "Quizlet: Stroke"
+        },
+        {
+            q: "Activated Charcoal is contraindicated if the patient:",
+            options: [
+                "Has swallowed a poison",
+                "Cannot swallow or has an altered mental status",
+                "Is alert and oriented",
+                "Is sitting up"
+            ],
+            answer: 1,
+            explanation: "If the patient cannot protect their airway, charcoal poses a severe aspiration risk.",
+            cite: "Quizlet: Charcoal"
+        }
+    ];
+
+    function renderQuiz() {
+        const quizContainer = document.getElementById('quiz-content');
+        let html = '';
+
+        questions.forEach((q, index) => {
+            html += `
+                <div class="question-card" id="q${index}">
+                    <div class="question-text">${index + 1}. ${q.q}</div>
+                    <div class="options">
+                        ${q.options.map((opt, i) => `
+                            <label class="option-label" onclick="checkAnswer(${index}, ${i})">
+                                <input type="radio" name="q${index}" value="${i}">
+                                <span>${opt}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                    <div class="feedback" id="feedback-${index}">
+                        <strong><span id="result-text-${index}"></span></strong><br>
+                        ${q.explanation}
+                        <span class="citation">Source: ${q.cite}</span>
+                    </div>
+                </div>
+            `;
+        });
+
+        quizContainer.innerHTML = html;
+    }
+
+    function checkAnswer(qIndex, optIndex) {
+        const q = questions[qIndex];
+        const feedbackEl = document.getElementById(`feedback-${qIndex}`);
+        const resultTextEl = document.getElementById(`result-text-${qIndex}`);
+
+        // Show feedback immediately
+        feedbackEl.style.display = 'block';
+
+        if (optIndex === q.answer) {
+            feedbackEl.className = 'feedback correct';
+            resultTextEl.textContent = "Correct!";
+        } else {
+            feedbackEl.className = 'feedback incorrect';
+            resultTextEl.textContent = "Incorrect.";
+        }
+    }
+
+    // Initialize
+    renderQuiz();
+</script>
+
+</body>
+</html>
