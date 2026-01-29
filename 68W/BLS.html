@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLS / CPR Certification Exam (60 Questions)</title>
+    <title>Advanced BLS / CPR Certification Exam (60 Questions)</title>
     <style>
         :root {
             --primary-color: #c62828; /* Red Cross Red */
@@ -179,13 +179,13 @@
 <body>
 
 <nav class="top-nav">
-    <a href="navigation.html">← Back to navigation</a>
-    </nav>
+    <a href="navigation.html">← Back to Menu</a>
+</nav>
 
 <div class="container">
     <header>
-        <h1>BLS / CPR Certification Review (60 Questions)</h1>
-        <div class="meta-info">Based on 2020 American Red Cross / AHA Guidelines</div>
+        <h1>BLS Certification Exam</h1>
+        <div class="meta-info">Includes Opioids, Team Dynamics, and Critical Thinking Scenarios</div>
     </header>
 
     <div id="quiz-content">
@@ -197,169 +197,146 @@
 </div>
 
 <script>
-    // Quiz Data Source based on Standard BLS Guidelines
+    // Updated Quiz Data with "Harder" Quizlet Concepts
     const questions = [
-        // --- GENERAL CONCEPTS & SAFETY ---
+        // --- TEAM DYNAMICS & COMMUNICATION (Often tricky) ---
         {
-            q: "What is the very first step when you arrive at the scene of an emergency?",
+            q: "The team leader asks you to perform a task, but you know you do not have the skill to do it correctly. What is the appropriate action?",
             options: [
-                "Check the patient for a pulse",
-                "Verify scene safety",
-                "Call 911 immediately",
-                "Begin chest compressions"
-            ],
-            answer: 1,
-            explanation: "Always ensure the scene is safe for you and the victim before doing anything else. You cannot help if you become a victim.",
-            cite: "BLS Algorithm"
-        },
-        {
-            q: "How long should you check for breathing and a pulse before starting CPR?",
-            options: [
-                "No more than 5 seconds",
-                "At least 5 seconds, but no more than 10 seconds",
-                "As long as it takes to find a pulse",
-                "Check for 30 seconds"
-            ],
-            answer: 1,
-            explanation: "The check should be quick (5-10 seconds). If you do not feel a pulse within 10 seconds, begin CPR.",
-            cite: "BLS Algorithm"
-        },
-        {
-            q: "Which of the following is NOT a link in the Adult Chain of Survival?",
-            options: [
-                "Early CPR",
-                "Rapid Defibrillation",
-                "Early administration of antibiotics",
-                "Integrated Post-Cardiac Arrest Care"
+                "Try your best to do it anyway",
+                "Ignore the leader and do something else",
+                "Admit your limitation to the team leader immediately",
+                "Ask another team member to help you without telling the leader"
             ],
             answer: 2,
-            explanation: "Antibiotics are not part of the cardiac arrest Chain of Survival. The links are Recognition/Activation, CPR, Defibrillation, ALS, and Post-Arrest Care.",
-            cite: "Chain of Survival"
+            explanation: "Knowing your limitations is a key element of team dynamics. You must inform the leader so they can reassign the task.",
+            cite: "Team Dynamics"
         },
         {
-            q: "Agonal gasps are:",
+            q: "Which of the following is an example of 'Closed-Loop Communication'?",
             options: [
-                "Normal breathing",
-                "A sign of a heart attack",
-                "Not normal breathing and a sign of cardiac arrest",
-                "A sign that the patient is waking up"
+                "The team leader says 'Give 1mg Epi' and you say nothing but do it",
+                "The team leader says 'Give 1mg Epi' and you reply 'Giving 1mg Epi now'",
+                "You tell the team leader 'I think we should shock'",
+                "The team leader yells 'Clear!'"
+            ],
+            answer: 1,
+            explanation: "Closed-loop communication involves repeating the order back to the leader to confirm it was heard and understood before executing.",
+            cite: "Communication Skills"
+        },
+        {
+            q: "The team leader notices a compressor is not allowing full chest recoil. What is the best way to address this?",
+            options: [
+                "Yell 'Stop!' immediately",
+                "Say constructively, 'I noticed you are leaning on the chest; please allow full recoil.'",
+                "Push the compressor out of the way",
+                "Wait until the 2-minute cycle is over"
+            ],
+            answer: 1,
+            explanation: "Constructive intervention should be polite but immediate to ensure high-quality CPR without causing conflict.",
+            cite: "Team Dynamics"
+        },
+        // --- OPIOID EMERGENCIES (New Standards) ---
+        {
+            q: "You suspect a patient has overdosed on opioids. They are unresponsive and NOT breathing, but they HAVE a pulse. What is your priority?",
+            options: [
+                "Administer Naloxone (Narcan)",
+                "Begin chest compressions",
+                "Provide rescue breathing",
+                "Check for a medical ID"
             ],
             answer: 2,
-            explanation: "Agonal gasps are irregular, gasping breaths that occur in the first minutes of cardiac arrest. They are NOT effective breathing.",
-            cite: "Recognition of Arrest"
+            explanation: "The immediate threat is respiratory arrest. Provide rescue breathing (ventilation) first to oxygenate the patient, then consider Naloxone.",
+            cite: "Opioid Algorithm"
         },
-        // --- ADULT CPR ---
         {
-            q: "What is the correct compression-to-ventilation ratio for a SINGLE rescuer for ALL ages (Adult, Child, Infant)?",
+            q: "In a cardiac arrest suspected to be caused by opioid overdose, does Naloxone administration take priority over CPR?",
             options: [
-                "15:2",
-                "30:2",
-                "50:2",
-                "100:2"
+                "Yes, Naloxone fixes the cause",
+                "No, High-Quality CPR and Defibrillation are the priority",
+                "Yes, but only if you have an IV",
+                "No, you should never give Naloxone in arrest"
             ],
             answer: 1,
-            explanation: "For a single rescuer, the ratio is always 30 compressions to 2 breaths for any age victim.",
-            cite: "BLS Guidelines"
+            explanation: "CPR and AED use take priority. Naloxone can be administered, but do not interrupt high-quality CPR to do it.",
+            cite: "Opioid Associated Arrest"
         },
         {
-            q: "What is the recommended rate of chest compressions per minute?",
+            q: "You have administered one dose of Naloxone to a respiratory arrest patient. There is no response after 2-3 minutes. What should you do?",
             options: [
-                "80 to 100 beats per minute",
-                "100 to 120 beats per minute",
-                "120 to 140 beats per minute",
-                "60 to 80 beats per minute"
+                "Wait another 5 minutes",
+                "Administer a second dose of Naloxone",
+                "Start CPR even if they have a pulse",
+                "Give a rescue breath every 2 seconds"
             ],
             answer: 1,
-            explanation: "High-quality CPR requires a rate of 100 to 120 compressions per minute.",
-            cite: "BLS Guidelines"
+            explanation: "Naloxone doses can be repeated every 2-3 minutes if there is no response.",
+            cite: "Opioid Dosing"
         },
+        // --- CRITICAL CONCEPTS (CCF, Rates, Ratios) ---
         {
-            q: "What is the correct compression depth for an ADULT?",
+            q: "What is the target 'Chest Compression Fraction' (CCF) for high-performing teams?",
             options: [
-                "At least 1 inch",
-                "At least 2 inches (5 cm), but no more than 2.4 inches",
-                "Approximately 1.5 inches",
-                "The depth does not matter as long as you push hard"
+                "At least 40%",
+                "At least 60%, ideally greater than 80%",
+                "100%",
+                "It does not matter"
             ],
             answer: 1,
-            explanation: "For adults, compress at least 2 inches (5 cm) to ensure adequate blood flow.",
-            cite: "BLS Guidelines"
+            explanation: "CCF is the % of time spent actually compressing. High-performance teams aim for >80% to maximize perfusion.",
+            cite: "High-Performance CPR"
         },
         {
-            q: "Where do you place your hands for adult chest compressions?",
+            q: "Why is hyperventilation (giving too many breaths) dangerous during cardiac arrest?",
             options: [
-                "Top of the breastbone",
-                "Lower half of the breastbone (sternum)",
-                "Left side of the chest over the heart",
-                "Upper abdomen"
+                "It wakes the patient up too fast",
+                "It increases intrathoracic pressure, decreasing venous return to the heart",
+                "It causes the lungs to pop",
+                "It cools the body down"
             ],
             answer: 1,
-            explanation: "Place the heel of one hand on the lower half of the sternum, avoiding the xiphoid process.",
-            cite: "CPR Technique"
+            explanation: "Too much pressure in the chest prevents blood from returning to the heart, which lowers the effectiveness of your compressions.",
+            cite: "Pathophysiology"
         },
         {
-            q: "To ensure high-quality CPR, you must allow the chest to _______ completely after each compression.",
+            q: "What is the specific upper limit for chest compression depth in an adult?",
             options: [
-                "Rest",
-                "Recoil (re-expand)",
-                "Collapse",
-                "Vibrate"
+                "2 inches",
+                "2.4 inches (6 cm)",
+                "3 inches",
+                "There is no limit"
             ],
             answer: 1,
-            explanation: "Full chest recoil allows the heart to refill with blood between compressions.",
-            cite: "High-Quality CPR"
+            explanation: "Compress at least 2 inches but NO MORE than 2.4 inches to avoid injury to internal organs.",
+            cite: "Adult CPR Metrics"
         },
+        // --- PEDIATRIC & SPECIAL SCENARIOS ---
         {
-            q: "When providing rescue breaths (patient has a pulse but is not breathing), how often do you give a breath for an ADULT?",
+            q: "A 4-year-old child is unresponsive, not breathing, and has a heart rate of 50 beats per minute. You should:",
             options: [
-                "Every 2-3 seconds",
-                "Every 6 seconds (10 breaths/min)",
-                "Every 10 seconds",
-                "Every 8-10 seconds"
+                "Give rescue breaths only",
+                "Begin Chest Compressions",
+                "Wait for the heart rate to drop below 40",
+                "Apply an AED immediately"
             ],
             answer: 1,
-            explanation: "For adults with a pulse, give 1 breath every 6 seconds (10 breaths/min).",
-            cite: "Rescue Breathing"
+            explanation: "In pediatrics, a heart rate < 60 bpm with signs of poor perfusion is treated as cardiac arrest. Start CPR.",
+            cite: "Pediatric Bradycardia"
         },
-        // --- CHILD & INFANT CPR ---
         {
-            q: "You are performing 2-Rescuer CPR on a 5-year-old CHILD. What is the correct compression-to-breath ratio?",
+            q: "You are alone with an unwitnessed infant cardiac arrest. When do you call 911?",
             options: [
-                "30:2",
-                "15:2",
-                "5:1",
-                "15:1"
+                "Immediately",
+                "After 2 minutes (5 cycles) of CPR",
+                "After giving 2 breaths",
+                "When you get tired"
             ],
             answer: 1,
-            explanation: "When two rescuers are present for a Child or Infant, the ratio switches to 15:2.",
-            cite: "BLS Guidelines (Pediatric)"
+            explanation: "Pediatric arrest is usually respiratory. A 'Care First' (2 minutes of CPR) approach oxygenates the blood before you leave to call 911.",
+            cite: "Pediatric Algorithm"
         },
         {
-            q: "Where should you check for a pulse on an INFANT?",
-            options: [
-                "Carotid artery (neck)",
-                "Radial artery (wrist)",
-                "Brachial artery (upper arm)",
-                "Femoral artery (groin)"
-            ],
-            answer: 2,
-            explanation: "In infants, the brachial pulse (inside of the upper arm) is the easiest and most reliable location to check.",
-            cite: "BLS Guidelines"
-        },
-        {
-            q: "What is the correct compression depth for an INFANT?",
-            options: [
-                "At least 2 inches",
-                "Approximately 1.5 inches (4 cm)",
-                "1 inch",
-                "1/2 inch"
-            ],
-            answer: 1,
-            explanation: "For infants, compress about 1.5 inches (or 1/3 the AP diameter of the chest).",
-            cite: "Infant CPR"
-        },
-        {
-            q: "What is the preferred technique for 2-rescuer infant chest compressions?",
+            q: "When performing 2-rescuer CPR on an infant, which hand technique is preferred?",
             options: [
                 "Two-finger technique",
                 "2 thumbs-encircling hands technique",
@@ -367,542 +344,586 @@
                 "Palm of both hands"
             ],
             answer: 1,
-            explanation: "The 2 thumbs-encircling hands technique produces better blood flow pressure for 2-rescuer infant CPR.",
+            explanation: "The 2 thumbs-encircling method generates better blood flow pressure and supports the infant's back.",
             cite: "Infant CPR Technique"
         },
+        // --- STANDARD BLS REVIEW ---
         {
-            q: "Where should you check for a pulse on a CHILD (1 year to puberty)?",
+            q: "What is the very first step when you arrive at the scene of an emergency?",
             options: [
-                "Brachial artery",
-                "Carotid or Femoral artery",
-                "Radial artery",
-                "Popliteal artery"
+                "Check the patient",
+                "Verify scene safety",
+                "Call 911",
+                "Start CPR"
             ],
             answer: 1,
-            explanation: "For children, check the carotid (neck) or femoral (groin) pulse.",
-            cite: "Child BLS"
+            explanation: "Scene safety is always step one.",
+            cite: "BLS Algorithm"
         },
         {
-            q: "You are alone and find an unresponsive infant. You did not see them collapse. What do you do?",
+            q: "How long should you check for a pulse?",
             options: [
-                "Leave to call 911 immediately",
-                "Perform 2 minutes of CPR, then call 911",
-                "Wait for help",
-                "Find an AED first"
+                "Maximum 5 seconds",
+                "At least 5 but no more than 10 seconds",
+                "15 seconds",
+                "Until you find it"
             ],
             answer: 1,
-            explanation: "For unwitnessed pediatric arrest, hypoxia is the likely cause. Give 2 minutes of care (5 cycles) to oxygenate before leaving to call 911.",
-            cite: "Pediatric Algorithm"
+            explanation: "Do not delay CPR longer than 10 seconds trying to find a pulse.",
+            cite: "BLS Algorithm"
         },
         {
-            q: "When providing rescue breaths for a CHILD or INFANT (pulse present), how often do you give a breath?",
+            q: "The compression rate for all victims is:",
             options: [
-                "Every 2-3 seconds (20-30 breaths/min)",
-                "Every 6 seconds",
-                "Every 10 seconds",
-                "Every 15 seconds"
+                "60-80/min",
+                "80-100/min",
+                "100-120/min",
+                "120-140/min"
             ],
-            answer: 0,
-            explanation: "Children breathe faster. Provide 1 breath every 2-3 seconds.",
-            cite: "Pediatric Rescue Breathing"
+            answer: 2,
+            explanation: "100-120 bpm is the standard for high-quality CPR.",
+            cite: "CPR Metrics"
         },
         {
-            q: "If a child has a pulse of 50 beats per minute and signs of poor perfusion, you should:",
+            q: "Adult compression ratio (1 or 2 rescuers):",
             options: [
-                "Give rescue breaths only",
-                "Begin chest compressions",
-                "Monitor and wait for EMS",
-                "Give back blows"
-            ],
-            answer: 1,
-            explanation: "In children/infants, a pulse < 60 with signs of poor perfusion requires CPR.",
-            cite: "Pediatric Bradycardia"
-        },
-        // --- AED OPERATION ---
-        {
-            q: "When an AED becomes available, what is the very first step?",
-            options: [
-                "Apply the pads to the chest",
-                "Turn on the AED",
-                "Plug in the connector",
-                "Shave the chest"
+                "15:2",
+                "30:2",
+                "50:2",
+                "Continuous"
             ],
             answer: 1,
-            explanation: "Turn on the AED immediately. The voice prompts will guide you through the rest.",
+            explanation: "Adults always receive 30:2 unless an advanced airway is in place.",
+            cite: "Adult CPR"
+        },
+        {
+            q: "Child/Infant compression ratio (2 rescuers):",
+            options: [
+                "30:2",
+                "15:2",
+                "5:1",
+                "15:1"
+            ],
+            answer: 1,
+            explanation: "Two rescuers allow for a 15:2 ratio in pediatrics to provide more ventilation.",
+            cite: "Pediatric CPR"
+        },
+        {
+            q: "Where do you check a pulse on an infant?",
+            options: [
+                "Carotid",
+                "Radial",
+                "Brachial",
+                "Femoral"
+            ],
+            answer: 2,
+            explanation: "Brachial (upper inner arm) is the standard for infants.",
+            cite: "Infant Assessment"
+        },
+        {
+            q: "When using an AED, the first step is:",
+            options: [
+                "Apply pads",
+                "Plug it in",
+                "Power it on",
+                "Clear the patient"
+            ],
+            answer: 2,
+            explanation: "Power on the AED immediately.",
             cite: "AED Operation"
         },
         {
-            q: "Where are AED pads placed on an adult victim?",
+            q: "If the AED says 'No Shock Advised', you should:",
             options: [
-                "Center of chest and back",
-                "Upper right chest and lower left chest",
-                "Upper left chest and lower right chest",
-                "Both on the center of the chest"
+                "Check pulse",
+                "Resume CPR immediately",
+                "Re-analyze",
+                "Give breaths only"
             ],
             answer: 1,
-            explanation: "Place one pad on the upper right chest (below the clavicle) and the other on the lower left side (below the armpit).",
-            cite: "AED Operation"
-        },
-        {
-            q: "If the AED advises 'No Shock,' what is your next immediate action?",
-            options: [
-                "Check the pulse",
-                "Resume CPR immediately (starting with compressions)",
-                "Wait for the AED to re-analyze",
-                "Give two rescue breaths"
-            ],
-            answer: 1,
-            explanation: "Do not wait. Immediately resume chest compressions to maintain perfusion. The AED will re-analyze in 2 minutes.",
+            explanation: "Resume compressions immediately to minimize interruptions.",
             cite: "AED Algorithm"
         },
         {
-            q: "Why is it important to 'Clear' the victim before delivering a shock?",
+            q: "Rescue breathing rate for an adult (with pulse):",
             options: [
-                "To make sure the victim is awake",
-                "To ensure no one is touching the victim and gets shocked",
-                "To allow the AED to recharge",
-                "To check for breathing"
+                "1 breath every 3 seconds",
+                "1 breath every 6 seconds",
+                "1 breath every 10 seconds",
+                "Continuous"
             ],
             answer: 1,
-            explanation: "Touching the victim during a shock can result in the rescuer receiving the shock.",
-            cite: "AED Safety"
-        },
-        {
-            q: "If an 8-year-old child needs an AED and no pediatric pads are available, what should you do?",
-            options: [
-                "Use adult pads",
-                "Do not use the AED",
-                "Perform CPR only",
-                "Wait for EMS"
-            ],
-            answer: 0,
-            explanation: "Use adult pads if pediatric pads are unavailable. Ensure the pads do not touch each other (use anterior-posterior placement if needed). It is better to shock than not.",
-            cite: "Pediatric AED"
-        },
-        {
-            q: "If a victim has a hairy chest that prevents pads from sticking, what should you do?",
-            options: [
-                "Press harder on the pads",
-                "Use the razor in the AED kit to shave the area",
-                "Place the pads on the back",
-                "Use duct tape"
-            ],
-            answer: 1,
-            explanation: "Shave the area quickly if a razor is available. If not, and you have two sets of pads, use the first set to wax/rip the hair off, then apply the second set.",
-            cite: "AED Special Situations"
-        },
-        {
-            q: "If a victim is lying in water, what should you do before using the AED?",
-            options: [
-                "Nothing, water conducts electricity well",
-                "Move the victim to a dry area and wipe the chest dry",
-                "Place the pads directly on the wet chest",
-                "Perform breaths only"
-            ],
-            answer: 1,
-            explanation: "Water conducts electricity. Move the victim out of the puddle/pool and wipe the chest dry before applying pads.",
-            cite: "AED Special Situations"
-        },
-        {
-            q: "If a victim has an implanted pacemaker (visible lump under skin), how do you place the pads?",
-            options: [
-                "Place the pad directly over the lump",
-                "Place the pad at least 1 inch away from the lump",
-                "Do not use the AED",
-                "Place pads on the legs"
-            ],
-            answer: 1,
-            explanation: "Avoid placing the pad directly over the device. Place it at least 1 inch to the side.",
-            cite: "AED Special Situations"
-        },
-        {
-            q: "Can you use an AED on a pregnant woman?",
-            options: [
-                "No, it will harm the fetus",
-                "Yes, cardiac arrest is fatal for both mother and fetus if untreated",
-                "Only if you have pediatric pads",
-                "Only if she is in the first trimester"
-            ],
-            answer: 1,
-            explanation: "Yes. Saving the mother is the only way to save the fetus. Use the AED as standard.",
-            cite: "AED Special Situations"
-        },
-        {
-            q: "If a victim has a medication patch (like nitroglycerin) on their chest, you should:",
-            options: [
-                "Place the AED pad over it",
-                "Remove the patch (wearing gloves) and wipe the area",
-                "Ignore it",
-                "Place the pad on the stomach"
-            ],
-            answer: 1,
-            explanation: "Patches can block energy or cause burns. Remove the patch and wipe the residue before applying the pad.",
-            cite: "AED Special Situations"
-        },
-        // --- TEAM DYNAMICS ---
-        {
-            q: "How often should rescuers switch roles during CPR to prevent fatigue?",
-            options: [
-                "Every 1 minute",
-                "Every 2 minutes (or 5 cycles)",
-                "Every 5 minutes",
-                "Only when the compressor says they are tired"
-            ],
-            answer: 1,
-            explanation: "Switch every 2 minutes (usually when the AED analyzes) to ensure compressions remain high-quality.",
-            cite: "Team Dynamics"
-        },
-        {
-            q: "What should you do if you notice the person giving chest compressions is not allowing the chest to recoil?",
-            options: [
-                "Take over immediately",
-                "Tell them to stop",
-                "Ideally, communicate politely to 'allow full chest recoil'",
-                "Wait until the 2-minute switch"
-            ],
-            answer: 2,
-            explanation: "Constructive intervention is key in team dynamics. Politely correct the action immediately.",
-            cite: "Team Dynamics"
-        },
-        {
-            q: "Clear roles and responsibilities in a resuscitation team mean:",
-            options: [
-                "Everyone does whatever they want",
-                "The team leader yells at everyone",
-                "Each member knows their specific job and duties",
-                "Only the team leader speaks"
-            ],
-            answer: 2,
-            explanation: "Efficiency relies on every member knowing their specific role (Compressor, Airway, AED, Leader, etc.).",
-            cite: "Team Dynamics"
-        },
-        {
-            q: "Closed-loop communication means:",
-            options: [
-                "The leader gives an order, and the member confirms they heard and are doing it",
-                "The leader talks to themselves",
-                "Team members do not speak",
-                "Orders are written down"
-            ],
-            answer: 0,
-            explanation: "Closed-loop communication ensures the order was heard and understood correctly (e.g., 'I am starting compressions').",
-            cite: "Team Dynamics"
-        },
-        // --- AIRWAY & BREATHING ---
-        {
-            q: "What is the preferred method to open the airway of a victim with NO suspected neck injury?",
-            options: [
-                "Jaw thrust",
-                "Head-tilt, chin-lift",
-                "Blind finger sweep",
-                "Turning the head to the side"
-            ],
-            answer: 1,
-            explanation: "The head-tilt, chin-lift is the standard maneuver for opening the airway in non-trauma patients.",
-            cite: "Airway Management"
-        },
-        {
-            q: "If you suspect a neck injury, which maneuver should you use to open the airway?",
-            options: [
-                "Head-tilt, chin-lift",
-                "Jaw thrust",
-                "Turn the head",
-                "Do not open the airway"
-            ],
-            answer: 1,
-            explanation: "The jaw thrust maneuver opens the airway without moving the neck/spine.",
-            cite: "Airway Management"
-        },
-        {
-            q: "When using a bag-valve mask (BVM), how can you tell if your breaths are effective?",
-            options: [
-                "The stomach rises",
-                "You hear air escaping",
-                "You see visible chest rise",
-                "The oxygen saturation reads 100%"
-            ],
-            answer: 2,
-            explanation: "Visible chest rise is the primary indicator that air is entering the lungs.",
-            cite: "Airway Management"
-        },
-        {
-            q: "What happens if you give breaths too quickly or with too much force?",
-            options: [
-                "The patient wakes up",
-                "Air enters the stomach (gastric inflation), causing vomiting",
-                "The lungs work better",
-                "Oxygenation improves"
-            ],
-            answer: 1,
-            explanation: "Hyperventilation or forceful breaths push air into the stomach, leading to gastric distention and vomiting.",
+            explanation: "1 breath every 6 seconds (10 per minute) for adults.",
             cite: "Rescue Breathing"
         },
         {
-            q: "If an advanced airway (like an ET tube) is in place, how do compressions/breaths change?",
+            q: "Rescue breathing rate for a child/infant (with pulse):",
             options: [
-                "They don't change",
-                "Stop compressions for every breath",
-                "Continuous compressions (no pauses) with 1 breath every 6 seconds",
-                "Give breaths only"
-            ],
-            answer: 2,
-            explanation: "Once an advanced airway is secured, do not pause compressions. Give 1 breath every 6 seconds continuously.",
-            cite: "Advanced Airway CPR"
-        },
-        {
-            q: "How long should each rescue breath last?",
-            options: [
-                "1 second",
-                "2 seconds",
-                "3 seconds",
-                "Half a second"
+                "1 breath every 2-3 seconds",
+                "1 breath every 6 seconds",
+                "1 breath every 10 seconds",
+                "1 breath every second"
             ],
             answer: 0,
-            explanation: "Each breath should be delivered over 1 second, just enough to see the chest rise.",
-            cite: "Rescue Breathing"
+            explanation: "Children need faster rates: 1 breath every 2-3 seconds (20-30 per minute).",
+            cite: "Pediatric Rescue Breathing"
         },
-        // --- CHOKING (FBAO) ---
         {
-            q: "What is the universal sign for choking?",
+            q: "Universal sign for choking:",
             options: [
-                "Coughing loudly",
-                "Holding the throat with both hands",
-                "Waving hands in the air",
-                "Pointing to the stomach"
+                "Coughing",
+                "Clutching the throat",
+                "Waving hands",
+                "Yelling"
             ],
             answer: 1,
-            explanation: "Clutching the throat is the universal sign of severe airway obstruction.",
-            cite: "Choking Recognition"
+            explanation: "Hands clutching the throat is the universal sign.",
+            cite: "Choking"
         },
         {
-            q: "If a choking victim is coughing forcefully, what should you do?",
+            q: "Action for responsive choking infant:",
             options: [
-                "Perform abdominal thrusts",
-                "Hit them on the back",
-                "Encourage them to keep coughing",
-                "Give them water"
-            ],
-            answer: 2,
-            explanation: "If they can cough, the airway is only partially blocked. Encouraging coughing is the best way to clear it.",
-            cite: "Choking Management"
-        },
-        {
-            q: "What is the correct technique for relieving severe choking in a responsive ADULT?",
-            options: [
-                "Back blows only",
-                "Abdominal thrusts (Heimlich maneuver)",
-                "Chest compressions",
-                "Blind finger sweep"
+                "Heimlich maneuver",
+                "5 back slaps, 5 chest thrusts",
+                "Blind sweep",
+                "CPR"
             ],
             answer: 1,
-            explanation: "Perform abdominal thrusts just above the navel.",
-            cite: "Choking Management"
-        },
-        {
-            q: "If a choking adult becomes unresponsive, what is the first step?",
-            options: [
-                "Check for a pulse",
-                "Ease them to the floor and begin CPR (compressions)",
-                "Give 2 breaths",
-                "Continue abdominal thrusts"
-            ],
-            answer: 1,
-            explanation: "Once unresponsive, treat as cardiac arrest. Start compressions immediately. Look for the object before giving breaths.",
-            cite: "Unresponsive Choking"
-        },
-        {
-            q: "When performing CPR on an unresponsive choking victim, when should you look for the object?",
-            options: [
-                "After every compression",
-                "Before every breath",
-                "Never",
-                "After the shock"
-            ],
-            answer: 1,
-            explanation: "Each time you open the airway to give breaths, look in the mouth. If you see the object, pluck it out. Do not blind sweep.",
-            cite: "Unresponsive Choking"
-        },
-        {
-            q: "What is the correct technique for relieving severe choking in a responsive INFANT?",
-            options: [
-                "Abdominal thrusts",
-                "5 back slaps and 5 chest thrusts",
-                "Hold them upside down and shake",
-                "Blind finger sweep"
-            ],
-            answer: 1,
-            explanation: "Support the infant's head face-down and give 5 back slaps, then flip them face-up for 5 chest thrusts.",
+            explanation: "Back slaps and chest thrusts are used for infants; abdominal thrusts can damage their organs.",
             cite: "Infant Choking"
         },
         {
-            q: "If a pregnant or obese person is choking, where do you perform thrusts?",
+            q: "If a choking victim becomes unresponsive, you should:",
             options: [
-                "Abdomen",
-                "Chest (Chest thrusts)",
-                "Back blows only",
-                "Neck"
+                "Continue thrusts",
+                "Begin CPR (look for object before breaths)",
+                "Check pulse for 10 seconds",
+                "Leave to call 911"
             ],
             answer: 1,
-            explanation: "For pregnant or very obese victims, use chest thrusts (similar to CPR hand placement) instead of abdominal thrusts.",
-            cite: "Choking Special Situations"
-        },
-        // --- OPIOID OVERDOSE ---
-        {
-            q: "What is the primary medication used to reverse an opioid overdose?",
-            options: [
-                "Aspirin",
-                "Epinephrine",
-                "Naloxone (Narcan)",
-                "Nitroglycerin"
-            ],
-            answer: 2,
-            explanation: "Naloxone is an opioid antagonist that reverses respiratory depression caused by opioids.",
-            cite: "Opioid Emergencies"
+            explanation: "Unresponsive choking is treated as cardiac arrest, but check the mouth for the object before each breath.",
+            cite: "Unresponsive Choking"
         },
         {
-            q: "If you suspect an opioid overdose in a victim who is NOT breathing but HAS a pulse, what is your priority?",
+            q: "AED pad placement for adults:",
             options: [
-                "Chest compressions",
-                "Rescue breathing and Naloxone",
-                "Defibrillation",
-                "Waiting for EMS"
+                "Center/Center",
+                "Upper Right / Lower Left",
+                "Upper Left / Lower Right",
+                "Back/Front"
             ],
             answer: 1,
-            explanation: "The priority is ventilation (rescue breathing) to address hypoxia, followed by Naloxone administration.",
-            cite: "Opioid Algorithm"
+            explanation: "Upper right chest, lower left ribs (below armpit).",
+            cite: "AED Placement"
         },
         {
-            q: "Can you give Naloxone to a victim in cardiac arrest?",
+            q: "Can you use adult AED pads on an infant?",
             options: [
-                "No, it is dangerous",
-                "Yes, but high-quality CPR and AED use take priority",
-                "Yes, it should be the very first step",
-                "Only if they are awake"
+                "Never",
+                "Yes, if pediatric pads are not available (ensure they don't touch)",
+                "Only on the back",
+                "No, use CPR only"
             ],
             answer: 1,
-            explanation: "CPR is the priority in arrest. Naloxone can be given, but do not delay compressions or defibrillation to do so.",
-            cite: "Opioid Algorithm"
-        },
-        // --- MISCELLANEOUS ---
-        {
-            q: "Which pulse site is used to check circulation in an unresponsive child?",
-            options: [
-                "Radial",
-                "Carotid or Femoral",
-                "Brachial",
-                "Temporal"
-            ],
-            answer: 1,
-            explanation: "Carotid (neck) or femoral (groin) pulses are palpable in children.",
-            cite: "Child BLS"
+            explanation: "It is better to shock with adult pads (using anterior-posterior placement if needed) than not to shock.",
+            cite: "AED Special Situations"
         },
         {
-            q: "Why is 'Time' a critical factor in stroke assessment?",
+            q: "How often should rescuers switch roles?",
             options: [
-                "Because the hospital closes",
-                "Because treatment (fibrinolytics) must be given within a narrow window (usually 3-4.5 hours)",
-                "It isn't critical",
-                "Because the patient will fall asleep"
+                "Every 1 minute",
+                "Every 2 minutes (5 cycles)",
+                "Every 5 minutes",
+                "When tired"
             ],
             answer: 1,
-            explanation: "Time is brain. Stroke treatments are time-sensitive.",
-            cite: "Stroke Recognition"
-        },
-        {
-            q: "In 2-rescuer CPR on an adult, what is the role of the second rescuer?",
-            options: [
-                "Stand back and watch",
-                "Maintain the airway and give breaths while the first gives compressions",
-                "Go get coffee",
-                "Hold the patient's hand"
-            ],
-            answer: 1,
-            explanation: "Rescuer 2 is at the head, maintaining the open airway and delivering breaths.",
+            explanation: "Switch every 2 minutes to prevent fatigue and maintain quality.",
             cite: "Team Dynamics"
         },
         {
-            q: "What is the maximum amount of time you should interrupt chest compressions (e.g., to give breaths or switch)?",
+            q: "Maximum interruption time for chest compressions:",
             options: [
                 "5 seconds",
                 "10 seconds",
-                "30 seconds",
-                "1 minute"
+                "15 seconds",
+                "30 seconds"
             ],
             answer: 1,
-            explanation: "Minimize interruptions to less than 10 seconds to maintain coronary perfusion pressure.",
+            explanation: "Limit interruptions to less than 10 seconds.",
             cite: "High-Quality CPR"
         },
         {
-            q: "If a victim is gasping but has no pulse, you should:",
+            q: "Agonal gasps are considered:",
             options: [
-                "Monitor them",
-                "Start CPR",
-                "Give rescue breaths only",
-                "Wait for them to wake up"
-            ],
-            answer: 1,
-            explanation: "Gasping is not effective breathing. If pulseless, treat as cardiac arrest.",
-            cite: "Recognition of Arrest"
-        },
-        {
-            q: "When performing CPR on an infant, the head should be in which position?",
-            options: [
-                "Hyper-extended",
-                "Neutral or 'sniffing' position",
-                "Flexed onto the chest",
-                "Turned to the side"
-            ],
-            answer: 1,
-            explanation: "Avoid over-extending an infant's neck, which can close the airway. Keep it neutral (sniffing position).",
-            cite: "Infant Airway"
-        },
-        {
-            q: "Which is a sign of effective CPR?",
-            options: [
-                "The patient's skin color improves",
-                "The AED says 'No Shock Advised'",
-                "You feel a pulse during compressions (if a 2nd rescuer checks)",
-                "The patient vomits"
+                "Normal breathing",
+                "Signs of life",
+                "A sign of cardiac arrest",
+                "Effective ventilation"
             ],
             answer: 2,
-            explanation: "A pulse felt with each compression indicates good blood flow generation.",
-            cite: "CPR Monitoring"
+            explanation: "Agonal gasps are a sign of arrest. Start CPR.",
+            cite: "Recognition"
+        },
+        // --- ADDITIONAL SCENARIOS ---
+        {
+            q: "You are treating a victim with a hairy chest. The pads won't stick. You have two sets of pads. What do you do?",
+            options: [
+                "Press harder",
+                "Use the first set to rip the hair off, then apply the second set",
+                "Shave the chest if a razor is available",
+                "Both B and C are acceptable"
+            ],
+            answer: 3,
+            explanation: "If you have a razor, shave. If not, and you have extra pads, use the 'waxing' technique.",
+            cite: "AED Troubleshooting"
         },
         {
-            q: "Why is full chest recoil important?",
+            q: "A victim is submerged in water. You should:",
             options: [
-                "It gives the rescuer a break",
-                "It allows the heart chambers to fill with blood",
-                "It prevents rib fractures",
-                "It looks better"
+                "Shock immediately",
+                "Pull them out and wipe the chest dry",
+                "Put pads on the back",
+                "Wait for EMS"
             ],
             answer: 1,
-            explanation: "Refilling the heart is crucial for the next compression to pump blood out.",
-            cite: "High-Quality CPR"
+            explanation: "Water conducts electricity. Move them to a dry area and dry the chest.",
+            cite: "AED Safety"
         },
         {
-            q: "If you are alone with an adult cardiac arrest victim, when do you call 911?",
+            q: "A victim has an implanted pacemaker (visible lump). You should:",
             options: [
-                "After 2 minutes of CPR",
-                "Immediately (before starting CPR)",
-                "After using the AED",
-                "When you get tired"
+                "Place pad directly over it",
+                "Place pad at least 1 inch away",
+                "Don't shock",
+                "Use a magnet"
             ],
             answer: 1,
-            explanation: "For adults, call first to get advanced help/AED coming, then start CPR.",
+            explanation: "Avoid placing pads directly over medical devices.",
+            cite: "AED Special Situations"
+        },
+        {
+            q: "A pregnant woman goes into cardiac arrest. Can you use the AED?",
+            options: [
+                "No",
+                "Yes",
+                "Only with pediatric pads",
+                "Only on the back"
+            ],
+            answer: 1,
+            explanation: "Yes. Resuscitating the mother is the priority.",
+            cite: "Special Populations"
+        },
+        {
+            q: "Full chest recoil allows:",
+            options: [
+                "Lungs to fill",
+                "Heart to refill with blood",
+                "Ribs to reset",
+                "Muscles to relax"
+            ],
+            answer: 1,
+            explanation: "Refill time is crucial for cardiac output.",
+            cite: "Physiology"
+        },
+        {
+            q: "In 2-rescuer CPR, if an advanced airway is placed, the breath rate is:",
+            options: [
+                "Every 6 seconds continuously",
+                "Every 3 seconds",
+                "2 breaths after 30 compressions",
+                "2 breaths after 15 compressions"
+            ],
+            answer: 0,
+            explanation: "Continuous compressions with 1 breath every 6 seconds.",
+            cite: "Advanced Airway"
+        },
+        {
+            q: "You find an unresponsive victim. You yell for help but no one comes. You have a cell phone. You should:",
+            options: [
+                "Start CPR for 2 mins then call",
+                "Call 911 on speaker and start CPR",
+                "Run to find a landline",
+                "Check for a pulse for 1 minute"
+            ],
+            answer: 1,
+            explanation: "Activate the emergency system immediately (via speakerphone) so you can start CPR without delay.",
             cite: "Adult Algorithm"
         },
         {
-            q: "Rescue breathing for an adult is 1 breath every ___ seconds.",
+            q: "Which technique opens the airway for a victim with a suspected neck injury?",
             options: [
-                "3",
-                "5-6",
-                "10",
-                "15"
+                "Head-tilt, chin-lift",
+                "Jaw thrust",
+                "Neck extension",
+                "Turn head to side"
             ],
             answer: 1,
-            explanation: "1 breath every 6 seconds (10/min) is the standard for adult rescue breathing.",
-            cite: "Rescue Breathing"
+            explanation: "Jaw thrust minimizes cervical spine movement.",
+            cite: "Airway Management"
+        },
+        {
+            q: "When giving breaths, you notice the stomach distending. You should:",
+            options: [
+                "Push on the stomach",
+                "Breath harder",
+                "Reduce the force/volume of breaths",
+                "Stop breaths entirely"
+            ],
+            answer: 2,
+            explanation: "Gastric inflation comes from too much force. Breath just enough to see the chest rise.",
+            cite: "Ventilation Technique"
+        },
+        {
+            q: "The correct hand placement for 2-rescuer CPR on a child is:",
+            options: [
+                "2 fingers",
+                "2 thumbs",
+                "1 or 2 hands (heel) on the lower sternum",
+                "Upper chest"
+            ],
+            answer: 2,
+            explanation: "Use 1 or 2 hands depending on the size of the child.",
+            cite: "Child CPR"
+        },
+        {
+            q: "Before delivering a shock with an AED, you must:",
+            options: [
+                "Count to 3",
+                "Check the pulse again",
+                "Loudly state 'Clear' and visually ensure no one is touching the patient",
+                "Turn off the oxygen"
+            ],
+            answer: 2,
+            explanation: "Safety check is mandatory to prevent accidental shock to rescuers.",
+            cite: "AED Safety"
+        },
+        {
+            q: "You are performing CPR. The victim starts to cough and move. You should:",
+            options: [
+                "Continue CPR",
+                "Stop CPR and reassess",
+                "Shock them",
+                "Give rescue breaths"
+            ],
+            answer: 1,
+            explanation: "Signs of life warrant a reassessment. Check pulse and breathing.",
+            cite: "ROSC"
+        },
+        {
+            q: "A victim is choking and coughing forcefully. You should:",
+            options: [
+                "Slap their back",
+                "Perform Heimlich",
+                "Encourage them to cough",
+                "Give water"
+            ],
+            answer: 2,
+            explanation: "Coughing means air is moving. Do not interfere unless the cough becomes silent.",
+            cite: "Choking"
+        },
+        {
+            q: "When performing the Heimlich maneuver, your fist is placed:",
+            options: [
+                "On the chest",
+                "Below the navel",
+                "Above the navel but below the breastbone",
+                "On the back"
+            ],
+            answer: 2,
+            explanation: "Abdominal thrusts target the diaphragm to force air out.",
+            cite: "Choking Technique"
+        },
+        {
+            q: "If a choking victim is too large to wrap your arms around the waist, you should:",
+            options: [
+                "Use chest thrusts",
+                "Use back blows only",
+                "Lay them down",
+                "Give up"
+            ],
+            answer: 0,
+            explanation: "Move to the chest (sternum) for obese or pregnant victims.",
+            cite: "Choking Variations"
+        },
+        {
+            q: "During CPR, your arms should be:",
+            options: [
+                "Bent at the elbow",
+                "Straight and locked",
+                "Relaxed",
+                "Parallel to the body"
+            ],
+            answer: 1,
+            explanation: "Straight, locked elbows allow you to use your body weight for effective compressions.",
+            cite: "CPR Mechanics"
+        },
+        {
+            q: "Correct depth for Child CPR:",
+            options: [
+                "1 inch",
+                "At least 2 inches (5 cm)",
+                "1.5 inches",
+                "3 inches"
+            ],
+            answer: 1,
+            explanation: "Children require ~2 inches (similar to adults), or 1/3 chest depth.",
+            cite: "Child CPR"
+        },
+        {
+            q: "If you are alone and must leave a child victim to call 911, when do you leave?",
+            options: [
+                "Immediately",
+                "After 2 minutes of CPR",
+                "After 1 cycle",
+                "Never"
+            ],
+            answer: 1,
+            explanation: "Pediatric rule: 2 minutes of care first.",
+            cite: "Pediatric Algorithm"
+        },
+        {
+            q: "If you are alone and witness an adult collapse, when do you call 911?",
+            options: [
+                "Immediately (leave if necessary)",
+                "After 2 minutes",
+                "After checking pulse",
+                "After first shock"
+            ],
+            answer: 0,
+            explanation: "Witnessed adult arrest is likely cardiac. Get the AED/Help immediately.",
+            cite: "Adult Algorithm"
+        },
+        {
+            q: "The pulse check for an adult is located at the:",
+            options: [
+                "Carotid artery",
+                "Radial artery",
+                "Brachial artery",
+                "Femoral artery"
+            ],
+            answer: 0,
+            explanation: "Carotid is the standard check for adults.",
+            cite: "Adult Assessment"
+        },
+        {
+            q: "Which device can provide feedback on compression rate and depth?",
+            options: [
+                "Pulse Oximeter",
+                "Capnography / Feedback Device",
+                "BVM",
+                "ECG Monitor"
+            ],
+            answer: 1,
+            explanation: "Real-time feedback devices or metronomes are recommended.",
+            cite: "CPR Quality"
+        },
+        {
+            q: "For a victim with a suspected spinal injury, use the:",
+            options: [
+                "Jaw Thrust",
+                "Head Tilt Chin Lift",
+                "Recovery Position",
+                "Neck Traction"
+            ],
+            answer: 0,
+            explanation: "Jaw thrust opens the airway without moving the spine.",
+            cite: "Trauma Airway"
+        },
+        {
+            q: "You pull a victim from the water. They are pulseless and apneic. You should:",
+            options: [
+                "Give 2 breaths immediately then start CPR",
+                "Start compressions immediately",
+                "Dry them off completely first",
+                "Look for an AED"
+            ],
+            answer: 0,
+            explanation: "Drowning is a hypoxic event. Current guidelines suggest delivering 2 breaths early in the sequence for drowning victims.",
+            cite: "Drowning Protocol"
+        },
+        {
+            q: "A bag-valve mask (BVM) is most effective when used by:",
+            options: [
+                "1 rescuer",
+                "2 rescuers",
+                "A layman",
+                "Anyone"
+            ],
+            answer: 1,
+            explanation: "2 rescuers: one to seal the mask with two hands (E-C clamp), one to squeeze the bag.",
+            cite: "Airway Equipment"
+        },
+        {
+            q: "Gastric inflation is likely caused by:",
+            options: [
+                "Breaths that are too large or too fast",
+                "Compressions that are too deep",
+                "Proper CPR",
+                "Using an AED"
+            ],
+            answer: 0,
+            explanation: "Air entering the stomach comes from forceful ventilation.",
+            cite: "Ventilation Issues"
+        },
+        {
+            q: "If a victim vomits during CPR, you should:",
+            options: [
+                "Continue CPR",
+                "Turn them to the side and clear the airway",
+                "Stop and wait",
+                "Intubate"
+            ],
+            answer: 1,
+            explanation: "Clear the airway to prevent aspiration, then resume.",
+            cite: "Airway Obstruction"
+        },
+        {
+            q: "The universal rate for compressions is:",
+            options: [
+                "100-120 bpm",
+                "60 bpm",
+                "80 bpm",
+                "140 bpm"
+            ],
+            answer: 0,
+            explanation: "Standard across all ages.",
+            cite: "Global Metric"
+        },
+        {
+            q: "If a child collapses and you are alone with a cell phone:",
+            options: [
+                "Call 911 on speaker, start CPR",
+                "Leave to find help",
+                "Wait",
+                "Do 2 minutes CPR then call"
+            ],
+            answer: 0,
+            explanation: "Mobile phones allow you to activate EMS without leaving the victim.",
+            cite: "Modern Algorithm"
+        },
+        {
+            q: "Chest compression fraction (CCF) goal is:",
+            options: [
+                "40%",
+                "50%",
+                "60% (ideally 80%)",
+                "90%"
+            ],
+            answer: 2,
+            explanation: "Maximize time on the chest.",
+            cite: "High-Performance"
+        },
+        {
+            q: "What is the correct treatment for a responsive choking victim?",
+            options: [
+                "Abdominal Thrusts",
+                "CPR",
+                "Back blows (Adult)",
+                "Water"
+            ],
+            answer: 0,
+            explanation: "Abdominal thrusts (Heimlich) for adults/children.",
+            cite: "Choking"
         }
     ];
 
