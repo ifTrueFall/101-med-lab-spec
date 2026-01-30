@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 4: Comprehensive Quizlet Review</title>
+    <title>Module 4: Comprehensive Exam (60 Questions)</title>
     <style>
         :root {
             --primary-color: #003366; /* Army/Medical Blue */
@@ -22,14 +22,13 @@
             color: #333;
         }
 
-        /* Navigation Styles */
         .top-nav {
             background-color: var(--primary-color);
             padding: 15px;
             border-radius: 8px;
             margin-bottom: 20px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             max-width: 800px;
             margin-left: auto;
@@ -112,11 +111,6 @@
             background-color: var(--secondary-color);
         }
 
-        /* Highlight selected option slightly */
-        input[type="radio"]:checked + span {
-            font-weight: bold;
-        }
-
         input[type="radio"] {
             margin-right: 12px;
         }
@@ -125,7 +119,7 @@
             margin-top: 15px;
             padding: 15px;
             border-radius: 4px;
-            display: none; /* Hidden by default */
+            display: none;
             font-size: 0.95em;
         }
 
@@ -159,7 +153,7 @@
         }
 
         button {
-            background-color: #6c757d; /* Grey for reset */
+            background-color: #6c757d;
             color: white;
             border: none;
             padding: 12px 24px;
@@ -173,7 +167,6 @@
         button:hover {
             background-color: #5a6268;
         }
-
     </style>
 </head>
 <body>
@@ -184,12 +177,11 @@
 
 <div class="container">
     <header>
-        <h1>Module 4: Comprehensive Quizlet Review</h1>
-        <div class="meta-info">60 Questions based on 68W Mod 4 Study Guide Flashcards</div>
+        <h1>Module 4: Medical Emergencies</h1>
+        <div class="meta-info">Comprehensive Review (60 Questions)</div>
     </header>
 
-    <div id="quiz-content">
-        </div>
+    <div id="quiz-content">Loading questions...</div>
 
     <div class="controls">
         <button onclick="location.reload()">Reset Quiz</button>
@@ -197,440 +189,437 @@
 </div>
 
 <script>
-    // Quiz Data Source based on the uploaded Quizlet PDF
     const questions = [
-        // --- PHARMACOLOGY ---
-        {
-            q: "What is the study of drugs, their sources, characteristics, and effects?",
-            options: ["Physiology", "Pharmacology", "Pathology", "Anatomy"],
-            answer: 1,
-            explanation: "Pharmacology is the branch of medicine concerned with the uses, effects, and modes of action of drugs.",
-            [span_0](start_span)[span_1](start_span)cite: "Quizlet: Pharmacology[span_0](end_span)[span_1](end_span)"
-        },
+        // PHARMACOLOGY
         {
             q: "What is the standard maximum field dosage for Aspirin?",
             options: ["81 mg", "162 mg", "324 mg (4 tablets)", "650 mg"],
             answer: 2,
             explanation: "The max field dosage is 324 mg, which typically equates to 4 baby aspirin tablets (81mg each).",
-            [span_2](start_span)cite: "Quizlet: Aspirin Dosage[span_2](end_span)"
+            cite: "Flashcards: Aspirin"
         },
         {
-            q: "Who should NOT receive Aspirin (Contraindications)?",
-            options: ["Patients with chest pain", "Patients with asthma, GI tract bleeding, or allergies to Aspirin", "Patients with high blood pressure", "Patients with diabetes"],
-            answer: 1,
-            explanation: "Contraindications include allergy, bleeding disorders (GI bleeds), and often asthma due to sensitivity.",
-            [span_3](start_span)cite: "Quizlet: Aspirin Contraindications[span_3](end_span)"
-        },
-        {
-            q: "Oral Glucose is indicated for which type of patient?",
-            options: ["Unconscious patients", "Conscious patients who can swallow and have altered mental status (hypoglycemia)", "Patients with high blood sugar", "Patients with chest pain"],
-            answer: 1,
-            explanation: "Oral glucose requires the patient to be conscious and able to swallow to prevent aspiration.",
-            [span_4](start_span)[span_5](start_span)cite: "Quizlet: Oral Glucose[span_4](end_span)[span_5](end_span)"
-        },
-        {
-            q: "What is the primary action of Nitroglycerin?",
-            options: ["Constricts blood vessels", "Dilates blood vessels (vasodilation)", "Increases heart rate", "Clots blood"],
-            answer: 1,
-            explanation: "Nitroglycerin relaxes (dilates) blood vessels, decreasing the workload on the heart and lowering BP.",
-            [span_6](start_span)[span_7](start_span)cite: "Quizlet: Nitroglycerin[span_6](end_span)[span_7](end_span)"
-        },
-        {
-            q: "You must NOT give Nitroglycerin if the patient has taken which type of medication?",
+            q: "You must NOT give Nitroglycerin if the patient has taken which type of medication within 48-72 hours?",
             options: ["Antibiotics", "Antidepressants", "Erectile Dysfunction (ED) medications", "Pain killers"],
             answer: 2,
-            explanation: "Combining Nitro with ED meds can cause a fatal drop in blood pressure.",
-            [span_8](start_span)cite: "Quizlet: Nitro Contraindications[span_8](end_span)"
+            explanation: "Combining Nitro with ED meds (Viagra, Cialis) can cause a fatal drop in blood pressure.",
+            cite: "Flashcards: Nitro Contraindications"
         },
         {
-            q: "What is a common side effect of Nitroglycerin?",
-            options: ["Hyperactivity", "Headache (due to vasodilation)", "Constipation", "Hunger"],
-            answer: 1,
-            explanation: "The dilation of blood vessels in the head often causes a pounding headache.",
-            cite: "Quizlet: Nitro Side Effects"
-        },
-        {
-            q: "Which medication is an 'Auto-Injector' used for anaphylaxis?",
-            options: ["Albuterol", "Nitroglycerin", "Epinephrine", "Insulin"],
-            answer: 2,
-            explanation: "Epinephrine (EpiPen) is the auto-injector used to reverse severe allergic reactions.",
-            [span_9](start_span)cite: "Quizlet: Epinephrine[span_9](end_span)"
-        },
-        {
-            q: "What is the adult dosage for Epinephrine?",
+            q: "What is the adult dosage for an Epinephrine Auto-Injector?",
             options: ["0.15 mg", "0.3 mg", "1.0 mg", "0.5 mg"],
             answer: 1,
             explanation: "The standard adult dose for Epinephrine is 0.3 mg.",
-            [span_10](start_span)cite: "Quizlet: Epi Dosage[span_10](end_span)"
+            cite: "Flashcards: Epi Dosage"
         },
         {
-            q: "What is the pediatric dosage for Epinephrine?",
+            q: "What is the pediatric dosage for an Epinephrine Auto-Injector?",
             options: ["0.3 mg", "0.15 mg", "0.05 mg", "0.5 mg"],
             answer: 1,
             explanation: "The pediatric dose is 0.15 mg.",
-            [span_11](start_span)cite: "Quizlet: Epi Dosage[span_11](end_span)"
+            cite: "Flashcards: Epi Dosage"
         },
         {
-            q: "Activated Charcoal works through which mechanism?",
-            options: ["Absorption", "Adsorption", "Digestion", "Dilution"],
-            answer: 1,
-            explanation: "Charcoal works by adsorption (binding poisons to its surface) to prevent them from being absorbed by the body.",
-            [span_12](start_span)cite: "Quizlet: Charcoal[span_12](end_span)"
-        },
-        {
-            q: "What is the normal dosage for Activated Charcoal?",
+            q: "What is the normal dosage range for Activated Charcoal?",
             options: ["10-20g", "25-50g", "100g", "1g"],
             answer: 1,
             explanation: "The standard adult dosage is 25-50g (or 1g per kg of body weight).",
-            [span_13](start_span)[span_14](start_span)cite: "Quizlet: Charcoal Dosage[span_13](end_span)[span_14](end_span)"
+            cite: "Flashcards: Charcoal"
+        },
+        {
+            q: "Oral Glucose is indicated for which type of patient?",
+            options: ["Unconscious patients", "Conscious patients who can swallow with altered mental status", "Patients with high blood sugar", "Cardiac arrest"],
+            answer: 1,
+            explanation: "The patient must be conscious and able to swallow to prevent aspiration.",
+            cite: "Flashcards: Oral Glucose"
+        },
+        {
+            q: "What is a 'Contraindication'?",
+            options: ["A reason to give a drug", "A situation where a drug should NOT be given because it may cause harm", "A side effect", "The route of administration"],
+            answer: 1,
+            explanation: "A contraindication is a specific situation where a drug should be avoided.",
+            cite: "Flashcards: Terms"
+        },
+        {
+            q: "Which route of administration bypasses the GI tract (e.g., IV, IM)?",
+            options: ["Enteral", "Parenteral", "Oral", "Gastric"],
+            answer: 1,
+            explanation: "Parenteral means 'alongside the bowel' or bypassing the digestive system.",
+            cite: "Flashcards: Routes"
+        },
+        {
+            q: "Sublingual medications are administered:",
+            options: ["Under the tongue", "On the skin", "In the muscle", "In the vein"],
+            answer: 0,
+            explanation: "Sublingual means 'under the tongue'.",
+            cite: "Flashcards: Routes"
         },
         {
             q: "What are the '5 Rights' of medication administration?",
             options: ["Right Doctor, Hospital, Ambulance, Day, Time", "Right Patient, Dosage, Medication, Time, Route", "Right Pill, Color, Size, Shape, Taste", "Right Symptom, Sign, Cause, Effect, Cure"],
             answer: 1,
-            explanation: "Patient, Dosage, Medication, Time, Route are the core 5 Rights.",
-            [span_15](start_span)cite: "Quizlet: 5 Rights[span_15](end_span)"
+            explanation: "Patient, Dosage, Medication, Time, Route.",
+            cite: "Flashcards: 5 Rights"
         },
-        {
-            q: "What does 'Parenteral' route mean?",
-            options: ["Through the digestive system", "Bypassing the digestive system (GI tract)", "Through the skin only", "By mouth"],
-            answer: 1,
-            explanation: "Parenteral means bypassing the GI tract (e.g., IV, IM, IO).",
-            [span_16](start_span)cite: "Quizlet: Parenteral[span_16](end_span)"
-        },
-        {
-            q: "Sublingual administration means:",
-            options: ["Under the tongue", "Swallowed", "Injected", "Inhaled"],
-            answer: 0,
-            explanation: "Sublingual medications dissolve under the tongue.",
-            [span_17](start_span)cite: "Quizlet: Sublingual[span_17](end_span)"
-        },
-        
-        // --- RESPIRATORY ---
+
+        // RESPIRATORY
         {
             q: "What is the normal respiratory rate for an adult?",
-            options: ["5-10 breaths/min", "12-20 breaths/min", "20-30 breaths/min", "30-40 breaths/min"],
+            options: ["8-10", "12-20", "20-30", "30-40"],
             answer: 1,
-            explanation: "12-20 breaths per minute is the normal adult range.",
-            [span_18](start_span)cite: "Quizlet: Rates[span_18](end_span)"
+            explanation: "12-20 breaths per minute is normal for adults.",
+            cite: "Flashcards: Rates"
         },
         {
             q: "What is the normal respiratory rate for an infant?",
             options: ["12-20", "15-30", "25-50", "60-100"],
             answer: 2,
             explanation: "Infants breathe much faster, typically 25-50 times per minute.",
-            [span_19](start_span)cite: "Quizlet: Rates[span_19](end_span)"
+            cite: "Flashcards: Rates"
         },
         {
-            q: "Which breath sound indicates bronchoconstriction (asthma)?",
+            q: "Which breath sound indicates bronchoconstriction (as seen in asthma)?",
             options: ["Stridor", "Wheezing", "Crackles", "Rhonchi"],
             answer: 1,
             explanation: "Wheezing is the high-pitched musical sound of air forcing through narrowed bronchioles.",
-            [span_20](start_span)cite: "Quizlet: Lung Sounds[span_20](end_span)"
-        },
-        {
-            q: "What does COPD stand for?",
-            options: ["Chronic Obstructive Pulmonary Disease", "Constant Oxygen Pressure Disease", "Cardiac Output Pulmonary Disorder", "Chronic Oxygen Pulmonary Deficit"],
-            answer: 0,
-            explanation: "Chronic Obstructive Pulmonary Disease.",
-            [span_21](start_span)cite: "Quizlet: COPD[span_21](end_span)"
+            cite: "Flashcards: Sounds"
         },
         {
             q: "What is the primary cause of COPD?",
             options: ["Genetics", "Cigarette smoking", "Obesity", "Alcohol"],
             answer: 1,
             explanation: "Cigarette smoking causes the overwhelming majority of COPD cases.",
-            [span_22](start_span)cite: "Quizlet: COPD Cause[span_22](end_span)"
-        },
-        {
-            q: "In Emphysema, what happens to the lungs?",
-            options: ["Fluid fills the alveoli", "Walls of the alveoli break down, reducing surface area and elasticity", "The bronchioles constrict", "The lung collapses"],
-            answer: 1,
-            explanation: "Emphysema destroys alveolar walls, trapping stale air and reducing gas exchange.",
-            [span_23](start_span)cite: "Quizlet: Emphysema[span_23](end_span)"
+            cite: "Flashcards: COPD"
         },
         {
             q: "What is the 'Hypoxic Drive'?",
             options: ["Breathing based on low oxygen levels instead of high CO2", "Breathing too fast", "Not breathing at all", "Breathing only when asleep"],
             answer: 0,
-            explanation: "COPD patients develop tolerance to high CO2, so their brain relies on low O2 levels to trigger breathing.",
-            [span_24](start_span)cite: "Quizlet: Hypoxic Drive[span_24](end_span)"
+            explanation: "COPD patients rely on low oxygen levels to trigger breathing because they are tolerant to high CO2.",
+            cite: "Flashcards: COPD"
         },
         {
-            q: "What is Pulmonary Edema?",
-            options: ["Collapse of the lung", "Abnormal accumulation of fluid in the alveoli", "Constriction of the airway", "Infection of the lung"],
+            q: "Pulmonary Edema is best described as:",
+            options: ["Collapse of the lung", "Abnormal accumulation of fluid in the alveoli", "Constriction of the airway", "Infection"],
             answer: 1,
             explanation: "Pulmonary edema is fluid in the air sacs, often caused by CHF.",
-            [span_25](start_span)cite: "Quizlet: Pulmonary Edema[span_25](end_span)"
+            cite: "Flashcards: Pulmonary Edema"
         },
         {
-            q: "Pulmonary Edema is typically caused by failure of which side of the heart?",
-            options: ["Right side", "Left side", "Both sides equally", "Neither"],
-            answer: 1,
-            explanation: "Left-sided failure causes blood to back up into the lungs.",
-            [span_26](start_span)cite: "Quizlet: Pulmonary Edema Cause[span_26](end_span)"
-        },
-        {
-            q: "What is Pneumonia?",
-            options: ["Fluid from heart failure", "An infection of one or both lungs caused by bacteria, virus, or fungi", "A collapsed lung", "A blood clot in the lung"],
-            answer: 1,
-            explanation: "Pneumonia is an infection that inflames the air sacs.",
-            [span_27](start_span)cite: "Quizlet: Pneumonia[span_27](end_span)"
-        },
-        {
-            q: "What is a Spontaneous Pneumothorax?",
-            options: ["Lung collapse without injury", "Lung collapse due to a gunshot", "Fluid in the lung", "Infection in the lung"],
+            q: "A Spontaneous Pneumothorax is:",
+            options: ["Lung collapse without injury", "Lung collapse due to a gunshot", "Fluid in the lung", "Infection"],
             answer: 0,
             explanation: "It is a collapse that happens without obvious trauma, often in tall, thin males.",
-            [span_28](start_span)[span_29](start_span)cite: "Quizlet: Pneumothorax[span_28](end_span)[span_29](end_span)"
+            cite: "Flashcards: Pneumothorax"
         },
         {
-            q: "What is a Pulmonary Embolism (PE)?",
-            options: ["Infection in the lung", "Blockage of an artery in the lung by a clot or foreign material", "Collapse of the lung", "Fluid in the lung"],
-            answer: 1,
-            explanation: "A PE occurs when a clot (usually DVT) travels to and blocks a pulmonary artery.",
-            [span_30](start_span)cite: "Quizlet: PE[span_30](end_span)"
-        },
-        {
-            q: "What is Epiglottitis?",
+            q: "Epiglottitis is characterized by:",
             options: ["Swelling of the epiglottis blocking the airway", "Swelling of the bronchi", "Infection of the tonsils", "Fluid in the lungs"],
             answer: 0,
             explanation: "Epiglottitis is life-threatening swelling of the tissue above the glottis.",
-            [span_31](start_span)cite: "Quizlet: Epiglottitis[span_31](end_span)"
+            cite: "Flashcards: Epiglottitis"
         },
         {
-            q: "What is Cystic Fibrosis?",
-            options: ["Genetic disease causing thick, sticky mucus accumulation", "Viral infection", "Bacterial infection", "Collapse of the lung"],
+            q: "Cystic Fibrosis causes:",
+            options: ["Thick, sticky mucus accumulation", "Thin blood", "Weak bones", "High blood pressure"],
             answer: 0,
             explanation: "CF causes thick mucus that blocks airways and digestive ducts.",
-            [span_32](start_span)cite: "Quizlet: Cystic Fibrosis[span_32](end_span)"
-        },
-        {
-            q: "What does CPAP stand for?",
-            options: ["Continuous Positive Airway Pressure", "Cardiopulmonary Airway Pressure", "Constant Pressure Airway Pump", "Central Positive Air Pressure"],
-            answer: 0,
-            explanation: "Continuous Positive Airway Pressure.",
-            [span_33](start_span)cite: "Quizlet: CPAP[span_33](end_span)"
+            cite: "Flashcards: Cystic Fibrosis"
         },
         {
             q: "Which of the following is a contraindication for CPAP?",
-            options: ["High blood pressure", "Nausea and vomiting", "Sleep apnea", "Pulmonary edema"],
+            options: ["High blood pressure", "Nausea/vomiting or inability to protect airway", "Sleep apnea", "Pulmonary edema"],
             answer: 1,
-            explanation: "Nausea/vomiting is a major contraindication due to aspiration risk. Other contraindications include shock and inability to follow commands.",
-            [span_34](start_span)cite: "Quizlet: CPAP Contraindications[span_34](end_span)"
+            explanation: "Vomiting creates a high aspiration risk. Patients must also be alert.",
+            cite: "Flashcards: CPAP"
         },
 
-        // --- CARDIAC ---
+        // CARDIAC
         {
             q: "What is Acute Coronary Syndrome (ACS)?",
             options: ["A heart attack", "A blanket term for any time the heart is not getting enough oxygen", "High blood pressure", "Cardiac arrest"],
             answer: 1,
             explanation: "ACS covers symptoms caused by myocardial ischemia (lack of oxygen).",
-            [span_35](start_span)cite: "Quizlet: ACS[span_35](end_span)"
+            cite: "Flashcards: ACS"
         },
         {
-            q: "What is the difference between Angina Pectoris and AMI?",
+            q: "Angina Pectoris differs from AMI because:",
             options: ["Angina is painless", "Angina resolves with rest/nitro; AMI involves tissue death", "AMI resolves quickly", "There is no difference"],
             answer: 1,
             explanation: "Angina is temporary ischemia; AMI is permanent tissue death (infarction).",
-            cite: "Quizlet: Cardiac Conditions"
+            cite: "Flashcards: Angina vs AMI"
         },
         {
-            q: "Pain from cardiac compromise often radiates to:",
-            options: ["The legs", "The lower abdomen", "The jaw, neck, or arms", "The feet"],
-            answer: 2,
-            explanation: "Radiation to the jaw, neck, or left arm is classic for cardiac pain.",
-            [span_36](start_span)cite: "Quizlet: Cardiac Pain[span_36](end_span)"
-        },
-        {
-            q: "What is Congestive Heart Failure (CHF)?",
+            q: "Congestive Heart Failure (CHF) is:",
             options: ["Fluid buildup due to inadequate pumping", "Blockage of coronary arteries", "Cardiac arrest", "High blood pressure"],
             answer: 0,
             explanation: "CHF is pump failure leading to fluid congestion.",
-            [span_37](start_span)cite: "Quizlet: CHF[span_37](end_span)"
+            cite: "Flashcards: CHF"
         },
         {
             q: "Pedal edema (swelling in feet) is a sign of:",
             options: ["Right-sided heart failure", "Left-sided heart failure", "Stroke", "Pneumonia"],
             answer: 0,
             explanation: "Right-sided failure backs fluid up into the body (feet/legs).",
-            [span_38](start_span)cite: "Quizlet: Pedal Edema[span_38](end_span)"
+            cite: "Flashcards: CHF"
         },
         {
-            q: "What is an Aneurysm?",
+            q: "An Aneurysm is:",
             options: ["A blood clot", "Ballooning of a weakened arterial wall", "A heart attack", "A blockage"],
             answer: 1,
-            explanation: "An aneurysm is a weak spot in an artery that balloons out and can rupture.",
-            [span_39](start_span)cite: "Quizlet: Aneurysm[span_39](end_span)"
-        },
-        {
-            q: "Where are the two most common sites for aneurysms?",
-            options: ["Aorta and Brain", "Femoral artery and Heart", "Lungs and Liver", "Kidneys and Stomach"],
-            answer: 0,
-            explanation: "The Aorta (AAA) and Brain (stroke) are the most common sites.",
-            [span_40](start_span)cite: "Quizlet: Aneurysm Sites[span_40](end_span)"
+            explanation: "An aneurysm is a weak spot in an artery that balloons out.",
+            cite: "Flashcards: Aneurysm"
         },
         {
             q: "What is Dysrhythmia?",
             options: ["High blood pressure", "An irregular or absent heart rhythm", "Fluid in the lungs", "Chest pain"],
             answer: 1,
             explanation: "Dysrhythmia means bad or irregular heart rhythm.",
-            [span_41](start_span)cite: "Quizlet: Dysrhythmia[span_41](end_span)"
+            cite: "Flashcards: Dysrhythmia"
         },
         {
-            q: "What is Tachycardia?",
-            options: ["Heart rate > 100 bpm", "Heart rate < 60 bpm", "Irregular heart rate", "No heart rate"],
-            answer: 0,
-            explanation: "Tachycardia is a fast heart rate (>100).",
-            [span_42](start_span)cite: "Quizlet: Tachycardia[span_42](end_span)"
+            q: "Tachycardia is defined as a heart rate greater than:",
+            options: ["60 bpm", "80 bpm", "100 bpm", "120 bpm"],
+            answer: 2,
+            explanation: "Tachycardia is a heart rate > 100 bpm.",
+            cite: "Flashcards: Tachycardia"
         },
         {
-            q: "What is Bradycardia?",
-            options: ["Heart rate > 100 bpm", "Heart rate < 60 bpm", "Irregular heart rate", "Normal heart rate"],
-            answer: 1,
-            explanation: "Bradycardia is a slow heart rate (<60).",
-            [span_43](start_span)cite: "Quizlet: Bradycardia[span_43](end_span)"
+            q: "Bradycardia is defined as a heart rate less than:",
+            options: ["100 bpm", "80 bpm", "60 bpm", "40 bpm"],
+            answer: 2,
+            explanation: "Bradycardia is a heart rate < 60 bpm.",
+            cite: "Flashcards: Bradycardia"
         },
         {
             q: "Sudden Death is defined as cardiac arrest occurring within how long of symptom onset?",
             options: ["2 hours", "24 hours", "10 minutes", "1 week"],
             answer: 0,
             explanation: "Sudden death occurs within 2 hours of symptom onset.",
-            [span_44](start_span)cite: "Quizlet: Sudden Death[span_44](end_span)"
+            cite: "Flashcards: Sudden Death"
         },
-        
-        // --- DIABETES & NEURO ---
         {
-            q: "What is Hypoglycemia?",
-            options: ["High blood sugar", "Low blood sugar", "High blood pressure", "Low blood pressure"],
+            q: "What is the most common cause of sudden cardiac arrest?",
+            options: ["Asystole", "Ventricular Fibrillation (V-Fib)", "Trauma", "Stroke"],
             answer: 1,
-            explanation: "Hypo = Low, Glycemia = Sugar.",
-            cite: "Quizlet: Diabetes"
+            explanation: "V-Fib is the most common initial rhythm.",
+            cite: "Flashcards: Cardiac Arrest"
         },
+
+        // NEURO / DIABETES / ALLERGIC
         {
-            q: "Signs of Hypoglycemia include:",
+            q: "Hypoglycemia (low blood sugar) often presents with:",
             options: ["Warm dry skin", "Cool, pale, moist skin and altered mental status", "Deep rapid breathing", "Fruity breath"],
             answer: 1,
             explanation: "Hypoglycemia causes a sympathetic response: sweating, pale skin, and confusion.",
-            cite: "Quizlet: Hypoglycemia Signs"
+            cite: "Flashcards: Hypoglycemia"
+        },
+        {
+            q: "Hyperglycemia (high blood sugar) often presents with:",
+            options: ["Cool clammy skin", "Warm, dry skin, fruity breath, and deep breathing", "Immediate unconsciousness", "Slow breathing"],
+            answer: 1,
+            explanation: "Hyperglycemia (DKA) presents with warm dry skin, acetone breath, and Kussmaul respirations.",
+            cite: "Flashcards: Hyperglycemia"
         },
         {
             q: "A Stroke (CVA) is caused by:",
             options: ["Blockage or rupture of an artery in the brain", "Blockage in the heart", "Low blood sugar", "Seizure"],
             answer: 0,
             explanation: "Stroke is interruption of blood flow to the brain.",
-            [span_45](start_span)cite: "Quizlet: Stroke[span_45](end_span)"
+            cite: "Flashcards: Stroke"
         },
         {
-            q: "Status Epilepticus is defined as:",
-            options: ["A seizure lasting > 5-10 minutes or recurrent seizures without regaining consciousness", "A single brief seizure", "Fainting", "Dizziness"],
-            answer: 0,
+            q: "Status Epilepticus is:",
+            options: ["A single brief seizure", "A seizure lasting > 5-10 minutes or recurrent seizures without regaining consciousness", "Fainting", "Dizziness"],
+            answer: 1,
             explanation: "Status epilepticus is a prolonged, life-threatening seizure state.",
-            cite: "Quizlet: Seizures"
+            cite: "Flashcards: Seizures"
         },
-
-        // --- ALLERGIC REACTION ---
         {
             q: "Anaphylaxis is defined as:",
             options: ["Mild itching", "Severe, life-threatening reaction with respiratory distress/shock", "Sneezing", "Rash only"],
             answer: 1,
             explanation: "Anaphylaxis involves airway compromise or shock.",
-            [span_46](start_span)cite: "Quizlet: Anaphylaxis[span_46](end_span)"
+            cite: "Flashcards: Anaphylaxis"
         },
         {
             q: "Epinephrine acts as a:",
-            options: ["Vasodilator and Bronchoconstrictor", "Vasoconstrictor and Bronchodilator", "Sedative", "Pain killer"],
+            options: ["Vasodilator", "Vasoconstrictor and Bronchodilator", "Sedative", "Pain killer"],
             answer: 1,
             explanation: "It constricts vessels (fixes shock) and dilates airways (fixes breathing).",
-            [span_47](start_span)cite: "Quizlet: Epi Action[span_47](end_span)"
+            cite: "Flashcards: Epinephrine"
         },
-
-        // --- ABDOMINAL ---
+        
+        // ABDOMINAL & PAIN
         {
-            q: "Visceral pain is described as:",
+            q: "Visceral pain is typically described as:",
             options: ["Sharp and localized", "Dull, achy, and difficult to locate", "Tearing", "Burning"],
             answer: 1,
             explanation: "Visceral pain comes from organs and is vague/dull.",
-            cite: "Quizlet: Visceral Pain"
+            cite: "Flashcards: Visceral Pain"
         },
         {
-            q: "Parietal pain is described as:",
+            q: "Parietal pain is typically described as:",
             options: ["Dull", "Sharp, constant, and localized", "Intermittent", "Referred"],
             answer: 1,
             explanation: "Parietal pain comes from the lining (peritoneum) and is sharp/localized.",
-            cite: "Quizlet: Parietal Pain"
+            cite: "Flashcards: Parietal Pain"
         },
         {
             q: "Referred pain is:",
             options: ["Pain felt at the injury site", "Pain felt in a location other than the origin", "Pain that is imaginary", "Pain from the skin"],
             answer: 1,
             explanation: "Pain felt elsewhere (e.g., shoulder pain from gallbladder) is referred.",
-            cite: "Quizlet: Referred Pain"
+            cite: "Flashcards: Referred Pain"
+        },
+        {
+            q: "Appendicitis typically presents with pain in the:",
+            options: ["Right Upper Quadrant", "Left Lower Quadrant", "Right Lower Quadrant", "Epigastric region"],
+            answer: 2,
+            explanation: "RLQ pain is classic for appendicitis.",
+            cite: "Flashcards: Appendicitis"
         },
 
-        // --- MISC CONCEPTS ---
+        // MISC & HARDER QUESTIONS
         {
             q: "What is an Indication?",
             options: ["Reason NOT to give a drug", "Reason TO give a drug", "A side effect", "The dose"],
             answer: 1,
             explanation: "An indication is the medical reason to administer a treatment.",
-            [span_48](start_span)cite: "Quizlet: Indication[span_48](end_span)"
-        },
-        {
-            q: "What is a Contraindication?",
-            options: ["Reason TO give a drug", "Reason NOT to give a drug", "A side effect", "The route"],
-            answer: 1,
-            explanation: "A contraindication makes a treatment harmful or dangerous.",
-            [span_49](start_span)cite: "Quizlet: Contraindication[span_49](end_span)"
+            cite: "Flashcards: Indication"
         },
         {
             q: "What is an Untoward Effect?",
             options: ["A desired effect", "A potentially harmful side effect", "No effect", "A rapid effect"],
             answer: 1,
             explanation: "Untoward effects are harmful side effects.",
-            [span_50](start_span)cite: "Quizlet: Untoward Effect[span_50](end_span)"
-        },
-        {
-            q: "What is the Enteral route?",
-            options: ["Through the veins", "Through the digestive system", "Through the lungs", "Through the skin"],
-            answer: 1,
-            explanation: "Enteral uses the GI tract (Oral, Rectal).",
-            [span_51](start_span)cite: "Quizlet: Enteral[span_51](end_span)"
-        },
-        {
-            q: "What is the Parenteral route?",
-            options: ["Through the digestive system", "Bypassing the digestive system", "Swallowed", "Rectal"],
-            answer: 1,
-            explanation: "Parenteral bypasses the GI tract (IV, IO, IM, SC).",
-            [span_52](start_span)cite: "Quizlet: Parenteral[span_52](end_span)"
+            cite: "Flashcards: Untoward Effect"
         },
         {
             q: "What is Dyspnea?",
             options: ["Normal breathing", "Difficulty breathing", "Absence of breathing", "Fast breathing"],
             answer: 1,
             explanation: "Dyspnea is the sensation of shortness of breath.",
-            [span_53](start_span)cite: "Quizlet: Dyspnea[span_53](end_span)"
+            cite: "Flashcards: Dyspnea"
         },
         {
             q: "Hypoxic means:",
             options: ["Low oxygen", "High oxygen", "Low CO2", "High CO2"],
             answer: 0,
             explanation: "Hypoxia is low oxygen levels.",
-            [span_54](start_span)cite: "Quizlet: Hypoxic[span_54](end_span)"
+            cite: "Flashcards: Hypoxic"
         },
         {
             q: "What percentage of emergency calls are cardiac arrest?",
             options: ["1-2%", "10-20%", "50%", "90%"],
             answer: 0,
             explanation: "Cardiac arrest makes up a small percentage (1-2%) of calls.",
-            [span_55](start_span)cite: "Quizlet: Stats[span_55](end_span)"
+            cite: "Flashcards: Stats"
         },
         {
-            q: "Coronary Artery Disease (CAD) is a result of:",
-            options: ["Fatty deposits on inner artery walls", "Weak heart muscle", "Lung infection", "Trauma"],
-            answer: 0,
-            explanation: "CAD is caused by plaque buildup (atherosclerosis) in coronary arteries.",
-            [span_56](start_span)cite: "Quizlet: CAD[span_56](end_span)"
+            q: "A TIA (Transient Ischemic Attack) is:",
+            options: ["A permanent stroke", "A 'mini-stroke' where symptoms resolve within 24 hours", "A heart attack", "A seizure"],
+            answer: 1,
+            explanation: "TIA symptoms resolve completely without permanent damage, usually within 24 hours.",
+            cite: "Flashcards: TIA"
+        },
+        {
+            q: "Syncope is the medical term for:",
+            options: ["Vomiting", "Fainting", "Dizziness", "Seizure"],
+            answer: 1,
+            explanation: "Syncope is a brief loss of consciousness (fainting).",
+            cite: "Flashcards: Syncope"
+        },
+        {
+            q: "Sickle Cell Anemia primarily affects which system?",
+            options: ["Nervous system", "Blood (RBCs)", "Bones", "Skin"],
+            answer: 1,
+            explanation: "Sickle Cell is a disorder of the Red Blood Cells.",
+            cite: "Flashcards: Sickle Cell"
+        },
+        {
+            q: "Which organ filters blood and produces urine?",
+            options: ["Liver", "Kidneys", "Pancreas", "Spleen"],
+            answer: 1,
+            explanation: "The kidneys filter blood and produce urine.",
+            cite: "Flashcards: Renal"
+        },
+        {
+            q: "Dialysis is used to treat:",
+            options: ["Liver failure", "Renal (Kidney) failure", "Heart failure", "Lung failure"],
+            answer: 1,
+            explanation: "Dialysis performs the filtering function of failed kidneys.",
+            cite: "Flashcards: Dialysis"
+        },
+        {
+            q: "What is an Aura?",
+            options: ["A type of migraine", "A sensation experienced before a seizure", "A skin rash", "A breathing sound"],
+            answer: 1,
+            explanation: "An aura (smell, sound, feeling) often precedes a seizure.",
+            cite: "Flashcards: Seizures"
+        },
+        {
+            q: "The postictal phase is:",
+            options: ["The active seizure phase", "The recovery period following a seizure", "The time before a seizure", "The aura"],
+            answer: 1,
+            explanation: "Postictal is the groggy recovery phase after a seizure.",
+            cite: "Flashcards: Seizures"
+        },
+        {
+            q: "Which medication helps clot blood (found in ambulances)?",
+            options: ["Aspirin", "Oral Glucose", "Hemostatic agents/dressings", "Nitroglycerin"],
+            answer: 2,
+            explanation: "Hemostatic dressings are used to stop bleeding.",
+            cite: "Flashcards: Trauma/Bleeding"
+        },
+        {
+            q: "Shock (Hypoperfusion) is best defined as:",
+            options: ["Low blood pressure", "Inadequate tissue perfusion", "Fast heart rate", "Fear"],
+            answer: 1,
+            explanation: "Shock is the inability of the body to adequately circulate blood to the cells.",
+            cite: "Flashcards: Shock"
+        },
+        {
+            q: "Decompensated shock is characterized by:",
+            options: ["Normal blood pressure", "Falling blood pressure", "Slow heart rate", "Warm skin"],
+            answer: 1,
+            explanation: "When the body can no longer compensate, BP drops.",
+            cite: "Flashcards: Shock"
+        },
+        {
+            q: "What is the most important treatment for Anaphylactic Shock?",
+            options: ["Oxygen", "Epinephrine", "Benadryl", "Water"],
+            answer: 1,
+            explanation: "Epinephrine is the only medication that reverses the airway swelling and hypotension of anaphylaxis.",
+            cite: "Flashcards: Anaphylaxis"
+        },
+        {
+            q: "Urticaria is the medical term for:",
+            options: ["Vomiting", "Hives", "Itching", "Swelling"],
+            answer: 1,
+            explanation: "Urticaria refers to hives (raised, red, itchy bumps).",
+            cite: "Flashcards: Allergic Reaction"
+        },
+        {
+            q: "Stridor indicates obstruction in the:",
+            options: ["Lower airway", "Upper airway", "Lungs", "Heart"],
+            answer: 1,
+            explanation: "Stridor is a high-pitched sound from the upper airway.",
+            cite: "Flashcards: Sounds"
+        },
+        {
+            q: "Agonal respirations are:",
+            options: ["Normal breathing", "Occasional gasping breaths seen in cardiac arrest", "Rapid breathing", "Deep breathing"],
+            answer: 1,
+            explanation: "Agonal gasps are a sign of cardiac arrest, not effective breathing.",
+            cite: "Flashcards: Cardiac Arrest"
+        },
+        {
+            q: "What is the main function of the Alveoli?",
+            options: ["Produce mucus", "Gas exchange (O2 and CO2)", "Filter air", "Warm air"],
+            answer: 1,
+            explanation: "Alveoli are the site of gas exchange.",
+            cite: "Flashcards: Anatomy"
         }
     ];
 
@@ -667,7 +656,6 @@
         const feedbackEl = document.getElementById(`feedback-${qIndex}`);
         const resultTextEl = document.getElementById(`result-text-${qIndex}`);
 
-        // Show feedback immediately
         feedbackEl.style.display = 'block';
 
         if (optIndex === q.answer) {
@@ -679,7 +667,7 @@
         }
     }
 
-    // Initialize
+    // Initialize the quiz immediately
     renderQuiz();
 </script>
 
