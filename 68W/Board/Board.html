@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soldier of the Month | Foxtrot Co.</title>
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,31 +12,40 @@
         <div class="progress-fill" id="progressBar"></div>
     </div>
 
+    <nav style="margin-bottom: 20px;">
+        <a href="../navigation.html" style="color: #4caf50; text-decoration: none; font-weight: bold;">&larr; Return to 68W Hub</a>
+    </nav>
+
     <h1>Soldier of the Month</h1>
     <div class="subtitle">
         Foxtrot Company • 232d Medical Battalion<br>
-        <small>Study Guide & Board Simulator</small>
+        <small>Study Guide & Board</small>
     </div>
 
-    <div id="quizContainer" class="quiz-container">
-        <div class="question-card" style="text-align: center; opacity: 1;">
-            <div class="question-text">Loading Board Questions...</div>
-        </div>
+    <div id="quiz-container" class="quiz-container">
+        <div style="text-align: center; padding: 20px;">Loading Board Questions...</div>
     </div>
 
     <div class="footer">
-        <p>
-            References: 
-            [span_0](start_span)AR 670-1 (Wear & Appearance)[span_0](end_span) • 
-            [span_1](start_span)TC 3-21.5 (Drill & Ceremony)[span_1](end_span) • 
-            [span_2](start_span)AR 600-85 (ASAP)[span_2](end_span) • 
-            [span_3](start_span)TC 3-25.26 (Land Nav)[span_3](end_span)
-        </p>
+        <p>References: AR 670-1 • TC 3-21.5 • AR 600-85 • TC 3-25.26</p>
     </div>
 
     <script src="BoardQuestions.js"></script>
 
     <script src="../scripts/QuizEngine.js"></script>
+
+    <script>
+        // Check if data and engine are loaded
+        if (typeof boardQuestions !== 'undefined' && typeof renderQuiz === 'function') {
+            // Call the engine with our data variable
+            renderQuiz(boardQuestions, 'quiz-container');
+        } else {
+            // Error handling if paths are wrong
+            document.getElementById('quiz-container').innerHTML = 
+                "<p style='color:#cf6679; text-align:center;'>Error: Could not load data or engine.<br>Check that <strong>../scripts/QuizEngine.js</strong> exists.</p>";
+            console.error("Missing resources: boardQuestions type is " + typeof boardQuestions + ", renderQuiz type is " + typeof renderQuiz);
+        }
+    </script>
 
 </body>
 </html>
