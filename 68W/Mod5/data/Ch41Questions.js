@@ -1,1 +1,242 @@
- 
+ const ch41Questions = [
+    {
+        q: "What does the acronym CBRNE stand for regarding terrorism agents?",
+        options: [
+            "Chemical, Biological, Radiological, Nuclear, Explosive",
+            "Command, Base, Rescue, Notify, Evacuate",
+            "Cyanide, Bacteria, Radiation, Nerve, Environmental",
+            "Civilian, Bomb, Rescue, Negligence, Emergency"
+        ],
+        answer: 0,
+        explanation: "CBRNE is the standard mnemonic for the five types of WMD agents: Chemical, Biological, Radiological, Nuclear, and Explosive.",
+        cite: "Page 1222"
+    },
+    {
+        q: "Which type of radiation is the most penetrating and requires lead or thick concrete to stop?",
+        options: [
+            "Alpha particles",
+            "Beta particles",
+            "Gamma rays (X-rays)",
+            "Neutron radiation"
+        ],
+        answer: 2,
+        explanation: "Gamma rays are high-energy photons that penetrate most materials. Alpha particles are stopped by paper; Beta by clothing/aluminum.",
+        cite: "Page 1235"
+    },
+    {
+        q: "The primary treatment for a patient exposed to a Nerve Agent (e.g., Sarin, VX) includes:",
+        options: [
+            "Antibiotics",
+            "Atropine and Pralidoxime (2-PAM)",
+            "Activated Charcoal",
+            "High-flow oxygen only"
+        ],
+        answer: 1,
+        explanation: "Nerve agents are organophosphates. The antidote is the DuoDote (Mark 1) kit containing Atropine (blocks the agent) and Pralidoxime (restores the enzyme).",
+        cite: "Page 1232"
+    },
+    {
+        q: "What mnemonic is used to recognize the signs of Nerve Agent poisoning?",
+        options: [
+            "SAMPLE",
+            "SLUDGEM",
+            "OPQRST",
+            "AEIOU-TIPS"
+        ],
+        answer: 1,
+        explanation: "SLUDGEM: Salivation, Lacrimation, Urination, Defecation, GI upset, Emesis, Miosis (pinpoint pupils).",
+        cite: "Page 1232"
+    },
+    {
+        q: "What is 'Secondary Contamination'?",
+        options: [
+            "Contamination from the initial bomb blast",
+            "Contamination transferred from a victim (or object) to the rescuer",
+            "Contamination that occurs 24 hours later",
+            "Contamination of the water supply"
+        ],
+        answer: 1,
+        explanation: "Secondary contamination occurs when a rescuer touches a contaminated patient who has not been decontaminated. This is why you don't treat patients in the Hot Zone.",
+        cite: "Page 1226"
+    },
+    {
+        q: "Which biological agent causes 'Woolsorter's Disease' and presents with black, scab-like skin lesions?",
+        options: [
+            "Smallpox",
+            "Plague",
+            "Anthrax",
+            "Botulism"
+        ],
+        answer: 2,
+        explanation: "Cutaneous Anthrax causes necrotic black eschars (scabs). Inhalation Anthrax is highly fatal.",
+        cite: "Page 1233"
+    },
+    {
+        q: "The three principles of protection from radiation are:",
+        options: [
+            "Stop, Drop, and Roll",
+            "Time, Distance, and Shielding",
+            "Run, Hide, Fight",
+            "Mask, Gloves, Gown"
+        ],
+        answer: 1,
+        explanation: "Limit Time of exposure, maximize Distance from the source, and use appropriate Shielding.",
+        cite: "Page 1236"
+    },
+    {
+        q: "A 'Dirty Bomb' (Radiological Dispersal Device) is primarily effective as a:",
+        options: [
+            "Nuclear detonation",
+            "Weapon of mass destruction causing millions of deaths",
+            "Weapon of mass disruption and psychological terror",
+            "Biological weapon"
+        ],
+        answer: 2,
+        explanation: "A dirty bomb uses conventional explosives to spread radioactive dust. The blast kills; the radiation mostly causes panic, disruption, and expensive cleanup, not mass acute radiation sickness.",
+        cite: "Page 1235"
+    },
+    {
+        q: "In a blast injury, the 'Primary Injury' is caused by:",
+        options: [
+            "Shrapnel hitting the body",
+            "The body hitting the ground",
+            "The high-pressure blast wave affecting hollow organs (lungs/ears)",
+            "Burns"
+        ],
+        answer: 2,
+        explanation: "Primary = Blast wave (hollow organs). Secondary = Shrapnel. Tertiary = Thrown against object.",
+        cite: "Page 1238"
+    },
+    {
+        q: "Which chemical agent smells like fresh-cut hay or grass and causes fluid to fill the lungs (pulmonary edema)?",
+        options: [
+            "Mustard Gas",
+            "Phosgene",
+            "Cyanide",
+            "Sarin"
+        ],
+        answer: 1,
+        explanation: "Phosgene is a choking agent that damages lung tissue, causing delayed pulmonary edema. It smells like freshly mown hay.",
+        cite: "Page 1231"
+    },
+    {
+        q: "Which toxin is produced by the castor bean and causes rapid respiratory failure and death?",
+        options: [
+            "Ricin",
+            "Anthrax",
+            "Botulinum",
+            "Cyanide"
+        ],
+        answer: 0,
+        explanation: "Ricin is a potent toxin made from castor bean mash. It stops protein synthesis in cells.",
+        cite: "Page 1234"
+    },
+    {
+        q: "A 'Secondary Device' is:",
+        options: [
+            "A backup ambulance",
+            "A second bomb placed to detonate after first responders arrive",
+            "A radio repeater",
+            "A type of tourniquet"
+        ],
+        answer: 1,
+        explanation: "Terrorists often plant a second bomb to target police/EMS arriving to help victims of the first blast.",
+        cite: "Page 1224"
+    },
+    {
+        q: "Cyanide poisoning works by:",
+        options: [
+            "Burning the skin",
+            "Preventing cells from using oxygen (cellular asphyxiation)",
+            "Causing massive bleeding",
+            "Paralyzing muscles"
+        ],
+        answer: 1,
+        explanation: "Cyanide blocks the mitochondria from using oxygen. The blood is oxygenated (bright red), but the cells starve.",
+        cite: "Page 1231"
+    },
+    {
+        q: "Smallpox is considered a high-threat biological agent because:",
+        options: [
+            "It is highly contagious and has a high mortality rate",
+            "It is easy to treat",
+            "It is not contagious",
+            "It affects only animals"
+        ],
+        answer: 0,
+        explanation: "Smallpox was eradicated in 1980, so there is no natural immunity. It is highly transmissible and deadly.",
+        cite: "Page 1233"
+    },
+    {
+        q: "Vesicants (Blister Agents) like Sulfur Mustard cause damage primarily to:",
+        options: [
+            "The nervous system",
+            "The skin, eyes, and lungs (causing blisters)",
+            "The bones",
+            "The heart"
+        ],
+        answer: 1,
+        explanation: "Vesicants burn and blister any tissue they touch, including skin, eyes, and the respiratory tract.",
+        cite: "Page 1231"
+    },
+    {
+        q: "The 'Hot Zone' at a CBRNE incident is:",
+        options: [
+            "The area where decontamination happens",
+            "The area where the command post is",
+            "The area immediately surrounding the contamination",
+            "The area at the hospital"
+        ],
+        answer: 2,
+        explanation: "Hot Zone = Contaminated. Warm Zone = Decon. Cold Zone = Support/Treatment.",
+        cite: "Page 1227"
+    },
+    {
+        q: "What is the best way to determine the wind direction at a HazMat scene?",
+        options: [
+            "Wet your finger",
+            "Look for a flag, smoke, or steam",
+            "Throw some grass in the air",
+            "Ask dispatch"
+        ],
+        answer: 1,
+        explanation: "Use visual cues like flags or smoke to determine wind direction from a safe distance.",
+        cite: "Page 1226"
+    },
+    {
+        q: "Which type of radiation can be stopped by a sheet of paper?",
+        options: [
+            "Alpha particles",
+            "Beta particles",
+            "Gamma rays",
+            "Neutrons"
+        ],
+        answer: 0,
+        explanation: "Alpha particles are heavy and travel only inches. They are blocked by paper or skin but are dangerous if inhaled/ingested.",
+        cite: "Page 1235"
+    },
+    {
+        q: "What is 'OTTO' used for?",
+        options: [
+            "Triaging patients",
+            "Recognizing signs of a terrorist event (Occupancy, Type of event, Timing, On-scene clues)",
+            "Calculating radiation dose",
+            "Treating nerve agent exposure"
+        ],
+        answer: 1,
+        explanation: "OTTO helps responders suspect terrorism: Occupancy (location), Type of event, Timing, On-scene warning signs.",
+        cite: "Page 1223"
+    },
+    {
+        q: "Botulinum toxin (Botulism) causes death primarily by:",
+        options: [
+            "Internal bleeding",
+            "Paralysis of respiratory muscles",
+            "Severe fever",
+            "Skin burns"
+        ],
+        answer: 1,
+        explanation: "Botulinum is a neurotoxin that causes descending paralysis, eventually stopping the patient from breathing.",
+        cite: "Page 1234"
+    }
+];
