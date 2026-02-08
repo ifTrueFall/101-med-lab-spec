@@ -1,12 +1,11 @@
 /**
  * BOARD QUESTIONS DATA
- * Comprehensive coverage of "Soldier of the Month Bio.pdf"
  */
 
 const boardQuestions = [
     // --- BIOGRAPHY ADVICE ---
     {
-        q: "[Bio] According to the board guide, how should you prepare your biography?",
+        q: "According to the board guide, how should you prepare your biography?",
         options: [
             "Memorize it on the spot",
             "Write it out beforehand and practice",
@@ -14,13 +13,13 @@ const boardQuestions = [
             "Focus only on your military history"
         ],
         answer: 1,
-        [span_0](start_span)explanation: "The guide states: 'Write it out beforehand and practice. Trying to come up with something on the spot will not go well.'[span_0](end_span)",
+        explanation: "The guide states: 'Write it out beforehand and practice. Trying to come up with something on the spot will not go well.'",
         cite: "Board Bio Guide"
     },
 
     // --- CHAIN OF COMMAND ---
     {
-        q: "[Chain of Command] Who are the Company Commander and First Sergeant?",
+        q: "Who are the Company Commander and First Sergeant?",
         options: [
             "CPT Rissler and 1SG Vue",
             "MAJ Rissler and 1SG Vue",
@@ -28,11 +27,11 @@ const boardQuestions = [
             "MAJ Rissler and SDS Jeffries"
         ],
         answer: 1,
-        explanation: "Company Commander is MAJ Rissler. [span_1](start_span)First Sergeant is 1SG Vue.[span_1](end_span)",
+        explanation: "Company Commander is MAJ Rissler. First Sergeant is 1SG Vue.",
         cite: "Chain of Command"
     },
     {
-        q: "[Chain of Command] Identify the correct Senior Drill Sergeants (SDS) for 1st, 2nd, and 3rd Platoon.",
+        q: "Identify the correct Senior Drill Sergeants (SDS) for 1st, 2nd, and 3rd Platoon.",
         options: [
             "1: SDS Loera, 2: SDS Duenes, 3: SDS Meach",
             "1: SDS Duenes, 2: SDS Loera, 3: SDS Meach",
@@ -40,11 +39,11 @@ const boardQuestions = [
             "1: SDS Duenes, 2: SDS Jeffries, 3: SDS Meach"
         ],
         answer: 1,
-        explanation: "1PLT: SDS Duenes. 2PLT: SDS Loera. 3PLT: SDS Meach. [span_2](start_span)[span_3](start_span)The Company SDS is SDS Jeffries. [cite: 11-13]",
+        explanation: "1PLT: SDS Duenes. 2PLT: SDS Loera. 3PLT: SDS Meach. The Company SDS is SDS Jeffries.",
         cite: "Chain of Command"
     },
     {
-        q: "[Chain of Command] Who constitutes the 232d Medical Battalion Command Team?",
+        q: "Who constitutes the 232d Medical Battalion Command Team?",
         options: [
             "COL Menendez and CSM Bowley",
             "LTC Gammons and CSM Thompson",
@@ -52,13 +51,13 @@ const boardQuestions = [
             "MAJ Rissler and 1SG Vue"
         ],
         answer: 2,
-        explanation: "232d Med BN: COL Gammons and CSM Thompson. (Note: COL Menendez and CSM Bowley are the 32d BDE team)[cite_start]. [cite: 15-16]",
+        explanation: "232d Med BN: COL Gammons and CSM Thompson. (Note: COL Menendez and CSM Bowley are the 32d BDE team).",
         cite: "Chain of Command"
     },
 
     // --- UNIFORMS (AR 670-1) ---
     {
-        q: "[AR 670-1] Which paragraph within Chapter 3 (Appearance and Grooming) is punitive?",
+        q: "Which paragraph within AR 670-1 Chapter 3 (Appearance and Grooming) is punitive?",
         options: [
             "Paragraph 1",
             "Paragraph 2",
@@ -66,11 +65,11 @@ const boardQuestions = [
             "None are punitive"
         ],
         answer: 1,
-        [cite_start]explanation: "Paragraph 2 (Hair and Fingernail Standards and Grooming Policies) is punitive. [cite: 20-21]",
+        explanation: "Paragraph 2 (Hair and Fingernail Standards and Grooming Policies) is punitive.",
         cite: "AR 670-1"
     },
     {
-        q: "[AR 670-1] What are the standards for male haircuts regarding bulk and parts?",
+        q: "What are the standards for male haircuts regarding bulk and parts?",
         options: [
             "Max 2 inches on top, 1 inch on sides; Part cut into natural hairline",
             "Max 3 inches on top; No parts allowed",
@@ -78,23 +77,23 @@ const boardQuestions = [
             "No maximum length; Parts must be 1/4 inch wide"
         ],
         answer: 0,
-        explanation: "Top bulk max 2 inches. Side bulk max 1 inch. [cite_start]Parts must be a straight line (or align with natural curve) and no wider than 1/8 inch.[span_2](end_span)[span_3](end_span)",
+        explanation: "Top bulk max 2 inches. Side bulk max 1 inch. Parts must be a straight line (or align with natural curve) and no wider than 1/8 inch.",
         cite: "AR 670-1"
     },
     {
-        q: "[AR 670-1] Which statement regarding female hairstyles is FALSE?",
+        q: "Which statement regarding female hairstyles is FALSE?",
         options: [
-            "Bangs must remain above the eyebrows.",
-            "Female Soldiers may shave or trim their heads (whole scalp).",
-            "Ponytails are authorized in all uniforms including the AGSU.",
-            "Buns may extend a maximum of 3 inches from the scalp."
+            "Bangs must remain above the eyebrows",
+            "Female Soldiers may shave or trim their heads (whole scalp)",
+            "Ponytails are authorized in all uniforms including the AGSU",
+            "Buns may extend a maximum of 3 inches from the scalp"
         ],
         answer: 2,
-        explanation: "Ponytails are NOT authorized in the AGSU or ASU (Dress uniforms). [span_4](start_span)They are only for ACU/APFU.[span_4](end_span)",
+        explanation: "Ponytails are NOT authorized in the AGSU or ASU (Dress uniforms). They are only for ACU/APFU.",
         cite: "AR 670-1"
     },
     {
-        q: "[AR 670-1] What are the standards for wearing a ponytail in ACU?",
+        q: "What are the standards for wearing a ponytail in ACU?",
         options: [
             "Max length 6 inches from collar; Bulk not exceeding head width",
             "Max length 12 inches; Single or double pony allowed",
@@ -102,11 +101,11 @@ const boardQuestions = [
             "Max length to shoulder blades; Ends must be tucked"
         ],
         answer: 0,
-        explanation: "Length must not exceed 6 inches from the top of the collar. [span_5](start_span)[span_6](start_span)Bulk must not exceed width of the head. [cite: 51-52]",
+        explanation: "Length must not exceed 6 inches from the top of the collar. Bulk must not exceed width of the head.",
         cite: "AR 670-1"
     },
     {
-        q: "[AR 670-1] What are the authorized dimensions for female earrings and braids?",
+        q: "What are the authorized dimensions for female earrings and braids?",
         options: [
             "Earrings: 6mm; Braids: Max 2 braids (1 inch width)",
             "Earrings: 4mm; Braids: Max 1 braid",
@@ -114,11 +113,11 @@ const boardQuestions = [
             "Earrings: 1/2 inch; Braids: Unlimited"
         ],
         answer: 2,
-        explanation: "Earrings max 6mm (1/4 inch). [cite_start]Two braids are allowed, max 2 inches in width.[span_5](end_span)[span_6](end_span)",
+        explanation: "Earrings max 6mm (1/4 inch). Two braids are allowed, max 2 inches in width.",
         cite: "AR 670-1"
     },
     {
-        q: "[AR 670-1] Regarding accessories and grooming: Which is authorized?",
+        q: "Regarding accessories and grooming: Which is authorized?",
         options: [
             "Male soldiers wearing clear lip moisturizers",
             "Eyelash extensions",
@@ -126,13 +125,13 @@ const boardQuestions = [
             "Sunglasses in formation (without a profile)"
         ],
         answer: 0,
-        explanation: "All Soldiers are permitted to use clear lip moisturizers. [span_7](start_span)[span_8](start_span)[span_9](start_span)Extensions, designs, and sunglasses in formation (no profile) are prohibited.[span_7](end_span)[span_8](end_span)[span_9](end_span)",
+        explanation: "All Soldiers are permitted to use clear lip moisturizers. Extensions, designs, and sunglasses in formation (no profile) are prohibited.",
         cite: "AR 670-1"
     },
 
     // --- BARRACKS & COUNSELING ---
     {
-        q: "[Counseling] What items must be worn/carried in duty uniform, and when must you report to formation?",
+        q: "What items must be worn/carried in duty uniform, and when must you report to formation?",
         options: [
             "CAC/Tags/Camelbak/Profile; 10 minutes prior",
             "CAC/Tags/Camelbak/Profile; 5 minutes prior",
@@ -140,11 +139,11 @@ const boardQuestions = [
             "Note pad/Pen; At the exact time"
         ],
         answer: 1,
-        explanation: "Items: CAC, ID tags, camelbak, profile. [span_10](start_span)Timing: FIVE minutes prior to all formations. [cite: 78-79]",
+        explanation: "Items: CAC, ID tags, camelbak, profile. Timing: FIVE minutes prior to all formations.",
         cite: "Initial Counseling"
     },
     {
-        q: "[Barracks SOP] Which list of items are ALL considered Contraband?",
+        q: "Which list of items are ALL considered Contraband in the barracks?",
         options: [
             "Alcohol, Tobacco, Illegal Drugs, Privately Owned Weapons, Hemp, Pornography",
             "Alcohol, Energy Drinks, Civilian Clothes, Laptops",
@@ -152,11 +151,11 @@ const boardQuestions = [
             "Pre-workout, Protein Powder, Coffee Makers"
         ],
         answer: 0,
-        [cite_start]explanation: "Contraband includes: Alcohol, tobacco/nicotine, illegal drugs, privately owned weapons, hemp products, and pornographic material.[span_10](end_span)",
+        explanation: "Contraband includes: Alcohol, tobacco/nicotine, illegal drugs, privately owned weapons, hemp products, and pornographic material.",
         cite: "Barracks SOP"
     },
     {
-        q: "[Barracks SOP] Select the correct rules for Food/Drink and Electronics.",
+        q: "Select the correct rules for Food/Drink and Electronics in the barracks.",
         options: [
             "Unlimited energy drinks; Electronics on bed during duty",
             "1 Energy drink; 6 Protein bars (or 16oz); Electronics secured in closet",
@@ -164,11 +163,11 @@ const boardQuestions = [
             "2 Energy drinks; Protein powder only; Quiet hours start at 2100"
         ],
         answer: 1,
-        explanation: "1 Energy drink. 6 protein bars or 16oz total. [span_11](start_span)[span_12](start_span)Electronics secured in closets during POI/lights out. [cite: 81-83]",
+        explanation: "1 Energy drink. 6 protein bars or 16oz total. Electronics secured in closets during POI/lights out.",
         cite: "Barracks SOP"
     },
     {
-        q: "[Procedures] What is the definition of a proper Battle Buddy team and Duty Hours?",
+        q: "What is the definition of a proper Battle Buddy team and Duty Hours?",
         options: [
             "Any two soldiers; 0900-1700",
             "Two soldiers of same sex; First formation until release by Drill Sergeant",
@@ -176,11 +175,11 @@ const boardQuestions = [
             "Two soldiers same platoon; 24/7"
         ],
         answer: 1,
-        explanation: "Battle Buddy: Two Soldier Medics of the same sex. [cite_start]Duty Hours: First formation until released by a Drill Sergeant.[span_11](end_span)[span_12](end_span)",
+        explanation: "Battle Buddy: Two Soldier Medics of the same sex. Duty Hours: First formation until released by a Drill Sergeant.",
         cite: "Unit SOP"
     },
     {
-        q: "[Procedures] When are quiet hours and what happens if you fail Height/Weight (AR 600-9)?",
+        q: "When are quiet hours and what happens if you fail Height/Weight (AR 600-9)?",
         options: [
             "2100-0600; Extra PT",
             "2200-Wake up; Remain in Foxtrot or Separated",
@@ -188,13 +187,13 @@ const boardQuestions = [
             "2000-Wake up; Article 15"
         ],
         answer: 1,
-        explanation: "Quiet hours: 2200-wake up. [span_13](start_span)[span_14](start_span)Ht/Wt Failure: Soldier remains in Foxtrot until standard is met or is separated.[span_13](end_span)[span_14](end_span)",
+        explanation: "Quiet hours: 2200-wake up. Ht/Wt Failure: Soldier remains in Foxtrot until standard is met or is separated.",
         cite: "Unit SOP"
     },
 
     // --- ARMY PROGRAMS ---
     {
-        q: "[Programs] Match the Regulation to the Program: ASAP, ACS, AER, SHARP, EO.",
+        q: "Match the Regulation to the Program: ASAP, ACS, AER, SHARP, EO.",
         options: [
             "ASAP: 600-85, ACS: 608-1, AER: 930-4, SHARP: 600-52, EO: 690-12",
             "ASAP: 600-20, ACS: 600-85, AER: 670-1, SHARP: 600-20, EO: 600-20",
@@ -202,11 +201,11 @@ const boardQuestions = [
             "ASAP: 930-4, ACS: 600-85, AER: 608-1, SHARP: 600-20, EO: 600-20"
         ],
         answer: 0,
-        [span_15](start_span)[span_16](start_span)[span_17](start_span)[span_18](start_span)[span_19](start_span)explanation: "Correct Regs: ASAP (AR 600-85), ACS (AR 608-1), AER (AR 930-4), SHARP (AR 600-52), EO (AR 690-12).[span_15](end_span)[span_16](end_span)[span_17](end_span)[span_18](end_span)[span_19](end_span)",
+        explanation: "Correct Regs: ASAP (AR 600-85), ACS (AR 608-1), AER (AR 930-4), SHARP (AR 600-52), EO (AR 690-12).",
         cite: "Army Programs"
     },
     {
-        q: "[Programs] Who qualifies for an AER loan and what does ACS offer?",
+        q: "Who qualifies for an AER loan and what does ACS offer?",
         options: [
             "Only Officers; Loans for vacation",
             "Active Duty (and Reserve/NG >30 days); Financial/Employment/Relocation readiness",
@@ -214,13 +213,13 @@ const boardQuestions = [
             "Civilians; Tuition assistance"
         ],
         answer: 1,
-        explanation: "AER: Active duty, plus Reserve/NG on active status >30 days. [span_20](start_span)[span_21](start_span)ACS offers Financial, Employment, and Relocation readiness.[span_20](end_span)[span_21](end_span)",
+        explanation: "AER: Active duty, plus Reserve/NG on active status >30 days. ACS offers Financial, Employment, and Relocation readiness.",
         cite: "Army Programs"
     },
 
     // --- SHARP & EO ---
     {
-        q: "[SHARP] What is the Army's slogan for SHARP and the difference between Restricted/Unrestricted?",
+        q: "What is the Army's slogan for SHARP and the difference between Restricted/Unrestricted?",
         options: [
             "I.A.M. STRONG; Restricted = No Investigation, Unrestricted = Investigation",
             "Army Strong; Restricted = Commander knows, Unrestricted = SARC knows",
@@ -228,11 +227,11 @@ const boardQuestions = [
             "Intervene Act Motivate; Restricted = Investigation, Unrestricted = No Investigation"
         ],
         answer: 0,
-        explanation: "Slogan: I.A.M. STRONG. Restricted reports do NOT trigger an investigation (Cmdr notified of assault but no PII). [span_22](start_span)[span_23](start_span)Unrestricted reports DO trigger an investigation.[span_22](end_span)[span_23](end_span)",
+        explanation: "Slogan: I.A.M. STRONG. Restricted reports do NOT trigger an investigation (Cmdr notified of assault but no PII). Unrestricted reports DO trigger an investigation.",
         cite: "AR 600-52"
     },
     {
-        q: "[EO] Who are the Company EOLs and what are the three types of complaints?",
+        q: "Who are the Company EOLs and what are the three types of complaints?",
         options: [
             "DS Brady/Grey; Verbal, Written, Physical",
             "SDS Meach/Jeffries; Anonymous, Informal, Formal",
@@ -240,13 +239,13 @@ const boardQuestions = [
             "MAJ Rissler; Restricted, Unrestricted, Semi-restricted"
         ],
         answer: 1,
-        explanation: "EOLs: SDS Meach and SDS Jeffries. [span_24](start_span)[span_25](start_span)Complaints: Anonymous, Informal, Formal.[span_24](end_span)[span_25](end_span)",
+        explanation: "EOLs: SDS Meach and SDS Jeffries. Complaints: Anonymous, Informal, Formal.",
         cite: "AR 690-12"
     },
 
     // --- DRILL & CEREMONY (TC 3-21.5) ---
     {
-        q: "[Drill] What are the three marching steps and their lengths?",
+        q: "What are the three marching steps and their lengths?",
         options: [
             "Quick (30), Double (30), Mark Time",
             "Quick (15), Double (30), Half (15)",
@@ -254,11 +253,11 @@ const boardQuestions = [
             "Forward (30), Backward (15), Side (10)"
         ],
         answer: 0,
-        [span_26](start_span)explanation: "The three steps are Quick time (30 inches), Double time (30 inches @ 180bpm), and Mark time. [cite: 149-150]",
+        explanation: "The three steps are Quick time (30 inches), Double time (30 inches @ 180bpm), and Mark time.",
         cite: "TC 3-21.5"
     },
     {
-        q: "[Drill] What is the 'Blue Book' and who wrote it?",
+        q: "What is the 'Blue Book' and who wrote it?",
         options: [
             "TC 3-21.5; General Washington",
             "The Regulations for the Order and Discipline of the Troops of the US; Baron Von Steuben",
@@ -266,11 +265,11 @@ const boardQuestions = [
             "AR 670-1; General Patton"
         ],
         answer: 1,
-        [cite_start]explanation: "The Blue Book is 'The Regulations for the Order and Discipline of the Troops of the United States', written by Baron Von Steuben. [cite: 161-162]",
+        explanation: "The Blue Book is 'The Regulations for the Order and Discipline of the Troops of the United States', written by Baron Von Steuben.",
         cite: "History"
     },
     {
-        q: "[Drill] Which command helps revoke a preparatory command, and what is the only command from Inspection Arms?",
+        q: "Which command helps revoke a preparatory command, and what is the only command from Inspection Arms?",
         options: [
             "Carry On; Order Arms",
             "As You Were; Ready, Port, Arms",
@@ -282,7 +281,7 @@ const boardQuestions = [
         cite: "TC 3-21.5"
     },
     {
-        q: "[Drill] What are the four rest positions at the halt?",
+        q: "What are the four rest positions at the halt?",
         options: [
             "Parade Rest, Stand at Ease, At Ease, Rest",
             "Parade Rest, Attention, At Ease, Fall Out",
@@ -290,13 +289,13 @@ const boardQuestions = [
             "Stand at Ease, Attention, Order Arms, Rest"
         ],
         answer: 0,
-        [cite_start]explanation: "The four positions: Parade Rest, Stand at Ease, At Ease, Rest.[span_26](end_span)",
+        explanation: "The four positions: Parade Rest, Stand at Ease, At Ease, Rest.",
         cite: "TC 3-21.5"
     },
 
     // --- MAP READING (TC 3-25.26) ---
     {
-        q: "[Land Nav] Identify the 5 Major, 3 Minor, and 2 Supplementary terrain features.",
+        q: "Identify the 5 Major, 3 Minor, and 2 Supplementary terrain features.",
         options: [
             "Major: Hill/Valley/Ridge/Saddle/Depression; Minor: Draw/Spur/Cliff; Supp: Cut/Fill",
             "Major: Draw/Spur/Cliff/Cut/Fill; Minor: Hill/Valley/Ridge",
@@ -304,11 +303,11 @@ const boardQuestions = [
             "Major: North/South/East/West; Minor: NE/SE/SW/NW"
         ],
         answer: 0,
-        explanation: "Major: Hill, Valley, Ridge, Saddle, Depression. Minor: Draw, Spur, Cliff. [cite_start]Supp: Cut, Fill. [cite: 173-174]",
+        explanation: "Major: Hill, Valley, Ridge, Saddle, Depression. Minor: Draw, Spur, Cliff. Supp: Cut, Fill.",
         cite: "TC 3-25.26"
     },
     {
-        q: "[Land Nav] What do the colors Blue, Red, and Brown represent on a map?",
+        q: "What do the colors Blue, Red, and Brown represent on a map?",
         options: [
             "Blue: Sky, Red: Enemies, Brown: Dirt",
             "Blue: Water, Red: Roads/Cultural, Brown: Relief/Contour",
@@ -316,11 +315,11 @@ const boardQuestions = [
             "Blue: Water, Red: Vegetation, Brown: Roads"
         ],
         answer: 1,
-        explanation: "Blue = Water. Red = Roads/Cultural features. Brown = Relief features/Cultivated land. (Red-Brown is also used for relief/cultural)[cite_start]. [cite: 175-176]",
+        explanation: "Blue = Water. Red = Roads/Cultural features. Brown = Relief features/Cultivated land.",
         cite: "TC 3-25.26"
     },
     {
-        q: "[Land Nav] What are the three Norths and where is the Legend found?",
+        q: "What are the three Norths and where is the Legend found?",
         options: [
             "True, Magnetic, Grid; Lower Left Margin",
             "Up, Down, Left; Top Right",
@@ -328,7 +327,21 @@ const boardQuestions = [
             "Grid, Polar, Celestial; Back of map"
         ],
         answer: 0,
-        explanation: "Three Norths: True, Magnetic, Grid. [cite_start]Legend is found in the Lower Left margin. [cite: 178-179]",
+        explanation: "Three Norths: True, Magnetic, Grid. Legend is found in the Lower Left margin.",
         cite: "TC 3-25.26"
     }
 ];
+
+// --- INITIALIZATION ---
+// This part is critical. It checks if the engine is loaded, then starts the quiz.
+window.addEventListener('load', () => {
+    if (typeof renderQuiz === 'function') {
+        renderQuiz(boardQuestions, 'quizContainer');
+    } else {
+        console.error("QuizEngine.js is not loaded. Cannot render quiz.");
+        const container = document.getElementById('quizContainer');
+        if (container) {
+            container.innerHTML = "<p style='color:red; text-align:center; padding:20px;'>Error: QuizEngine.js not found.<br>Check console for details.</p>";
+        }
+    }
+});
