@@ -1,0 +1,248 @@
+/* =========================================
+   1. VARIABLES & RESET
+   ========================================= */
+:root {
+    /* Color Palette - Dark Mode */
+    --bg-body: #121212;          /* Deep dark background */
+    --bg-card: #1e1e1e;          /* Slightly lighter for cards */
+    --bg-input: #2c2c2c;         /* Input/Button background */
+    
+    /* Typography */
+    --text-primary: #e0e0e0;     /* High contrast text */
+    --text-secondary: #a0a0a0;   /* Muted text */
+    --font-stack: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+    /* Accents & Status */
+    --accent: #4caf50;           /* Army Green-ish for primary actions */
+    --accent-hover: #43a047;
+    --error: #cf6679;            /* Soft red for errors */
+    --border: #333333;           /* Subtle borders */
+    
+    /* Spacing & Layout */
+    --radius: 8px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --max-width: 700px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-stack);
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* =========================================
+   2. TYPOGRAPHY & HEADER
+   ========================================= */
+h1 {
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+    font-size: 2rem;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    max-width: 600px;
+}
+
+/* =========================================
+   3. PROGRESS BAR
+   ========================================= */
+.progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background-color: var(--bg-card);
+    z-index: 1000;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--accent);
+    width: 0%;
+    transition: width 0.4s ease-out;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+/* =========================================
+   4. QUIZ CARD STYLING
+   ========================================= */
+.quiz-container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin-top: var(--spacing-sm);
+}
+
+.question-card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--spacing-md);
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.category-tag {
+    display: inline-block;
+    background-color: #333;
+    color: var(--accent);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-sm);
+    letter-spacing: 0.5px;
+}
+
+.question-text {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    color: #fff;
+}
+
+/* =========================================
+   5. BUTTONS & INTERACTION
+   ========================================= */
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+button.option-btn {
+    background-color: var(--bg-input);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+    padding: 14px 16px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    text-align: left;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+button.option-btn:hover:not(:disabled) {
+    background-color: #383838;
+    border-color: var(--accent);
+    transform: translateX(4px);
+}
+
+button.option-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Correct State */
+button.option-btn.correct {
+    background-color: rgba(76, 175, 80, 0.15); /* Low opacity green */
+    border-color: var(--accent);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* Incorrect State */
+button.option-btn.incorrect {
+    background-color: rgba(207, 102, 121, 0.15); /* Low opacity red */
+    border-color: var(--error);
+    color: var(--error);
+}
+
+/* =========================================
+   6. FEEDBACK & CONTEXT
+   ========================================= */
+.feedback-box {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #252525;
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+    display: none; /* Toggled by JS */
+    animation: slideDown 0.3s ease-out;
+}
+
+.feedback-box.error {
+    border-left-color: var(--error);
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.feedback-title {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+}
+
+.context-note {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #444;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.context-note strong {
+    color: var(--text-primary);
+    font-style: normal;
+}
+
+/* =========================================
+   7. FOOTER & RESPONSIVE
+   ========================================= */
+.footer {
+    margin-top: 3rem;
+    padding-bottom: 2rem;
+    text-align: center;
+    color: #555;
+    font-size: 0.85rem;
+}
+
+/* Mobile Tweaks */
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .question-card {
+        padding: 15px;
+    }
+}
