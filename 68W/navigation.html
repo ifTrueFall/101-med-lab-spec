@@ -5,127 +5,187 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>68W Study Navigation</title>
     <style>
+        /* =========================================
+           DARK THEME VARIABLES
+           ========================================= */
         :root {
-            --primary-color: #003366; /* Army/Medical Blue */
-            --secondary-color: #f4f4f4;
-            --accent-color: #e6b800; /* Gold/Yellow accent for Army feel */
-            --text-color: #333;
-            --border-color: #ddd;
+            --bg-body: #121212;          /* Deep dark background */
+            --bg-card: #1e1e1e;          /* Card background */
+            --bg-button: #2c2c2c;        /* Button background */
+            --bg-hover: #383838;         /* Hover state */
+            
+            --text-primary: #e0e0e0;     /* High contrast text */
+            --text-secondary: #a0a0a0;   /* Muted text */
+            
+            --accent: #4caf50;           /* Army Green (Primary) */
+            --accent-gold: #FFD700;      /* Gold (Secondary/Highlights) */
+            --border: #333333;           /* Subtle borders */
+            
+            --radius: 8px;
+            --shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #e9ecef;
-            color: var(--text-color);
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            display: flex;
+            justify-content: center;
         }
 
         .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
+            width: 100%;
+            max-width: 650px;
+            background: var(--bg-card);
             padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
         }
 
+        /* --- Header --- */
         header {
             text-align: center;
             margin-bottom: 30px;
-            border-bottom: 3px solid var(--primary-color);
+            border-bottom: 2px solid var(--accent);
             padding-bottom: 15px;
         }
 
         h1 {
-            color: var(--primary-color);
+            color: var(--accent);
             margin: 0;
-            font-size: 28px;
+            font-size: 2em;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            font-weight: 700;
         }
 
         .subtitle {
-            font-size: 1.1em;
-            color: #666;
+            font-size: 1em;
+            color: var(--text-secondary);
             margin-top: 5px;
-            font-weight: 600;
+            font-weight: 500;
         }
 
-        /* --- Accordion Styles --- */
-        
-        /* The button that opens the menu */
+        /* --- Accordion Buttons --- */
         .accordion {
-            background-color: var(--primary-color);
-            color: white;
+            background-color: var(--bg-button);
+            color: var(--text-primary);
             cursor: pointer;
-            padding: 18px;
+            padding: 18px 20px;
             width: 100%;
-            border: none;
+            border: 1px solid var(--border);
             text-align: left;
             outline: none;
-            font-size: 18px;
-            font-weight: bold;
-            transition: 0.4s;
-            border-radius: 4px;
-            margin-bottom: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-radius: var(--radius);
+            margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        /* Add a hover effect */
-        .accordion:hover, .accordion.active {
-            background-color: #002244;
+        .accordion:hover {
+            background-color: var(--bg-hover);
+            border-color: var(--accent);
+            transform: translateX(2px);
         }
 
-        /* The plus/minus icon */
+        .accordion.active {
+            background-color: var(--bg-hover);
+            border-color: var(--accent);
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            margin-bottom: 0;
+        }
+
+        /* Icon Animation */
         .accordion:after {
-            content: '\002B'; /* Unicode for Plus sign */
-            color: white;
-            font-weight: bold;
-            float: right;
-            margin-left: 5px;
-            font-size: 20px;
+            content: '+';
+            color: var(--accent);
+            font-size: 1.5em;
+            font-weight: 400;
+            transition: transform 0.3s ease;
         }
 
         .accordion.active:after {
-            content: "\2212"; /* Unicode for Minus sign */
+            transform: rotate(45deg);
+            color: var(--error);
         }
 
-        /* The container for the links (hidden by default) */
+        /* --- Panel Content --- */
         .panel {
-            padding: 0 18px;
-            background-color: white;
+            background-color: #252525;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.2s ease-out;
-            border-left: 4px solid var(--primary-color);
-            margin-bottom: 10px;
+            transition: max-height 0.3s ease-out;
+            border-left: 3px solid var(--accent);
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            border-bottom-left-radius: var(--radius);
+            border-bottom-right-radius: var(--radius);
+            margin-bottom: 15px;
         }
 
-        /* The Links inside the panel */
+        .panel-content {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        /* --- Links inside Panels (Standardized) --- */
         .panel a {
-            display: block;
-            padding: 12px;
-            margin: 8px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
             text-decoration: none;
-            color: #333;
-            background-color: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            color: var(--text-secondary);
+            background-color: var(--bg-body);
+            border: 1px solid var(--border);
+            border-radius: 6px;
             font-weight: 500;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
         }
 
         .panel a:hover {
-            background-color: #e2e6ea;
-            padding-left: 15px; /* Slight slide effect */
-            border-left: 3px solid var(--accent-color);
+            background-color: var(--bg-hover);
+            color: var(--text-primary);
+            border-color: var(--accent);
+            padding-left: 20px;
         }
 
-        .panel a:last-child {
-            margin-bottom: 20px;
+        /* Highlight for Quizlet/Important links */
+        .highlight-link {
+            border-left: 3px solid var(--accent-gold) !important;
+            color: var(--text-primary) !important;
+        }
+
+        /* --- Status Tags --- */
+        .status-tag {
+            font-size: 0.7em;
+            padding: 2px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            background-color: #333;
+            color: var(--text-secondary);
+        }
+
+        .status-tag.ready {
+            color: var(--accent);
+            background-color: rgba(76, 175, 80, 0.1);
+        }
+        
+        .divider {
+            height: 1px;
+            background-color: var(--border);
+            margin: 5px 0;
         }
 
     </style>
@@ -135,76 +195,84 @@
 <div class="container">
     <header>
         <h1>68W Study Hub</h1>
-        <div class="subtitle">68w Navigation</div>
+        <div class="subtitle">Combat Medic Specialist • Navigation</div>
     </header>
 
     <button class="accordion">Board</button>
     <div class="panel">
-        <a href="Board.html">Board Review</a>
+        <div class="panel-content">
+            <a href="board/Board.html" class="highlight-link">
+                <span>Board Review Simulator</span>
+                <span class="status-tag ready">New</span>
+            </a>
+        </div>
     </div>
 
     <button class="accordion">BLS</button>
     <div class="panel">
-        <a href="BLS.html">BLS</a>
+        <div class="panel-content">
+            <a href="BLS.html">Basic Life Support (BLS)</a>
+        </div>
     </div>
     
     <button class="accordion">Module 4: Medical Emergencies</button>
     <div class="panel">
-        <a href="Mod4/Quizlet.html">Quizlet</a>
-        <a href="Mod4/Ch18.html">Chapter 18: Pharmacology</a>
-        <a href="Mod4/Ch19.html">Chapter 19: Respiratory Emergencies</a>
-        <a href="Mod4/Ch20.html">Chapter 20: Cardiac Emergencies</a>
-        <a href="Mod4/Ch21.html">Chapter 21: Resuscitation</a>
-        <a href="Mod4/Ch22.html">Chapter 22: Diabetic / AMS</a>
-        <a href="Mod4/Ch23.html">Chapter 23: Allergic Reactions</a>
-        <a href="Mod4/Ch24.html">Chapter 24: Infectious Diseases</a>
-        <a href="Mod4/Ch25.html">Chapter 25: Poisoning and overdose Emer.</a>
-        <a href="Mod4/Ch26.html">Chapter 26: Abdominal Emergencies</a>
-        <a href="Mod4/Ch27.html">Chapter 27: Behavioral Emergencies</a>
-        <a href="Mod4/Ch28.html">Chapter 28: Hematological and Renal Emer.</a>
+        <div class="panel-content">
+            <a href="Mod4/Quizlet.html" class="highlight-link">Quizlet Vocabulary</a>
+            <a href="Mod4/Ch18.html">Chapter 18: Pharmacology</a>
+            <a href="Mod4/Ch19.html">Chapter 19: Respiratory Emergencies</a>
+            <a href="Mod4/Ch20.html">Chapter 20: Cardiac Emergencies</a>
+            <a href="Mod4/Ch21.html">Chapter 21: Resuscitation</a>
+            <a href="Mod4/Ch22.html">Chapter 22: Diabetic / AMS</a>
+            <a href="Mod4/Ch23.html">Chapter 23: Allergic Reactions</a>
+            <a href="Mod4/Ch24.html">Chapter 24: Infectious Diseases</a>
+            <a href="Mod4/Ch25.html">Chapter 25: Poisoning & Overdose</a>
+            <a href="Mod4/Ch26.html">Chapter 26: Abdominal Emergencies</a>
+            <a href="Mod4/Ch27.html">Chapter 27: Behavioral Emergencies</a>
+            <a href="Mod4/Ch28.html">Chapter 28: Hematological & Renal</a>
+        </div>
     </div>
     
-<button class="accordion">Modules 5 & 6: Trauma & EMS Operations</button>
-<div class="panel">
-    <ul class="chapter-list">
-        <li><a href="Mod5/html/Ch29.html">Chapter 29: Bleeding & Shock <span class="status-tag ready">Ready</span></a></li>
-        <li><a href="Mod5/html/Ch30.html">Chapter 30: Soft-Tissue Trauma <span class="status-tag ready">Ready</span></a></li>
-        <li><a href="Mod5/html/Ch31.html">Chapter 31: Chest & Abdominal Trauma <span class="status-tag ready">Ready</span></a></li>
-        <li><a href="Mod5/html/Ch32.html">Chapter 32: Musculoskeletal Trauma <span class="status-tag ready">Ready</span></a></li>
-        <li><a href="Mod5/html/Ch33.html">Chapter 33: Head, Neck, & Spine <span class="status-tag ready">Ready</span></a></li>
-        <li><a href="Mod5/html/Ch34.html">Chapter 34: Multisystem Trauma <span class="status-tag ready">Ready</span></a></li>
-        <li><a href="Mod5/html/Ch35.html">Chapter 35: Environmental Emergencies <span class="status-tag ready">Ready</span></a></li>
-        
-        <hr style="border: 0; border-top: 1px solid #eee; margin: 10px 0;">
-
-        <li><a href="Mod6/html/Ch38.html">Chapter 38: EMS Operations <span class="status-tag pending">Coming Soon</span></a></li>
-        <li><a href="Mod6/html/Ch39.html">Chapter 39: HazMat, MCI & Incident Mgmt <span class="status-tag pending">Coming Soon</span></a></li>
-        <li><a href="Mod6/html/Ch40.html">Chapter 40: Highway Safety & Extrication <span class="status-tag pending">Coming Soon</span></a></li>
-        <li><a href="Mod6/html/Ch41.html">Chapter 41: EMS Response to Terrorism <span class="status-tag pending">Coming Soon</span></a></li>
-    </ul>
-</div>
-
-    
-    </div>
-    <button class="accordion">sampleModule</button>
+    <button class="accordion">Module 5: Trauma & EMS</button>
     <div class="panel">
-        <a href="navigation.html">sampleLink</a>
+        <div class="panel-content">
+            <a href="Mod5/html/Ch29.html">Ch 29: Bleeding & Shock <span class="status-tag ready">Ready</span></a>
+            <a href="Mod5/html/Ch30.html">Ch 30: Soft-Tissue Trauma <span class="status-tag ready">Ready</span></a>
+            <a href="Mod5/html/Ch31.html">Ch 31: Chest & Abdominal <span class="status-tag ready">Ready</span></a>
+            <a href="Mod5/html/Ch32.html">Ch 32: Musculoskeletal <span class="status-tag ready">Ready</span></a>
+            <a href="Mod5/html/Ch33.html">Ch 33: Head, Neck, & Spine <span class="status-tag ready">Ready</span></a>
+            <a href="Mod5/html/Ch34.html">Ch 34: Multisystem Trauma <span class="status-tag ready">Ready</span></a>
+            <a href="Mod5/html/Ch35.html">Ch 35: Environmental <span class="status-tag ready">Ready</span></a>
+            
+            <div class="divider"></div>
 
+            <a href="Mod6/html/Ch38.html">Ch 38: EMS Operations</a>
+            <a href="Mod6/html/Ch39.html">Ch 39: HazMat & Incident Mgmt</a>
+            <a href="Mod6/html/Ch40.html">Ch 40: Highway Safety</a>
+            <a href="Mod6/html/Ch41.html">Ch 41: Terrorism Response</a>
+        </div>
     </div>
+    
+    <button class="accordion">Extras</button>
+    <div class="panel">
+        <div class="panel-content">
+            <a href="../index.html">Back to Main Home</a>
+            <a href="navigation.html">Refresh Page</a>
+        </div>
     </div>
+
+</div>
     
 <script>
-    // JavaScript to handle the opening and closing of accordions
-    var acc = document.getElementsByClassName("accordion");
-    var i;
+    const acc = document.getElementsByClassName("accordion");
 
-    for (i = 0; i < acc.length; i++) {
+    for (let i = 0; i < acc.length; i++) {
         acc[i].addEventListener("click", function() {
-            // Toggle the "active" class to highlight the button
+            // Toggle active class
             this.classList.toggle("active");
-
-            // Toggle the visibility of the panel
-            var panel = this.nextElementSibling;
+            
+            // Toggle panel visibility
+            const panel = this.nextElementSibling;
             if (panel.style.maxHeight) {
                 panel.style.maxHeight = null;
             } else {
