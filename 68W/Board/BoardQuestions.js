@@ -1,11 +1,11 @@
 /**
  * BOARD QUESTIONS DATA
- * Variable: boardQuestions
- * Used by: Board.html
+ * Comprehensive coverage of "Soldier of the Month Bio.pdf"
+ * Structure matches QuizEngine requirements exactly.
  */
 
 const boardQuestions = [
-    // --- BIOGRAPHY ADVICE ---
+    // --- BIOGRAPHY ---
     {
         q: "According to the board guide, how should you prepare your biography?",
         options: [
@@ -33,6 +33,30 @@ const boardQuestions = [
         cite: "Chain of Command"
     },
     {
+        q: "Who constitutes the 232d Medical Battalion Command Team?",
+        options: [
+            "COL Menendez and CSM Bowley",
+            "LTC Gammons and CSM Thompson",
+            "COL Gammons and CSM Thompson",
+            "MAJ Rissler and 1SG Vue"
+        ],
+        answer: 2,
+        explanation: "232d Med BN: COL Gammons and CSM Thompson. (COL Menendez and CSM Bowley are the 32d BDE team).",
+        cite: "Chain of Command"
+    },
+    {
+        q: "Who is the 32d Medical Brigade Command Team?",
+        options: [
+            "COL Gammons and CSM Thompson",
+            "COL Menendez and CSM Bowley",
+            "GEN George and SMA Weimer",
+            "LTC Rissler and 1SG Vue"
+        ],
+        answer: 1,
+        explanation: "The 32d Medical Brigade Command Team is COL Menendez and CSM Bowley.",
+        cite: "Chain of Command"
+    },
+    {
         q: "Identify the correct Senior Drill Sergeants (SDS) for 1st, 2nd, and 3rd Platoon.",
         options: [
             "1: SDS Loera, 2: SDS Duenes, 3: SDS Meach",
@@ -44,25 +68,13 @@ const boardQuestions = [
         explanation: "1PLT: SDS Duenes. 2PLT: SDS Loera. 3PLT: SDS Meach. The Company SDS is SDS Jeffries.",
         cite: "Chain of Command"
     },
-    {
-        q: "Who constitutes the 232d Medical Battalion Command Team?",
-        options: [
-            "COL Menendez and CSM Bowley",
-            "LTC Gammons and CSM Thompson",
-            "COL Gammons and CSM Thompson",
-            "MAJ Rissler and 1SG Vue"
-        ],
-        answer: 2,
-        explanation: "232d Med BN: COL Gammons and CSM Thompson. (Note: COL Menendez and CSM Bowley are the 32d BDE team).",
-        cite: "Chain of Command"
-    },
 
     // --- UNIFORMS (AR 670-1) ---
     {
-        q: "Which paragraph within AR 670-1 Chapter 3 (Appearance and Grooming) is punitive?",
+        q: "Which paragraph within AR 670-1 Chapter 3 is punitive?",
         options: [
             "Paragraph 1",
-            "Paragraph 2",
+            "Paragraph 2 (Hair and Grooming)",
             "Paragraph 4",
             "None are punitive"
         ],
@@ -83,6 +95,18 @@ const boardQuestions = [
         cite: "AR 670-1"
     },
     {
+        q: "What are the fingernail standards for Male and Female Soldiers?",
+        options: [
+            "Male: 1/8 inch; Female: 1/2 inch",
+            "Male: Not beyond tip; Female: Max 1/4 inch",
+            "Male: Not beyond tip; Female: No limit",
+            "Male: 1 inch; Female: 1 inch"
+        ],
+        answer: 1,
+        explanation: "Male fingernails will not extend beyond the tip of the finger. Female fingernails will not exceed 1/4 inch from the tip.",
+        cite: "AR 670-1"
+    },
+    {
         q: "Which statement regarding female hairstyles is FALSE?",
         options: [
             "Bangs must remain above the eyebrows",
@@ -92,18 +116,6 @@ const boardQuestions = [
         ],
         answer: 2,
         explanation: "Ponytails are NOT authorized in the AGSU or ASU (Dress uniforms). They are only for ACU/APFU.",
-        cite: "AR 670-1"
-    },
-    {
-        q: "What are the standards for wearing a ponytail in ACU?",
-        options: [
-            "Max length 6 inches from collar; Bulk not exceeding head width",
-            "Max length 12 inches; Single or double pony allowed",
-            "Must be braided; No length limit",
-            "Max length to shoulder blades; Ends must be tucked"
-        ],
-        answer: 0,
-        explanation: "Length must not exceed 6 inches from the top of the collar. Bulk must not exceed width of the head.",
         cite: "AR 670-1"
     },
     {
@@ -119,19 +131,31 @@ const boardQuestions = [
         cite: "AR 670-1"
     },
     {
-        q: "Regarding accessories and grooming: Which is authorized?",
+        q: "What jewelry is authorized for wear in uniform?",
         options: [
-            "Male soldiers wearing clear lip moisturizers",
-            "Eyelash extensions",
-            "Male soldiers shaping designs into their hair",
-            "Sunglasses in formation (without a profile)"
+            "Any gold or silver bracelet",
+            "Medical alert, MIA/KIA (black/silver), and religious bracelets",
+            "Smartwatches with bright colored bands",
+            "Thumb rings"
+        ],
+        answer: 1,
+        explanation: "Authorized bracelets: Medical alert, missing/killed in action (black or silver only), and religious bracelets.",
+        cite: "AR 670-1"
+    },
+    {
+        q: "Regarding accessories: Are cosmetics or sunglasses authorized?",
+        options: [
+            "Males may wear clear lip moisturizer; Sunglasses not allowed in formation (unless profile)",
+            "Males may wear nail polish; Sunglasses allowed anytime",
+            "Females may wear eyelash extensions; Males may wear cosmetics",
+            "Lipstick is authorized in field environments"
         ],
         answer: 0,
-        explanation: "All Soldiers are permitted to use clear lip moisturizers. Extensions, designs, and sunglasses in formation (no profile) are prohibited.",
+        explanation: "Males: Cosmetics prohibited (except clear lip moisturizer). Sunglasses: No in formation unless profile. Eyelash extensions/Lipstick: Not authorized.",
         cite: "AR 670-1"
     },
 
-    // --- BARRACKS & COUNSELING ---
+    // --- BARRACKS & SOP ---
     {
         q: "What items must be worn/carried in duty uniform, and when must you report to formation?",
         options: [
@@ -145,15 +169,15 @@ const boardQuestions = [
         cite: "Initial Counseling"
     },
     {
-        q: "Which list of items are ALL considered Contraband in the barracks?",
+        q: "Which areas are designated 'Off-Limits'?",
         options: [
-            "Alcohol, Tobacco, Illegal Drugs, Privately Owned Weapons, Hemp, Pornography",
-            "Alcohol, Energy Drinks, Civilian Clothes, Laptops",
-            "Tobacco, Supplements, Playing Cards, Speakers",
-            "Pre-workout, Protein Powder, Coffee Makers"
+            "The PX and Commissary",
+            "The Bowling Alley",
+            "Non-Foxtrot areas, Salado Creek, construction areas, Navy/Air Force barracks",
+            "The Gym and Track"
         ],
-        answer: 0,
-        explanation: "Contraband includes: Alcohol, tobacco/nicotine, illegal drugs, privately owned weapons, hemp products, and pornographic material.",
+        answer: 2,
+        explanation: "Off-limits: Non-Foxtrot areas, Salado Creek, permanent party housing, aquatic center, construction areas, Navy/AF barracks, vacant rooms.",
         cite: "Barracks SOP"
     },
     {
@@ -169,27 +193,39 @@ const boardQuestions = [
         cite: "Barracks SOP"
     },
     {
-        q: "What is the definition of a proper Battle Buddy team and Duty Hours?",
+        q: "What is required during Bed Checks?",
         options: [
-            "Any two soldiers; 0900-1700",
-            "Two soldiers of same sex; First formation until release by Drill Sergeant",
-            "Three soldiers mixed gender; 0500-1900",
-            "Two soldiers same platoon; 24/7"
+            "Full uniform and weapon",
+            "ID Card and ID Tags",
+            "Physical Fitness Uniform",
+            "Room inspection only"
         ],
         answer: 1,
-        explanation: "Battle Buddy: Two Soldier Medics of the same sex. Duty Hours: First formation until released by a Drill Sergeant.",
-        cite: "Unit SOP"
+        explanation: "You are required to present your ID card and ID tags to the Drill Sergeant during bed checks.",
+        cite: "Barracks SOP"
     },
     {
-        q: "When are quiet hours and what happens if you fail Height/Weight (AR 600-9)?",
+        q: "When are Quiet Hours?",
         options: [
-            "2100-0600; Extra PT",
-            "2200-Wake up; Remain in Foxtrot or Separated",
-            "2300-0500; Re-test next day",
-            "2000-Wake up; Article 15"
+            "2100-0600",
+            "2200-Wake up",
+            "2300-0500",
+            "After final formation"
         ],
         answer: 1,
-        explanation: "Quiet hours: 2200-wake up. Ht/Wt Failure: Soldier remains in Foxtrot until standard is met or is separated.",
+        explanation: "Quiet hours are from 2200 until wake up.",
+        cite: "Barracks SOP"
+    },
+    {
+        q: "What happens if a Soldier fails Height/Weight or AFT?",
+        options: [
+            "Nothing",
+            "Remains in Foxtrot Company until standard is met or separated",
+            "Demoted immediately",
+            "Transferred to Charlie Company"
+        ],
+        answer: 1,
+        explanation: "If failing Ht/Wt (AR 600-9), the Soldier remains in Foxtrot until standards are met or separated. A passing AFT is required to graduate/phase up.",
         cite: "Unit SOP"
     },
 
@@ -207,41 +243,77 @@ const boardQuestions = [
         cite: "Army Programs"
     },
     {
-        q: "Who qualifies for an AER loan and what does ACS offer?",
+        q: "What is MFLC and where can you find info?",
         options: [
-            "Only Officers; Loans for vacation",
-            "Active Duty (and Reserve/NG >30 days); Financial/Employment/Relocation readiness",
-            "Retired only; Free housing",
-            "Civilians; Tuition assistance"
+            "Medical Field Logistics; army.mil",
+            "Military Family Life Counselor; militaryonesource.mil",
+            "Military Financial Loan Center; aer.mil",
+            "Major Field Leadership Course; tradoc.army.mil"
         ],
         answer: 1,
-        explanation: "AER: Active duty, plus Reserve/NG on active status >30 days. ACS offers Financial, Employment, and Relocation readiness.",
+        explanation: "MFLC offers free/confidential counseling. Website: militaryonesource.mil.",
+        cite: "Army Programs"
+    },
+    {
+        q: "Who qualifies for an AER loan?",
+        options: [
+            "Only Officers",
+            "Active Duty, and Reserve/NG on active duty >30 days",
+            "Retired only",
+            "Civilians"
+        ],
+        answer: 1,
+        explanation: "Active duty, plus Reserve/NG on active status >30 days qualify for AER.",
         cite: "Army Programs"
     },
 
     // --- SHARP & EO ---
     {
-        q: "What is the Army's slogan for SHARP and the difference between Restricted/Unrestricted?",
+        q: "What is the Army's slogan for SHARP?",
         options: [
-            "I.A.M. STRONG; Restricted = No Investigation, Unrestricted = Investigation",
-            "Army Strong; Restricted = Commander knows, Unrestricted = SARC knows",
-            "Be All You Can Be; No difference",
-            "Intervene Act Motivate; Restricted = Investigation, Unrestricted = No Investigation"
+            "Army Strong",
+            "I.A.M. STRONG",
+            "Be All You Can Be",
+            "Intervene, Act, Motivate"
         ],
-        answer: 0,
-        explanation: "Slogan: I.A.M. STRONG. Restricted reports do NOT trigger an investigation (Cmdr notified of assault but no PII). Unrestricted reports DO trigger an investigation.",
+        answer: 1,
+        explanation: "The slogan is I.A.M. STRONG (Intervene, Act, Motivate).",
         cite: "AR 600-52"
     },
     {
-        q: "Who are the Company EOLs and what are the three types of complaints?",
+        q: "What are the 3 categories of Sexual Harassment?",
         options: [
-            "DS Brady/Grey; Verbal, Written, Physical",
-            "SDS Meach/Jeffries; Anonymous, Informal, Formal",
-            "1SG Vue; Fast, Slow, Medium",
-            "MAJ Rissler; Restricted, Unrestricted, Semi-restricted"
+            "Verbal, Non-Verbal, Physical",
+            "Mild, Moderate, Severe",
+            "Public, Private, Online",
+            "Restricted, Unrestricted, Anonymous"
+        ],
+        answer: 0,
+        explanation: "The three categories are Verbal, Non-Verbal, and Physical.",
+        cite: "AR 600-52"
+    },
+    {
+        q: "Who is the Brigade SARC?",
+        options: [
+            "SFC Chalos",
+            "SDS Jeffries",
+            "MAJ Rissler",
+            "CSM Bowley"
+        ],
+        answer: 0,
+        explanation: "The Brigade SARC is SFC Chalos.",
+        cite: "SHARP"
+    },
+    {
+        q: "What are the protected categories under EO?",
+        options: [
+            "Rank, MOS, Unit, Duty Station",
+            "Race, Color, Sex, National Origin, Religion, Sexual Orientation",
+            "Age, Height, Weight, PT Score",
+            "Political Affiliation, Education, Marital Status"
         ],
         answer: 1,
-        explanation: "EOLs: SDS Meach and SDS Jeffries. Complaints: Anonymous, Informal, Formal.",
+        explanation: "Protected categories: Race, color, sex, national origin, religion, sexual orientation.",
         cite: "AR 690-12"
     },
 
@@ -271,27 +343,39 @@ const boardQuestions = [
         cite: "History"
     },
     {
-        q: "Which command helps revoke a preparatory command, and what is the only command from Inspection Arms?",
+        q: "Which command helps revoke a preparatory command?",
         options: [
-            "Carry On; Order Arms",
-            "As You Were; Ready, Port, Arms",
-            "Dismissed; Present Arms",
-            "Fall Out; Order Arms"
+            "Carry On",
+            "As You Were",
+            "Dismissed",
+            "Fall Out"
         ],
         answer: 1,
-        explanation: "Revoke: 'As you were'. Inspection Arms: 'Ready, Port, Arms'.",
+        explanation: "'As you were' revokes a preparatory command.",
         cite: "TC 3-21.5"
     },
     {
-        q: "What are the four rest positions at the halt?",
+        q: "What is a 'Review' in ceremonies?",
         options: [
-            "Parade Rest, Stand at Ease, At Ease, Rest",
-            "Parade Rest, Attention, At Ease, Fall Out",
-            "Rest, Relax, Recover, Return",
-            "Stand at Ease, Attention, Order Arms, Rest"
+            "A type of inspection",
+            "A ceremony to honor a dignitary, present decorations, or recognize achievements",
+            "A practice session for drill",
+            "A disciplinary action"
         ],
-        answer: 0,
-        explanation: "The four positions: Parade Rest, Stand at Ease, At Ease, Rest.",
+        answer: 1,
+        explanation: "A Review is a military ceremony used to honor a dignitary, present decorations, recognize achievements, and commemorate events.",
+        cite: "TC 3-21.5"
+    },
+    {
+        q: "Who is the only person in a platoon never out of step?",
+        options: [
+            "The Platoon Leader",
+            "The Guide",
+            "The Squad Leader",
+            "The Drummer"
+        ],
+        answer: 1,
+        explanation: "The Guide is the only person in a platoon that is never out of step.",
         cite: "TC 3-21.5"
     },
 
@@ -321,15 +405,27 @@ const boardQuestions = [
         cite: "TC 3-25.26"
     },
     {
-        q: "What are the three Norths and where is the Legend found?",
+        q: "What is an Azimuth?",
         options: [
-            "True, Magnetic, Grid; Lower Left Margin",
-            "Up, Down, Left; Top Right",
-            "True, False, Magnetic; Center",
-            "Grid, Polar, Celestial; Back of map"
+            "A vertical line on a map",
+            "A horizontal angle measured clockwise from a north base line",
+            "The distance between two points",
+            "A type of compass"
         ],
-        answer: 0,
-        explanation: "Three Norths: True, Magnetic, Grid. Legend is found in the Lower Left margin.",
+        answer: 1,
+        explanation: "An azimuth is a horizontal angle measured clockwise from a north base line, used to express direction.",
+        cite: "TC 3-25.26"
+    },
+    {
+        q: "What is the distance between grid lines on a combat map?",
+        options: [
+            "1 Mile",
+            "1 Kilometer (1000 meters)",
+            "100 Meters",
+            "10 Kilometers"
+        ],
+        answer: 1,
+        explanation: "The distance between grid lines on a combat map is 1 kilometer (1000 meters).",
         cite: "TC 3-25.26"
     }
 ];
