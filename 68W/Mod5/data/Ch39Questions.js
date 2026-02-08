@@ -1,242 +1,242 @@
 const ch39Questions = [
     {
-        q: "What is the primary responsibility of the EMT at a Hazardous Materials (HazMat) incident?",
+        q: "What is the definition of a Hazardous Material?",
         options: [
-            "Put on a suit and rescue patients",
-            "Identify the material",
-            "Personal and public safety (Scene Safety)",
-            "Triage patients in the Hot Zone"
-        ],
-        answer: 2,
-        explanation: "Your primary duty is to keep yourself and the public safe. You should not enter a HazMat zone unless trained and equipped. Stay upwind and uphill.",
-        cite: "Standard HazMat Curriculum"
-    },
-    {
-        q: "In the NIMS Incident Command System, who is the ONE person ultimately responsible for the entire operation?",
-        options: [
-            "Safety Officer",
-            "Incident Commander (IC)",
-            "Triage Officer",
-            "Chief of Police"
+            "Any material that smells bad",
+            "Any substance or material in a form that poses an unreasonable risk to health, safety, and property when transported in commerce",
+            "Any liquid that is flammable",
+            "Nuclear waste only"
         ],
         answer: 1,
-        explanation: "The Incident Commander (IC) is the single person in charge of the entire scene, regardless of rank or agency.",
-        cite: "NIMS / ICS Doctrine"
+        explanation: "The Department of Transportation (DOT) defines hazardous materials as substances posing unreasonable risk to health, safety, and property.",
+        cite: "Page 1180"
     },
     {
-        q: "Which HazMat Control Zone is the area of contamination (where the spill is located) and requires the highest level of PPE?",
+        q: "The primary responsibility of the EMT at a hazardous materials incident is:",
         options: [
-            "Cold Zone",
-            "Warm Zone",
-            "Hot Zone",
-            "Support Zone"
+            "To identify the material",
+            "To rescue victims from the hot zone",
+            "Personal safety (Self-preservation)",
+            "To contain the spill"
         ],
         answer: 2,
-        explanation: "The Hot Zone (Exclusion Zone) is the area of actual contamination. Only fully protected HazMat technicians may enter.",
-        cite: "Standard HazMat Curriculum"
+        explanation: "Your primary responsibility is to keep yourself safe. You cannot help anyone if you become a victim.",
+        cite: "Page 1181"
     },
     {
-        q: "In the START Triage system, a patient who is walking around ('Walking Wounded') is tagged as:",
+        q: "Which training level is required for those who are likely to witness or discover a hazardous substance release?",
+        options: [
+            "First Responder Awareness",
+            "First Responder Operations",
+            "Hazardous Materials Technician",
+            "Hazardous Materials Specialist"
+        ],
+        answer: 0,
+        explanation: "First Responder Awareness level is for those who witness/discover a release. They are trained to recognize the problem, call for help, and secure the scene.",
+        cite: "Page 1181"
+    },
+    {
+        q: "The 'Hot Zone' (Exclusion Zone) is defined as:",
+        options: [
+            "The area where decontamination takes place",
+            "The area immediately surrounding a HazMat incident",
+            "The area where the command post is located",
+            "The area at the hospital receiving patients"
+        ],
+        answer: 1,
+        explanation: "The Hot Zone is the contaminated area. It extends far enough to prevent primary contamination of people outside it.",
+        cite: "Page 1184"
+    },
+    {
+        q: "The 'Warm Zone' (Contamination Reduction Zone) is used for:",
+        options: [
+            "Initial assessment of the scene",
+            "Decontamination of personnel and equipment",
+            "Staging ambulances",
+            "Command post operations"
+        ],
+        answer: 1,
+        explanation: "The Warm Zone is where decontamination occurs. It acts as a buffer between the Hot (contaminated) and Cold (safe) zones.",
+        cite: "Page 1184"
+    },
+    {
+        q: "The 'Cold Zone' (Support Zone) is where:",
+        options: [
+            "The chemical spill is located",
+            "Decontamination happens",
+            "The Incident Command Post and other support functions are located",
+            "Only HazMat technicians are allowed"
+        ],
+        answer: 2,
+        explanation: "The Cold Zone is the safe area where the Command Post, EMS treatment area, and staging are located. No contaminated gear is allowed here.",
+        cite: "Page 1185"
+    },
+    {
+        q: "Which shipping paper is used on a roadway/truck shipment?",
+        options: [
+            "Bill of Lading (or Freight Bill)",
+            "Waybill",
+            "Manifest",
+            "Air Bill"
+        ],
+        answer: 0,
+        explanation: "Trucks carry a Bill of Lading in the cab within reach of the driver.",
+        cite: "Page 1188"
+    },
+    {
+        q: "The NFPA 704 System uses a diamond-shaped placard with four colors. What does the BLUE diamond represent?",
+        options: [
+            "Fire Hazard",
+            "Reactivity Hazard",
+            "Health Hazard",
+            "Specific Hazard"
+        ],
+        answer: 2,
+        explanation: "Blue = Health hazard. Red = Fire hazard. Yellow = Reactivity. White = Specific hazard (e.g., oxidizer, alkali).",
+        cite: "Page 1187"
+    },
+    {
+        q: "In the Incident Command System (ICS), what is 'Unity of Command'?",
+        options: [
+            "Everyone reports to the Safety Officer",
+            "Each individual reports to only one supervisor",
+            "All agencies work independently",
+            "The Fire Chief is always in charge"
+        ],
+        answer: 1,
+        explanation: "Unity of Command means every person has one specific supervisor to whom they report, preventing conflicting orders.",
+        cite: "Page 1200"
+    },
+    {
+        q: "The 'Span of Control' principle states that a single supervisor can effectively manage:",
+        options: [
+            "10-15 people",
+            "1-2 people",
+            "3-7 people",
+            "20 people"
+        ],
+        answer: 2,
+        explanation: "To be effective, one supervisor should manage between 3 and 7 subordinates (5 is optimal).",
+        cite: "Page 1200"
+    },
+    {
+        q: "What is a 'Unified Command'?",
+        options: [
+            "One person from one agency makes all decisions",
+            "Managers from different jurisdictions (e.g., Police, Fire, EMS) coordinate their response from a single command post",
+            "The military takes over control",
+            "Command is transferred to the hospital"
+        ],
+        answer: 1,
+        explanation: "Unified Command allows multiple agencies with jurisdiction to work together to set objectives and strategy without losing their authority.",
+        cite: "Page 1198"
+    },
+    {
+        q: "According to the START Triage system, a patient is tagged 'RED' (Immediate) if:",
+        options: [
+            "They are not breathing and do not start after opening the airway",
+            "They are walking around",
+            "They have a respiratory rate > 30, no radial pulse, or cannot follow simple commands",
+            "They have a broken leg but are alert"
+        ],
+        answer: 2,
+        explanation: "Red (Immediate) patients have life threats: RPM (Respirations > 30, Perfusion absent/cap refill > 2s, Mental Status altered).",
+        cite: "Page 1205"
+    },
+    {
+        q: "A patient who is not breathing, and does not start breathing after you open their airway, is tagged:",
         options: [
             "Red (Immediate)",
             "Yellow (Delayed)",
             "Green (Minor)",
             "Black (Deceased)"
         ],
-        answer: 2,
-        explanation: "Anyone who can walk is immediately categorized as Green (Minor) and directed to a collection point.",
-        cite: "START Triage Protocols"
+        answer: 3,
+        explanation: "In an MCI, if a patient remains apneic after a simple airway maneuver, they are tagged Black (Deceased/Expectant).",
+        cite: "Page 1205"
     },
     {
-        q: "In START Triage, you encounter a patient who is NOT breathing. You open the airway, and they start breathing. How do you tag them?",
+        q: "Patients who are able to walk ('Walking Wounded') are immediately tagged:",
         options: [
-            "Green",
-            "Yellow",
             "Red",
+            "Yellow",
+            "Green",
             "Black"
         ],
         answer: 2,
-        explanation: "If breathing returns after opening the airway, the patient is tagged RED (Immediate). If they still do not breathe, they are tagged Black.",
-        cite: "START Triage Protocols"
+        explanation: "All ambulatory patients are initially categorized as Green (Minor) and directed to a safe area.",
+        cite: "Page 1205"
     },
     {
-        q: "In which Control Zone does life-saving emergency care and decontamination typically take place?",
+        q: "What is the role of the 'Safety Officer'?",
         options: [
-            "Hot Zone",
-            "Warm Zone",
-            "Cold Zone",
-            "Danger Zone"
+            "To talk to the media",
+            "To monitor the scene for hazards and unsafe conditions (has authority to stop operations)",
+            "To track costs",
+            "To coordinate supplies"
         ],
         answer: 1,
-        explanation: "The Warm Zone (Contamination Reduction Zone) is where decontamination occurs. Life-saving care can happen here by protected personnel before moving to the Cold Zone.",
-        cite: "Standard HazMat Curriculum"
+        explanation: "The Safety Officer's sole job is personnel safety. They have the authority to bypass the chain of command to stop unsafe acts.",
+        cite: "Page 1199"
     },
     {
-        q: "What does the blue diamond on the NFPA 704 placard represent?",
+        q: "Which ICS Section is responsible for tactical operations (e.g., extrication, triage, treatment)?",
         options: [
-            "Fire Hazard",
-            "Health Hazard",
-            "Reactivity Hazard",
-            "Special Hazard"
+            "Planning Section",
+            "Logistics Section",
+            "Operations Section",
+            "Finance Section"
         ],
-        answer: 1,
-        explanation: "Blue = Health, Red = Fire, Yellow = Reactivity/Instability, White = Special info.",
-        cite: "NFPA 704 Standards"
+        answer: 2,
+        explanation: "The Operations Section Chief carries out the tactical objectives (the 'doers'). Planning thinks, Logistics gets stuff, Finance pays.",
+        cite: "Page 1199"
     },
     {
         q: "A Multiple-Casualty Incident (MCI) is defined as:",
         options: [
-            "Any incident with more than 2 patients",
-            "Any incident that overwhelms the available resources",
+            "Any incident with more than 3 patients",
+            "An incident that places excessive demands on personnel and equipment",
             "A bus crash",
-            "An incident involving hazardous materials"
+            "A hazardous materials leak"
         ],
         answer: 1,
-        explanation: "An MCI is any event where the needs of the patients exceed the immediate resources available.",
-        cite: "Standard MCI Curriculum"
+        explanation: "An MCI is any event that overwhelms the available resources of the responding system.",
+        cite: "Page 1197"
     },
     {
-        q: "In START Triage, a patient has a respiratory rate of 34 breaths per minute. How do you tag them?",
+        q: "In START Triage, what does the mnemonic 'RPM' stand for?",
         options: [
-            "Green",
-            "Yellow",
-            "Red",
-            "Black"
+            "Respirations, Pulse, Motor",
+            "Respirations, Perfusion, Mental Status",
+            "Run, Panic, Move",
+            "Rapid, Patient, Movement"
+        ],
+        answer: 1,
+        explanation: "RPM checks: Respirations (rate), Perfusion (radial pulse/cap refill), and Mental Status (follow commands).",
+        cite: "Page 1205"
+    },
+    {
+        q: "Which zone is recommended for establishing the Medical/Treatment Area at a HazMat scene?",
+        options: [
+            "Hot Zone",
+            "Warm Zone",
+            "Cold Zone",
+            "Rehab Zone"
         ],
         answer: 2,
-        explanation: "Respiratory rate > 30 is an automatic RED tag in the START algorithm.",
-        cite: "START Triage Protocols"
+        explanation: "Treatment should occur in the Cold Zone to prevent contaminating equipment and ambulances. Only life-saving airway/hemorrhage control happens in Warm.",
+        cite: "Page 1185"
     },
     {
-        q: "What is the purpose of 'Staging' in an MCI?",
+        q: "The 'Emergency Response Guidebook' (ERG) is primarily used to:",
         options: [
-            "To treat patients",
-            "To keep ambulances and resources in one place until assigned",
-            "To decontaminate patients",
-            "To allow the media to film"
+            "Diagnose patients",
+            "Provide initial identification and isolation distances for hazardous materials",
+            "Map the route to the hospital",
+            "Contact the chemical manufacturer"
         ],
         answer: 1,
-        explanation: "The Staging Area prevents congestion at the scene. Units wait there until the IC requests them.",
-        cite: "NIMS / ICS Doctrine"
-    },
-    {
-        q: "In START Triage, a patient has no radial pulse but has a carotid pulse. How do you tag them?",
-        options: [
-            "Green",
-            "Yellow",
-            "Red",
-            "Black"
-        ],
-        answer: 2,
-        explanation: "Absent radial pulse (or cap refill > 2 seconds) indicates shock/poor perfusion. This is a RED tag.",
-        cite: "START Triage Protocols"
-    },
-    {
-        q: "Where should the Ambulance/Treatment area be located at a HazMat scene?",
-        options: [
-            "In the Hot Zone",
-            "In the Warm Zone",
-            "In the Cold Zone",
-            "Downwind of the incident"
-        ],
-        answer: 2,
-        explanation: "All treatment and transport operations occur in the Cold Zone (Support Zone), which is free of contamination.",
-        cite: "Standard HazMat Curriculum"
-    },
-    {
-        q: "Which shipping paper is found in the cab of a truck?",
-        options: [
-            "Bill of Lading",
-            "Waybill",
-            "Manifest",
-            "Air Bill"
-        ],
-        answer: 0,
-        explanation: "Trucks carry a Bill of Lading in the cab. Trains have a Waybill/Consist. Ships have a Manifest. Planes have an Air Bill.",
-        cite: "DOT HazMat Regulations"
-    },
-    {
-        q: "In START Triage, a patient is breathing 20 times a minute, has a radial pulse, but cannot follow simple commands (unconscious or confused). How do you tag them?",
-        options: [
-            "Green",
-            "Yellow",
-            "Red",
-            "Black"
-        ],
-        answer: 2,
-        explanation: "Altered mental status (inability to follow commands) classifies the patient as RED (Immediate).",
-        cite: "START Triage Protocols"
-    },
-    {
-        q: "What is the role of the 'Safety Officer' in the Incident Command System?",
-        options: [
-            "To direct traffic",
-            "To monitor the scene for hazards and stop unsafe acts (has authority to stop the entire operation)",
-            "To count patients",
-            "To talk to the media"
-        ],
-        answer: 1,
-        explanation: "The Safety Officer ensures personnel safety and has the absolute authority to stop any unsafe activity immediately.",
-        cite: "NIMS / ICS Doctrine"
-    },
-    {
-        q: "Patients tagged 'Yellow' (Delayed) in START Triage typically have:",
-        options: [
-            "Minor injuries like scrapes",
-            "Serious but non-life-threatening injuries (e.g., broken bone with good pulses, conscious)",
-            "Shock and airway problems",
-            "No pulse"
-        ],
-        answer: 1,
-        explanation: "Yellow patients cannot walk (so not Green) but have stable ABCs (so not Red). They can wait a short time for transport.",
-        cite: "START Triage Protocols"
-    },
-    {
-        q: "The 'Emergency Response Guidebook' (ERG) is used to:",
-        options: [
-            "Treat patients with trauma",
-            "Identify hazardous materials and determine initial isolation distances",
-            "Fix the ambulance engine",
-            "Map out the route to the hospital"
-        ],
-        answer: 1,
-        explanation: "The ERG (yellow/orange book) is the primary reference for first responders to identify chemicals and set up safe perimeters.",
-        cite: "DOT HazMat Regulations"
-    },
-    {
-        q: "When approaching a potential HazMat scene, you should park:",
-        options: [
-            "Downhill and downwind",
-            "Uphill and upwind",
-            "Right next to the spill",
-            "In the drainage ditch"
-        ],
-        answer: 1,
-        explanation: "Always approach from Uphill and Upwind to avoid gases or liquids flowing toward you.",
-        cite: "Standard HazMat Curriculum"
-    },
-    {
-        q: "What is 'Span of Control' in ICS?",
-        options: [
-            "The distance a radio can transmit",
-            "The number of subordinates one supervisor can effectively manage (optimally 3-7, ideal is 5)",
-            "The length of the fire hose",
-            "The time the incident lasts"
-        ],
-        answer: 1,
-        explanation: "Span of Control dictates that one person should manage between 3 and 7 people (5 is ideal) to remain effective.",
-        cite: "NIMS / ICS Doctrine"
-    },
-    {
-        q: "In START Triage, a patient is not breathing. You open the airway, and they still do not breathe. You should:",
-        options: [
-            "Start CPR",
-            "Tag them Red",
-            "Tag them Black (Deceased)",
-            "Give rescue breaths"
-        ],
-        answer: 2,
-        explanation: "In an MCI, CPR is generally not performed. If the patient does not breathe after a simple airway maneuver, they are tagged Black.",
-        cite: "START Triage Protocols"
+        explanation: "The ERG (yellow book) helps first responders identify chemicals via placard/UN number and determine safe standoff distances.",
+        cite: "Page 1189"
     }
 ];
