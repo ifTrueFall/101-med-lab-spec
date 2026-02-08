@@ -1,1 +1,126 @@
- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 34: Multisystem Trauma</title>
+    <style>
+        :root {
+            --primary-color: #8B0000; /* Dark Red for Trauma */
+            --secondary-color: #f4f4f4;
+            --correct-color: #2e7d32;
+            --incorrect-color: #c62828;
+            --border-color: #ddd;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #e9ecef;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+        }
+
+        h1 { color: var(--primary-color); margin: 0; }
+
+        .top-nav {
+            background-color: var(--primary-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .question-text { font-weight: 600; margin-bottom: 15px; font-size: 1.1em; }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 5px;
+            transition: background 0.2s;
+        }
+
+        .option-label:hover { background-color: var(--secondary-color); }
+        
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+        .feedback.correct { background-color: #e8f5e9; border: 1px solid #a5d6a7; color: var(--correct-color); }
+        .feedback.incorrect { background-color: #ffebee; border: 1px solid #ef9a9a; color: var(--incorrect-color); }
+
+        .correct-choice { background-color: #e8f5e9; border-color: var(--correct-color); font-weight: bold; }
+        .incorrect-choice { background-color: #ffebee; border-color: var(--incorrect-color); }
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="../../navigation.html">Return to Main Menu</a> 
+</nav>
+
+<div class="container">
+    <header>
+        <h1>Chapter 34: Multisystem Trauma</h1>
+    </header>
+
+    <div id="quiz-container">Loading...</div>
+    
+    <div style="text-align:center; margin-top:20px;">
+        <button onclick="location.reload()" style="padding:10px 20px; cursor:pointer;">Reset Quiz</button>
+    </div>
+</div>
+
+<script src="../data/Ch34Questions.js"></script>
+
+<script src="../../scripts/QuizEngine.js"></script>
+
+<script>
+    if (typeof ch34Questions !== 'undefined' && typeof renderQuiz === 'function') {
+        renderQuiz(ch34Questions, 'quiz-container');
+    } else {
+        document.getElementById('quiz-container').innerHTML = 
+            "<p style='color:red;'>Error: Could not load data or engine. Check paths.</p>";
+    }
+</script>
+
+</body>
+</html>
