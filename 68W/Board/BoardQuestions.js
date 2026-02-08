@@ -1,5 +1,7 @@
 /**
  * BOARD QUESTIONS DATA
+ * Variable: boardQuestions
+ * Used by: Board.html
  */
 
 const boardQuestions = [
@@ -331,17 +333,3 @@ const boardQuestions = [
         cite: "TC 3-25.26"
     }
 ];
-
-// --- INITIALIZATION ---
-// This part is critical. It checks if the engine is loaded, then starts the quiz.
-window.addEventListener('load', () => {
-    if (typeof renderQuiz === 'function') {
-        renderQuiz(boardQuestions, 'quizContainer');
-    } else {
-        console.error("QuizEngine.js is not loaded. Cannot render quiz.");
-        const container = document.getElementById('quizContainer');
-        if (container) {
-            container.innerHTML = "<p style='color:red; text-align:center; padding:20px;'>Error: QuizEngine.js not found.<br>Check console for details.</p>";
-        }
-    }
-});
