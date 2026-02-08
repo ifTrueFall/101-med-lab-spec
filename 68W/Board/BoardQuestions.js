@@ -332,10 +332,3 @@ const boardQuestions = [
         cite: "TC 3-25.26"
     }
 ];
-
-// Auto-init logic for the engine
-window.addEventListener('load', () => {
-    if (typeof renderQuiz === 'function') {
-        renderQuiz(boardQuestions, 'quizContainer');
-    }
-});
