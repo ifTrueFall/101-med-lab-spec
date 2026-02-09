@@ -728,5 +728,127 @@ const sec5RevQuestions = [
         answer: 2,
         explanation: "The Detailed Physical Exam is generally performed en route, time permitting, after life threats have been managed.",
         cite: "Page 1004"
+    },
+    // --- CHAPTER 35: ENVIRONMENTAL EMERGENCIES ---
+    {
+        q: "What is the primary mechanism by which the body loses heat through direct contact with a colder object (e.g., lying on cold ground)?",
+        options: [
+            "Convection",
+            "Radiation",
+            "Conduction",
+            "Evaporation"
+        ],
+        answer: 2,
+        explanation: "Conduction is the transfer of heat from one material to another through direct contact. Water chills the body 25 times faster than air via conduction.",
+        cite: "Page 1016"
+    },
+    {
+        q: "Which of the following is a classic sign of 'Heat Stroke' that differentiates it from Heat Exhaustion?",
+        options: [
+            "Profuse sweating and muscle cramps",
+            "Hot, dry skin and Altered Mental Status (AMS)",
+            "Pale, cool, clammy skin",
+            "Normal body temperature"
+        ],
+        answer: 1,
+        explanation: "Heat stroke occurs when the body's temperature-regulating mechanisms fail. The patient stops sweating, and the skin becomes hot and dry. AMS is key.",
+        cite: "Page 1029"
+    },
+    {
+        q: "Why must you handle a patient with severe hypothermia extremely gently?",
+        options: [
+            "Their bones are brittle and will break",
+            "Rough handling can trigger Ventricular Fibrillation (V-Fib)",
+            "They are likely to vomit",
+            "It causes them intense pain"
+        ],
+        answer: 1,
+        explanation: "A hypothermic heart is irritable. Rough movement can cause it to go into a fatal dysrhythmia like V-Fib.",
+        cite: "Page 1024"
+    },
+    {
+        q: "What is the correct treatment for a Late/Deep Local Cold Injury (Frostbite)?",
+        options: [
+            "Rub the area vigorously to warm it",
+            "Immerse in boiling water",
+            "Rewarm rapidly in warm water (100°F-105°F) ONLY if there is no chance of refreezing",
+            "Break the blisters to release pressure"
+        ],
+        answer: 2,
+        explanation: "Never rub frostbite. Rapid rewarming should only be done if transport is delayed and there is absolutely no risk of the tissue refreezing.",
+        cite: "Page 1026"
+    },
+    {
+        q: "When assessing a pulse in a patient with severe hypothermia, how long should you check?",
+        options: [
+            "5 seconds",
+            "10 seconds",
+            "30 to 45 seconds",
+            "1 minute"
+        ],
+        answer: 2,
+        explanation: "Metabolic rates are so slow that the heart rate may be barely perceptible. Check for 30-45 seconds before starting CPR.",
+        cite: "Page 1024"
+    },
+    {
+        q: "What is 'Passive Rewarming'?",
+        options: [
+            "Applying heat packs to the groin and axilla",
+            "Preventing further heat loss (removing wet clothes, covering with blankets) and allowing the body to warm itself",
+            "Giving hot fluids by mouth",
+            "Putting the patient in a warm bath"
+        ],
+        answer: 1,
+        explanation: "Passive rewarming involves covering the patient and letting their own metabolism generate heat. It is suitable for mild hypothermia.",
+        cite: "Page 1021"
+    },
+    {
+        q: "Which spider bite typically causes a dull ache that becomes severe muscle cramps, rigidity, and abdominal pain?",
+        options: [
+            "Brown Recluse",
+            "Black Widow",
+            "Tarantula",
+            "Garden Spider"
+        ],
+        answer: 1,
+        explanation: "Black Widow venom is a neurotoxin leading to severe muscle spasms and cramping. Brown Recluse bites cause tissue necrosis.",
+        cite: "Page 1043"
+    },
+    {
+        q: "Decompression Sickness ('The Bends') is caused by:",
+        options: [
+            "Nitrogen bubbles forming in the blood and tissues due to rapid ascent",
+            "Holding your breath while diving",
+            "Oxygen toxicity",
+            "Carbon monoxide poisoning"
+        ],
+        answer: 0,
+        explanation: "Nitrogen dissolved in the blood under pressure comes out of solution if the diver surfaces too quickly, forming bubbles that block vessels.",
+        cite: "Page 1033"
+    },
+    {
+        q: "What is the primary difference between Air Embolism (AGE) and Decompression Sickness (DCS) in a diver?",
+        options: [
+            "AGE appears immediately (minutes); DCS symptoms are often delayed (1-48 hours)",
+            "AGE is caused by nitrogen; DCS is caused by air",
+            "AGE affects the joints; DCS affects the brain",
+            "There is no difference"
+        ],
+        answer: 0,
+        explanation: "Arterial Gas Embolism (AGE) is a rapid onset event (usually upon surfacing). Decompression sickness takes time for bubbles to form and cause pain.",
+        cite: "Page 1034"
+    },
+    {
+        q: "For a patient with Heat Exhaustion (moist, pale, normal-to-cool skin), your treatment should include:",
+        options: [
+            "Rapid cooling with ice baths",
+            "Moving to a cool environment, splashing with water, and fanning",
+            "Administering salt tablets",
+            "Keeping them warm to prevent shock"
+        ],
+        answer: 1,
+        explanation: "Remove them from the heat, remove excess clothing, and cool them (but not to the point of shivering). Treat for shock.",
+        cite: "Page 1029"
     }
+    
 ];
