@@ -849,6 +849,370 @@ const sec5RevQuestions = [
         answer: 1,
         explanation: "Remove them from the heat, remove excess clothing, and cool them (but not to the point of shivering). Treat for shock.",
         cite: "Page 1029"
+    },
+    // --- CHAPTER 39: HAZMAT, MCI, & INCIDENT MANAGEMENT ---
+    {
+        q: "In the Incident Command System (ICS), which section is responsible for the tactical operations (the 'Doers') at the scene?",
+        options: [
+            "Finance/Administration",
+            "Logistics",
+            "Operations",
+            "Planning"
+        ],
+        answer: 2,
+        explanation: "The Operations Section is responsible for managing all tactical operations at the incident site to accomplish the primary objectives.",
+        cite: "Sec5 PDF: Incident Command System"
+    },
+    {
+        q: "What is the specific role of the 'Liaison Officer' in the Command Staff?",
+        options: [
+            "To talk to the media",
+            "To coordinate with outside agencies and representatives",
+            "To track costs",
+            "To ensure scene safety"
+        ],
+        answer: 1,
+        explanation: "The Liaison Officer is the point of contact for representatives of other governmental agencies, non-governmental organizations, and private entities.",
+        cite: "Sec5 PDF: Command Staff"
+    },
+    {
+        q: "A 'Unified Command' structure is best defined as:",
+        options: [
+            "One commander from one agency making all decisions",
+            "A committee that votes on every decision",
+            "A shared command authority where agencies with different jurisdictions work together to set common objectives",
+            "The military taking control of a civilian scene"
+        ],
+        answer: 2,
+        explanation: "Unified Command allows agencies with different legal, geographic, and functional authorities to work together effectively without affecting individual agency authority.",
+        cite: "Sec5 PDF: Incident Command"
+    },
+    {
+        q: "Which HazMat zone is also known as the 'Contamination Reduction Zone'?",
+        options: [
+            "Hot Zone",
+            "Warm Zone",
+            "Cold Zone",
+            "Support Zone"
+        ],
+        answer: 1,
+        explanation: "The Warm Zone is the transition area between the contaminated Hot Zone and the safe Cold Zone, primarily used for decontamination.",
+        cite: "Sec5 PDF: HazMat Zones"
+    },
+    {
+        q: "In START Triage, if a patient has a respiratory rate of 24, a radial pulse, and follows commands, they are tagged:",
+        options: [
+            "Red (Immediate)",
+            "Yellow (Delayed)",
+            "Green (Minor)",
+            "Black (Deceased)"
+        ],
+        answer: 1,
+        explanation: "Respirations < 30, Pulse present, and Mental Status good (RPM stable) but unable to walk = Yellow (Delayed).",
+        cite: "Sec5 PDF: START Triage"
+    },
+    {
+        q: "The 'Rain Check' or 'Walking Wounded' phase of triage involves:",
+        options: [
+            "Checking the weather",
+            "Asking everyone who can walk to move to a designated area",
+            "Counting the dead",
+            "Sending everyone home"
+        ],
+        answer: 1,
+        explanation: "The first step in triage is to clear the 'walking wounded' (Green tags) by asking them to move to a safe area, instantly reducing the chaos.",
+        cite: "Sec5 PDF: Triage"
+    },
+    {
+        q: "Which diamond on the NFPA 704 placard indicates a 'Flammability' hazard?",
+        options: [
+            "Blue",
+            "Red",
+            "Yellow",
+            "White"
+        ],
+        answer: 1,
+        explanation: "Red indicates flammability. Blue is health, Yellow is reactivity, and White is special hazards.",
+        cite: "Sec5 PDF: HazMat Identification"
+    },
+    {
+        q: "When referencing the Emergency Response Guidebook (ERG), the yellow-bordered pages are used to look up chemicals by:",
+        options: [
+            "Name of the chemical",
+            "4-digit UN ID number",
+            "Isolation distance",
+            "Placard color"
+        ],
+        answer: 1,
+        explanation: "Yellow pages = ID Number. Blue pages = Name of Material. Orange pages = Guides. Green pages = Isolation distances.",
+        cite: "Sec5 PDF: ERG Usage"
+    },
+    {
+        q: "What is the 'Span of Control' rule of thumb for a single supervisor?",
+        options: [
+            "1 to 3 people",
+            "3 to 7 people (5 is optimal)",
+            "10 to 15 people",
+            "Unlimited"
+        ],
+        answer: 1,
+        explanation: "To maintain effective command, a supervisor should manage 3-7 subordinates. If it exceeds 7, the group should be split.",
+        cite: "Sec5 PDF: Incident Command"
+    },
+    {
+        q: "A patient in cardiac arrest at a Multiple-Casualty Incident (MCI) where resources are overwhelmed should generally be tagged:",
+        options: [
+            "Red",
+            "Yellow",
+            "Green",
+            "Black"
+        ],
+        answer: 3,
+        explanation: "In a true MCI where resources are scarce, CPR is not performed. Pulseless/apneic patients are tagged Black to save resources for those with a chance of survival.",
+        cite: "Sec5 PDF: Triage Ethics"
+    },
+
+    // --- CHAPTER 40: HIGHWAY SAFETY & EXTRICATION ---
+    {
+        q: "The first arriving unit at a highway incident should establish 'upstream blocking' by positioning the apparatus:",
+        options: [
+            "At a 45-degree angle, blocking 1.5 to 2 lanes",
+            "Parallel to the road on the shoulder",
+            "In the median",
+            "Downstream of the crash"
+        ],
+        answer: 0,
+        explanation: "Blocking 1.5 to 2 lanes at an angle creates a physical barrier that protects the scene and responders from oncoming traffic.",
+        cite: "Sec5 PDF: Highway Safety"
+    },
+    {
+        q: "To minimize the risk of blinding oncoming drivers at night, you should:",
+        options: [
+            "Turn on all high beams",
+            "Use only amber/red warning lights and turn OFF headlights/fog lights",
+            "Use white strobes only",
+            "Turn off all lights"
+        ],
+        answer: 1,
+        explanation: "Headlights and white strobes are blinding. Use amber/red emergency lights and directional arrows to warn traffic without impairing their vision.",
+        cite: "Sec5 PDF: Night Operations"
+    },
+    {
+        q: "Which type of vehicle glass is designed to shatter into small, rounded 'nuggets' rather than sharp shards?",
+        options: [
+            "Laminated glass",
+            "Tempered glass",
+            "Plate glass",
+            "Lexan"
+        ],
+        answer: 1,
+        explanation: "Tempered glass (side and rear windows) is heat-treated to crumble into small chunks for safety. Laminated glass (windshields) stays in one piece.",
+        cite: "Sec5 PDF: Vehicle Anatomy"
+    },
+    {
+        q: "When disabling a vehicle's electrical system, why must you disconnect the NEGATIVE battery cable first?",
+        options: [
+            "It is usually easier to reach",
+            "To prevent sparking/arcing if your tool touches the metal frame",
+            "To save the radio presets",
+            "It stops the fuel pump faster"
+        ],
+        answer: 1,
+        explanation: "The frame is grounded. If you wrench the positive cable and hit the frame, it sparks. If you wrench the negative and hit the frame, nothing happens.",
+        cite: "Sec5 PDF: Extrication Safety"
+    },
+    {
+        q: "What is the 'Safe Zone' for parking an ambulance at a highway crash?",
+        options: [
+            "Immediately behind the blocking fire truck",
+            "100 feet downstream (past the incident)",
+            "On the opposite shoulder",
+            "In the fast lane"
+        ],
+        answer: 1,
+        explanation: "Parking downstream places the ambulance in the shadow of the blocking apparatus, allowing for safe loading of patients.",
+        cite: "Sec5 PDF: Vehicle Positioning"
+    },
+    {
+        q: "Undeployed airbags pose a risk of accidental deployment. The safe distance for a passenger-side airbag is:",
+        options: [
+            "5 inches",
+            "10 inches",
+            "20 inches",
+            "3 feet"
+        ],
+        answer: 2,
+        explanation: "Passenger airbags are large and deploy with massive force. Maintain 20 inches of clearance.",
+        cite: "Sec5 PDF: Airbag Safety"
+    },
+    {
+        q: "Cribbing is used in extrication primarily to:",
+        options: [
+            "Break windows",
+            "Stabilize the vehicle and prevent suspension movement",
+            "Pry open doors",
+            "Cut seatbelts"
+        ],
+        answer: 1,
+        explanation: "Cribbing (wood/plastic blocks) fills the void between the frame and the ground to create a solid, non-moving platform.",
+        cite: "Sec5 PDF: Stabilization"
+    },
+    {
+        q: "The 'A-Post' of a vehicle is located:",
+        options: [
+            "Between the front and rear doors",
+            "At the rear window",
+            "Framing the windshield (front pillar)",
+            "On the roof"
+        ],
+        answer: 2,
+        explanation: "A-Post = Front (windshield). B-Post = Middle. C-Post = Rear.",
+        cite: "Sec5 PDF: Vehicle Anatomy"
+    },
+    {
+        q: "If you encounter a 'Hybrid' vehicle, you should avoid cutting:",
+        options: [
+            "Black cables",
+            "Orange cables",
+            "Blue cables",
+            "Green cables"
+        ],
+        answer: 1,
+        explanation: "Orange cabling designates high-voltage (HV) power lines in hybrid/electric vehicles. Cutting them can be fatal.",
+        cite: "Sec5 PDF: Hybrid Safety"
+    },
+    {
+        q: "What is the 'Purchase Point' in extrication?",
+        options: [
+            "Where you buy the tools",
+            "A small gap created to allow insertion of larger spreader tips",
+            "The center of the door",
+            "The battery terminal"
+        ],
+        answer: 1,
+        explanation: "You often need to bend the metal slightly to create a 'purchase point' (gap) where the tips of the hydraulic spreaders can fit.",
+        cite: "Sec5 PDF: Extrication Techniques"
+    },
+
+    // --- CHAPTER 41: EMS RESPONSE TO TERRORISM ---
+    {
+        q: "The concept of 'Secondary Contamination' refers to:",
+        options: [
+            "Contamination by a second bomb",
+            "Transfer of a hazardous substance from a contaminated person/object to a rescuer",
+            "Contamination of the water supply",
+            "Long-term radiation effects"
+        ],
+        answer: 1,
+        explanation: "This occurs when a rescuer touches a patient who still has the agent on their skin/clothing. Decontamination is vital to prevent this.",
+        cite: "Sec5 PDF: CBRNE Safety"
+    },
+    {
+        q: "Which agent is a 'Choking Agent' that smells like fresh mown hay?",
+        options: [
+            "Phosgene",
+            "Chlorine",
+            "Mustard Gas",
+            "Sarin"
+        ],
+        answer: 0,
+        explanation: "Phosgene (CG) is a choking agent that damages the lungs and has the distinct odor of fresh hay.",
+        cite: "Sec5 PDF: Chemical Agents"
+    },
+    {
+        q: "The primary medical treatment for Nerve Agent exposure (SLUDGEM symptoms) is:",
+        options: [
+            "Antibiotics",
+            "DuoDote (Atropine + Pralidoxime Chloride)",
+            "Amyl Nitrite",
+            "High-flow oxygen only"
+        ],
+        answer: 1,
+        explanation: "DuoDote (or Mark 1 kits) contains Atropine to dry secretions and 2-PAM to reactivate the enzyme cholinesterase.",
+        cite: "Sec5 PDF: Nerve Agents"
+    },
+    {
+        q: "Alpha radiation particles are:",
+        options: [
+            "Highly penetrating (need lead to stop)",
+            "Heavy and slow; can be stopped by paper or clothing",
+            "Only dangerous if you look at them",
+            "A form of radio wave"
+        ],
+        answer: 1,
+        explanation: "Alpha particles are weak penetrators (stopped by paper) but are extremely dangerous if inhaled or ingested (internal contamination).",
+        cite: "Sec5 PDF: Radiation"
+    },
+    {
+        q: "The 'Quaternary' injury from a blast refers to:",
+        options: [
+            "The pressure wave",
+            "Shrapnel",
+            "Impact with the ground",
+            "Collateral injuries like burns, crush, or toxic inhalation"
+        ],
+        answer: 3,
+        explanation: "Primary=Blast, Secondary=Shrapnel, Tertiary=Throw, Quaternary=Everything else (burns, gas, crush).",
+        cite: "Sec5 PDF: Blast Injuries"
+    },
+    {
+        q: "Which biological toxin is derived from the castor bean plant?",
+        options: [
+            "Anthrax",
+            "Ricin",
+            "Botulism",
+            "Smallpox"
+        ],
+        answer: 1,
+        explanation: "Ricin is a highly toxic protein extracted from the waste mash of castor beans.",
+        cite: "Sec5 PDF: Biological Toxins"
+    },
+    {
+        q: "What is the key difference between a 'Dirty Bomb' and a Nuclear Weapon?",
+        options: [
+            "A dirty bomb is bigger",
+            "A dirty bomb uses conventional explosives to spread radioactive material, whereas a nuclear weapon causes a nuclear yield/detonation",
+            "A dirty bomb uses biological agents",
+            "There is no difference"
+        ],
+        answer: 1,
+        explanation: "A dirty bomb (RDD) is a conventional bomb wrapped in radioactive waste. Its main effect is panic and disruption, not nuclear destruction.",
+        cite: "Sec5 PDF: Radiological Devices"
+    },
+    {
+        q: "Blister Agents (Vesicants) like Sulfur Mustard primarily affect:",
+        options: [
+            "The nerves",
+            "The skin, eyes, and respiratory tract",
+            "The blood's ability to carry oxygen",
+            "The digestive system"
+        ],
+        answer: 1,
+        explanation: "Vesicants cause chemical burns and blisters on contact with skin or mucous membranes.",
+        cite: "Sec5 PDF: Chemical Agents"
+    },
+    {
+        q: "The mnemonic 'OTTO' is used to detect suspicious incidents. It stands for:",
+        options: [
+            "Occupancy, Type of event, Timing, On-scene clues",
+            "Observe, Talk, Treat, Organize",
+            "Open, Triage, Transport, Operate",
+            "Officer, Technician, Team, Operations"
+        ],
+        answer: 0,
+        explanation: "OTTO helps responders recognize potential terrorism: Occupancy (location), Type, Timing, and On-scene warning signs.",
+        cite: "Sec5 PDF: Terrorism Awareness"
+    },
+    {
+        q: "Cyanide affects the body by:",
+        options: [
+            "Causing blisters",
+            "Preventing the blood from clotting",
+            "Inhibiting cellular oxygen use (cellular asphyxiation)",
+            "Paralyzing the diaphragm"
+        ],
+        answer: 2,
+        explanation: "Cyanide disrupts the electron transport chain in the mitochondria, preventing cells from using the oxygen in the blood.",
+        cite: "Sec5 PDF: Chemical Agents"
     }
-    
 ];
