@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Exam</title>
+    <style>
+        :root {
+            --primary-color: #b71c1c; /* Deep Red for Final Exam */
+            --secondary-color: #f4f4f4;
+            --correct-color: #2e7d32;
+            --incorrect-color: #c62828;
+            --border-color: #ddd;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #eceff1;
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 4px solid var(--primary-color);
+            padding-bottom: 20px;
+        }
+
+        h1 { 
+            color: var(--primary-color); 
+            margin: 0; 
+            font-size: 2.2em;
+        }
+        
+        h3 {
+            color: #546e7a;
+            margin-top: 10px;
+            font-weight: 400;
+        }
+
+        .top-nav {
+            background-color: #37474f;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .top-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Quiz Stats Bar */
+        #quiz-stats {
+            display: flex;
+            justify-content: space-between;
+            background: #cfd8dc;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            font-weight: bold;
+            color: #263238;
+            border: 1px solid #b0bec5;
+        }
+
+        .question-card {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 25px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .question-text { 
+            font-weight: 700; 
+            margin-bottom: 20px; 
+            font-size: 1.15em; 
+            color: #2c3e50;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .option-label:hover { 
+            background-color: #e3f2fd; 
+            border-color: #90caf9;
+        }
+        
+        .option-label input { 
+            margin-right: 15px; 
+            transform: scale(1.2);
+        }
+        
+        /* Feedback Styles */
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            font-size: 0.95em;
+            display: none; 
+            line-height: 1.5;
+        }
+        
+        .feedback strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .feedback.correct { 
+            background-color: #e8f5e9; 
+            border-left: 5px solid var(--correct-color); 
+            color: #1b5e20; 
+            display: block; 
+        }
+        
+        .feedback.incorrect { 
+            background-color: #ffebee; 
+            border-left: 5px solid var(--incorrect-color); 
+            color: #b71c1c; 
+            display: block; 
+        }
+
+        .correct-choice { 
+            background-color: #c8e6c9 !important; 
+            border-color: var(--correct-color) !important; 
+            font-weight: bold; 
+        }
+        
+        .incorrect-choice { 
+            background-color: #ffcdd2 !important; 
+            border-color: var(--incorrect-color) !important; 
+        }
+
+        /* Action Buttons */
+        .btn {
+            padding: 12px 24px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn-restart {
+            background-color: #455a64;
+            color: white;
+        }
+        
+        .btn-restart:hover {
+            background-color: #263238;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="../navigation.html">Return to Main Menu</a> 
+</nav>
+
+<div class="container">
+    <header>
+        <h1>Comprehensive EMT Final Exam</h1>
+        <h3>120 Questions | Chapters 1-41</h3>
+    </header>
+
+    <div id="quiz-container">
+        <div style="text-align: center; padding: 40px; color: #666;">
+            <p>Loading Exam Data...</p>
+            <p style="font-size: 0.9em;">If this takes too long, check that <b>EMTFinalQuestions.js</b> is correctly linked.</p>
+        </div>
+    </div>
+    
+    <div style="text-align:center; margin-top:40px; border-top: 1px solid #ddd; padding-top: 20px;">
+        <button onclick="location.reload()" class="btn btn-restart">Restart Exam</button>
+    </div>
+</div>
+
+<script src="EMTFinalQuestions.js"></script>
+
+<script src="../scripts/QuizEngine.js"></script>
+
+<script>
+    // Ensure the engine and data are loaded
+    if (typeof emtFinalQuestions !== 'undefined' && typeof renderQuiz === 'function') {
+        renderQuiz(emtFinalQuestions, 'quiz-container');
+    } else {
+        document.getElementById('quiz-container').innerHTML = 
+            "<div style='background:#ffebee; border:1px solid #ef5350; padding:20px; color:#c62828; text-align:center;'>" +
+            "<h3>Error Loading Exam</h3>" +
+            "<p>Could not find the data variable <code>emtFinalQuestions</code> or the <code>renderQuiz</code> function.</p>" +
+            "<p>1. Check that <b>EMTFinalQuestions.js</b> exists in the <code>../data/</code> folder.</p>" +
+            "<p>2. Check that <b>QuizEngine.js</b> exists in the <code>../../scripts/</code> folder.</p>" +
+            "</div>";
+    }
+</script>
+
+</body>
+</html>
