@@ -358,5 +358,365 @@ const emtFinalQuestions = [
         answer: 0,
         explanation: "The sudden onset of pain and absent lung sounds suggests a Spontaneous Pneumothorax. CPAP is contraindicated. The patient needs high-flow oxygen via Non-Rebreather. (Chapter 19: Respiratory Emergencies)",
         cite: " "
+    },
+    {
+        q: "A 39-year-old female is lying in bed. When you assess her, which of the following findings indicate an inadequate airway?",
+        options: [
+            "She has chest wall expansion with little abdominal wall movement.",
+            "She is lying on her side.",
+            "She has an open pill bottle next to her bed.",
+            "She is unresponsive and snoring."
+        ],
+        answer: 3,
+        explanation: "Snoring is a cardinal sign of an upper airway obstruction, usually caused by the tongue falling back against the pharynx in an unresponsive patient.",
+        cite: "Chapter 10: Airway Management"
+    },
+    {
+        q: "Which of the following best describes a difference between the systemic inflammatory response syndrome (SIRS) and the quick sepsis-related organ failure assessment (qSOFA)?",
+        options: [
+            "SIRS creates a score based on the number of abnormal findings, whereas SOFA uses the presence of two or more specific criteria.",
+            "SIRS is more commonly used in the intensive care setting, whereas qSOFA is more commonly used in field assessments.",
+            "SIRS is used to predict the likelihood a patient will develop sepsis, whereas qSOFA is used to predict the likelihood of patient death from sepsis.",
+            "SIRS relies on the measurement of exhaled carbon dioxide to detect sepsis, whereas SOFA uses a variety of measures."
+        ],
+        answer: 2,
+        explanation: "qSOFA (altered mental status, rapid respiratory rate, low blood pressure) is a tool used to identify patients with suspected infection who are at greater risk for a poor outcome (death) outside the ICU.",
+        cite: "Chapter 29: Bleeding and Shock (Sepsis)"
+    },
+    {
+        q: "What structure in a child's airway takes up proportionally more space in the pharynx than an adult's?",
+        options: [
+            "trachea",
+            "tongue",
+            "uvula",
+            "cricoid cartilage"
+        ],
+        answer: 1,
+        explanation: "A child's tongue is proportionally much larger than an adult's, making it the most common cause of airway obstruction in pediatric patients.",
+        cite: "Chapter 37: Pediatrics"
+    },
+    {
+        q: "Why should you assist the ventilation of a patient who is in respiratory failure?",
+        options: [
+            "To improve cardiac output",
+            "To reduce intrathoracic pressure",
+            "To reduce oncotic pressure",
+            "To improve alveolar ventilation"
+        ],
+        answer: 3,
+        explanation: "Respiratory failure means the patient's own breathing is inadequate to support life. Assisting ventilation forces air into the alveoli (alveolar ventilation) to restore gas exchange.",
+        cite: "Chapter 10: Airway Management"
+    },
+    {
+        q: "Which of the following is recommended when controlling epistaxis?",
+        options: [
+            "Pinching the nostrils together",
+            "Application of a pressure dressing",
+            "Having the patient tilt the head backward to elevate the nose",
+            "Apply a heat pack"
+        ],
+        answer: 0,
+        explanation: "Pinching the fleshy part of the nostrils together (direct pressure) while the patient leans forward is the standard treatment for a nosebleed.",
+        cite: "Chapter 29: Bleeding and Shock"
+    },
+    {
+        q: "Which of the following best describes a fluttering sensation in the chest?",
+        options: [
+            "Pulseless electrical activity of the heart",
+            "Palpitations",
+            "Dysrhythmia",
+            "Tachycardia"
+        ],
+        answer: 1,
+        explanation: "Palpitations are the sensation of feeling one's own heartbeat, often described as fluttering, skipping a beat, or pounding.",
+        cite: "Chapter 20: Cardiac Emergencies"
+    },
+    {
+        q: "An 89-year-old male cut his abdomen with a knife while preparing dinner. You observe several loops of bowel protruding from the wound and minimal bleeding. What type of dressing should you apply to his wound?",
+        options: [
+            "Hemostatic",
+            "Moist sterile",
+            "Self-adhering occlusive",
+            "Dry, sterile"
+        ],
+        answer: 1,
+        explanation: "Abdominal eviscerations must be kept moist to prevent the organs from drying out and dying. A moist sterile dressing followed by an occlusive layer is the standard of care.",
+        cite: "Chapter 31: Chest and Abdominal Trauma"
+    },
+    {
+        q: "What is FiO2?",
+        options: [
+            "The amount of oxygen delivered via an airway adjunct in liters per minute",
+            "The concentration of oxygen in our inhaled air, which is referred to as the fraction of inspired oxygen",
+            "The concentration of gasses in our expired air, which is referred to as the fraction of used oxygen",
+            "The flow rate of gasses provided to the patient by mask or nasal cannula"
+        ],
+        answer: 1,
+        explanation: "FiO2 stands for Fraction of Inspired Oxygen. Room air is 0.21 (21%); 100% oxygen is 1.0.",
+        cite: "Chapter 10: Airway Management"
+    },
+    {
+        q: "An unresponsive 76-year-old female is lying in bed, and you hear snoring respirations. What should you suspect is partially occluding her airway?",
+        options: [
+            "Food",
+            "Croup",
+            "Her tongue",
+            "Liquid"
+        ],
+        answer: 2,
+        explanation: "In an unresponsive patient lying supine, gravity causes the tongue to fall back and partially block the airway, creating a snoring sound.",
+        cite: "Chapter 10: Airway Management"
+    },
+    {
+        q: "With START triage, when you arrive on the scene, you ask all the patients who can walk to move to one area. These patients are categorized as:",
+        options: [
+            "yellow tagged",
+            "Priority 3 walking wounded",
+            "red tagged",
+            "Priority 4 walking wounded"
+        ],
+        answer: 1,
+        explanation: "Patients who can follow commands and walk are categorized as 'Walking Wounded' or Green (Priority 3).",
+        cite: "Chapter 39: HazMat & MCI"
+    },
+    {
+        q: "Which of the following is the EMT's primary responsibility at a secured crime scene?",
+        options: [
+            "Identifying any potential suspects encountered at the scene",
+            "Providing patient care",
+            "Taking notes that may be needed during court testimony",
+            "Preserving evidence"
+        ],
+        answer: 1,
+        explanation: "While preserving evidence is important, the EMT's primary legal and ethical duty is always the emergency medical care of the patient.",
+        cite: "Chapter 3: Medical, Legal, and Ethical Issues"
+    },
+    {
+        q: "An 8-year-old female has had trouble breathing for two days. Her father called because she continues to have trouble breathing and he cannot wake her up. You do not hear any sounds when you auscultate her lower lungs and hear faint wheezes in her upper lungs. Her vital signs are P 60, R 26, BP 94/68, and SpO2 is 88% on room air. You should suspect:",
+        options: [
+            "respiratory arrest.",
+            "eupneic respirations.",
+            "respiratory distress.",
+            "respiratory failure."
+        ],
+        answer: 3,
+        explanation: "The patient has an altered mental status ('cannot wake her up'), bradycardia (P 60), and low SpO2. This indicates her respiratory effort is failing to support life (Respiratory Failure).",
+        cite: "Chapter 37: Pediatrics"
+    },
+    {
+        q: "You are ventilating an unresponsive 47-year-old male who is in respiratory arrest. How should you determine that you are delivering adequate tidal volume?",
+        options: [
+            "Auscultate for bronchial breath sounds",
+            "Assess his pulse oximetry",
+            "Fully deflate the BVM",
+            "Look for slight chest rise"
+        ],
+        answer: 3,
+        explanation: "Visible chest rise is the most reliable immediate indicator that adequate tidal volume is entering the lungs.",
+        cite: "Chapter 10: Airway Management"
+    },
+    {
+        q: "You are called to a residence for a 48-year-old male patient. He is lying in bed, groaning in pain and curled into a fetal position. His blood pressure is 88/50, pulse 136, and respiratory rate of 32. His wife states that he complained of lower right abdominal pain for several days that got progressively worse, until about an hour ago when it became suddenly unbearable. You suspect appendicitis and are concerned about the subsequent onset of:",
+        options: [
+            "pancreatitis",
+            "splenic rupture",
+            "renal colic",
+            "peritonitis"
+        ],
+        answer: 3,
+        explanation: "A burst appendix spills bacteria into the abdominal cavity, causing generalized inflammation of the lining (Peritonitis) and septic shock.",
+        cite: "Chapter 26: Abdominal Emergencies"
+    },
+    {
+        q: "An unresponsive 2-month-old female had a single seizure. Her father describes a single tonic-clonic type seizure that lasted two minutes. He tells you that she has not woken up since the seizure. As you begin to assess her, she begins to have another generalized seizure. You should first:",
+        options: [
+            "assess her vital signs",
+            "insert an oropharyngeal airway",
+            "apply a cervical collar",
+            "begin transport"
+        ],
+        answer: 0,
+        explanation: "This is status epilepticus. While airway is critical, the options suggest assessment vs. intervention. Assessing airway/breathing/circulation (vital signs) is the first priority to determine stability.",
+        cite: "Chapter 37: Pediatrics"
+    },
+    {
+        q: "What is the impact on intrathoracic pressure when you squeeze the BVM while ventilating a patient?",
+        options: [
+            "It decreases airway pressure and increases intrathoracic pressure.",
+            "It decreases airway and intrathoracic pressures.",
+            "It increases airway and intrathoracic pressures.",
+            "It increases airway pressure and decreases intrathoracic pressure."
+        ],
+        answer: 2,
+        explanation: "Positive pressure ventilation forces air in, which increases the pressure inside the airway and the chest cavity (intrathoracic pressure), potentially reducing venous return to the heart.",
+        cite: "Chapter 10: Airway Management"
+    },
+    {
+        q: "An unresponsive 10-month-old male is apneic and pulseless. While you are performing chest compressions, you observe that he appears to be breathing. You should next:",
+        options: [
+            "assess for a pulse.",
+            "continue compressions.",
+            "auscultate his lung sounds.",
+            "analyze his rhythm with the AED."
+        ],
+        answer: 0,
+        explanation: "If the patient shows signs of life (breathing, movement), you must immediately stop compressions and check for a pulse to see if ROSC (Return of Spontaneous Circulation) has occurred.",
+        cite: "Chapter 21: BLS Resuscitation"
+    },
+    {
+        q: "An unresponsive 28-year-old female has hot, clammy skin and a foul-smelling vaginal discharge. Her lungs are clear to auscultation, and you observe good chest rise. Her vital signs are P 110, R 24, BP 86/58, and SpO2 is 92% on room air. You should:",
+        options: [
+            "administer oxygen.",
+            "remove her clothing and place a moistened sheet over her.",
+            "assist her ventilation.",
+            "obtain a sample of the discharge for the hospital."
+        ],
+        answer: 1,
+        explanation: "The patient is in septic shock (fever, hypotension, infection source). Removing clothing helps manage hyperthermia, though oxygen and fluid resuscitation are also key priorities.",
+        cite: "Chapter 29: Bleeding and Shock (Sepsis)"
+    },
+    {
+        q: "While treating a pregnant patient in cardiac arrest, which of the following is the best way to keep the fetus alive?",
+        options: [
+            "Transport the patient to the closest pediatric center.",
+            "Attempt to resuscitate the patient as you would any other cardiac arrest patient.",
+            "Do not use an AED to defibrillate the patient.",
+            "Do an emergency cesarean section of the fetus."
+        ],
+        answer: 1,
+        explanation: "The best way to save the fetus is to save the mother. Resuscitate aggressively, including AED use and CPR (with manual uterine displacement).",
+        cite: "Chapter 36: Obstetric Emergencies"
+    },
+    {
+        q: "Which of the following situations are frequently problematic for patients who have tracheostomy tubes?",
+        options: [
+            "Tracheal tears",
+            "Mucus buildup",
+            "Air embolism",
+            "Tube malplacement"
+        ],
+        answer: 1,
+        explanation: "Tracheostomy tubes bypass the upper airway's warming/humidifying functions, leading to thick mucus plugs that can block the tube.",
+        cite: "Chapter 37: Patients with Special Challenges"
+    },
+    {
+        q: "An unresponsive 35-year-old female was struck in the head with a softball bat. She has a four-inch laceration, and you palpate an unstable area of the occipital region. Fifteen minutes after the injury, her vital signs are P 48, R 16 and irregular, BP 216/104, and SpO2 is 94% on room air. You should suspect a:",
+        options: [
+            "closed head injury.",
+            "subdural hemorrhage.",
+            "neurogenic shock.",
+            "skull fracture."
+        ],
+        answer: 1,
+        explanation: "The vital signs (high BP, low HR, irregular respirations) constitute Cushing's Triad, indicating severe Intracranial Pressure (ICP). A subdural hematoma is a likely cause of rapidly increasing ICP.",
+        cite: "Chapter 33: Head Trauma"
+    },
+    {
+        q: "You are on the scene of a church bus roll-over collision. There are 30 passengers involved. As triage officer, which one of the following patients should you assign the highest priority?",
+        options: [
+            "30-year-old man with multiple lower extremity fractures who is awake...",
+            "35-year-old pregnant woman with a cut on her head...",
+            "70-year-old woman who is awake but having difficulty breathing and has absent lung sounds on the right side",
+            "Unresponsive 9-year-old male with an open skull fracture who is in cardiac arrest"
+        ],
+        answer: 2,
+        explanation: "The 70-year-old has an airway/breathing threat (pneumothorax) but is alive. She is Red (Immediate). The cardiac arrest patient is Black (Deceased) in triage.",
+        cite: "Chapter 39: HazMat & MCI"
+    },
+    {
+        q: "A 25-year-old female tells you her water broke. When you examine her, you observe a greenish liquid and the neonate's head crowning. Immediately after the delivery, the neonate is crying, has cyanotic hands and feet, and is moving all extremities. You should:",
+        options: [
+            "dry and stimulate him.",
+            "suction his mouth.",
+            "suction his left nostril.",
+            "suction his right nostril."
+        ],
+        answer: 0,
+        explanation: "Green fluid is meconium. If the baby is vigorous (crying/moving), routine care (dry/stimulate) is appropriate. Suction is only indicated if the baby is non-vigorous (depressed).",
+        cite: "Chapter 36: Obstetric Emergencies"
+    },
+    {
+        q: "The respiratory system moves air in and out; however, the air that is inhaled must meet up with the circulatory system to:",
+        options: [
+            "defuse the cells.",
+            "hyperoxygenate the cells.",
+            "register the cells.",
+            "perfuse the cells."
+        ],
+        answer: 3,
+        explanation: "Perfusion is the delivery of oxygen and nutrients to the cells via the blood.",
+        cite: "Chapter 6: Anatomy and Physiology"
+    },
+    {
+        q: "A 47-year-old male complains of difficulty breathing, and he cannot stop coughing. His conjunctivae are pale and moist. He has a 40 pack-year smoking history. You should first:",
+        options: [
+            "assess his vital signs.",
+            "determine his past medical history.",
+            "collect a sample of his phlegm.",
+            "administer oxygen."
+        ],
+        answer: 3,
+        explanation: "The patient is hypoxic (pale skin, difficulty breathing). The first priority is addressing the ABCs by administering oxygen.",
+        cite: "Chapter 19: Respiratory Emergencies"
+    },
+    {
+        q: "You respond to a 75-year-old female who is complaining of epigastric pain that feels like heartburn. The pain radiates to the right shoulder. Her vital signs are stable and she has a previous history of a myocardial infarction. She is most likely suffering from:",
+        options: [
+            "cholecystitis.",
+            "abdominal aortic aneurysm.",
+            "ectopic pregnancy.",
+            "renal colic."
+        ],
+        answer: 0,
+        explanation: "Epigastric pain radiating to the right shoulder is a classic presentation of Cholecystitis (gallbladder inflammation).",
+        cite: "Chapter 26: Abdominal Emergencies"
+    },
+    {
+        q: "An unresponsive 63-year-old female is in cardiac arrest after an opioid overdose. You should first:",
+        options: [
+            "administer naloxone.",
+            "ventilate her.",
+            "prepare for immediate transport.",
+            "begin chest compressions."
+        ],
+        answer: 1,
+        explanation: "In cardiac arrest (even from overdose), high-quality CPR (compressions + ventilation) takes priority over Naloxone.",
+        cite: "Chapter 25: Toxicology"
+    },
+    {
+        q: "Why shouldn't you apply CPAP to a patient who is in respiratory arrest?",
+        options: [
+            "CPAP doesn't reduce preload.",
+            "CPAP doesn't keep the airways open.",
+            "CPAP doesn't push fluid out of the alveoli.",
+            "CPAP doesn't ventilate the patient."
+        ],
+        answer: 3,
+        explanation: "CPAP assists a patient who is already breathing. It cannot breathe for them (ventilate). A patient in arrest needs positive pressure ventilation (BVM).",
+        cite: "Chapter 19: Respiratory Emergencies"
+    },
+    {
+        q: "Which of the following best defines inadequate breathing?",
+        options: [
+            "Wheezing noises when breathing",
+            "Breathing that is insufficient to sustain life",
+            "Breathing slower than normal",
+            "Breathing faster than normal"
+        ],
+        answer: 1,
+        explanation: "Inadequate breathing is defined as rate or depth insufficient to maintain life (gas exchange).",
+        cite: "Chapter 10: Airway Management"
+    },
+    {
+        q: "What is the purpose of the red blood cells?",
+        options: [
+            "They are responsible for the delivery of oxygen to the cells.",
+            "They are responsible for the removal of oxygen from the cells.",
+            "They are critical in response to infection.",
+            "They are crucial in the formation of clots."
+        ],
+        answer: 0,
+        explanation: "Red blood cells contain hemoglobin, which carries oxygen to the body's tissues.",
+        cite: "Chapter 6: Anatomy and Physiology"
     }
 ];
