@@ -1078,5 +1078,365 @@ const emtFinalQuestions = [
         answer: 1,
         explanation: "When treating gunshot victims, avoid cutting through the holes in clothing as they contain forensic evidence (gunpowder residue).",
         cite: "Chapter 3: Medical, Legal, and Ethical Issues"
+    },
+    {
+        q: "A 23-year-old female just delivered a full-term male infant. You should first:",
+        options: [
+            "clamp the cord eight inches from his abdomen.",
+            "suction his nose.",
+            "dry and stimulate him.",
+            "suction his mouth."
+        ],
+        answer: 2,
+        explanation: "For a vigorous newborn, the first steps are drying and warming (which provides stimulation). Routine suctioning is no longer recommended unless there is an airway obstruction.",
+        cite: "Chapter 36: Obstetric Emergencies"
+    },
+    {
+        q: "A 7-year-old male who has had a cold for a week tells you that he can't breathe. He has had a nonproductive cough for a day, and he is lying on his right side in the fetal position. His skin feels hot to the touch. He has a history of asthma, and you auscultate rhonchi in his right chest. His vital signs are P 118, R 24, BP 82/64, and SpO2 is 91% on room air. You should:",
+        options: [
+            "place him in Fowler's position.",
+            "assist with the administration of his MDI.",
+            "assist his ventilation.",
+            "administer oxygen."
+        ],
+        answer: 3,
+        explanation: "The patient is hypoxic (91% SpO2) and shows signs of pneumonia (fever, rhonchi, history of cold). Oxygen administration is the priority. His respiratory rate is elevated but not yet at failure levels requiring assisted ventilation.",
+        cite: "Chapter 37: Pediatrics"
+    },
+    {
+        q: "A seizure that occurs spontaneously from an unknown cause is called:",
+        options: [
+            "totemic",
+            "hypoxic",
+            "Hypoglycemic",
+            "idiopathic"
+        ],
+        answer: 3,
+        explanation: "Idiopathic means 'of unknown cause.' An idiopathic seizure is one where no structural or metabolic cause can be identified.",
+        cite: "Chapter 22: Neurologic Emergencies"
+    },
+    {
+        q: "An 8-year-old male was stabbed in the chest with a knife. You observe a half-inch laceration an inch lateral to the sternum at the third intercostal space. You do not see any active bleeding, and his neck veins are distended. His lungs are clear to auscultation. His capillary refill is three seconds, and his skin is pale and cool. You should suspect:",
+        options: [
+            "hemothorax.",
+            "hypovolemic shock.",
+            "obstructive shock.",
+            "tension pneumothorax."
+        ],
+        answer: 2,
+        explanation: "Distended neck veins (JVD) with clear lung sounds and a penetrating chest wound suggests Cardiac Tamponade, which causes Obstructive Shock (heart cannot fill).",
+        cite: "Chapter 31: Chest Trauma"
+    },
+    {
+        q: "A 57-year-old male complains of difficulty breathing after a non-stop flight from Asia. He has a history of asthma. He tells you that he started to cough up bloody sputum after his flight landed. His skin is pale and diaphoretic. You auscultate rale on the left side of his chest. His vital signs are P 108, R 26, BP 112/60, and SpO2 is 90% on room air. You should:",
+        options: [
+            "administer oxygen.",
+            "assist his ventilation.",
+            "assist with the administration of his inhaler.",
+            "suction his airway."
+        ],
+        answer: 0,
+        explanation: "Long flights increase the risk of Pulmonary Embolism. The bloody sputum (hemoptysis) and lung sounds suggest pulmonary edema/infarction. With SpO2 at 90%, oxygen is the immediate treatment.",
+        cite: "Chapter 19: Respiratory Emergencies"
+    },
+    {
+        q: "Oxycontin is an example of which of the following types of drugs?",
+        options: [
+            "Narcotic",
+            "antidepressant",
+            "appetite suppressant",
+            "barbiturate"
+        ],
+        answer: 0,
+        explanation: "Oxycontin (oxycodone) is an opioid narcotic used for pain relief.",
+        cite: "Chapter 18: Pharmacology"
+    },
+    {
+        q: "Which device works by blowing oxygen or air continuously at a noninvasive pressure to prevent a patient's alveoli from collapsing?",
+        options: [
+            "COPD",
+            "non-rebreather",
+            "CPAP",
+            "OPQRST"
+        ],
+        answer: 2,
+        explanation: "Continuous Positive Airway Pressure (CPAP) keeps the airways open by maintaining positive pressure during exhalation.",
+        cite: "Chapter 19: Respiratory Emergencies"
+    },
+    {
+        q: "When you are dispatched to a local industrial plant for an 'electricity injury' you arrive on scene and find a 47-year-old male lying supine in front of an electrical panel. You are told he was attempting to make a repair and somehow received an electrical shock, and was thrown to the ground. The scene is safe and the electricity is turned on. The initial exam reveals a conscious patient, breathing adequately, vitals are normal and there are no obvious signs of burns. Coworker states that he was unconscious until your arrival. What is the next step?",
+        options: [
+            "Load and go- conduct any other care in the ambulance en route due to the potential seriousness of burns",
+            "Put the patient on oxygen and help him into your ambulance",
+            "Stay with the patient a while and if he does not appear to be in distress encourage him to refuse care",
+            "Conduct a complete assessment, provide oxygen, provide care for potential spine injuries, and transport as soon as possible"
+        ],
+        answer: 3,
+        explanation: "Electrical injuries can cause internal damage, cardiac arrhythmias, and spinal fractures (from being thrown). Full spinal immobilization and transport for evaluation are required.",
+        cite: "Chapter 30: Soft-Tissue Trauma"
+    },
+    {
+        q: "You are treating a patient with paradoxical motion on the left side of the chest. He is breathing shallow at a rate of 4 breaths per minute. You should:",
+        options: [
+            "Begin positive pressure ventilation",
+            "Tape the chest to constrict movement",
+            "Administer 15 lpm oxygen via mask",
+            "Roll the patient onto his left side"
+        ],
+        answer: 0,
+        explanation: "A respiratory rate of 4 is inadequate (Respiratory Failure). Regardless of the flail chest, you must assist ventilation with a BVM (Positive Pressure Ventilation).",
+        cite: "Chapter 31: Chest Trauma"
+    },
+    {
+        q: "Your patient is a 44-year-old who has been walking around at an outdoor fair on a hot, sunny day. She is disoriented to time; has hot, dry skin, and appears to be generally weak. Which of the following is the appropriate sequence of treatment for this patient?",
+        options: [
+            "Have the patient stand outside the ambulance and slowly drink an electrolyte solution or sports drink",
+            "Get as much ice as possible from the food vendors at the fair place the patient in a large container of ice.",
+            "Give oxygen by a nonrebreather mask and have the patient rest, monitoring the patient's improvement over time throughout the scene.",
+            "Give oxygen by non rebreather mask, remove heavy clothing, and place cold packs on her neck, armpits, and groin."
+        ],
+        answer: 3,
+        explanation: "Hot, dry skin and disorientation indicate Heat Stroke, a life threat. Immediate active cooling (cold packs) and oxygen are required. Do not give oral fluids to a disoriented patient.",
+        cite: "Chapter 35: Environmental Emergencies"
+    },
+    {
+        q: "Which of the following patients does not necessarily have inadequate breathing?",
+        options: [
+            "Patient with cyanosis",
+            "Patient's whose breath sounds cannot be heard",
+            "Patient with agonal respirations",
+            "Patient with an irregular respiratory rhythm"
+        ],
+        answer: 3,
+        explanation: "An irregular respiratory rhythm can be adequate if the rate and tidal volume are sufficient. Agonal breathing, cyanosis, and absent breath sounds are definitive signs of inadequacy.",
+        cite: "Chapter 10: Airway Management"
+    },
+    {
+        q: "A 74-year-old male complains of upper back pain and difficulty breathing after a fall. He has pain and crepitus in the right side of his back below his scapula. He has equal chest wall expansion, and his breath sounds are diminished in the affected area. His vital signs are P 82, R 18, BP 142/92, and Sp02 is 96% on room air. You should suspect a:",
+        options: [
+            "tension pneumothorax.",
+            "cardiac tamponade.",
+            "flail segment.",
+            "simple pneumothorax."
+        ],
+        answer: 3,
+        explanation: "Pain, crepitus (rib fractures), and diminished sounds suggest a pneumothorax. Since vitals are stable and no shock is present, it is a Simple Pneumothorax, not Tension.",
+        cite: "Chapter 31: Chest Trauma"
+    },
+    {
+        q: "Which of the following is one of the most common characteristics of a stroke?",
+        options: [
+            "Weakness on one side of the body",
+            "Projectile vomiting",
+            "Sudden onset of violent behavior",
+            "Sudden, severe headache"
+        ],
+        answer: 0,
+        explanation: "Hemiparesis (weakness on one side) is the most consistent sign of ischemic stroke. Severe headache is specific to hemorrhagic stroke.",
+        cite: "Chapter 22: Neurologic Emergencies"
+    },
+    {
+        q: "A 66-year-old female complains of a sudden onset of dizziness. She tells you she thinks she has the flu. Her lungs are clear to auscultation, and she has good chest expansion. Her skin is pale, warm, and dry. Her vital signs are P 48, R 16, BP 88/56, and SpO2 is 93% on room air. You should suspect:",
+        options: [
+            "reduced cardiac output.",
+            "poor alveolar ventilation.",
+            "influenza.",
+            "increased sympathetic stimulation"
+        ],
+        answer: 0,
+        explanation: "The heart rate is bradycardic (48), leading to hypotension (88/56). The slow heart rate reduces cardiac output, causing dizziness and shock.",
+        cite: "Chapter 20: Cardiac Emergencies"
+    },
+    {
+        q: "A weakened area of an artery that balloons out and may rupture, causing catastrophic bleeding, Is called:",
+        options: [
+            "angina.",
+            "asystole.",
+            "an aneurysm.",
+            "angioplasty."
+        ],
+        answer: 2,
+        explanation: "An aneurysm is the dilation or ballooning of a weakened arterial wall.",
+        cite: "Chapter 20: Cardiac Emergencies"
+    },
+    {
+        q: "A 47-year-old female complains of right hip pain She was the unrestrained driver of a car that crashed into a tree. Her airbag deployed but there is damage to the dash where her right knee struck it. As you move her onto the long backboard, you observe that her right leg is rotated inward, her hip is flexed, and her knee is bent. You should suspect a (n):",
+        options: [
+            "posterior hip dislocation",
+            "open book pelvic fracture.",
+            "anterior hip dislocation",
+            "midshaft femur fracture."
+        ],
+        answer: 0,
+        explanation: "Posterior hip dislocation presents with the leg flexed and rotated inward (medial rotation). This injury pattern is common in dashboard knee impacts.",
+        cite: "Chapter 32: Musculoskeletal Trauma"
+    },
+    {
+        q: "A 10-month-old male is crying after he was stung by a bee. The skin around the site is reddened and there is localized swelling. His lungs are clear to auscultation, and he is interacting with you appropriately. His vital signs are P 120, R 28, BP 90/58, and SpO2 is 98% on room air. You should:",
+        options: [
+            "administer oxygen.",
+            "monitor him and transport.",
+            "administer a pediatric epinephrine auto injector.",
+            "assist his ventilation."
+        ],
+        answer: 1,
+        explanation: "The reaction is localized (redness/swelling). There are no systemic signs of anaphylaxis (respiratory distress, shock). Monitoring and transport are appropriate.",
+        cite: "Chapter 23: Allergic Reactions"
+    },
+    {
+        q: "One of the most effective and widely available drugs to prevent the aggregation of platelets is:",
+        options: [
+            "aspirin.",
+            "plasma.",
+            "hemoglobin.",
+            "acetaminophen."
+        ],
+        answer: 0,
+        explanation: "Aspirin is an antiplatelet medication that inhibits clot formation/aggregation.",
+        cite: "Chapter 18: Pharmacology"
+    },
+    {
+        q: "Which of the following increases a scuba diver's risk of decompression sickness?",
+        options: [
+            "Taking cold or sinus medications before a dive",
+            "Flying within several hours after a dive",
+            "Diving on a full stomach",
+            "Breathing 100% oxygen before a dive"
+        ],
+        answer: 1,
+        explanation: "Flying reduces atmospheric pressure, which allows nitrogen bubbles to expand rapidly in the blood, triggering decompression sickness.",
+        cite: "Chapter 35: Environmental Emergencies"
+    },
+    {
+        q: "A 38-year-old female was found unresponsive in her car by her son. He tells you she overdosed on heroin, and he administered Narcan intranasal before starting CPR four minutes ago. Upon your arrival, she starts to move. She has a carotid pulse and gasping respirations once every 15 seconds. You should next:",
+        options: [
+            "administer another dose of naloxone",
+            "assist her ventilation",
+            "administer oxygen by non-rebreather mask",
+            "place her in the recovery position."
+        ],
+        answer: 1,
+        explanation: "Respirations of 4/min (1 every 15 seconds) are inadequate. Assisting ventilation is the priority. Naloxone has already worked enough to restore a pulse, but breathing is not yet adequate.",
+        cite: "Chapter 25: Toxicology"
+    },
+    {
+        q: "A 91-year-old female complains of generalized weakness. She tells you that she is depressed because her husband died last month and she keeps forgetting to take her diabetes medication. Her skin is warm and dry. Her vital signs are P 98, R 16, BP 112/78, and Sp02 is 97% on room air. You should:",
+        options: [
+            "transport her for an involuntary psychiatric evaluation",
+            "administer oxygen.",
+            "administer oral glucose",
+            "assess her blood glucose level"
+        ],
+        answer: 3,
+        explanation: "Generalized weakness in a diabetic who forgets medication requires a blood glucose check to rule out hypo/hyperglycemia.",
+        cite: "Chapter 22: Diabetic Emergencies"
+    },
+    {
+        q: "An unresponsive 23-year-old male is lying in bed. His mother tells you that he has been getting sicker all week and not taking his medication. He has a history of type 2 diabetes. His skin is warm and dry. His vital signs are P 98, R 24 and deep, BP 112/84, and SpO2 is 98% on room air. You should suspect:",
+        options: [
+            "increased intracerebral pressure",
+            "hyperglycemia.",
+            "hypoglycemia",
+            "stroke."
+        ],
+        answer: 1,
+        explanation: "History of illness + missed meds + warm/dry skin + deep (Kussmaul) respirations = Hyperglycemia (likely DKA/HHNS). Hypoglycemia typically presents with cool/clammy skin and rapid onset.",
+        cite: "Chapter 22: Diabetic Emergencies"
+    },
+    {
+        q: "If a hole is created in the chest wall, air could escape or be drawn in, or if bleeding develops within the chest, air and blood can accumulate in the pleural space. This would force the lung to:",
+        options: [
+            "Increase respirations",
+            "Increase the minute volume.",
+            "collapse.",
+            "work harder with minimal problems."
+        ],
+        answer: 2,
+        explanation: "Accumulation of air or blood in the pleural space destroys the negative pressure required for lung expansion, causing the lung to collapse.",
+        cite: "Chapter 31: Chest Trauma"
+    },
+    {
+        q: "When using an AED, which of the following people is responsible for calling to 'clear' the patient before delivering a shock?",
+        options: [
+            "EMT supervising bystanders",
+            "EMT operating the defibrillator",
+            "EMT managing the airway",
+            "EMT doing chest compressions"
+        ],
+        answer: 1,
+        explanation: "The person pushing the shock button (operating the AED) is responsible for ensuring everyone is clear and vocalizing the command.",
+        cite: "Chapter 21: BLS Resuscitation"
+    },
+    {
+        q: "An 81-year-old male complains of chest pain that he describes as a heaviness. He denies any allergies to medication or active bleeding. He denies taking any medication prior to your arrival. You should first:",
+        options: [
+            "determine his pulse oximetry.",
+            "administer aspirin.",
+            "assess his vital signs.",
+            "auscultate his lung sounds."
+        ],
+        answer: 1,
+        explanation: "While assessment is crucial, aspirin is the primary early intervention for suspected myocardial infarction (chest heaviness) if no contraindications exist. (Note: Many protocols suggest Vitals first, but NREMT questions often prioritize the immediate pharmacological intervention for cardiac chest pain).",
+        cite: "Chapter 20: Cardiac Emergencies"
+    },
+    {
+        q: "According to the physiologic criteria of the CDC guidelines, the key respiratory rates to be transferred to a trauma center would be:",
+        options: [
+            "below 8 and above 32",
+            "below 10 and above 29",
+            "below 12 and above 20",
+            "below 5 and above 45"
+        ],
+        answer: 1,
+        explanation: "The CDC Field Triage Guidelines specify a respiratory rate of < 10 or > 29 as a physiologic criterion for transport to a Trauma Center.",
+        cite: "Chapter 34: Multisystem Trauma"
+    },
+    {
+        q: "A 1-year-old male is irritable, and his skin is diaphoretic. His mother tells you that he has coarctation of his aorta. His lungs are clear to auscultation with good chest rise. His vital signs are P 138, R 28, BP 116/68, and SpO2 is 93% on room air. You should:",
+        options: [
+            "administer aspirin.",
+            "assist his ventilation.",
+            "assist with the administration of his nitroglycerin.",
+            "administer oxygen."
+        ],
+        answer: 3,
+        explanation: "The child is symptomatic (irritable, diaphoretic) and mildly hypoxic (93%). Oxygen is the most appropriate initial treatment. Aspirin/Nitro are adult cardiac meds.",
+        cite: "Chapter 37: Pediatrics"
+    },
+    {
+        q: "Janie is having difficulty breathing. Her current tidal volume is 350 mL, and she is breathing at 28 times per minute. What would be her minute volume?",
+        options: [
+            "9.800 mL",
+            "342 mL",
+            "12.5 mL.",
+            "378 mL."
+        ],
+        answer: 0,
+        explanation: "Minute Volume = Tidal Volume × Respiratory Rate. 350 × 28 = 9,800 mL (or 9.8 L).",
+        cite: "Chapter 6: Anatomy and Physiology"
+    },
+    {
+        q: "When using radio communications, you should:",
+        options: [
+            "avoid codes.",
+            "speak quickly.",
+            "press the talk button and begin speaking immediately.",
+            "place the microphone less than one inch in front of your lips."
+        ],
+        answer: 0,
+        explanation: "Using plain English (avoiding codes) is the NIMS standard for interoperable communications.",
+        cite: "Chapter 38: EMS Operations"
+    },
+    {
+        q: "An unresponsive 58-year-old female had a single seizure prior to your arrival. Bystanders tell you that she hasn't woken up since she stopped shaking. While you are performing your assessment, she has a brief tonic period followed by generalized clonic activity. You should next:",
+        options: [
+            "assess her blood glucose level and administer oral glucose if needed.",
+            "remove her clothing and begin to cool her.",
+            "protect her head and begin transport.",
+            "administer oxygen by nasal cannula and assess her vital signs."
+        ],
+        answer: 2,
+        explanation: "During active seizure activity (tonic-clonic), the priority is to protect the patient from injury (protect the head) and manage the airway/transport.",
+        cite: "Chapter 22: Neurologic Emergencies"
     }
 ];
