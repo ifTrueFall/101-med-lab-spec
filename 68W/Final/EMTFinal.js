@@ -718,5 +718,365 @@ const emtFinalQuestions = [
         answer: 0,
         explanation: "Red blood cells contain hemoglobin, which carries oxygen to the body's tissues.",
         cite: "Chapter 6: Anatomy and Physiology"
+    },
+    {
+        q: "You are preparing to ventilate an 11-month-old female with a BVM. Which of the following ensures that her airway is properly positioned?",
+        options: [
+            "Placing her in the sniffing position",
+            "Using cricoid pressure while ventilating her",
+            "Padding behind her neck",
+            "Inserting a nasopharyngeal airway"
+        ],
+        answer: 2,
+        explanation: "Infants have a large occiput (back of head) which causes the neck to flex when lying flat, closing the airway. Padding behind the shoulders (not the neck itself, though often described as 'under the shoulders/upper back') aligns the airway into the sniffing position.",
+        cite: "Chapter 37: Pediatrics"
+    },
+    {
+        q: "Which of the following best defines inadequate breathing?",
+        options: [
+            "Wheezing noises when breathing",
+            "Breathing that is insufficient to sustain life",
+            "Breathing slower than normal",
+            "Breathing faster than normal"
+        ],
+        answer: 1,
+        explanation: "Inadequate breathing is broadly defined as any rate, rhythm, or quality of breathing that is insufficient to support life (maintain oxygenation and ventilation).",
+        cite: "Chapter 10: Airway Management"
+    },
+    {
+        q: "Which of the following is defined as an area of the body surface that is innervated by a single spinal nerve?",
+        options: [
+            "Spinous process",
+            "Maxillae",
+            "Malar",
+            "Dermatome"
+        ],
+        answer: 3,
+        explanation: "A dermatome is a specific area of skin that conveys sensory input to a specific spinal nerve.",
+        cite: "Chapter 6: Anatomy and Physiology"
+    },
+    {
+        q: "You are on-scene with a 48-year-old unresponsive male patient. Bystanders state he complained of chest pain and then suddenly collapsed. Vital signs are blood pressure 88/42, pulse 36, and respiratory rate 3. After performing the primary assessment and treating all life threats, what is your next intervention?",
+        options: [
+            "Assist with nitroglycerin",
+            "Administer 324 mg of aspirin",
+            "Package the patient for rapid transport",
+            "Apply the AED"
+        ],
+        answer: 2,
+        explanation: "The patient has a pulse (so no AED). He is unresponsive (so no oral aspirin). His BP is too low for Nitroglycerin. The priority is rapid transport to definitive care (pacing/cath lab).",
+        cite: "Chapter 20: Cardiac Emergencies"
+    },
+    {
+        q: "An unresponsive 30-year-old female was the unrestrained driver involved in a car crash. Your partner stabilizes her head and tells you she is breathing and has a carotid pulse. As you examine her airway, you see blood, broken teeth, and hear gurgling sounds. You should first:",
+        options: [
+            "assist her ventilation.",
+            "insert an oropharyngeal airway.",
+            "suction her airway.",
+            "apply a cervical collar."
+        ],
+        answer: 2,
+        explanation: "Gurgling indicates fluid in the airway. Suctioning is the immediate priority to prevent aspiration and ensure a patent airway.",
+        cite: "Chapter 10: Airway Management"
+    },
+    {
+        q: "Your patient is a 30-year-old construction worker who fell from scaffolding and has been impaled through the right orbit by a 36-inch piece of concrete reinforcement bar. The patient responds to verbal stimuli and appears to have multiple other injuries. Which of the following is the best course of action?",
+        options: [
+            "Remove the reinforcement bar and pack the orbit with sterile moist dressings",
+            "Transport with the reinforcement bar in place to prevent delay at the scene",
+            "Test the reinforcement bar for stability and remove only if it is loose",
+            "Firmly stabilize the reinforcement bar in place so that the rescue crew can cut it short"
+        ],
+        answer: 3,
+        explanation: "Impaled objects should be stabilized in place unless they obstruct the airway/CPR. A 36-inch bar is too long for transport; it must be stabilized and then carefully cut by rescue crews to fit in the ambulance.",
+        cite: "Chapter 30: Soft-Tissue Trauma"
+    },
+    {
+        q: "An unresponsive 10-year-old female passed out at the playground. Bystanders tell you she was acting confused before she collapsed. Her skin is pale and moist. She localizes to painful stimuli. Her vital signs are P 100, R 26, BP 114/72, and SpO2 is 98% on room air. You should suspect:",
+        options: [
+            "hypoglycemia.",
+            "absence seizure.",
+            "vasovagal syncope.",
+            "opioid overdose."
+        ],
+        answer: 0,
+        explanation: "Confusion prior to collapse and cool/pale/moist skin are classic signs of hypoglycemia (insulin shock).",
+        cite: "Chapter 22: Diabetic Emergencies"
+    },
+    {
+        q: "An 84-year-old male tells you that he is hearing and seeing demons. He has a history of schizophrenia. He denies any other complaints. His vital signs are P 64, R 12, BP 122/74, and SpO2 is 98% on room air. You should:",
+        options: [
+            "ask him if it is alright with the demons if you transport him to the hospital.",
+            "tell him not to worry because you will protect him.",
+            "tell him that you cannot see or hear them.",
+            "ask him to point to where the demons are."
+        ],
+        answer: 2,
+        explanation: "When managing behavioral emergencies, you should not play along with hallucinations. Gently orient the patient to reality by stating clearly but politely that you do not see/hear what they do.",
+        cite: "Chapter 27: Behavioral Emergencies"
+    },
+    {
+        q: "A 32-year-old female fell while hiking and she complains of extreme left calf pain. You do not observe any abnormal angulation of her leg. The skin on her left calf is pale, swollen, and she tells you she feels a pins and needles sensation. You are unable to palpate a distal pulse. You should suspect:",
+        options: [
+            "a comminuted fracture.",
+            "compartment syndrome.",
+            "neurological injury.",
+            "a severe muscle spasm."
+        ],
+        answer: 1,
+        explanation: "Compartment syndrome is characterized by the 6 Ps: Pain (out of proportion), Pallor, Paresthesia (pins/needles), Pulselessness, Paralysis, and Pressure (swelling).",
+        cite: "Chapter 32: Musculoskeletal Trauma"
+    },
+    {
+        q: "Which of the following is a resource for specific actions to be taken by personnel dealing with a hazardous materials incident?",
+        options: [
+            "Medical protocols",
+            "Emergency Response Guidebook",
+            "Medical dictionary",
+            "Food and Drug Administration / FDA toll-free hotline"
+        ],
+        answer: 1,
+        explanation: "The Emergency Response Guidebook (ERG) is the standard reference for identifying hazardous materials and determining initial isolation distances.",
+        cite: "Chapter 39: HazMat & MCI"
+    },
+    {
+        q: "An unresponsive 1-year-old male is lying on the floor with full-thickness burns to his left hand and right knee. He is apneic and pulseless. You should have your partner first:",
+        options: [
+            "ventilate him.",
+            "begin chest compressions.",
+            "apply the AED and analyze his rhythm.",
+            "apply sterile dressings to his wounds."
+        ],
+        answer: 1,
+        explanation: "In cardiac arrest, ABCs (specifically CAB - Compressions, Airway, Breathing) take priority over burn care. Start compressions immediately.",
+        cite: "Chapter 21: BLS Resuscitation"
+    },
+    {
+        q: "When assisting with a delivery, which of the following should be done as the baby's head begins to emerge from the vagina?",
+        options: [
+            "Check for crowning",
+            "Advise the mother not to push or strain.",
+            "Apply gentle pressure to the head with your gloved hand.",
+            "Pull on the baby"
+        ],
+        answer: 2,
+        explanation: "Apply gentle pressure to the emerging head to prevent it from popping out explosively, which could tear the perineum or damage the infant.",
+        cite: "Chapter 36: Obstetric Emergencies"
+    },
+    {
+        q: "Which of the following is positional asphyxia?",
+        options: [
+            "Positional asphyxia is the position the person is seated in when you approach him",
+            "Positional asphyxia is a birth defect that causes psychiatric issues",
+            "Positional asphyxia is inadequate breathing or respiratory arrest caused by a body position that restricts breathing",
+            "Positional asphyxia is the name for the position someone assumes after she has been hit with a taser."
+        ],
+        answer: 2,
+        explanation: "Positional asphyxia occurs when a patient's body position (often prone or 'hog-tied') interferes with the ability of the chest to expand or the diaphragm to move.",
+        cite: "Chapter 37: Patients with Special Challenges"
+    },
+    {
+        q: "Which of the following communication strategies should be used when dealing with a patient with a behavioral emergency?",
+        options: [
+            "Stay 2 to 3 inches from the patient at all times to make him feel secure",
+            "Interrupt the patient if he appears to be going off on a tangent",
+            "Play along with any visual or auditory hallucinations the patient is experiencing",
+            "Acknowledge the patient's feelings."
+        ],
+        answer: 3,
+        explanation: "Active listening and acknowledging the patient's feelings (e.g., 'I can see you are very upset') helps build rapport and de-escalate the situation.",
+        cite: "Chapter 27: Behavioral Emergencies"
+    },
+    {
+        q: "An unresponsive 84-year-old male was found in bed. His skin is pale and diaphoretic. His lungs are clear to auscultation and have equal expansion. His vital signs are P 38, R 16, BP 82/58, and SpO2 is 92% on room air. You should:",
+        options: [
+            "administer oxygen.",
+            "begin chest compressions.",
+            "assist his ventilation.",
+            "attach the AED."
+        ],
+        answer: 0,
+        explanation: "The patient has a pulse (no compressions/AED). His respirations are 16 and lungs have equal expansion (breathing is adequate). The primary issue is bradycardia/shock. Oxygen is the most appropriate initial step from this list.",
+        cite: "Chapter 20: Cardiac Emergencies"
+    },
+    {
+        q: "In which of the following situations should an EMT withhold resuscitative measures from a patient in cardiac arrest?",
+        options: [
+            "the patient's caregiver presents a DNR order signed by the patient and his physician.",
+            "the EMT's religious beliefs permit withholding resuscitation.",
+            "family members request that nothing be done",
+            "the patient's caregiver believes the patient would not want resuscitative measures."
+        ],
+        answer: 0,
+        explanation: "A valid, signed Do Not Resuscitate (DNR) order is the only legal document among these options that authorizes an EMT to withhold CPR.",
+        cite: "Chapter 3: Medical, Legal, and Ethical Issues"
+    },
+    {
+        q: "A 56-year-old male complains of a sudden onset of difficulty breathing. He has a history of heart problems and high blood pressure. You auscultate fine crackles in the bases of his lungs. His vital signs are P 98, R 18, BP 154/88, and SpO2 is 95% on room air. You should suspect:",
+        options: [
+            "chemical pneumonitis",
+            "bronchiolitis.",
+            "decreased pulmonary interstitial fluid",
+            "pulmonary edema."
+        ],
+        answer: 3,
+        explanation: "Sudden dyspnea, history of heart failure/HTN, and crackles (fluid) in the lungs are classic signs of pulmonary edema (CHF).",
+        cite: "Chapter 19: Respiratory Emergencies"
+    },
+    {
+        q: "Police escorts of ambulances driving at emergency status are typically discouraged because:",
+        options: [
+            "police officers are not accustomed to driving an ambulance",
+            "there is no guarantee that the police officer knows where the call is located",
+            "drivers who pull over for the police officer often pull back in front of the ambulances",
+            "ambulances do not move as fast as police cruisers"
+        ],
+        answer: 2,
+        explanation: "Motorists often see the police car pass and assume the road is clear, unaware of the ambulance following closely behind.",
+        cite: "Chapter 38: EMS Operations"
+    },
+    {
+        q: "You are resuscitating a 6-year-old male who is in cardiac arrest. After you analyze his rhythm, the AED announces, 'No shock advised.' You should immediately:",
+        options: [
+            "ventilate him twice",
+            "assess his breathing.",
+            "resume chest compressions.",
+            "assess his pulse."
+        ],
+        answer: 2,
+        explanation: "Immediately after an AED analysis (shock or no shock), resume chest compressions to minimize interruption in blood flow.",
+        cite: "Chapter 21: BLS Resuscitation"
+    },
+    {
+        q: "A 51-year-old male had a near syncopal episode. He has a history of Marfan syndrome. His skin is pale and diaphoretic. His lungs are clear to auscultation. His vital signs are P 108 and irregular, R 20, BP 92/58, and SpO2 is 93% on room air. You should:",
+        options: [
+            "administer oxygen by nasal cannula.",
+            "administer aspirin.",
+            "administer oxygen by non-rebreather mask.",
+            "place him in the Trendelenburg position."
+        ],
+        answer: 2,
+        explanation: "Marfan syndrome puts the patient at high risk for Aortic Aneurysm/Dissection. With signs of shock (hypotension, pale skin), high-flow oxygen via NRB is the priority. Aspirin is contraindicated if dissection is suspected.",
+        cite: "Chapter 20: Cardiac Emergencies"
+    },
+    {
+        q: "A 38-year-old female complains of sneezing and mild trouble breathing after inhaling an unknown substance. You auscultate wheezes in all fields. Her vital signs are P 88, R 20, BP 138/68, and SpO2 is 92% on room air. What type of reaction should you suspect?",
+        options: [
+            "allergic",
+            "anaphylactoid",
+            "anaphylactic",
+            "desensitization"
+        ],
+        answer: 0,
+        explanation: "The symptoms (sneezing, wheezing) indicate an immune response. Since BP is normal (138/68) and perfusion is intact, it is an Allergic reaction, not Anaphylaxis (which requires shock/respiratory compromise).",
+        cite: "Chapter 23: Allergic Reactions"
+    },
+    {
+        q: "A febrile 24-year-old female complains of severe abdominal pain. She tells you the pain began around her navel and then moved to her right lower abdomen. Her vital signs are P 78, R 14, BP 122/76, and SpO2 is 96% on room air. You should:",
+        options: [
+            "administer oxygen by non-rebreather mask.",
+            "transport her supine.",
+            "transport her in a position of comfort.",
+            "administer aspirin."
+        ],
+        answer: 2,
+        explanation: "This classic presentation (umbilical to RLQ pain, fever) suggests Appendicitis. Patients with abdominal pain should be transported in a position of comfort (usually fetal position/knees bent) to relieve tension on the abdominal muscles.",
+        cite: "Chapter 26: Abdominal Emergencies"
+    },
+    {
+        q: "Which of the following would you expect to see in a patient with severe hypothermia?",
+        options: [
+            "irrational behavior",
+            "loss of muscle tone",
+            "rapid respirations",
+            "tachycardia"
+        ],
+        answer: 1,
+        explanation: "In severe hypothermia, shivering stops and muscles become flaccid (loss of tone) or rigid. Tachycardia and rapid respirations are signs of mild/early hypothermia.",
+        cite: "Chapter 35: Environmental Emergencies"
+    },
+    {
+        q: "When you give patients nitroglycerin, they sometimes develop a headache. This would be called a(n):",
+        options: [
+            "side effect",
+            "contraindication",
+            "untoward effect",
+            "Indication"
+        ],
+        answer: 0,
+        explanation: "A headache is a known, expected, and usually temporary consequence of the vasodilation caused by Nitroglycerin, making it a side effect.",
+        cite: "Chapter 18: Pharmacology"
+    },
+    {
+        q: "Which of the following lifting techniques should be used to reduce the likelihood of injury when lifting a wheeled stretcher?",
+        options: [
+            "Keep your hands together and lift with the weight close to your body.",
+            "Keep your hands shoulder-width apart and lift with the weight away from your body.",
+            "Squat and lift with the weight close to your body.",
+            "Bend at the waist and lift the weight away from your body."
+        ],
+        answer: 2,
+        explanation: "The power lift involves squatting (keeping the back straight) and keeping the weight as close to the body as possible.",
+        cite: "Chapter 3: Lifting and Moving"
+    },
+    {
+        q: "Which of the following happens to blood vessels during an anaphylactic reaction?",
+        options: [
+            "constriction",
+            "no change",
+            "spasm",
+            "dilation"
+        ],
+        answer: 3,
+        explanation: "Anaphylaxis causes massive systemic vasodilation and increased capillary permeability, leading to shock (hypotension).",
+        cite: "Chapter 23: Allergic Reactions"
+    },
+    {
+        q: "A 5-year-old complains of pain in his left hand after he spilled liquid drain cleaner on it. His hand is reddened and you smell a strong chemical odor. You should:",
+        options: [
+            "Flush his hand with water",
+            "Neutralize the substance with baking soda",
+            "Apply a sterile dressing",
+            "Brush the substance off his hands"
+        ],
+        answer: 0,
+        explanation: "Immediate irrigation with copious amounts of water is the treatment for liquid chemical burns.",
+        cite: "Chapter 30: Soft-Tissue Trauma"
+    },
+    {
+        q: "What causes the discomfort associated with angina?",
+        options: [
+            "Myocardial tissue hypoxia",
+            "Increased intracellular pressure",
+            "Myocardial tissue strain",
+            "Decreased lactate production"
+        ],
+        answer: 0,
+        explanation: "Angina pectoris (chest pain) is caused by ischemia, which is a lack of oxygen (hypoxia) to the heart muscle cells.",
+        cite: "Chapter 20: Cardiac Emergencies"
+    },
+    {
+        q: "During compensated hemorrhagic shock, why can the skin become pale and cool?",
+        options: [
+            "Peripheral vascular resistance is reduced.",
+            "Cardiac output is reduced.",
+            "Blood flow is reduced to the skin.",
+            "Anaerobic metabolism is reduced in the skin."
+        ],
+        answer: 2,
+        explanation: "In shock, the body shunts blood away from non-essential areas like the skin to preserve flow to the vital organs, causing pallor and coolness.",
+        cite: "Chapter 29: Bleeding and Shock"
+    },
+    {
+        q: "A 52-year-old female was shot in the chest. She complains of pain and difficulty breathing. Her skin is pale and diaphoretic. When treating her, you should:",
+        options: [
+            "apply a cervical collar and spinal stabilization.",
+            "avoid cutting through the bullet hole in her shirt.",
+            "place any removed clothing in a plastic bag.",
+            "assess her vital signs before beginning transport."
+        ],
+        answer: 1,
+        explanation: "When treating gunshot victims, avoid cutting through the holes in clothing as they contain forensic evidence (gunpowder residue).",
+        cite: "Chapter 3: Medical, Legal, and Ethical Issues"
     }
 ];
