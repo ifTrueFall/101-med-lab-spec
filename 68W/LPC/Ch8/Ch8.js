@@ -1,242 +1,242 @@
 const chapter8Questions = [
     {
-        q: "What is the primary goal of splinting a suspected fracture?",
+        q: "What is the medical term for the external part of the ear (the ear flap)?",
         options: [
-            "To realign the bone ends for better healing.",
-            "To prevent further injury by immobilizing the joint above and below the injury.",
-            "To reduce the amount of pain medication the patient requires.",
-            "To allow the patient to walk on the injured limb."
+            "Tympanic membrane",
+            "Auricle or Pinna",
+            "Ossicles",
+            "Cochlea"
         ],
         answer: 1,
-        explanation: "Splinting is performed to prevent movement of the broken bone ends, which reduces further soft tissue damage, bleeding, and pain. It must include the joint above and below the fracture site.",
+        explanation: "The auricle (also known as the pinna) is the visible, external portion of the ear made of cartilage and skin.",
+        cite: "Page 159"
+    },
+    {
+        q: "Which structure separates the external ear from the middle ear and is commonly called the eardrum?",
+        options: [
+            "Eustachian tube",
+            "External auditory canal",
+            "Tympanic membrane",
+            "Stapes"
+        ],
+        answer: 2,
+        explanation: "The tympanic membrane serves as the boundary between the external auditory canal and the middle ear cavity.",
+        cite: "Page 159"
+    },
+    {
+        q: "The Eustachian tube connects the middle ear to which part of the body?",
+        options: [
+            "Oropharynx",
+            "Nasopharynx",
+            "Laryngopharynx",
+            "Maxillary sinus"
+        ],
+        answer: 1,
+        explanation: "The Eustachian tube connects the middle ear to the nasopharynx to help equalize pressure.",
+        cite: "Page 160"
+    },
+    {
+        q: "Which specialized instrument is used to examine the external auditory canal and the tympanic membrane?",
+        options: [
+            "Ophthalmoscope",
+            "Tonometer",
+            "Otoscope",
+            "Speculum"
+        ],
+        answer: 2,
+        explanation: "An otoscope is the primary diagnostic tool for inspecting the ear canal and eardrum.",
+        cite: "Page 162"
+    },
+    {
+        q: "When performing an otoscopic exam on an adult, how should you pull the auricle to straighten the ear canal?",
+        options: [
+            "Down and back",
+            "Straight down",
+            "Up and back",
+            "Straight forward"
+        ],
+        answer: 2,
+        explanation: "To better visualize the tympanic membrane in an adult, the auricle should be pulled upward and backward.",
+        cite: "Page 163"
+    },
+    {
+        q: "A healthy tympanic membrane (TM) should typically appear:",
+        options: [
+            "Bulging and red",
+            "Pearly gray and translucent",
+            "Yellow and opaque",
+            "White and chalky"
+        ],
+        answer: 1,
+        explanation: "A normal eardrum has a shiny, pearly gray appearance and is translucent enough to see some middle ear structures.",
+        cite: "Page 163"
+    },
+    {
+        q: "Which condition is commonly known as 'Swimmer's Ear'?",
+        options: [
+            "Otitis Media",
+            "Mastoiditis",
+            "Otitis Externa",
+            "Tinnitus"
+        ],
+        answer: 2,
+        explanation: "Otitis externa is an inflammation or infection of the external auditory canal, often caused by trapped moisture.",
+        cite: "Page 165"
+    },
+    {
+        q: "A hallmark sign of Otitis Externa during physical examination is:",
+        options: [
+            "Pain when pulling on the auricle (Tug Test)",
+            "Dizziness when lying flat",
+            "Blood behind the eardrum",
+            "Loss of sense of smell"
+        ],
+        answer: 0,
+        explanation: "Pain produced by movement of the auricle or pressure on the tragus is a characteristic sign of Otitis Externa.",
+        cite: "Page 165"
+    },
+    {
+        q: "Otitis Media is defined as an infection of which part of the ear?",
+        options: [
+            "Inner ear",
+            "Middle ear",
+            "External canal",
+            "Mastoid bone"
+        ],
+        answer: 1,
+        explanation: "Otitis Media is an inflammation or infection located in the middle ear space, behind the tympanic membrane.",
+        cite: "Page 167"
+    },
+    {
+        q: "What is the medical term for 'earwax'?",
+        options: [
+            "Sebum",
+            "Cerumen",
+            "Exudate",
+            "Effusion"
+        ],
+        answer: 1,
+        explanation: "Cerumen is the natural waxy substance produced by glands in the external ear canal.",
+        cite: "Page 169"
+    },
+    {
+        q: "The clinical term for a 'nosebleed' is:",
+        options: [
+            "Rhinitis",
+            "Epistaxis",
+            "Sinusitis",
+            "Coryza"
+        ],
+        answer: 1,
+        explanation: "Epistaxis is the medical term for bleeding from the nose.",
+        cite: "Page 172"
+    },
+    {
+        q: "What is the most common site for anterior nosebleeds?",
+        options: [
+            "Sphenoid sinus",
+            "Kiesselbach's Plexus",
+            "Inferior turbinate",
+            "Ethmoid bone"
+        ],
+        answer: 1,
+        explanation: "Most nosebleeds occur in the anterior part of the septum at Kiesselbach's Plexus, a rich network of blood vessels.",
+        cite: "Page 172"
+    },
+    {
+        q: "When managing a patient with epistaxis, they should be instructed to:",
+        options: [
+            "Tilt their head back to stop flow",
+            "Lean forward and pinch the fleshy part of the nose for 10-15 minutes",
+            "Lie flat with a cold towel on the forehead",
+            "Blow their nose vigorously to clear clots"
+        ],
+        answer: 1,
+        explanation: "Sitting up and leaning forward prevents swallowing of blood, while constant pressure for 10-15 minutes allows a clot to form.",
+        cite: "Page 173"
+    },
+    {
+        q: "Which condition involves inflammation of the mucous membranes of the nose, often causing 'runny nose' and sneezing?",
+        options: [
+            "Pharyngitis",
+            "Rhinitis",
+            "Laryngitis",
+            "Otitis"
+        ],
+        answer: 1,
+        explanation: "Rhinitis is the inflammation of the nasal mucosa, which can be allergic or infectious (viral).",
         cite: "Page 175"
     },
     {
-        q: "Which type of fracture is characterized by the bone breaking into several fragments?",
+        q: "What are the four pairs of paranasal sinuses?",
         options: [
-            "Greenstick fracture",
-            "Comminuted fracture",
-            "Oblique fracture",
-            "Transverse fracture"
+            "Frontal, Maxillary, Ethmoid, and Sphenoid",
+            "Orbital, Nasal, Oral, and Otic",
+            "Temporal, Parietal, Occipital, and Frontal",
+            "Mental, Buccal, Nasal, and Zygomatic"
         ],
-        answer: 1,
-        explanation: "A comminuted fracture occurs when the bone is splintered, crushed, or broken into more than two pieces.",
+        answer: 0,
+        explanation: "The paranasal sinuses are air-filled cavities in the bones of the face named Frontal, Maxillary, Ethmoid, and Sphenoid.",
         cite: "Page 177"
     },
     {
-        q: "A patient presents with an ankle injury where the foot is turned inward. This movement is known as:",
+        q: "Which sinus is the largest and most commonly infected?",
         options: [
-            "Eversion",
-            "Inversion",
-            "Dorsiflexion",
-            "Plantar flexion"
+            "Ethmoid",
+            "Frontal",
+            "Maxillary",
+            "Sphenoid"
+        ],
+        answer: 2,
+        explanation: "The maxillary sinuses, located in the cheekbones, are the largest and the site of most sinus infections.",
+        cite: "Page 177"
+    },
+    {
+        q: "A patient presents with a 'sore throat.' The medical term for this condition is:",
+        options: [
+            "Gingivitis",
+            "Pharyngitis",
+            "Stomatitis",
+            "Rhinitis"
         ],
         answer: 1,
-        explanation: "Inversion is the movement of the sole of the foot inward toward the midline of the body. This is a common mechanism for ankle sprains.",
+        explanation: "Pharyngitis is an inflammation of the pharynx (throat) that causes pain and discomfort.",
         cite: "Page 179"
     },
     {
-        q: "What does the 'P' stand for in the 6 Ps of assessing for Compartment Syndrome?",
+        q: "A 'Group A Beta-Hemolytic Streptococcus' infection of the throat is commonly known as:",
         options: [
-            "Pulse (absence of)",
-            "Paresthesia (numbness/tingling)",
-            "Pain (out of proportion)",
-            "All of the above"
+            "Mono",
+            "The common cold",
+            "Strep Throat",
+            "Thrush"
         ],
-        answer: 3,
-        explanation: "The 6 Ps include Pain, Pallor, Pulselessness, Paresthesia, Paralysis, and Pressure. Any one of these can indicate the onset of compartment syndrome.",
+        answer: 2,
+        explanation: "Strep throat is a bacterial infection of the pharynx caused by Streptococcus pyogenes.",
+        cite: "Page 180"
+    },
+    {
+        q: "Which condition is a complication of untreated Strep Throat and presents with a 'hot potato voice' and uvular deviation?",
+        options: [
+            "Epiglottitis",
+            "Peritonsillar Abscess (PTA)",
+            "Laryngitis",
+            "Oral Candidiasis"
+        ],
+        answer: 1,
+        explanation: "A peritonsillar abscess is a collection of pus behind the tonsil that causes severe pain, difficulty speaking, and can push the uvula to one side.",
         cite: "Page 182"
     },
     {
-        q: "Which of the following is considered a medical emergency requiring immediate surgical intervention?",
+        q: "A white, 'cottage cheese' like patch on the tongue or inner cheeks that can be scraped off is characteristic of:",
         options: [
-            "Grade I Ankle Sprain",
-            "Closed Radius Fracture",
-            "Compartment Syndrome",
-            "Patellar Tendonitis"
+            "Oral Herpes",
+            "Leukoplakia",
+            "Oral Candidiasis (Thrush)",
+            "Aphthous Ulcers"
         ],
         answer: 2,
-        explanation: "Compartment syndrome is a surgical emergency because increased pressure within a muscle compartment can cut off blood flow, leading to permanent nerve and muscle death.",
-        cite: "Page 183"
-    },
-    {
-        q: "When assessing a musculoskeletal injury, what should always be checked BEFORE and AFTER splinting?",
-        options: [
-            "Blood pressure and pulse oximetry",
-            "Range of motion",
-            "PMS (Pulse, Motor, and Sensory function)",
-            "The patient's last meal"
-        ],
-        answer: 2,
-        explanation: "Checking PMS before and after splinting ensures that the injury hasn't compromised circulation or nerve function and that the splint itself isn't too tight.",
-        cite: "Page 185"
-    },
-    {
-        q: "What is the hallmark sign of a hip fracture in an elderly patient?",
-        options: [
-            "The leg is lengthened and rotated inward.",
-            "The leg is shortened and rotated outward (abducted).",
-            "Inability to move the toes.",
-            "Bruising around the knee."
-        ],
-        answer: 1,
-        explanation: "A fractured hip typically presents with the affected leg appearing shorter than the other and being externally rotated.",
-        cite: "Page 188"
-    },
-    {
-        q: "A 'sprain' is an injury to which type of tissue?",
-        options: [
-            "Muscle",
-            "Tendon",
-            "Ligament",
-            "Nerve"
-        ],
-        answer: 2,
-        explanation: "A sprain is the stretching or tearing of ligaments, which connect bone to bone at a joint.",
-        cite: "Page 190"
-    },
-    {
-        q: "A 'strain' is an injury to which type of tissue?",
-        options: [
-            "Ligament",
-            "Muscle or Tendon",
-            "Cartilage",
-            "Bone"
-        ],
-        answer: 1,
-        explanation: "A strain is an injury to a muscle or a tendon (the tissue that connects muscle to bone).",
-        cite: "Page 190"
-    },
-    {
-        q: "What does the RICE acronym stand for in the treatment of minor orthopedic injuries?",
-        options: [
-            "Run, Ice, Compress, Eat",
-            "Rest, Ice, Compression, Elevation",
-            "Realignment, Incline, Cold, Exercise",
-            "Recover, Immobilize, Circulation, Evaluate"
-        ],
-        answer: 1,
-        explanation: "RICE is the standard initial treatment for sprains and strains to reduce swelling and pain.",
-        cite: "Page 191"
-    },
-    {
-        q: "How long should ice be applied to an acute orthopedic injury?",
-        options: [
-            "Continuously for 24 hours.",
-            "20 minutes on, every 2-3 hours during the first 24-48 hours.",
-            "Only until the skin turns red.",
-            "1 hour on, 1 hour off."
-        ],
-        answer: 1,
-        explanation: "Ice should be applied for about 20 minutes at a time to prevent frostbite/skin damage while effectively reducing inflammation.",
-        cite: "Page 191"
-    },
-    {
-        q: "Which specialized test is used to assess for a tear in the Anterior Cruciate Ligament (ACL)?",
-        options: [
-            "McMurray Test",
-            "Lachman Test or Anterior Drawer Test",
-            "Phalen's Test",
-            "Thompson Test"
-        ],
-        answer: 1,
-        explanation: "The Lachman test is the most sensitive clinical test for detecting an ACL tear in the knee.",
-        cite: "Page 195"
-    },
-    {
-        q: "A patient complains of pain at the base of the heel that is worst during the first few steps in the morning. This is most likely:",
-        options: [
-            "Achilles Tendonitis",
-            "Plantar Fasciitis",
-            "Stress Fracture",
-            "Morton's Neuroma"
-        ],
-        answer: 1,
-        explanation: "Plantar fasciitis is characterized by sharp heel pain that is most severe when first waking up or after long periods of rest.",
-        cite: "Page 198"
-    },
-    {
-        q: "In the 'Ottowa Ankle Rules,' which finding indicates the need for an X-ray?",
-        options: [
-            "Bruising around the toes.",
-            "Inability to bear weight immediately after the injury and in the clinic.",
-            "Pain located in the mid-foot only.",
-            "The patient is under the age of 50."
-        ],
-        answer: 1,
-        explanation: "Inability to take four steps (bear weight) and bone tenderness at the posterior edge of the malleoli are key indicators for an X-ray according to the Ottawa rules.",
-        cite: "Page 200"
-    },
-    {
-        q: "What is the most common mechanism for a 'Clavicle Fracture'?",
-        options: [
-            "A direct blow to the back.",
-            "A fall on an outstretched hand (FOOSH).",
-            "Twisting the arm behind the back.",
-            "Lifting heavy weights."
-        ],
-        answer: 1,
-        explanation: "Clavicle fractures frequently occur due to a fall where the force is transmitted through the arm to the collarbone.",
-        cite: "Page 202"
-    },
-    {
-        q: "A 'Boxer's Fracture' involves which bone?",
-        options: [
-            "Radius",
-            "Ulna",
-            "Fifth Metacarpal",
-            "Scaphoid"
-        ],
-        answer: 2,
-        explanation: "A boxer's fracture is a break in the neck of the fifth metacarpal (the bone of the pinky finger), usually caused by punching a hard object.",
-        cite: "Page 204"
-    },
-    {
-        q: "Tenderness in the 'Anatomical Snuffbox' after a fall should be treated as which injury until proven otherwise by imaging?",
-        options: [
-            "Wrist Sprain",
-            "Scaphoid (Navicular) Fracture",
-            "Colles' Fracture",
-            "Carpal Tunnel Syndrome"
-        ],
-        answer: 1,
-        explanation: "Scaphoid fractures are notorious for having poor blood supply and failing to heal (non-union); snuffbox tenderness is a classic warning sign.",
-        cite: "Page 205"
-    },
-    {
-        q: "What is the standard treatment for a non-displaced clavicle fracture?",
-        options: [
-            "Surgical pinning",
-            "A sling or figure-eight bandage",
-            "A full body cast",
-            "Immediate physical therapy"
-        ],
-        answer: 1,
-        explanation: "Most clavicle fractures are treated conservatively with immobilization using a sling to allow the bone to knit back together.",
-        cite: "Page 202"
-    },
-    {
-        q: "Which condition involves inflammation of the tendons on the thumb side of the wrist, often tested with the Finkelstein Test?",
-        options: [
-            "Trigger Finger",
-            "De Quervain's Tenosynovitis",
-            "Gamekeeper's Thumb",
-            "Carpal Tunnel"
-        ],
-        answer: 1,
-        explanation: "De Quervain's tenosynovitis affects the tendons that move the thumb and causes pain along the radial side of the wrist.",
-        cite: "Page 207"
-    },
-    {
-        q: "What is the purpose of 'traction' in treating a mid-shaft femur fracture?",
-        options: [
-            "To make the patient taller.",
-            "To pull the leg back to its normal length and stop the large muscles from spasming and causing internal bleeding.",
-            "To allow the patient to move the leg freely.",
-            "To check for nerve damage."
-        ],
-        answer: 1,
-        explanation: "Traction splints (like the Hare or Sager) realign the femur to reduce the volume of the thigh, which minimizes internal bleeding and alleviates the pain of muscle spasms.",
-        cite: "Page 187"
+        explanation: "Oral Candidiasis, or thrush, is a fungal infection caused by Candida albicans that appears as white patches on the oral mucosa.",
+        cite: "Page 184"
     }
 ];
