@@ -1,242 +1,242 @@
 const chapter9Questions = [
     {
-        q: "Which part of the needle is the hollow cavity inside through which medication flows?",
+        q: "What is the largest organ of the human body?",
         options: [
-            "Bevel",
-            "Lumen",
-            "Hub",
-            "Cannula"
-        ],
-        answer: 1,
-        explanation: "The lumen is the hollow core of the needle. The size of the lumen is determined by the needle gauge.",
-        cite: "Page 212"
-    },
-    {
-        q: "What is the slanted, sharp tip of the needle called?",
-        options: [
-            "Shaft",
-            "Hub",
-            "Bevel",
-            "Lumen"
+            "The liver",
+            "The lungs",
+            "The skin",
+            "The small intestine"
         ],
         answer: 2,
-        explanation: "The bevel is the slanted part of the needle tip that creates a narrow slit in the tissue.",
-        cite: "Page 212"
+        explanation: "The skin is the largest organ of the body and performs vital functions like protection, sensation, and temperature regulation.",
+        cite: "Page 182"
     },
     {
-        q: "Regarding needle gauge, which of the following statements is TRUE?",
+        q: "Which layer of the skin is the outermost and serves as the primary barrier against the environment?",
         options: [
-            "A 18-gauge needle has a smaller diameter than a 25-gauge needle.",
-            "The larger the gauge number, the larger the diameter of the lumen.",
-            "The larger the gauge number, the smaller the diameter of the lumen.",
-            "Gauge only refers to the length of the needle."
+            "Dermis",
+            "Epidermis",
+            "Subcutaneous layer",
+            "Hypodermis"
+        ],
+        answer: 1,
+        explanation: "The epidermis is the thin, tough, outermost layer of the skin that acts as a protective shield for the body.",
+        cite: "Page 182"
+    },
+    {
+        q: "What is the medical term for 'itching'?",
+        options: [
+            "Erythema",
+            "Pruritus",
+            "Urticaria",
+            "Induration"
+        ],
+        answer: 1,
+        explanation: "Pruritus is the clinical term used to describe the sensation of itching, which is a common symptom of many skin disorders.",
+        cite: "Page 185"
+    },
+    {
+        q: "A flat, discolored spot on the skin that is less than 1 cm in diameter (like a freckle) is called a:",
+        options: [
+            "Papule",
+            "Pustule",
+            "Macule",
+            "Vesicle"
         ],
         answer: 2,
-        explanation: "Needle gauge is inversely related to the diameter; a higher number (like 25g) indicates a much thinner needle than a lower number (like 18g).",
-        cite: "Page 213"
+        explanation: "A macule is a flat, circumscribed area of change in skin color without elevation or depression.",
+        cite: "Page 186"
     },
     {
-        q: "Which part of the syringe is considered sterile and should NEVER be touched?",
+        q: "Which skin lesion is defined as a small, elevated, solid bump less than 1 cm in diameter (like a wart)?",
         options: [
-            "The outside of the barrel",
-            "The finger flange",
-            "The plunger shaft and the needle adapter",
-            "The measurement markings"
-        ],
-        answer: 2,
-        explanation: "To prevent infection, the needle adapter (where the needle attaches) and the internal shaft of the plunger must remain sterile.",
-        cite: "Page 214"
-    },
-    {
-        q: "When selecting a syringe, what is the primary rule for size?",
-        options: [
-            "Always use the largest syringe available to ensure enough room.",
-            "Use the smallest syringe that can hold the entire dose to ensure accuracy.",
-            "Only 3 mL syringes are authorized for medic use.",
-            "The size of the syringe depends on the patient's age only."
+            "Macule",
+            "Papule",
+            "Plaque",
+            "Bulla"
         ],
         answer: 1,
-        explanation: "Using the smallest appropriate syringe size allows for the most precise measurement of the medication dose.",
-        cite: "Page 214"
+        explanation: "A papule is a solid, raised lesion that has distinct borders and is less than 1 cm in diameter.",
+        cite: "Page 186"
     },
     {
-        q: "What is the purpose of the 'pop' felt when first pulling back the plunger of a new syringe?",
+        q: "A small, fluid-filled blister that is less than 1 cm in diameter is known as a:",
         options: [
-            "It indicates the syringe is broken.",
-            "It confirms the factory seal was intact and the interior is sterile.",
-            "It is the sound of the needle locking into place.",
-            "It means the syringe needs to be lubricated."
-        ],
-        answer: 1,
-        explanation: "The 'pop' is the sound of the sterile seal breaking for the first time. If no pop is felt, the syringe may have been contaminated and should be discarded.",
-        cite: "Page 216"
-    },
-    {
-        q: "When drawing medication from a vial, why must you first inject an equal amount of air into the vial?",
-        options: [
-            "To mix the medication thoroughly.",
-            "To prevent a vacuum from forming, which makes it difficult to withdraw the fluid.",
-            "To ensure the needle is not clogged.",
-            "To identify the medication's pH level."
-        ],
-        answer: 1,
-        explanation: "Vials are sealed systems. Injecting air creates positive pressure that assists in pulling the liquid into the syringe.",
-        cite: "Page 218"
-    },
-    {
-        q: "What is the proper angle of insertion for an Intradermal (ID) injection?",
-        options: [
-            "10 to 15 degrees",
-            "45 degrees",
-            "90 degrees",
-            "Side-entry at 0 degrees"
+            "Vesicle",
+            "Bulla",
+            "Pustule",
+            "Wheal"
         ],
         answer: 0,
-        explanation: "Intradermal injections, commonly used for TB testing, are shallow and require a 10-15 degree angle with the bevel facing up.",
-        cite: "Page 222"
+        explanation: "Vesicles are small, fluid-filled blisters. Larger blisters (greater than 1 cm) are called bullae.",
+        cite: "Page 187"
     },
     {
-        q: "For a Subcutaneous (SQ) injection, the needle is typically inserted at what angle?",
+        q: "What type of lesion is commonly associated with an allergic reaction and is characterized by a transient, elevated, reddened area (hive)?",
         options: [
-            "15 degrees",
-            "45 degrees",
-            "90 degrees",
-            "Variable based on needle length"
-        ],
-        answer: 1,
-        explanation: "SQ injections target the fatty tissue layer and are generally administered at a 45-degree angle (or 90-degree if using a very short needle or in an obese patient).",
-        cite: "Page 224"
-    },
-    {
-        q: "At what angle should an Intramuscular (IM) injection be administered?",
-        options: [
-            "15 degrees",
-            "45 degrees",
-            "90 degrees",
-            "Directly into the bone"
+            "Nodule",
+            "Cyst",
+            "Wheal",
+            "Scale"
         ],
         answer: 2,
-        explanation: "IM injections must penetrate deep into the muscle belly and are always administered at a 90-degree angle.",
-        cite: "Page 226"
+        explanation: "A wheal is a firm, edematous plaque resulting from infiltration of the dermis with fluid; they are often itchy and temporary.",
+        cite: "Page 187"
     },
     {
-        q: "What is the maximum volume of medication that should be injected into the Deltoid muscle?",
+        q: "Which condition is a common bacterial skin infection characterized by 'honey-colored' crusts?",
         options: [
-            "0.5 mL",
-            "2.0 mL",
-            "3.0 mL",
-            "5.0 mL"
+            "Cellulitis",
+            "Impetigo",
+            "Folliculitis",
+            "Erysipelas"
         ],
         answer: 1,
-        explanation: "The deltoid is a relatively small muscle; standard protocols limit injections to 2.0 mL or less to prevent tissue damage and pain.",
-        cite: "Page 227"
+        explanation: "Impetigo is a highly contagious bacterial skin infection, most common in children, which typically presents with honey-colored crusts on the face.",
+        cite: "Page 190"
     },
     {
-        q: "Which IM injection site is preferred for infants and small children because it lacks major nerves and blood vessels?",
+        q: "What is the primary treatment for localized Folliculitis?",
         options: [
-            "Deltoid",
-            "Vastus Lateralis (Thigh)",
-            "Dorsogluteal (Buttocks)",
-            "Ventrogluteal"
-        ],
-        answer: 1,
-        explanation: "The vastus lateralis is the safest and most common IM site for pediatric patients due to its size and lack of proximity to the sciatic nerve.",
-        cite: "Page 228"
-    },
-    {
-        q: "Why is 'aspiration' (pulling back on the plunger after insertion) performed during an IM injection?",
-        options: [
-            "To check for nerve response.",
-            "To ensure the needle tip is not in a blood vessel.",
-            "To create space for the medication.",
-            "To reduce the pressure of the injection."
-        ],
-        answer: 1,
-        explanation: "If blood appears in the syringe during aspiration, the needle is in a vessel. You must withdraw, discard the equipment, and start over.",
-        cite: "Page 227"
-    },
-    {
-        q: "The 'Z-track' method is used for IM injections primarily to:",
-        options: [
-            "Speed up absorption.",
-            "Prevent medication from leaking back out into the subcutaneous tissue.",
-            "Allow for larger doses of medication.",
-            "Avoid hitting the bone."
-        ],
-        answer: 1,
-        explanation: "Z-track involves pulling the skin to one side during injection; when released, the track is closed, trapping irritating medications in the muscle.",
-        cite: "Page 230"
-    },
-    {
-        q: "After administering an injection, how should you dispose of the needle?",
-        options: [
-            "Recap it immediately with both hands.",
-            "Place it in the regular trash can.",
-            "Place it immediately into a puncture-resistant sharps container without recapping.",
-            "Bend the needle so it cannot be reused."
+            "Intravenous antibiotics",
+            "Surgical excision",
+            "Warm compresses and topical antibiotics",
+            "Oral steroids"
         ],
         answer: 2,
-        explanation: "To prevent accidental needle sticks, never recap a used needle. It must go directly into a sharps container.",
-        cite: "Page 232"
+        explanation: "Folliculitis (inflammation of hair follicles) is usually treated with local care such as warm compresses and topical antibiotic ointments.",
+        cite: "Page 192"
     },
     {
-        q: "A small, raised 'bleb' or 'wheal' on the skin is the expected result of which type of injection?",
+        q: "A deep-seated, painful, firm, red infection of a hair follicle that has progressed to an abscess is called a:",
         options: [
-            "Intramuscular",
-            "Subcutaneous",
-            "Intradermal",
-            "Intravenous"
-        ],
-        answer: 2,
-        explanation: "A successful intradermal injection deposits medication just under the epidermis, creating a visible bump (bleb).",
-        cite: "Page 222"
-    },
-    {
-        q: "What are the 'Six Rights' of medication administration that must be verified before every injection?",
-        options: [
-            "Right Patient, Drug, Dose, Route, Time, and Documentation",
-            "Right Person, Place, Thing, Reason, Result, and Recovery",
-            "Right Name, Rank, Service Number, Unit, Date, and Time",
-            "Right Medic, Supply, Kit, Site, Speed, and Support"
-        ],
-        answer: 0,
-        explanation: "The Six Rights (Patient, Drug, Dose, Route, Time, Documentation) are the standard safety checklist to prevent medical errors.",
-        cite: "Page 211"
-    },
-    {
-        q: "When cleaning an injection site with alcohol, you should wipe in what pattern?",
-        options: [
-            "Up and down vigorously",
-            "In a circular motion, from the center outward",
-            "In a circular motion, from the outside inward",
-            "Side to side"
+            "Carbuncle",
+            "Furuncle (Boil)",
+            "Cyst",
+            "Macule"
         ],
         answer: 1,
-        explanation: "Cleaning from the center outward (circumferential) carries contaminants away from the intended puncture site.",
-        cite: "Page 220"
+        explanation: "A furuncle, or boil, is a painful, pus-filled bump under the skin caused by bacterial infection of a hair follicle.",
+        cite: "Page 193"
     },
     {
-        q: "Which IM site is generally avoided in modern practice due to the high risk of damaging the sciatic nerve?",
+        q: "When a cluster of furuncles (boils) connect under the skin, it is known as a:",
         options: [
-            "Ventrogluteal",
-            "Deltoid",
-            "Dorsogluteal",
-            "Vastus Lateralis"
+            "Nodule",
+            "Vesicle",
+            "Carbuncle",
+            "Pustule"
         ],
         answer: 2,
-        explanation: "The dorsogluteal site (upper outer quadrant of the buttock) is near the sciatic nerve and superior gluteal artery, making it more hazardous than the ventrogluteal site.",
-        cite: "Page 228"
+        explanation: "A carbuncle is a red, swollen, and painful cluster of connected boils (furuncles) under the skin.",
+        cite: "Page 193"
     },
     {
-        q: "If a patient develops hives and shortness of breath immediately after an injection, you should suspect:",
+        q: "Cellulitis is a bacterial infection that affects which part of the skin?",
         options: [
-            "A normal side effect.",
-            "Anaphylaxis (Severe Allergic Reaction).",
-            "Localized infection.",
-            "A vasovagal response (fainting)."
+            "The outermost epidermis only",
+            "Hair follicles only",
+            "Deep subcutaneous tissues and the dermis",
+            "Sweat glands"
+        ],
+        answer: 2,
+        explanation: "Cellulitis is an acute, spreading bacterial infection of the deeper layers of the skin (dermis) and the underlying subcutaneous tissues.",
+        cite: "Page 195"
+    },
+    {
+        q: "Which fungal infection is commonly known as 'Athlete's Foot'?",
+        options: [
+            "Tinea Corporis",
+            "Tinea Cruris",
+            "Tinea Pedis",
+            "Tinea Capitis"
+        ],
+        answer: 2,
+        explanation: "Tinea pedis is a fungal infection that usually begins between the toes and is commonly called athlete's foot.",
+        cite: "Page 197"
+    },
+    {
+        q: "Tinea Cruris, a fungal infection of the groin area, is more commonly known as:",
+        options: [
+            "Ringworm",
+            "Jock Itch",
+            "Cradle Cap",
+            "Thrush"
         ],
         answer: 1,
-        explanation: "Systemic symptoms like respiratory distress and hives indicate a life-threatening allergic reaction requiring immediate intervention with Epinephrine.",
-        cite: "Page 234"
+        explanation: "Tinea cruris is an itchy, red, often ring-shaped rash in the groin area, frequently referred to as jock itch.",
+        cite: "Page 198"
+    },
+    {
+        q: "What is the hallmark clinical appearance of Tinea Corporis (Ringworm)?",
+        options: [
+            "Black, necrotic spots",
+            "A solid white plaque",
+            "Annular (ring-shaped) lesions with a clear center and scaly border",
+            "Clusters of tiny clear blisters"
+        ],
+        answer: 2,
+        explanation: "Tinea corporis typically presents as an itchy, circular (annular) rash with clearer skin in the middle, giving it a ring-like appearance.",
+        cite: "Page 199"
+    },
+    {
+        q: "Which viral skin condition causes small, painful, fluid-filled blisters (cold sores) around the mouth?",
+        options: [
+            "Herpes Zoster",
+            "Herpes Simplex (HSV-1)",
+            "Verruca Vulgaris",
+            "Molluscum Contagiosum"
+        ],
+        answer: 1,
+        explanation: "Herpes Simplex Virus Type 1 (HSV-1) is the primary cause of oral herpes, which presents as cold sores or fever blisters.",
+        cite: "Page 201"
+    },
+    {
+        q: "Herpes Zoster, which presents as a painful rash following a specific dermatome, is commonly known as:",
+        options: [
+            "Chickenpox",
+            "Measles",
+            "Shingles",
+            "Hives"
+        ],
+        answer: 2,
+        explanation: "Shingles is a reactivation of the varicella-zoster virus (the same virus that causes chickenpox) and causes a painful, blistering skin rash.",
+        cite: "Page 202"
+    },
+    {
+        q: "What is the medical term for 'warts'?",
+        options: [
+            "Nevus",
+            "Verrucae",
+            "Lipoma",
+            "Keloid"
+        ],
+        answer: 1,
+        explanation: "Verrucae is the clinical term for warts, which are small skin growths caused by the human papillomavirus (HPV).",
+        cite: "Page 204"
+    },
+    {
+        q: "Which highly contagious skin infestation is caused by tiny mites that burrow under the skin, causing intense itching, especially at night?",
+        options: [
+            "Pediculosis (Lice)",
+            "Tinea",
+            "Scabies",
+            "Contact Dermatitis"
+        ],
+        answer: 2,
+        explanation: "Scabies is an infestation of the skin by the human itch mite. The most common symptom is intense itching and a pimple-like skin rash.",
+        cite: "Page 206"
+    },
+    {
+        q: "The primary treatment for Contact Dermatitis (like Poison Ivy) involves:",
+        options: [
+            "Oral antibiotics",
+            "Removing the irritant and using topical corticosteroids or antihistamines",
+            "Surgical drainage of blisters",
+            "Scrubbing the area with soap and a stiff brush"
+        ],
+        answer: 1,
+        explanation: "Management of contact dermatitis focuses on identifying and avoiding the trigger, and using topical steroids or oral antihistamines to reduce inflammation and itching.",
+        cite: "Page 208"
     }
 ];
