@@ -1,242 +1,242 @@
 const chapter6Questions = [
     {
-        q: "What is the medical term for the external part of the ear (the ear flap)?",
+        q: "What is the primary function of the Eustachian tube?",
         options: [
-            "Tympanic membrane",
-            "Auricle or Pinna",
-            "Ossicles",
-            "Cochlea"
+            "To produce cerumen to protect the ear canal.",
+            "To equalize pressure between the middle ear and the atmosphere.",
+            "To transmit sound vibrations to the cochlea.",
+            "To drain tears from the eyes into the nose."
         ],
         answer: 1,
-        [span_0](start_span)explanation: "The auricle (also known as the pinna) is the visible, external portion of the ear made of cartilage and skin.[span_0](end_span)",
-        cite: "Page 119"
-    },
-    {
-        q: "Which structure separates the external ear from the middle ear and is commonly called the eardrum?",
-        options: [
-            "Eustachian tube",
-            "External auditory canal",
-            "Tympanic membrane",
-            "Stapes"
-        ],
-        answer: 2,
-        [span_1](start_span)explanation: "The tympanic membrane serves as the boundary between the external auditory canal and the middle ear cavity.[span_1](end_span)",
-        cite: "Page 119"
-    },
-    {
-        q: "The Eustachian tube connects the middle ear to which part of the body?",
-        options: [
-            "Oropharynx",
-            "Nasopharynx",
-            "Laryngopharynx",
-            "Maxillary sinus"
-        ],
-        answer: 1,
-        [span_2](start_span)explanation: "The Eustachian tube connects the middle ear to the nasopharynx to help equalize pressure.[span_2](end_span)",
+        explanation: "The Eustachian tube connects the middle ear to the nasopharynx. Its main job is to equalize pressure on both sides of the eardrum.",
         cite: "Page 120"
     },
     {
-        q: "Which specialized instrument is used to examine the external auditory canal and the tympanic membrane?",
+        q: "The 'Cone of Light' is a clinical landmark seen during an otoscopic exam. In which quadrant of the tympanic membrane is it normally located in a healthy right ear?",
         options: [
-            "Ophthalmoscope",
-            "Tonometer",
-            "Otoscope",
-            "Speculum"
+            "Upper-posterior",
+            "Lower-posterior",
+            "Lower-anterior (5 o'clock)",
+            "Upper-anterior"
         ],
         answer: 2,
-        [span_3](start_span)explanation: "An otoscope is the primary diagnostic tool for inspecting the ear canal and eardrum.[span_3](end_span)",
-        cite: "Page 122"
-    },
-    {
-        q: "When performing an otoscopic exam on an adult, how should you pull the auricle to straighten the ear canal?",
-        options: [
-            "Down and back",
-            "Straight down",
-            "Up and back",
-            "Straight forward"
-        ],
-        answer: 2,
-        [span_4](start_span)explanation: "To better visualize the tympanic membrane in an adult, the auricle should be pulled upward and backward.[span_4](end_span)",
+        explanation: "In a healthy right ear, the reflection of light (cone of light) from the otoscope is typically visible in the 5 o'clock position (lower-anterior). In the left ear, it is at 7 o'clock.",
         cite: "Page 123"
     },
     {
-        q: "A healthy tympanic membrane (TM) should typically appear:",
+        q: "Which of the following is a common symptom of Otitis Externa (Swimmer's Ear)?",
         options: [
-            "Bulging and red",
-            "Pearly gray and translucent",
-            "Yellow and opaque",
-            "White and chalky"
+            "High fever and cough.",
+            "Tragal tenderness and ear canal swelling.",
+            "Blood draining from the nose.",
+            "Numbness in the jaw."
         ],
         answer: 1,
-        [span_5](start_span)explanation: "A normal eardrum has a shiny, pearly gray appearance and is translucent enough to see some middle ear structures.[span_5](end_span)",
-        cite: "Page 123"
+        explanation: "Pain when pushing on the tragus or pulling the pinna is a hallmark sign of infection in the external ear canal.",
+        cite: "Page 125"
     },
     {
-        q: "Which condition is commonly known as 'Swimmer's Ear'?",
+        q: "What is the recommended treatment for a simple Cerumen (earwax) impaction?",
         options: [
-            "Otitis Media",
-            "Mastoiditis",
+            "Using a cotton-tipped applicator to scrub the canal.",
+            "Irrigation with warm water or saline (if the TM is intact).",
+            "Instilling cold alcohol drops.",
+            "Surgical removal of the eardrum."
+        ],
+        answer: 1,
+        explanation: "Irrigation with body-temperature water is the standard method for removing impacted wax. Cold water should be avoided as it can cause dizziness.",
+        cite: "Page 130"
+    },
+    {
+        q: "A patient presents with 'bulging' of the tympanic membrane and loss of the normal light reflex. This most likely indicates:",
+        options: [
             "Otitis Externa",
-            "Tinnitus"
-        ],
-        answer: 2,
-        [span_6](start_span)explanation: "Otitis externa is an inflammation or infection of the external auditory canal, often caused by trapped moisture.[span_6](end_span)",
-        cite: "Page 125"
-    },
-    {
-        q: "A hallmark sign of Otitis Externa during physical examination is:",
-        options: [
-            "Pain when pulling on the auricle (Tug Test)",
-            "Dizziness when lying flat",
-            "Blood behind the eardrum",
-            "Loss of sense of smell"
-        ],
-        answer: 0,
-        [span_7](start_span)explanation: "Pain produced by movement of the auricle or pressure on the tragus is a characteristic sign of Otitis Externa.[span_7](end_span)",
-        cite: "Page 125"
-    },
-    {
-        q: "Otitis Media is defined as an infection of which part of the ear?",
-        options: [
-            "Inner ear",
-            "Middle ear",
-            "External canal",
-            "Mastoid bone"
+            "Acute Otitis Media (AOM)",
+            "A foreign body in the canal.",
+            "A normal healthy ear."
         ],
         answer: 1,
-        [span_8](start_span)explanation: "Otitis Media is an inflammation or infection located in the middle ear space, behind the tympanic membrane.[span_8](end_span)",
+        explanation: "Bulging of the eardrum is caused by pressure from fluid or pus accumulating in the middle ear space during an infection.",
         cite: "Page 127"
     },
     {
-        q: "What is the medical term for 'earwax'?",
+        q: "What is the most common cause of Acute Pharyngitis (sore throat)?",
         options: [
-            "Sebum",
-            "Cerumen",
-            "Exudate",
-            "Effusion"
-        ],
-        answer: 1,
-        [span_9](start_span)explanation: "Cerumen is the natural waxy substance produced by glands in the external ear canal.[span_9](end_span)",
-        cite: "Page 129"
-    },
-    {
-        q: "The clinical term for a 'nosebleed' is:",
-        options: [
-            "Rhinitis",
-            "Epistaxis",
-            "Sinusitis",
-            "Coryza"
-        ],
-        answer: 1,
-        [span_10](start_span)explanation: "Epistaxis is the medical term for bleeding from the nose.[span_10](end_span)",
-        cite: "Page 132"
-    },
-    {
-        q: "What is the most common site for anterior nosebleeds?",
-        options: [
-            "Sphenoid sinus",
-            "Kiesselbach's Plexus",
-            "Inferior turbinate",
-            "Ethmoid bone"
-        ],
-        answer: 1,
-        [span_11](start_span)explanation: "Most nosebleeds occur in the anterior part of the septum at Kiesselbach's Plexus, a rich network of blood vessels.[span_11](end_span)",
-        cite: "Page 132"
-    },
-    {
-        q: "When managing a patient with epistaxis, they should be instructed to:",
-        options: [
-            "Tilt their head back to stop flow",
-            "Lean forward and pinch the fleshy part of the nose for 10-15 minutes",
-            "Lie flat with a cold towel on the forehead",
-            "Blow their nose vigorously to clear clots"
-        ],
-        answer: 1,
-        [span_12](start_span)explanation: "Sitting up and leaning forward prevents swallowing of blood, while constant pressure for 10-15 minutes allows a clot to form.[span_12](end_span)",
-        cite: "Page 133"
-    },
-    {
-        q: "Which condition involves inflammation of the mucous membranes of the nose, often causing 'runny nose' and sneezing?",
-        options: [
-            "Pharyngitis",
-            "Rhinitis",
-            "Laryngitis",
-            "Otitis"
-        ],
-        answer: 1,
-        [span_13](start_span)explanation: "Rhinitis is the inflammation of the nasal mucosa, which can be allergic or infectious (viral).[span_13](end_span)",
-        cite: "Page 135"
-    },
-    {
-        q: "What are the four pairs of paranasal sinuses?",
-        options: [
-            "Frontal, Maxillary, Ethmoid, and Sphenoid",
-            "Orbital, Nasal, Oral, and Otic",
-            "Temporal, Parietal, Occipital, and Frontal",
-            "Mental, Buccal, Nasal, and Zygomatic"
-        ],
-        answer: 0,
-        [span_14](start_span)explanation: "The paranasal sinuses are air-filled cavities in the bones of the face named Frontal, Maxillary, Ethmoid, and Sphenoid.[span_14](end_span)",
-        cite: "Page 137"
-    },
-    {
-        q: "Which sinus is the largest and most commonly infected?",
-        options: [
-            "Ethmoid",
-            "Frontal",
-            "Maxillary",
-            "Sphenoid"
+            "Bacterial infection (Strep)",
+            "Fungal infection",
+            "Viral infection",
+            "Acid reflux"
         ],
         answer: 2,
-        [span_15](start_span)explanation: "The maxillary sinuses, located in the cheekbones, are the largest and the site of most sinus infections.[span_15](end_span)",
-        cite: "Page 137"
-    },
-    {
-        q: "A patient presents with a 'sore throat.' The medical term for this condition is:",
-        options: [
-            "Gingivitis",
-            "Pharyngitis",
-            "Stomatitis",
-            "Rhinitis"
-        ],
-        answer: 1,
-        [span_16](start_span)explanation: "Pharyngitis is an inflammation of the pharynx (throat) that causes pain and discomfort.[span_16](end_span)",
+        explanation: "While 'Strep throat' is a major concern, the majority of sore throats are caused by viruses (such as those causing the common cold).",
         cite: "Page 139"
     },
     {
-        q: "A 'Group A Beta-Hemolytic Streptococcus' infection of the throat is commonly known as:",
+        q: "Which clinical finding is part of the Centor criteria used to evaluate the likelihood of a Strep Throat infection?",
         options: [
-            "Mono",
-            "The common cold",
-            "Strep Throat",
-            "Thrush"
+            "Presence of a cough.",
+            "Tonsillar exudate (white patches).",
+            "Runny nose.",
+            "Itchy eyes."
         ],
-        answer: 2,
-        [span_17](start_span)explanation: "Strep throat is a bacterial infection of the pharynx caused by Streptococcus pyogenes.[span_17](end_span)",
+        answer: 1,
+        explanation: "Tonsillar exudate, fever, tender anterior cervical lymph nodes, and the *absence* of a cough increase the probability of a bacterial infection.",
         cite: "Page 140"
     },
     {
-        q: "Which condition is a complication of untreated Strep Throat and presents with a 'hot potato voice' and uvular deviation?",
+        q: "What is the medical term for the small bones in the middle ear (malleus, incus, and stapes)?",
         options: [
-            "Epiglottitis",
-            "Peritonsillar Abscess (PTA)",
-            "Laryngitis",
-            "Oral Candidiasis"
+            "Auricles",
+            "Ossicles",
+            "Canaliculi",
+            "Turbinates"
         ],
         answer: 1,
-        [span_18](start_span)explanation: "A peritonsillar abscess is a collection of pus behind the tonsil that causes severe pain, difficulty speaking, and can push the uvula to one side.[span_18](end_span)",
+        explanation: "The ossicles are the three smallest bones in the human body; they vibrate to transmit sound from the eardrum to the inner ear.",
+        cite: "Page 119"
+    },
+    {
+        q: "A patient with Epistaxis (nosebleed) that cannot be controlled with direct pressure for 15 minutes may require:",
+        options: [
+            "Immediate surgery.",
+            "Vasoconstrictor-soaked gauze (like Afrin) or nasal packing.",
+            "External splinting of the nose.",
+            "Lying flat on their back."
+        ],
+        answer: 1,
+        explanation: "If pressure fails, topically applied vasoconstrictors or specialized nasal tampons/packing are used to stop the bleeding.",
+        cite: "Page 134"
+    },
+    {
+        q: "Which pair of sinuses are located in the forehead area above the eyes?",
+        options: [
+            "Maxillary",
+            "Ethmoid",
+            "Frontal",
+            "Sphenoid"
+        ],
+        answer: 2,
+        explanation: "The frontal sinuses are located in the frontal bone of the skull, just above the eyebrows.",
+        cite: "Page 137"
+    },
+    {
+        q: "What is the most serious complication of an untreated Peritonsillar Abscess (PTA)?",
+        options: [
+            "Tooth decay.",
+            "Airway obstruction.",
+            "Hearing loss.",
+            "Sinus pressure."
+        ],
+        answer: 1,
+        explanation: "A PTA can grow large enough to shift the uvula and eventually block the airway, making it a potentially life-threatening emergency.",
         cite: "Page 142"
     },
     {
-        q: "A white, 'cottage cheese' like patch on the tongue or inner cheeks that can be scraped off is characteristic of:",
+        q: "A patient presents with a 'creamy white' coating on the tongue that, when scraped away, leaves a raw, bleeding surface. This is diagnostic for:",
         options: [
-            "Oral Herpes",
-            "Leukoplakia",
+            "Strep Throat",
             "Oral Candidiasis (Thrush)",
-            "Aphthous Ulcers"
+            "Leukoplakia",
+            "Geographic Tongue"
+        ],
+        answer: 1,
+        explanation: "Candida (yeast) infections in the mouth present as white patches that can be scraped off, revealing inflamed tissue underneath.",
+        cite: "Page 144"
+    },
+    {
+        q: "When performing otoscopy on a patient with a suspected ear infection, which ear should you examine first?",
+        options: [
+            "The painful/affected ear.",
+            "The unaffected (good) ear.",
+            "The right ear always.",
+            "It does not matter."
+        ],
+        answer: 1,
+        explanation: "Always examine the 'good' ear first to establish a baseline of what is normal for that patient and to prevent spreading infection from the sick ear to the healthy one.",
+        cite: "Page 123"
+    },
+    {
+        q: "Sinusitis is most often triggered by which preceding event?",
+        options: [
+            "A fungal skin rash.",
+            "An Upper Respiratory Infection (URI) or allergies.",
+            "Eating spicy foods.",
+            "Loud noises."
+        ],
+        answer: 1,
+        explanation: "Viruses or allergies cause the nasal passages to swell, trapping fluid in the sinuses which then becomes infected by bacteria.",
+        cite: "Page 137"
+    },
+    {
+        q: "What is the first-line antibiotic typically used for confirmed Streptococcal Pharyngitis (Strep Throat)?",
+        options: [
+            "Ciprofloxacin",
+            "Penicillin or Amoxicillin",
+            "Doxycycline",
+            "Metronidazole"
+        ],
+        answer: 1,
+        explanation: "Penicillin-class antibiotics remain highly effective against Group A Strep and help prevent complications like rheumatic fever.",
+        cite: "Page 141"
+    },
+    {
+        q: "Which symptom is characteristic of 'Allergic' Rhinitis rather than 'Infectious' Rhinitis?",
+        options: [
+            "Thick green nasal discharge.",
+            "Pale, boggy (swollen) nasal turbinates and itchy eyes.",
+            "High-grade fever.",
+            "Severe ear pain."
+        ],
+        answer: 1,
+        explanation: "Allergic rhinitis often features pale or bluish-grey nasal mucosa and clear, watery discharge, often accompanied by sneezing and itchy/watery eyes.",
+        cite: "Page 135"
+    },
+    {
+        q: "The clinical term for 'ringing in the ears' is:",
+        options: [
+            "Vertigo",
+            "Tinnitus",
+            "Presbycusis",
+            "Otalgia"
+        ],
+        answer: 1,
+        explanation: "Tinnitus is the perception of noise or ringing in the ears and can be a symptom of many ear-related conditions.",
+        cite: "Page 121"
+    },
+    {
+        q: "A patient with a Peritonsillar Abscess (PTA) will often exhibit 'Trismus,' which is:",
+        options: [
+            "An inability to stop coughing.",
+            "Difficulty opening the mouth due to muscle spasm.",
+            "A high-pitched whistling sound during breathing.",
+            "Ringing in the ears."
+        ],
+        answer: 1,
+        explanation: "Trismus occurs because the infection irritates the muscles used for chewing, making it painful or impossible for the patient to open their mouth wide.",
+        cite: "Page 142"
+    },
+    {
+        q: "Nasal corticosteroids (like Flonase) are primarily used to treat:",
+        options: [
+            "Bacterial sinus infections.",
+            "Acute nosebleeds.",
+            "Chronic Allergic Rhinitis.",
+            "Foreign bodies in the nose."
         ],
         answer: 2,
-        [span_19](start_span)explanation: "Oral Candidiasis, or thrush, is a fungal infection caused by Candida albicans that appears as white patches on the oral mucosa.[span_19](end_span)",
-        cite: "Page 144"
+        explanation: "Steroid nasal sprays reduce the chronic inflammation caused by allergens, providing long-term relief for stuffy/runny noses.",
+        cite: "Page 136"
+    },
+    {
+        q: "Which part of the ear is responsible for maintaining balance and equilibrium?",
+        options: [
+            "Tympanic membrane",
+            "Semicircular canals (Inner ear)",
+            "External auditory canal",
+            "Eustachian tube"
+        ],
+        answer: 1,
+        explanation: "The semicircular canals and the vestibule in the inner ear contain fluid and sensors that detect head movement and position.",
+        cite: "Page 121"
     }
 ];
