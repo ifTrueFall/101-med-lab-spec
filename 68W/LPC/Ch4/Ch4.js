@@ -56,7 +56,7 @@ const chapter4Questions = [
             "Four times a day"
         ],
         answer: 3,
-        explanation: "The abbreviation 'q.i.d.' stands for four times a day. (Note: 'b.i.d.' is twice and 't.i.d.' is three times).",
+        explanation: "The abbreviation 'q.i.d.' stands for four times a day.",
         cite: "Page 62"
     },
     {
@@ -84,7 +84,7 @@ const chapter4Questions = [
         cite: "Page 63"
     },
     {
-        q: "Calculate the specific gravity of a 10 mL vial containing 500 mg of Ketamine.",
+        q: "Calculate the specific gravity (concentration) of a 10 mL vial containing 500 mg of Ketamine.",
         options: [
             "5 mg/mL",
             "50 mg/mL",
@@ -92,7 +92,7 @@ const chapter4Questions = [
             "0.5 mg/mL"
         ],
         answer: 1,
-        explanation: "Specific gravity (concentration) is calculated as Total Weight / Total Volume. 500 mg / 10 mL = 50 mg/mL.",
+        explanation: "Specific gravity is calculated as Total Weight / Total Volume. 500 mg / 10 mL = 50 mg/mL.",
         cite: "Page 65"
     },
     {
@@ -140,19 +140,19 @@ const chapter4Questions = [
             "There is no clinical difference."
         ],
         answer: 0,
-        explanation: "First-generation antihistamines (like Benadryl) cross the blood-brain barrier and cause marked sedation. Second-generation (like Claritin) do not cross the barrier and are non-sedating.",
-        cite: "Page 72-73"
+        explanation: "First-generation antihistamines cross the blood-brain barrier and cause sedation. Second-generation do not cross the barrier and are non-sedating.",
+        cite: "Page 72"
     },
     {
         q: "What is the standard adult dose and concentration of Epinephrine for the treatment of Anaphylaxis?",
         options: [
             "1.0 mg (1:10,000) IV",
-            "0.3-0.5 mg (1:1,000) IM or SQ",
+            "0.3-0.5 mg (1:1,000) IM or SC",
             "5.0 mg (1:100) Oral",
             "0.1 mg (1:1,000) IV"
         ],
         answer: 1,
-        explanation: "The standard adult dose for anaphylaxis is 0.3-0.5 mg of a 1:1,000 solution administered IM or SQ.",
+        explanation: "The standard adult dose for anaphylaxis is 0.3-0.5 mg of a 1:1,000 solution administered IM or SC.",
         cite: "Page 74"
     },
     {
@@ -216,7 +216,7 @@ const chapter4Questions = [
         cite: "Page 82"
     },
     {
-        q: "What is the standard TCCC antibiotic for a casualty who is unable to take medications orally?",
+        q: "What is the standard TCCC antibiotic for a casualty with open wounds who is unable to take medications orally?",
         options: [
             "Moxifloxacin (400mg) PO",
             "Ertapenem (1g) IV/IO/IM",
@@ -236,7 +236,7 @@ const chapter4Questions = [
             "Diazepam and Morphine"
         ],
         answer: 1,
-        explanation: "An ATNAA is a dual-chamber injector that sequentially administers 2.1 mg of Atropine and 600 mg of 2-PAM through a single needle.",
+        explanation: "An ATNAA is a dual-chamber injector that sequentially administers Atropine (1.1 mg) and 2-PAM (600 mg) through a single needle.",
         cite: "Page 84"
     }
 ];
