@@ -1,242 +1,242 @@
 const chapter10Questions = [
     {
-        q: "What is the primary purpose of performing a venipuncture?",
+        q: "What is the primary goal of splinting a suspected fracture?",
         options: [
-            "To administer intramuscular medications.",
-            "To obtain a blood specimen for diagnostic purposes or to initiate an IV.",
-            "To measure the patient's blood pressure accurately.",
-            "To determine the patient's lung capacity."
+            "To realign the bone ends for better healing.",
+            "To prevent further injury by immobilizing the joint above and below the injury.",
+            "To reduce the amount of pain medication the patient requires.",
+            "To allow the patient to walk on the injured limb."
         ],
         answer: 1,
-        explanation: "Venipuncture is the process of puncturing a vein, typically to collect blood for laboratory testing or to provide a route for intravenous therapy.",
-        cite: "Page 237"
+        explanation: "Splinting is performed to prevent movement of the broken bone ends, which reduces further soft tissue damage, bleeding, and pain. It must include the joint above and below the fracture site.",
+        cite: "Page 212"
     },
     {
-        q: "Which vein is the most common site for venipuncture due to its size and accessibility in the crease of the elbow?",
+        q: "Which type of fracture is characterized by the bone breaking into several fragments?",
         options: [
-            "Saphenous vein",
-            "Median Cubital vein",
-            "Jugular vein",
-            "Radial artery"
+            "Greenstick fracture",
+            "Comminuted fracture",
+            "Oblique fracture",
+            "Transverse fracture"
         ],
         answer: 1,
-        explanation: "The median cubital vein, located in the antecubital fossa, is the first choice for venipuncture because it is large, well-anchored, and usually the least painful.",
-        cite: "Page 238"
+        explanation: "A comminuted fracture occurs when the bone is splintered, crushed, or broken into more than two pieces.",
+        cite: "Page 214"
     },
     {
-        q: "When selecting a vein, which of the following characteristics is MOST desirable?",
+        q: "A patient presents with an ankle injury where the foot is turned inward. This movement is known as:",
         options: [
-            "A vein that is hard and cord-like.",
-            "A vein that is bouncy and soft to the touch.",
-            "A vein located directly over an artery.",
-            "A vein that is visible but cannot be felt."
+            "Eversion",
+            "Inversion",
+            "Dorsiflexion",
+            "Plantar flexion"
         ],
         answer: 1,
-        explanation: "A good vein for venipuncture should feel spongy and bouncy when palpated. Hard or 'cord-like' veins are likely sclerosed and should be avoided.",
-        cite: "Page 239"
+        explanation: "Inversion is the movement of the sole of the foot inward toward the midline of the body. This is a common mechanism for ankle sprains.",
+        cite: "Page 216"
     },
     {
-        q: "What is the maximum amount of time a tourniquet should remain tied on a patient's arm?",
+        q: "What does the 'P' stand for in the '6 Ps' of assessing for Compartment Syndrome?",
         options: [
-            "30 seconds",
-            "1 minute",
-            "2 minutes",
-            "5 minutes"
-        ],
-        answer: 1,
-        explanation: "To prevent hemoconcentration (an imbalance in blood components) and tissue damage, a tourniquet should never be left on for longer than 60 seconds.",
-        cite: "Page 241"
-    },
-    {
-        q: "What is the correct angle of insertion for the needle during a venipuncture?",
-        options: [
-            "10 to 15 degrees",
-            "15 to 30 degrees",
-            "45 degrees",
-            "90 degrees"
-        ],
-        answer: 1,
-        explanation: "The needle should be inserted at a 15 to 30-degree angle with the bevel facing up to ensure proper entry into the vein without going through it.",
-        cite: "Page 243"
-    },
-    {
-        q: "In the 'Order of Draw,' which color-top tube is typically used for a Complete Blood Count (CBC)?",
-        options: [
-            "Red top",
-            "Light Blue top",
-            "Lavender top",
-            "Green top"
-        ],
-        answer: 2,
-        explanation: "Lavender-top tubes contain EDTA, an anticoagulant used specifically for hematology studies like the CBC.",
-        cite: "Page 245"
-    },
-    {
-        q: "What does a 'Light Blue' top tube contain, and what is its primary use?",
-        options: [
-            "Nothing; used for chemistry.",
-            "Sodium Citrate; used for coagulation studies like PT/INR.",
-            "Heparin; used for blood gases.",
-            "Gel separator; used for serum testing."
-        ],
-        answer: 1,
-        explanation: "Light blue tubes contain sodium citrate, which prevents the blood from clotting, making them ideal for coagulation tests.",
-        cite: "Page 245"
-    },
-    {
-        q: "Why is it important to invert the blood tubes gently 5–10 times after collection?",
-        options: [
-            "To warm the blood.",
-            "To ensure the blood is thoroughly mixed with the additive in the tube.",
-            "To break up the red blood cells.",
-            "To prevent the vacuum from leaking."
-        ],
-        answer: 1,
-        explanation: "Gentle inversion ensures that the anticoagulant or additive is distributed evenly to prevent clotting or to facilitate the required chemical reaction.",
-        cite: "Page 246"
-    },
-    {
-        q: "If a hematoma (bruise) begins to form during the venipuncture procedure, you should:",
-        options: [
-            "Continue to draw blood quickly.",
-            "Apply more pressure with the needle.",
-            "Release the tourniquet and remove the needle immediately.",
-            "Adjust the needle deeper into the arm."
-        ],
-        answer: 2,
-        explanation: "A hematoma indicates that blood is leaking into the tissue. You must stop the procedure immediately to prevent further injury and apply pressure.",
-        cite: "Page 248"
-    },
-    {
-        q: "The clinical term for 'fainting' during a medical procedure is:",
-        options: [
-            "Syncope",
-            "Vertigo",
-            "Tachycardia",
-            "Hypoxia"
-        ],
-        answer: 0,
-        explanation: "Syncope is a brief loss of consciousness caused by a sudden drop in blood pressure, often triggered by stress or pain during venipuncture.",
-        cite: "Page 250"
-    },
-    {
-        q: "Which piece of equipment is used to hold the needle and the collection tube together during the draw?",
-        options: [
-            "Butterfly set",
-            "Vacutainer holder (Hub)",
-            "Luer-lock adapter",
-            "Splint"
-        ],
-        answer: 1,
-        explanation: "The Vacutainer holder, or adapter, secures the needle and allows the vacuum tubes to be swapped easily without removing the needle from the vein.",
-        cite: "Page 240"
-    },
-    {
-        q: "When cleaning the site for venipuncture, you should use what type of antiseptic?",
-        options: [
-            "Hydrogen peroxide",
-            "70% Isopropyl alcohol",
-            "Povidone-iodine only",
-            "Hand sanitizer"
-        ],
-        answer: 1,
-        explanation: "70% isopropyl alcohol is the standard antiseptic used to clean the skin prior to a routine venipuncture.",
-        cite: "Page 242"
-    },
-    {
-        q: "A 'Red top' tube is unique because it:",
-        options: [
-            "Contains no additives and allows the blood to clot naturally.",
-            "Contains high levels of heparin.",
-            "Is used only for diabetic testing.",
-            "Must be kept on ice during transport."
-        ],
-        answer: 0,
-        explanation: "Red top tubes contain no anticoagulant, allowing the blood to clot so that the serum can be separated and tested.",
-        cite: "Page 245"
-    },
-    {
-        q: "What is the proper way to 'anchor' a vein before inserting the needle?",
-        options: [
-            "Pinch the skin directly over the vein.",
-            "Use your thumb to pull the skin taut 1–2 inches below the insertion site.",
-            "Hold the patient's hand firmly.",
-            "Veins do not need to be anchored."
-        ],
-        answer: 1,
-        explanation: "Anchoring prevents the vein from 'rolling' or moving away from the needle during the puncture.",
-        cite: "Page 243"
-    },
-    {
-        q: "Hemolysis, the rupturing of red blood cells, can be caused by:",
-        options: [
-            "Using a needle that is too small.",
-            "Shaking the tubes vigorously.",
-            "Pulling the plunger of a syringe too fast.",
-            "All of the above."
+            "Pulse (absence of)",
+            "Paresthesia (numbness/tingling)",
+            "Pain (out of proportion)",
+            "All of the above"
         ],
         answer: 3,
-        explanation: "Hemolysis destroys the sample and can lead to inaccurate lab results. It is caused by mechanical stress on the blood cells.",
-        cite: "Page 252"
+        explanation: "The 6 Ps include Pain, Pallor, Pulselessness, Paresthesia, Paralysis, and Pressure. Any one of these can indicate the onset of compartment syndrome.",
+        cite: "Page 219"
     },
     {
-        q: "If you must perform a venipuncture on an arm that has an IV running, you should:",
+        q: "Which of the following is considered a medical emergency requiring immediate surgical intervention?",
         options: [
-            "Draw blood from directly above the IV site.",
-            "Draw blood from below the IV site after turning the IV off for at least 2 minutes.",
-            "Never use an arm with an IV.",
-            "Draw from the IV tubing directly."
+            "Grade I Ankle Sprain",
+            "Closed Radius Fracture",
+            "Compartment Syndrome",
+            "Patellar Tendonitis"
         ],
-        answer: 1,
-        explanation: "Drawing above an IV will contaminate the sample with IV fluids. Drawing below is permissible if the IV is paused to ensure the sample is pure blood.",
-        cite: "Page 254"
+        answer: 2,
+        explanation: "Compartment syndrome is a surgical emergency because increased pressure within a muscle compartment can cut off blood flow, leading to permanent nerve and muscle death.",
+        cite: "Page 220"
     },
     {
-        q: "Which of the following is a sign of an accidental arterial puncture?",
+        q: "When assessing a musculoskeletal injury, what should always be checked BEFORE and AFTER splinting?",
         options: [
-            "Slow, dark red blood flow.",
-            "Rapid, bright red, pulsating blood flow.",
-            "The patient reports a dull ache.",
-            "The blood stops flowing immediately."
+            "Blood pressure and pulse oximetry",
+            "Range of motion",
+            "PMS (Pulse, Motor, and Sensory function)",
+            "The patient's last meal"
         ],
-        answer: 1,
-        explanation: "Arteries contain oxygenated blood under high pressure, which appears bright red and will pulse into the collection device or tube.",
-        cite: "Page 255"
+        answer: 2,
+        explanation: "Checking PMS before and after splinting ensures that the injury hasn't compromised circulation or nerve function and that the splint itself isn't too tight.",
+        cite: "Page 222"
     },
     {
-        q: "The 'Butterfly' needle (winged infusion set) is most useful for:",
+        q: "What is the hallmark sign of a hip fracture in an elderly patient?",
         options: [
-            "Drawing from large, deep veins.",
-            "Drawing from small, fragile, or 'rolling' veins.",
-            "Drawing large volumes of blood (over 50 mL).",
-            "Emergency trauma stabilization only."
+            "The leg is lengthened and rotated inward.",
+            "The leg is shortened and rotated outward (abducted).",
+            "Inability to move the toes.",
+            "Bruising around the knee."
         ],
         answer: 1,
-        explanation: "Butterfly needles provide more control and a shallower angle, making them ideal for difficult veins or pediatric/geriatric patients.",
-        cite: "Page 240"
+        explanation: "A fractured hip typically presents with the affected leg appearing shorter than the other and being externally rotated.",
+        cite: "Page 225"
     },
     {
-        q: "After removing the needle, how long should pressure be applied to the site?",
+        q: "A 'sprain' is an injury to which type of tissue?",
         options: [
-            "30 seconds.",
-            "Until the bleeding stops (usually 2–3 minutes).",
-            "Exactly 5 minutes for every patient.",
-            "Pressure is not necessary if a band-aid is used."
+            "Muscle",
+            "Tendon",
+            "Ligament",
+            "Nerve"
         ],
-        answer: 1,
-        explanation: "Continuous pressure prevents the formation of a hematoma and ensures the puncture site in the vein has sealed.",
-        cite: "Page 244"
+        answer: 2,
+        explanation: "A sprain is the stretching or tearing of ligaments, which connect bone to bone at a joint.",
+        cite: "Page 227"
     },
     {
-        q: "Petechiae, small red spots on the skin, appearing during tourniquet use indicate:",
+        q: "A 'strain' is an injury to which type of tissue?",
         options: [
-            "The patient is allergic to latex.",
-            "The patient's capillaries are fragile or they have a bleeding disorder.",
-            "The tourniquet is too loose.",
-            "The vein has ruptured."
+            "Ligament",
+            "Muscle or Tendon",
+            "Cartilage",
+            "Bone"
         ],
         answer: 1,
-        explanation: "Petechiae are tiny hemorrhages under the skin that can occur if the tourniquet is too tight or if the patient has certain medical conditions.",
-        cite: "Page 256"
+        explanation: "A strain is an injury to a muscle or a tendon (the tissue that connects muscle to bone).",
+        cite: "Page 227"
+    },
+    {
+        q: "What does the RICE acronym stand for in the treatment of minor orthopedic injuries?",
+        options: [
+            "Run, Ice, Compress, Eat",
+            "Rest, Ice, Compression, Elevation",
+            "Realignment, Incline, Cold, Exercise",
+            "Recover, Immobilize, Circulation, Evaluate"
+        ],
+        answer: 1,
+        explanation: "RICE is the standard initial treatment for sprains and strains to reduce swelling and pain.",
+        cite: "Page 228"
+    },
+    {
+        q: "How long should ice be applied to an acute orthopedic injury?",
+        options: [
+            "Continuously for 24 hours.",
+            "20 minutes on, every 2-3 hours during the first 24-48 hours.",
+            "Only until the skin turns red.",
+            "1 hour on, 1 hour off."
+        ],
+        answer: 1,
+        explanation: "Ice should be applied for about 20 minutes at a time to prevent frostbite/skin damage while effectively reducing inflammation.",
+        cite: "Page 228"
+    },
+    {
+        q: "Which specialized test is used to assess for a tear in the Anterior Cruciate Ligament (ACL)?",
+        options: [
+            "McMurray Test",
+            "Lachman Test or Anterior Drawer Test",
+            "Phalen's Test",
+            "Thompson Test"
+        ],
+        answer: 1,
+        explanation: "The Lachman test is the most sensitive clinical test for detecting an ACL tear in the knee.",
+        cite: "Page 232"
+    },
+    {
+        q: "A patient complains of pain at the base of the heel that is worst during the first few steps in the morning. This is most likely:",
+        options: [
+            "Achilles Tendonitis",
+            "Plantar Fasciitis",
+            "Stress Fracture",
+            "Morton's Neuroma"
+        ],
+        answer: 1,
+        explanation: "Plantar fasciitis is characterized by sharp heel pain that is most severe when first waking up or after long periods of rest.",
+        cite: "Page 235"
+    },
+    {
+        q: "In the 'Ottawa Ankle Rules,' which finding indicates the need for an X-ray?",
+        options: [
+            "Bruising around the toes.",
+            "Inability to bear weight immediately after the injury and in the clinic.",
+            "Pain located in the mid-foot only.",
+            "The patient is under the age of 50."
+        ],
+        answer: 1,
+        explanation: "Inability to take four steps (bear weight) and bone tenderness at the posterior edge of the malleoli are key indicators for an X-ray according to the Ottawa rules.",
+        cite: "Page 233"
+    },
+    {
+        q: "What is the most common mechanism for a 'Clavicle Fracture'?",
+        options: [
+            "A direct blow to the back.",
+            "A fall on an outstretched hand (FOOSH).",
+            "Twisting the arm behind the back.",
+            "Lifting heavy weights."
+        ],
+        answer: 1,
+        explanation: "Clavicle fractures frequently occur due to a fall where the force is transmitted through the arm to the collarbone.",
+        cite: "Page 215"
+    },
+    {
+        q: "A 'Boxer's Fracture' involves which bone?",
+        options: [
+            "Radius",
+            "Ulna",
+            "Fifth Metacarpal",
+            "Scaphoid"
+        ],
+        answer: 2,
+        explanation: "A boxer's fracture is a break in the neck of the fifth metacarpal (the bone of the pinky finger), usually caused by punching a hard object.",
+        cite: "Page 215"
+    },
+    {
+        q: "Tenderness in the 'Anatomical Snuffbox' after a fall should be treated as which injury until proven otherwise by imaging?",
+        options: [
+            "Wrist Sprain",
+            "Scaphoid (Navicular) Fracture",
+            "Colles' Fracture",
+            "Carpal Tunnel Syndrome"
+        ],
+        answer: 1,
+        explanation: "Scaphoid fractures are notorious for having poor blood supply and failing to heal (non-union); snuffbox tenderness is a classic warning sign.",
+        cite: "Page 215"
+    },
+    {
+        q: "What is the standard treatment for a non-displaced clavicle fracture?",
+        options: [
+            "Surgical pinning",
+            "A sling or figure-eight bandage",
+            "A full body cast",
+            "Immediate physical therapy"
+        ],
+        answer: 1,
+        explanation: "Most clavicle fractures are treated conservatively with immobilization using a sling to allow the bone to knit back together.",
+        cite: "Page 229"
+    },
+    {
+        q: "Which condition involves inflammation of the tendons on the thumb side of the wrist, often tested with the Finkelstein Test?",
+        options: [
+            "Trigger Finger",
+            "De Quervain's Tenosynovitis",
+            "Gamekeeper's Thumb",
+            "Carpal Tunnel"
+        ],
+        answer: 1,
+        explanation: "De Quervain's tenosynovitis affects the tendons that move the thumb and causes pain along the radial side of the wrist.",
+        cite: "Page 235"
+    },
+    {
+        q: "What is the purpose of 'traction' in treating a mid-shaft femur fracture?",
+        options: [
+            "To make the patient taller.",
+            "To pull the leg back to its normal length and stop the large muscles from spasming and causing internal bleeding.",
+            "To allow the patient to move the leg freely.",
+            "To check for nerve damage."
+        ],
+        answer: 1,
+        explanation: "Traction splints (like the Hare or Sager) realign the femur to reduce the volume of the thigh, which minimizes internal bleeding and alleviates the pain of muscle spasms.",
+        cite: "Page 212"
     }
 ];
