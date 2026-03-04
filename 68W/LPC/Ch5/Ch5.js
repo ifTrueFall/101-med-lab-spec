@@ -8,7 +8,7 @@ const chapter5Questions = [
             "Retina"
         ],
         answer: 1,
-        [span_0](start_span)explanation: "The iris is the colored part of the eye that surrounds the pupil and regulates the amount of light entering by adjusting the pupil's size.[span_0](end_span)",
+        explanation: "The iris is the colored part of the eye that surrounds the pupil and regulates the amount of light entering by adjusting the pupil's size.",
         cite: "Page 87"
     },
     {
@@ -20,7 +20,7 @@ const chapter5Questions = [
             "Choroid"
         ],
         answer: 2,
-        [span_1](start_span)explanation: "The sclera is the tough, white, fibrous outer layer of the eyeball that helps maintain its shape.[span_1](end_span)",
+        explanation: "The sclera is the tough, white, fibrous outer layer of the eyeball that helps maintain its shape.",
         cite: "Page 87"
     },
     {
@@ -32,7 +32,7 @@ const chapter5Questions = [
             "Snellen Chart"
         ],
         answer: 2,
-        [span_2](start_span)explanation: "A Tonometer (such as a Tono-Pen) is the device used to measure the pressure inside the eye.[span_2](end_span)",
+        explanation: "A Tonometer (such as a Tono-Pen) is the device used to measure the pressure inside the eye.",
         cite: "Page 90"
     },
     {
@@ -44,7 +44,7 @@ const chapter5Questions = [
             "Administration of numbing drops"
         ],
         answer: 1,
-        [span_3](start_span)explanation: "Visual Acuity is the 'vital sign' of the eye and must be documented for every patient with an ocular complaint before further examination or treatment, except in chemical burns.[span_3](end_span)",
+        explanation: "Visual Acuity is the 'vital sign' of the eye and must be documented for every patient with an ocular complaint before further examination or treatment.",
         cite: "Page 91"
     },
     {
@@ -56,11 +56,11 @@ const chapter5Questions = [
             "The patient's age."
         ],
         answer: 1,
-        [span_4](start_span)explanation: "The denominator (40) indicates the distance at which a person with normal vision can read the same line that the patient can only read at 20 feet.[span_4](end_span)",
+        explanation: "The denominator (40) indicates the distance at which a person with normal vision can read the same line that the patient can only read at 20 feet.",
         cite: "Page 91"
     },
     {
-        q: "A patient reports 'flashing lights' and 'floaters' in their vision, followed by a sensation of a 'curtain' being pulled over their eye. What should you suspect?",
+        q: "A patient reports 'flashing lights' and 'floaters' in vision, followed by a sensation of a 'curtain' being pulled over the eye. What should you suspect?",
         options: [
             "Glaucoma",
             "Corneal Abrasion",
@@ -68,11 +68,11 @@ const chapter5Questions = [
             "Conjunctivitis"
         ],
         answer: 2,
-        [span_5](start_span)explanation: "Flashing lights, floaters, and a dark curtain-like shadow are classic warning signs of a retinal detachment, which is a medical emergency.[span_5](end_span)",
+        explanation: "Flashing lights, floaters, and a dark curtain-like shadow are classic warning signs of a retinal detachment.",
         cite: "Page 93"
     },
     {
-        q: "Which condition is characterized by a localized, painful, red infection or inflammation of a sebaceous gland at the edge of the eyelid?",
+        q: "Which condition is a localized, painful, red infection of a sebaceous gland at the edge of the eyelid?",
         options: [
             "Chalazion",
             "Hordeolum (Stye)",
@@ -80,7 +80,7 @@ const chapter5Questions = [
             "Iritis"
         ],
         answer: 1,
-        [span_6](start_span)explanation: "A hordeolum, or stye, is an acute inflammation of an oil gland of the eyelid, typically caused by staphylococcal bacteria.[span_6](end_span)",
+        explanation: "A hordeolum, or stye, is an acute inflammation of an oil gland of the eyelid, typically caused by staphylococcal bacteria.",
         cite: "Page 94"
     },
     {
@@ -92,11 +92,11 @@ const chapter5Questions = [
             "Cold packs and oral steroids"
         ],
         answer: 2,
-        [span_7](start_span)explanation: "Most styes will resolve with warm, moist compresses used several times daily to encourage drainage.[span_7](end_span)",
+        explanation: "Most styes resolve with warm, moist compresses used several times daily to encourage drainage.",
         cite: "Page 94"
     },
     {
-        q: "Which condition is often referred to as 'Pink Eye' and involves inflammation of the membrane covering the sclera and inner eyelids?",
+        q: "Which condition is often referred to as 'Pink Eye' and involves inflammation of the membrane covering the sclera?",
         options: [
             "Keratitis",
             "Hyphema",
@@ -104,11 +104,11 @@ const chapter5Questions = [
             "Iritis"
         ],
         answer: 2,
-        [span_8](start_span)explanation: "Conjunctivitis is the inflammation of the conjunctiva and is frequently caused by viruses, bacteria, or allergies.[span_8](end_span)",
+        explanation: "Conjunctivitis is the inflammation of the conjunctiva and is frequently caused by viruses, bacteria, or allergies.",
         cite: "Page 95"
     },
     {
-        q: "A patient presents with 'gritty' sensation in the eye, redness, and a thick, yellow/green discharge that causes the eyelids to stick together in the morning. This is most likely:",
+        q: "A patient presents with 'gritty' sensation, redness, and a thick yellow/green discharge causing eyelids to stick together. This is most likely:",
         options: [
             "Allergic Conjunctivitis",
             "Viral Conjunctivitis",
@@ -116,7 +116,7 @@ const chapter5Questions = [
             "A Corneal Ulcer"
         ],
         answer: 2,
-        [span_9](start_span)explanation: "Purulent (yellow/green) discharge that crusts the eyelids shut is a hallmark sign of bacterial conjunctivitis.[span_9](end_span)",
+        explanation: "Purulent (yellow/green) discharge that crusts the eyelids shut is a hallmark sign of bacterial conjunctivitis.",
         cite: "Page 95"
     },
     {
@@ -128,11 +128,11 @@ const chapter5Questions = [
             "Erythromycin"
         ],
         answer: 1,
-        [span_10](start_span)explanation: "Fluorescein dye strips are used to stain the eye; the dye collects in the abrasion and glows green under blue light.[span_10](end_span)",
+        explanation: "Fluorescein dye strips are used to stain the eye; the dye collects in the abrasion and glows green under blue light.",
         cite: "Page 98"
     },
     {
-        q: "Why should you NEVER provide a patient with Tetracaine (numbing) drops for self-administration at home?",
+        q: "Why should you NEVER provide a patient with Tetracaine (numbing) drops for self-administration?",
         options: [
             "It is too expensive.",
             "It can mask further injury and delay healing of the cornea.",
@@ -140,7 +140,7 @@ const chapter5Questions = [
             "It must be kept refrigerated."
         ],
         answer: 1,
-        [span_11](start_span)explanation: "Anesthetic drops like Tetracaine should only be used in the clinic because long-term use can soften and damage the cornea.[span_11](end_span)",
+        explanation: "Anesthetic drops like Tetracaine should only be used in the clinic because long-term use can soften and damage the cornea.",
         cite: "Page 98"
     },
     {
@@ -152,19 +152,19 @@ const chapter5Questions = [
             "Increased pressure in the eye."
         ],
         answer: 1,
-        [span_12](start_span)explanation: "A hyphema is the presence of blood in the front (anterior) chamber of the eye, usually caused by blunt trauma.[span_12](end_span)",
+        explanation: "A hyphema is the presence of blood in the front (anterior) chamber of the eye, usually caused by blunt trauma.",
         cite: "Page 101"
     },
     {
         q: "How should a patient with a Hyphema be positioned during transport?",
         options: [
-            "Flat on their back (supine)",
+            "Flat on back (supine)",
             "Lying on the affected side",
             "Head of bed elevated 30-45 degrees",
-            "Prone (on their stomach)"
+            "Prone"
         ],
         answer: 2,
-        [span_13](start_span)explanation: "Elevating the head helps the blood settle to the bottom of the anterior chamber, protecting the patient's vision.[span_13](end_span)",
+        explanation: "Elevating the head helps the blood settle to the bottom of the anterior chamber, protecting the patient's vision.",
         cite: "Page 101"
     },
     {
@@ -176,11 +176,11 @@ const chapter5Questions = [
             "Apply an eye shield"
         ],
         answer: 2,
-        [span_14](start_span)explanation: "Chemical burns are the only ocular emergency where treatment (irrigation) takes precedence over visual acuity testing.[span_14](end_span)",
+        explanation: "Chemical burns are the only ocular emergency where irrigation takes precedence over visual acuity testing.",
         cite: "Page 102"
     },
     {
-        q: "How long should you irrigate an eye that has been exposed to an alkali (base) substance?",
+        q: "How long should you irrigate an eye exposed to an alkali (base) substance?",
         options: [
             "5 minutes",
             "10 minutes",
@@ -188,35 +188,35 @@ const chapter5Questions = [
             "Until the patient stops complaining of pain"
         ],
         answer: 2,
-        explanation: "Alkali burns are especially dangerous because they continue to penetrate the eye. [span_15](start_span)Continuous irrigation is required until the pH is neutralized.[span_15](end_span)",
+        explanation: "Alkali burns continue to penetrate the eye. Continuous irrigation is required until the pH is neutralized.",
         cite: "Page 103"
     },
     {
-        q: "When treating a penetrating eye injury with an impaled object, what is the correct stabilization method?",
+        q: "When treating a penetrating eye injury with an impaled object, what is the correct method?",
         options: [
             "Remove the object immediately to relieve pressure.",
             "Apply a pressure dressing over both eyes.",
-            "Secure the object and place a protective shield (like a Fox Shield) over the affected eye.",
+            "Secure the object and place a rigid shield (Fox Shield) over the affected eye.",
             "Use a magnet to extract the object."
         ],
         answer: 2,
-        explanation: "Never remove an impaled object. [span_16](start_span)Stabilize it and use a shield to prevent any pressure on the globe.[span_16](end_span)",
+        explanation: "Never remove an impaled object. Stabilize it and use a shield to prevent any pressure on the globe.",
         cite: "Page 104"
     },
     {
-        q: "Why is it often recommended to patch or cover BOTH eyes even if only one is injured?",
+        q: "Why is it often recommended to cover BOTH eyes even if only one is injured?",
         options: [
             "To prevent the patient from seeing the injury.",
             "To stop sympathetic eye movement (the uninjured eye moving the injured one).",
-            "To keep the patient from walking around.",
+            "To keep the patient from walking.",
             "To keep both eyes at the same temperature."
         ],
         answer: 1,
-        explanation: "The eyes move together (conjugate gaze). [span_17](start_span)Covering the 'good' eye prevents it from looking around and causing the injured eye to move painfully.[span_17](end_span)",
+        explanation: "The eyes move together (conjugate gaze). Covering the 'good' eye prevents it from moving the injured eye painfully.",
         cite: "Page 104"
     },
     {
-        q: "Which ocular condition is a true surgical emergency characterized by sudden, severe eye pain, blurred vision, and a 'mid-dilated' pupil?",
+        q: "Which ocular condition is a surgical emergency characterized by sudden severe pain, blurred vision, and a 'mid-dilated' pupil?",
         options: [
             "Corneal Ulcer",
             "Acute Angle-Closure Glaucoma",
@@ -224,7 +224,7 @@ const chapter5Questions = [
             "Subconjunctival Hemorrhage"
         ],
         answer: 1,
-        [span_18](start_span)explanation: "Acute angle-closure glaucoma is caused by a rapid increase in intraocular pressure and can lead to permanent blindness within hours if not treated.[span_18](end_span)",
+        explanation: "Acute angle-closure glaucoma is caused by a rapid increase in intraocular pressure and can lead to permanent blindness within hours.",
         cite: "Page 107"
     },
     {
@@ -236,7 +236,7 @@ const chapter5Questions = [
             "To hold medication in place."
         ],
         answer: 2,
-        [span_19](start_span)explanation: "The Fox Shield is a rigid metal or plastic shield that rests on the bony orbit, ensuring nothing touches or puts pressure on the injured eye.[span_19](end_span)",
+        explanation: "The Fox Shield is a rigid shield that rests on the bony orbit, ensuring nothing puts pressure on the globe.",
         cite: "Page 105"
     }
 ];
