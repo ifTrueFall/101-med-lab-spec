@@ -1,242 +1,242 @@
 const chapter5Questions = [
     {
-        q: "Under whose supervision does a 68W practice when dispensing medications in a clinical setting?",
+        q: "Which structure of the eye is the colored part that controls the amount of light entering the eye?",
         options: [
-            "Their Platoon Sergeant",
-            "A licensed health care provider (doctor, nurse, or physician assistant)",
-            "The Company Commander",
-            "Independently without supervision"
+            "Sclera",
+            "Iris",
+            "Pupil",
+            "Retina"
         ],
         answer: 1,
-        [span_0](start_span)explanation: "The 68W practices under the supervision of a licensed health care provider, such as a doctor, nurse, or physician assistant[span_0](end_span).",
-        cite: "Page 88"
+        [span_0](start_span)explanation: "The iris is the colored part of the eye that surrounds the pupil and regulates the amount of light entering by adjusting the pupil's size.[span_0](end_span)",
+        cite: "Page 87"
     },
     {
-        q: "What is the term for the name a pharmaceutical company gives to a drug, also known as the brand name?",
+        q: "What is the 'white of the eye' called?",
         options: [
-            "Generic name",
-            "Chemical name",
-            "Trade name",
-            "Street name"
+            "Conjunctiva",
+            "Cornea",
+            "Sclera",
+            "Choroid"
         ],
         answer: 2,
-        [span_1](start_span)explanation: "The trade name is the name a pharmaceutical company gives to a drug and is also referred to as the brand name[span_1](end_span).",
-        cite: "Page 89"
+        [span_1](start_span)explanation: "The sclera is the tough, white, fibrous outer layer of the eyeball that helps maintain its shape.[span_1](end_span)",
+        cite: "Page 87"
     },
     {
-        q: "What are 'Indications' in the context of medication administration?",
+        q: "Which specialized tool is used to measure intraocular pressure (IOP)?",
         options: [
-            "The potential negative effects of a drug",
-            "The reason the medication is administered, guided by the conditions being treated",
-            "How the medication is absorbed by the body",
-            "The specific chemical reaction of the drug"
-        ],
-        answer: 1,
-        [span_2](start_span)explanation: "Indications are the reasons why a medication is administered, which are guided by the specific conditions being treated[span_2](end_span).",
-        cite: "Page 89"
-    },
-    {
-        q: "Which term describes a predictable chemical reaction or how a drug works within the body?",
-        options: [
-            "Therapeutic effect",
-            "Mechanism of action",
-            "Side effect",
-            "Contraindication"
-        ],
-        answer: 1,
-        [span_3](start_span)explanation: "Mechanism of action describes certain responses expected in the body and can be defined as a predictable chemical reaction of how the drug works[span_3](end_span).",
-        cite: "Page 89"
-    },
-    {
-        q: "What are 'Contraindications'?",
-        options: [
-            "Expected positive effects of a drug",
-            "Negative effects other than the desired actions",
-            "Situations where you would not administer a medication because it may do more harm than good",
-            "The decrease in effectiveness of a drug over time"
+            "Ophthalmoscope",
+            "Otoscope",
+            "Tonometer",
+            "Snellen Chart"
         ],
         answer: 2,
-        [span_4](start_span)explanation: "Contraindications are situations where you would not administer the medication because it may do more harm than good, often due to preexisting conditions[span_4](end_span).",
-        cite: "Page 89"
-    },
-    {
-        q: "What is the clinical definition of 'Drug Tolerance'?",
-        options: [
-            "A physical need for the drug developed by the body",
-            "A progressive decrease in the effectiveness of a drug requiring higher doses for the same effect",
-            "A severe allergic reaction to a medication",
-            "When one drug enhances the action of another drug"
-        ],
-        answer: 1,
-        [span_5](start_span)explanation: "Drug tolerance is a progressive decrease in the effectiveness of a drug, occurring when a patient receives the same drug for long periods and requires higher doses to achieve the same effect[span_5](end_span).",
+        [span_2](start_span)explanation: "A Tonometer (such as a Tono-Pen) is the device used to measure the pressure inside the eye.[span_2](end_span)",
         cite: "Page 90"
     },
     {
-        q: "What is a 'good rule of thumb' regarding female patients and medication administration?",
+        q: "What is the first step in the physical examination of a patient with an ocular complaint (assuming no chemical burn)?",
         options: [
-            "Assume they are not pregnant if they are on duty",
-            "Assume all females are pregnant until proven otherwise",
-            "Only ask about pregnancy if they are over age 30",
-            "Never give medications to female soldiers"
+            "Palpation of the globe",
+            "Measurement of Visual Acuity",
+            "Inspection with a penlight",
+            "Administration of numbing drops"
         ],
         answer: 1,
-        [span_6](start_span)explanation: "A good rule of thumb is to assume that ALL females are pregnant until proven otherwise, as many medications are contraindicated in pregnancy[span_6](end_span).",
-        cite: "Page 90"
-    },
-    {
-        q: "How many times must a medication be verified before administration?",
-        options: [
-            "Once",
-            "Twice",
-            "Three times",
-            "Five times"
-        ],
-        answer: 2,
-        [span_7](start_span)explanation: "Medication should be verified a minimum of three times: when removing it from storage, when preparing the dose, and when returning the container to storage[span_7](end_span).",
+        [span_3](start_span)explanation: "Visual Acuity is the 'vital sign' of the eye and must be documented for every patient with an ocular complaint before further examination or treatment, except in chemical burns.[span_3](end_span)",
         cite: "Page 91"
     },
     {
-        q: "What are the 'Six Rights' of medication administration?",
+        q: "In a Snellen Chart reading of 20/40, what does the '40' represent?",
         options: [
-            "Right Person, Place, Thing, Time, Reason, and Result",
-            "Right Patient, Medication, Time, Route, Dose, and Documentation",
-            "Right Rank, Name, Serial Number, Unit, Date, and Time",
-            "Right Drug, Amount, Speed, Site, Size, and Syringe"
+            "The distance in feet the patient is standing from the chart.",
+            "The distance in feet a 'normal' eye can read that line.",
+            "The number of letters the patient missed.",
+            "The patient's age."
         ],
         answer: 1,
-        explanation: "The Six Rights include Right patient, Right medication, Right time, Right route, Right dose, and Right documentation.",
-        cite: "Pages 91–94"
+        [span_4](start_span)explanation: "The denominator (40) indicates the distance at which a person with normal vision can read the same line that the patient can only read at 20 feet.[span_4](end_span)",
+        cite: "Page 91"
     },
     {
-        q: "Which route of administration is considered the most common?",
+        q: "A patient reports 'flashing lights' and 'floaters' in their vision, followed by a sensation of a 'curtain' being pulled over their eye. What should you suspect?",
         options: [
-            "Intravenous (IV)",
-            "Intramuscular (IM)",
-            "Oral (PO)",
-            "Sublingual (SL)"
+            "Glaucoma",
+            "Corneal Abrasion",
+            "Retinal Detachment",
+            "Conjunctivitis"
         ],
         answer: 2,
-        [span_8](start_span)explanation: "Oral (through the mouth) is the most common way to give medications[span_8](end_span).",
+        [span_5](start_span)explanation: "Flashing lights, floaters, and a dark curtain-like shadow are classic warning signs of a retinal detachment, which is a medical emergency.[span_5](end_span)",
         cite: "Page 93"
     },
     {
-        q: "Where is a 'Sublingual' medication placed?",
+        q: "Which condition is characterized by a localized, painful, red infection or inflammation of a sebaceous gland at the edge of the eyelid?",
         options: [
-            "Between the cheek and gum",
-            "Under the tongue",
-            "Swallowed with water",
-            "Injected into the muscle"
+            "Chalazion",
+            "Hordeolum (Stye)",
+            "Blepharitis",
+            "Iritis"
         ],
         answer: 1,
-        [span_9](start_span)explanation: "Sublingual medications are placed under the tongue to be absorbed through the blood vessels located there[span_9](end_span).",
-        cite: "Page 93"
+        [span_6](start_span)explanation: "A hordeolum, or stye, is an acute inflammation of an oil gland of the eyelid, typically caused by staphylococcal bacteria.[span_6](end_span)",
+        cite: "Page 94"
     },
     {
-        q: "What is an 'Enteric-coated' tablet?",
+        q: "What is the primary treatment for a Hordeolum (Stye)?",
         options: [
-            "A tablet that can be easily crushed for mixing with juice",
-            "A tablet with a special coating that prevents it from dissolving in the stomach, so it is absorbed in the intestines",
-            "A tablet that is scored for breaking into halves",
-            "A sweet, mucilage-type tablet that dissolves in the mouth"
-        ],
-        answer: 1,
-        [span_10](start_span)explanation: "Enteric-coated tablets have a special coating that protects them from gastric secretions and prevents them from dissolving in the stomach; they dissolve in the intestines[span_10](end_span).",
-        cite: "Page 96"
-    },
-    {
-        q: "Which of the following is an advantage of the Intranasal (IN) route?",
-        options: [
-            "It is highly dependent on the condition of the nasal mucosa",
-            "It avoids gastrointestinal destruction and hepatic first-pass metabolism",
-            "It is the only route that can be used for larger drug molecules",
-            "It is more invasive than the IV route"
-        ],
-        answer: 1,
-        [span_11](start_span)explanation: "The IN route avoids gastrointestinal destruction and hepatic first-pass metabolism, which increases bioavailability and decreases time of onset[span_11](end_span).",
-        cite: "Page 99"
-    },
-    {
-        q: "How long should a patient remain in the treatment area following an injection to monitor for severe reactions?",
-        options: [
-            "5 minutes",
-            "10 minutes",
-            "20 minutes",
-            "60 minutes"
+            "Surgical drainage",
+            "Patching the eye",
+            "Warm, moist compresses for 10-15 minutes, 3-4 times a day",
+            "Cold packs and oral steroids"
         ],
         answer: 2,
-        [span_12](start_span)explanation: "Patients should remain in the treatment area for 20 minutes following injections because of the possibility of a severe allergic reaction[span_12](end_span).",
-        cite: "Page 100"
+        [span_7](start_span)explanation: "Most styes will resolve with warm, moist compresses used several times daily to encourage drainage.[span_7](end_span)",
+        cite: "Page 94"
     },
     {
-        q: "What are the hallmarks of a mild to moderate allergic reaction?",
+        q: "Which condition is often referred to as 'Pink Eye' and involves inflammation of the membrane covering the sclera and inner eyelids?",
         options: [
-            "Hoarseness and stridor",
-            "Pruritus (itching), hives, and reddish skin flushing",
-            "Low blood pressure and tachycardia",
-            "Nausea and abdominal cramping"
+            "Keratitis",
+            "Hyphema",
+            "Conjunctivitis",
+            "Iritis"
+        ],
+        answer: 2,
+        [span_8](start_span)explanation: "Conjunctivitis is the inflammation of the conjunctiva and is frequently caused by viruses, bacteria, or allergies.[span_8](end_span)",
+        cite: "Page 95"
+    },
+    {
+        q: "A patient presents with 'gritty' sensation in the eye, redness, and a thick, yellow/green discharge that causes the eyelids to stick together in the morning. This is most likely:",
+        options: [
+            "Allergic Conjunctivitis",
+            "Viral Conjunctivitis",
+            "Bacterial Conjunctivitis",
+            "A Corneal Ulcer"
+        ],
+        answer: 2,
+        [span_9](start_span)explanation: "Purulent (yellow/green) discharge that crusts the eyelids shut is a hallmark sign of bacterial conjunctivitis.[span_9](end_span)",
+        cite: "Page 95"
+    },
+    {
+        q: "What medication is used to highlight a corneal abrasion under a cobalt blue or Wood's lamp?",
+        options: [
+            "Tetracaine",
+            "Fluorescein dye",
+            "Atropine",
+            "Erythromycin"
         ],
         answer: 1,
-        [span_13](start_span)explanation: "Signs and symptoms of mild to moderate reactions include pruritus, hives (urticaria), reddish skin flushing, and swollen/itchy eyes[span_13](end_span).",
+        [span_10](start_span)explanation: "Fluorescein dye strips are used to stain the eye; the dye collects in the abrasion and glows green under blue light.[span_10](end_span)",
+        cite: "Page 98"
+    },
+    {
+        q: "Why should you NEVER provide a patient with Tetracaine (numbing) drops for self-administration at home?",
+        options: [
+            "It is too expensive.",
+            "It can mask further injury and delay healing of the cornea.",
+            "It causes permanent pupil dilation.",
+            "It must be kept refrigerated."
+        ],
+        answer: 1,
+        [span_11](start_span)explanation: "Anesthetic drops like Tetracaine should only be used in the clinic because long-term use can soften and damage the cornea.[span_11](end_span)",
+        cite: "Page 98"
+    },
+    {
+        q: "What is a Hyphema?",
+        options: [
+            "A collection of pus in the anterior chamber.",
+            "Blood in the anterior chamber of the eye.",
+            "A rupture of the sclera.",
+            "Increased pressure in the eye."
+        ],
+        answer: 1,
+        [span_12](start_span)explanation: "A hyphema is the presence of blood in the front (anterior) chamber of the eye, usually caused by blunt trauma.[span_12](end_span)",
         cite: "Page 101"
     },
     {
-        q: "What is the standard adult dose and concentration of Epinephrine for treating Anaphylaxis?",
+        q: "How should a patient with a Hyphema be positioned during transport?",
         options: [
-            "0.1 mg of 1:100 solution",
-            "0.3-0.5 mg of 1:1000 solution",
-            "1.0 mg of 1:10,000 solution",
-            "5.0 mg of 1:1000 solution"
+            "Flat on their back (supine)",
+            "Lying on the affected side",
+            "Head of bed elevated 30-45 degrees",
+            "Prone (on their stomach)"
         ],
-        answer: 1,
-        [span_14](start_span)explanation: "The treatment for anaphylaxis in an adult is 0.3-0.5 mg of a 1:1000 solution administered IM or SC[span_14](end_span).",
+        answer: 2,
+        [span_13](start_span)explanation: "Elevating the head helps the blood settle to the bottom of the anterior chamber, protecting the patient's vision.[span_13](end_span)",
+        cite: "Page 101"
+    },
+    {
+        q: "What is the immediate priority for a chemical burn to the eye?",
+        options: [
+            "Check visual acuity",
+            "Identify the chemical's pH",
+            "Immediate and profuse irrigation with water or saline",
+            "Apply an eye shield"
+        ],
+        answer: 2,
+        [span_14](start_span)explanation: "Chemical burns are the only ocular emergency where treatment (irrigation) takes precedence over visual acuity testing.[span_14](end_span)",
         cite: "Page 102"
     },
     {
-        q: "When dispensing oral medications, how should you ensure the patient actually takes the medication?",
+        q: "How long should you irrigate an eye that has been exposed to an alkali (base) substance?",
         options: [
-            "Leave the medication on their nightstand",
-            "Hand it to their supervisor to give later",
-            "Observe the patient swallow the medication",
-            "Ask the patient to sign a waiver"
+            "5 minutes",
+            "10 minutes",
+            "At least 20 minutes or until pH returns to normal (7.0-7.3)",
+            "Until the patient stops complaining of pain"
         ],
         answer: 2,
-        [span_15](start_span)explanation: "A combat medic must observe the patient swallow the medication to ensure it was properly administered[span_15](end_span).",
+        explanation: "Alkali burns are especially dangerous because they continue to penetrate the eye. [span_15](start_span)Continuous irrigation is required until the pH is neutralized.[span_15](end_span)",
+        cite: "Page 103"
+    },
+    {
+        q: "When treating a penetrating eye injury with an impaled object, what is the correct stabilization method?",
+        options: [
+            "Remove the object immediately to relieve pressure.",
+            "Apply a pressure dressing over both eyes.",
+            "Secure the object and place a protective shield (like a Fox Shield) over the affected eye.",
+            "Use a magnet to extract the object."
+        ],
+        answer: 2,
+        explanation: "Never remove an impaled object. [span_16](start_span)Stabilize it and use a shield to prevent any pressure on the globe.[span_16](end_span)",
+        cite: "Page 104"
+    },
+    {
+        q: "Why is it often recommended to patch or cover BOTH eyes even if only one is injured?",
+        options: [
+            "To prevent the patient from seeing the injury.",
+            "To stop sympathetic eye movement (the uninjured eye moving the injured one).",
+            "To keep the patient from walking around.",
+            "To keep both eyes at the same temperature."
+        ],
+        answer: 1,
+        explanation: "The eyes move together (conjugate gaze). [span_17](start_span)Covering the 'good' eye prevents it from looking around and causing the injured eye to move painfully.[span_17](end_span)",
+        cite: "Page 104"
+    },
+    {
+        q: "Which ocular condition is a true surgical emergency characterized by sudden, severe eye pain, blurred vision, and a 'mid-dilated' pupil?",
+        options: [
+            "Corneal Ulcer",
+            "Acute Angle-Closure Glaucoma",
+            "Orbital Cellulitis",
+            "Subconjunctival Hemorrhage"
+        ],
+        answer: 1,
+        [span_18](start_span)explanation: "Acute angle-closure glaucoma is caused by a rapid increase in intraocular pressure and can lead to permanent blindness within hours if not treated.[span_18](end_span)",
         cite: "Page 107"
     },
     {
-        q: "What is the purpose of a 'spacer' or spacing device used with a metered-dose inhaler?",
+        q: "What is the 'Fox Shield' used for in ocular trauma?",
         options: [
-            "To increase the speed of the medication delivery",
-            "To trap the medication in a chamber, eliminating the need for simultaneous hand and inspiration action",
-            "To allow multiple medications to be mixed together",
-            "To keep the inhaler clean"
-        ],
-        answer: 1,
-        [span_16](start_span)explanation: "A spacer traps the medication in a chamber, which helps patients who cannot coordinate the timing of the inhaler activation and their breath[span_16](end_span).",
-        cite: "Page 109"
-    },
-    {
-        q: "A Medical Officer orders 2.0 mg of a drug IV. Your vial is labeled 0.4 mg/1.0 mL. How many mL do you administer?",
-        options: [
-            "0.8 mL",
-            "2.4 mL",
-            "5.0 mL",
-            "10.0 mL"
+            "To apply direct pressure to a bleeding eye.",
+            "To protect the eye from light.",
+            "To protect the eye from external pressure without touching the globe.",
+            "To hold medication in place."
         ],
         answer: 2,
-        [span_17](start_span)explanation: "Using the formula (Desired Dose / Concentration on Hand): 2.0 mg / 0.4 mg = 5.0 mL[span_17](end_span).",
-        cite: "Page 106"
-    },
-    {
-        q: "What is 'Angioedema'?",
-        options: [
-            "A type of heart murmur",
-            "Diffuse swelling of tissues, which may involve the lips, face, and eventually the airway",
-            "A rash caused by contact with poison ivy",
-            "Increased pressure in the eyes"
-        ],
-        answer: 1,
-        [span_18](start_span)explanation: "Angioedema is a diffuse swelling following drug administration that can affect the lips, hands, feet, and progress to the airway[span_18](end_span).",
-        cite: "Page 102"
+        [span_19](start_span)explanation: "The Fox Shield is a rigid metal or plastic shield that rests on the bony orbit, ensuring nothing touches or puts pressure on the injured eye.[span_19](end_span)",
+        cite: "Page 105"
     }
 ];
