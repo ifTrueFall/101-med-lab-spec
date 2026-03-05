@@ -1,242 +1,242 @@
 const chapter11Questions = [
     {
-        q: "What is the medical term for the first day of a woman's last menstrual period, which is critical to document for all females of childbearing age?",
+        q: "What is the body's primary mechanism for cooling itself in a hot environment?",
         options: [
-            "LMP",
-            "FDLMP",
-            "EDC",
-            "GTPAL"
-        ],
-        answer: 1,
-        explanation: "FDLMP stands for 'First Day of Last Menstrual Period.' It is a vital piece of subjective data used to assess the possibility of pregnancy.",
-        cite: "Page 261"
-    },
-    {
-        q: "Which condition is characterized by a pregnancy that develops outside the uterus, most commonly in a fallopian tube?",
-        options: [
-            "Placenta Previa",
-            "Abruptio Placentae",
-            "Ectopic Pregnancy",
-            "Preeclampsia"
+            "Convection",
+            "Radiation",
+            "Evaporation (Sweating)",
+            "Conduction"
         ],
         answer: 2,
-        explanation: "An ectopic pregnancy occurs when a fertilized egg implants outside the main cavity of the uterus, posing a significant risk of rupture and internal bleeding.",
-        cite: "Page 264"
+        explanation: "Evaporation of sweat from the skin is the most effective way the body dissipates heat, though its effectiveness decreases as humidity increases.",
+        cite: "Page 237"
     },
     {
-        q: "A patient presents with sudden, sharp, stabbing pain in the lower abdomen and vaginal bleeding. She is 8 weeks post-FDLMP. What should be your highest 'index of suspicion'?",
+        q: "Which heat injury is characterized by painful muscle spasms, usually in the legs or abdomen, after strenuous activity?",
         options: [
-            "Appendicitis",
-            "Ectopic Pregnancy",
-            "Ovarian Cyst",
-            "Urinary Tract Infection"
-        ],
-        answer: 1,
-        explanation: "In a female of childbearing age, lower abdominal pain and vaginal bleeding must be treated as a ruptured ectopic pregnancy until proven otherwise.",
-        cite: "Page 264"
-    },
-    {
-        q: "What is the primary medication used to treat a diagnosed Vaginal Yeast Infection (Candidiasis) in a single oral dose?",
-        options: [
-            "Metronidazole (Flagyl)",
-            "Fluconazole (Diflucan)",
-            "Ceftriaxone (Rocephin)",
-            "Azithromycin"
-        ],
-        answer: 1,
-        explanation: "Fluconazole (Diflucan) is a systemic antifungal medication frequently prescribed as a single oral dose to treat vaginal yeast infections.",
-        cite: "Page 267"
-    },
-    {
-        q: "Which condition is an infection of the upper female reproductive organs (uterus, fallopian tubes, and ovaries) often resulting from an untreated STI?",
-        options: [
-            "Endometriosis",
-            "Pelvic Inflammatory Disease (PID)",
-            "Bacterial Vaginosis",
-            "Cystitis"
-        ],
-        answer: 1,
-        explanation: "PID is an infection of the female reproductive organs usually caused by bacteria from a sexually transmitted infection spreading from the vagina to the uterus.",
-        cite: "Page 269"
-    },
-    {
-        q: "A classic sign of Pelvic Inflammatory Disease (PID) during a physical examination is:",
-        options: [
-            "Rebound tenderness in the RUQ",
-            "Cervical Motion Tenderness (Chandelier Sign)",
-            "Pain relieved by sitting up",
-            "Visible skin rash on the abdomen"
-        ],
-        answer: 1,
-        explanation: "Cervical motion tenderness is a hallmark finding of PID during a pelvic exam, indicating significant inflammation of the internal organs.",
-        cite: "Page 269"
-    },
-    {
-        q: "What is the recommended antibiotic treatment for a patient diagnosed with Trichomoniasis?",
-        options: [
-            "Penicillin G",
-            "Metronidazole (Flagyl)",
-            "Doxycycline",
-            "Moxifloxacin"
-        ],
-        answer: 1,
-        explanation: "Metronidazole (Flagyl) is the drug of choice for treating Trichomoniasis, a common protozoal infection of the vagina.",
-        cite: "Page 272"
-    },
-    {
-        q: "Why should a patient taking Metronidazole (Flagyl) be strictly warned to avoid alcohol?",
-        options: [
-            "It makes the medication ineffective.",
-            "It can cause a severe 'disulfiram-like' reaction (severe vomiting and headache).",
-            "It causes the patient to become permanently sterile.",
-            "It causes the medication to become toxic to the lungs."
-        ],
-        answer: 1,
-        explanation: "Mixing alcohol with Metronidazole triggers a violent physical reaction including severe nausea, vomiting, and tachycardia.",
-        cite: "Page 272"
-    },
-    {
-        q: "In the context of pregnancy, 'Gravida' refers to:",
-        options: [
-            "The number of live births.",
-            "The number of times a woman has been pregnant.",
-            "The number of miscarriages.",
-            "The estimated date of confinement."
-        ],
-        answer: 1,
-        explanation: "Gravida indicates the total number of confirmed pregnancies a woman has had, regardless of the outcome.",
-        cite: "Page 275"
-    },
-    {
-        q: "In the context of pregnancy, 'Para' refers to:",
-        options: [
-            "The number of times a woman has been pregnant.",
-            "The number of pregnancies that reached viable gestational age (20 weeks).",
-            "The number of children currently living.",
-            "The number of twin births."
-        ],
-        answer: 1,
-        explanation: "Para refers to the number of births that have occurred after 20 weeks of gestation, whether the infant was born alive or stillborn.",
-        cite: "Page 275"
-    },
-    {
-        q: "What is the definition of Preeclampsia?",
-        options: [
-            "A seizure during pregnancy.",
-            "High blood pressure and protein in the urine during pregnancy.",
-            "Painless vaginal bleeding in the third trimester.",
-            "Premature rupture of membranes."
-        ],
-        answer: 1,
-        explanation: "Preeclampsia is a pregnancy complication characterized by high blood pressure and signs of damage to another organ system, most often the liver and kidneys (evidenced by protein in urine).",
-        cite: "Page 278"
-    },
-    {
-        q: "When preeclampsia progresses to include seizures, the condition is then called:",
-        options: [
-            "Gestational Diabetes",
-            "Eclampsia",
-            "HELLP Syndrome",
-            "Epilepsy"
-        ],
-        answer: 1,
-        explanation: "Eclampsia is the onset of seizures (convulsions) in a woman with preeclampsia.",
-        cite: "Page 278"
-    },
-    {
-        q: "Supine Hypotensive Syndrome occurs when the heavy uterus compresses which major blood vessel?",
-        options: [
-            "Aorta",
-            "Inferior Vena Cava",
-            "Femoral Artery",
-            "Carotid Artery"
-        ],
-        answer: 1,
-        explanation: "When a pregnant woman lies flat on her back, the weight of the uterus can compress the inferior vena cava, reducing blood return to the heart and lowering blood pressure.",
-        cite: "Page 281"
-    },
-    {
-        q: "How should a pregnant patient in her third trimester be positioned to avoid Supine Hypotensive Syndrome?",
-        options: [
-            "Flat on her back.",
-            "Lying on her right side.",
-            "Lying on her left side (Left Lateral Recumbent).",
-            "In the Trendelenburg position."
+            "Heat Stroke",
+            "Heat Exhaustion",
+            "Heat Cramps",
+            "Heat Syncope"
         ],
         answer: 2,
-        explanation: "Positioning the patient on her left side shifts the uterus off the large blood vessels, improving circulation.",
-        cite: "Page 281"
+        explanation: "Heat cramps are painful, involuntary muscle spasms that occur during or after intense exercise in the heat, often due to electrolyte imbalance.",
+        cite: "Page 238"
     },
     {
-        q: "What is the medical term for the 'mask of pregnancy,' which involves brownish pigmentation on the face?",
+        q: "A patient presents with heavy sweating, rapid pulse, dizziness, and a core temperature of 102°F. Their mental status is normal. What is the most likely diagnosis?",
         options: [
-            "Linea Nigra",
-            "Chloasma (Melasma)",
-            "Striae Gravidarum",
-            "Erythema"
+            "Heat Stroke",
+            "Heat Exhaustion",
+            "Hyponatremia",
+            "Heat Cramps"
         ],
         answer: 1,
-        explanation: "Chloasma is a common skin change in pregnancy involving dark, blotchy brown patches of skin on the face.",
-        cite: "Page 283"
+        explanation: "Heat exhaustion is a systemic reaction to heat stress characterized by fatigue, sweating, and mild temperature elevation, but WITHOUT the altered mental status seen in heat stroke.",
+        cite: "Page 239"
     },
     {
-        q: "The first stage of labor is defined as:",
+        q: "What is the hallmark difference between Heat Exhaustion and Heat Stroke?",
         options: [
-            "From full dilation to the birth of the baby.",
-            "From the beginning of regular contractions to full dilation of the cervix.",
-            "From the birth of the baby to the delivery of the placenta.",
-            "The 24 hours following delivery."
+            "The amount of sweating",
+            "The presence of Altered Mental Status (AMS)",
+            "The patient's age",
+            "The location of the injury"
         ],
         answer: 1,
-        explanation: "The first stage is the longest and involves the cervix thinning and opening (dilating) to 10 centimeters.",
-        cite: "Page 286"
+        explanation: "Heat stroke is a medical emergency defined by a core temperature >104°F and significant neurological dysfunction (confusion, seizures, or coma).",
+        cite: "Page 240"
     },
     {
-        q: "What is 'Crowing'?",
+        q: "What is the priority treatment for a patient suspected of having Heat Stroke?",
         options: [
-            "The baby's first cry.",
-            "When the baby's head is visible at the vaginal opening and does not slip back during contractions.",
-            "The breaking of the amniotic sac.",
-            "The delivery of the placenta."
+            "Oral rehydration with sports drinks",
+            "Administering Aspirin to lower the fever",
+            "Immediate active cooling (e.g., cold water immersion or chilled IV fluids)",
+            "Encouraging the patient to finish their workout"
         ],
-        answer: 1,
-        explanation: "Crowning is a sign that birth is imminent and the second stage of labor is progressing.",
-        cite: "Page 288"
+        answer: 2,
+        explanation: "Heat stroke is a life-threatening emergency; the goal is to lower the body temperature as rapidly as possible to prevent permanent organ damage.",
+        cite: "Page 241"
     },
     {
-        q: "After the baby is born, how many clamps are placed on the umbilical cord before cutting it?",
+        q: "Hyponatremia, or 'water intoxication,' is caused by:",
         options: [
-            "One",
-            "Two",
-            "Three",
-            "None; it should be tied with string."
+            "Not drinking enough water",
+            "Drinking too much water without replacing lost electrolytes (salts)",
+            "Eating too much salt",
+            "Exposure to high altitudes"
         ],
         answer: 1,
-        explanation: "Two clamps are used to secure the cord, and the cut is made between them to prevent bleeding from either the mother or the newborn.",
-        cite: "Page 291"
+        explanation: "Hyponatremia occurs when over-hydration dilutes the sodium levels in the blood, leading to cerebral edema (brain swelling) and potentially death.",
+        cite: "Page 243"
     },
     {
-        q: "What is a 'Breech' delivery?",
+        q: "Hypothermia is defined as a core body temperature below:",
         options: [
-            "The head is delivered first.",
-            "The buttocks or feet are delivered first.",
-            "A single arm is delivered first.",
-            "The umbilical cord comes out before the baby."
+            "98.6°F",
+            "97.0°F",
+            "95.0°F",
+            "90.0°F"
         ],
-        answer: 1,
-        explanation: "A breech birth occurs when the baby is positioned to come out bottom or feet first rather than head first.",
-        cite: "Page 294"
+        answer: 2,
+        explanation: "Hypothermia occurs when the body's core temperature falls below 95°F (35°C), impairing the function of vital organs.",
+        cite: "Page 245"
     },
     {
-        q: "The APGAR score is used to evaluate a newborn's transition to extrauterine life at which intervals?",
+        q: "Why should a patient with severe hypothermia be handled extremely gently?",
         options: [
-            "Immediately and at 30 minutes.",
-            "At 1 minute and 5 minutes after birth.",
-            "Every hour for the first 4 hours.",
-            "Only if the baby is not breathing."
+            "To prevent them from waking up",
+            "To avoid triggering a lethal cardiac arrhythmia (Ventricular Fibrillation)",
+            "Because their skin is very brittle",
+            "To prevent heat from escaping"
         ],
         answer: 1,
-        explanation: "The APGAR score (Appearance, Pulse, Grimace, Activity, Respiration) provides a quick assessment of the baby's health at these two critical points.",
-        cite: "Page 298"
+        explanation: "In severe hypothermia, the heart is extremely irritable. Rough handling can cause the heart to stop or enter a non-functional quivering state.",
+        cite: "Page 246"
+    },
+    {
+        q: "Which cold injury is a non-freezing injury caused by prolonged exposure to wet, cold conditions, typically affecting the feet?",
+        options: [
+            "Frostbite",
+            "Chilblains",
+            "Immersion (Trench) Foot",
+            "Hypothermia"
+        ],
+        answer: 2,
+        explanation: "Trench foot occurs when feet are cold and damp for hours or days, causing damage to blood vessels and nerves without actually freezing the tissue.",
+        cite: "Page 248"
+    },
+    {
+        q: "Deep Frostbite is characterized by:",
+        options: [
+            "Red, itchy skin",
+            "Clear blisters only",
+            "Tissue that is hard, cold, white, and 'wooden' to the touch",
+            "Excessive sweating"
+        ],
+        answer: 2,
+        explanation: "Deep frostbite involves freezing of the skin and underlying tissues (muscle, bone). The affected part feels solid and lacks any sensation.",
+        cite: "Page 250"
+    },
+    {
+        q: "When treating frostbite, you should NEVER:",
+        options: [
+            "Wrap the area in dry dressings",
+            "Rub or massage the affected area",
+            "Remove wet clothing",
+            "Provide warm fluids to drink"
+        ],
+        answer: 1,
+        explanation: "Rubbing or massaging frozen tissue causes ice crystals within the cells to tear the tissue apart, significantly worsening the injury.",
+        cite: "Page 251"
+    },
+    {
+        q: "What is the primary cause of Acute Mountain Sickness (AMS)?",
+        options: [
+            "Lack of physical fitness",
+            "Low oxygen pressure at high altitudes and rapid ascent",
+            "Dehydration only",
+            "Cold temperatures"
+        ],
+        answer: 1,
+        explanation: "AMS is caused by the body's failure to adapt to lower oxygen levels (hypoxia) when ascending to altitudes typically above 8,000 feet.",
+        cite: "Page 253"
+    },
+    {
+        q: "Which high-altitude condition involves fluid buildup in the lungs and presents with a cough and pink, frothy sputum?",
+        options: [
+            "HACE",
+            "HAPE",
+            "AMS",
+            "Pneumonia"
+        ],
+        answer: 1,
+        explanation: "High Altitude Pulmonary Edema (HAPE) is a life-threatening condition where pressure changes cause fluid to leak into the air sacs of the lungs.",
+        cite: "Page 254"
+    },
+    {
+        q: "The most definitive treatment for any severe high-altitude illness (HAPE or HACE) is:",
+        options: [
+            "Immediate descent to a lower altitude",
+            "Administering Albuterol",
+            "Drinking 4 liters of water",
+            "Taking a nap"
+        ],
+        answer: 0,
+        explanation: "Descent is the only way to reverse the pressure and oxygen changes causing the illness. Even a descent of 2,000–3,000 feet can be life-saving.",
+        cite: "Page 255"
+    },
+    {
+        q: "High Altitude Cerebral Edema (HACE) is characterized by:",
+        options: [
+            "A mild headache",
+            "Ataxia (loss of coordination) and altered mental status",
+            "Chest pain",
+            "Bloody diarrhea"
+        ],
+        answer: 1,
+        explanation: "HACE is the swelling of the brain at high altitude. Ataxia (staggering gait) is a key diagnostic sign that AMS has progressed to HACE.",
+        cite: "Page 254"
+    },
+    {
+        q: "When assessing a dehydration patient, 'Skin Turgor' is checked by:",
+        options: [
+            "Looking at the color of the skin",
+            "Pinching the skin and seeing how quickly it returns to normal",
+            "Checking the temperature of the skin",
+            "Measuring the sweat rate"
+        ],
+        answer: 1,
+        explanation: "Loss of skin elasticity (tenting) is a late sign of significant dehydration as the body loses fluid from its tissues.",
+        cite: "Page 257"
+    },
+    {
+        q: "A simple way to monitor hydration status in a field environment is to observe:",
+        options: [
+            "Heart rate",
+            "Urine color and frequency",
+            "Body weight every hour",
+            "Pupil size"
+        ],
+        answer: 1,
+        explanation: "Dark, concentrated urine and infrequent urination are early indicators that a Soldier is becoming dehydrated.",
+        cite: "Page 257"
+    },
+    {
+        q: "What is the 'Wet Bulb Globe Temperature' (WBGT) Index used for?",
+        options: [
+            "To predict snowfall",
+            "To determine the risk of heat injury based on temperature, humidity, and solar radiation",
+            "To measure wind chill",
+            "To calculate oxygen levels"
+        ],
+        answer: 1,
+        explanation: "The WBGT provides a single number that accounts for environmental factors to guide work/rest cycles and fluid replacement requirements.",
+        cite: "Page 258"
+    },
+    {
+        q: "Carbon Monoxide (CO) poisoning is a significant environmental threat in cold weather because:",
+        options: [
+            "CO freezes the lungs",
+            "Soldiers may use heaters or run engines in poorly ventilated spaces (tents/vehicles)",
+            "Cold air contains more CO",
+            "CO causes frostbite"
+        ],
+        answer: 1,
+        explanation: "CO is a colorless, odorless gas produced by incomplete combustion. In enclosed spaces, it binds to hemoglobin more effectively than oxygen, leading to suffocation.",
+        cite: "Page 260"
+    },
+    {
+        q: "What is the recommended 'Gold Standard' for measuring core body temperature in a suspected heat stroke patient?",
+        options: [
+            "Oral thermometer",
+            "Tympanic (ear) sensor",
+            "Rectal temperature",
+            "Axillary (armpit) temperature"
+        ],
+        answer: 2,
+        explanation: "Rectal temperature is the most accurate way to measure the true core temperature in environmental emergencies; other methods are often unreliable in extreme conditions.",
+        cite: "Page 241"
     }
 ];
