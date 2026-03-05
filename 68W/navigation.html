@@ -9,17 +9,17 @@
            DARK THEME VARIABLES
            ========================================= */
         :root {
-            --bg-body: #121212;          /* Deep dark background */
-            --bg-card: #1e1e1e;          /* Card background */
-            --bg-button: #2c2c2c;        /* Button background */
-            --bg-hover: #383838;         /* Hover state */
+            --bg-body: #121212;          
+            --bg-card: #1e1e1e;          
+            --bg-button: #2c2c2c;        
+            --bg-hover: #383838;         
             
-            --text-primary: #e0e0e0;     /* High contrast text */
-            --text-secondary: #a0a0a0;   /* Muted text */
+            --text-primary: #e0e0e0;     
+            --text-secondary: #a0a0a0;   
             
-            --accent: #4caf50;           /* Army Green (Primary) */
-            --accent-gold: #FFD700;      /* Gold (Secondary/Highlights) */
-            --border: #333333;           /* Subtle borders */
+            --accent: #4caf50;           /* Army Green */
+            --accent-gold: #FFD700;      /* Gold Highlights */
+            --border: #333333;           
             
             --radius: 8px;
             --shadow: 0 4px 10px rgba(0,0,0,0.5);
@@ -45,7 +45,6 @@
             border: 1px solid var(--border);
         }
 
-        /* --- Header --- */
         header {
             text-align: center;
             margin-bottom: 30px;
@@ -69,7 +68,7 @@
             font-weight: 500;
         }
 
-        /* --- Accordion Buttons --- */
+        /* --- Accordion Style --- */
         .accordion {
             background-color: var(--bg-button);
             color: var(--text-primary);
@@ -103,21 +102,17 @@
             margin-bottom: 0;
         }
 
-        /* Icon Animation */
         .accordion:after {
             content: '+';
             color: var(--accent);
             font-size: 1.5em;
-            font-weight: 400;
             transition: transform 0.3s ease;
         }
 
         .accordion.active:after {
             transform: rotate(45deg);
-            color: var(--error);
         }
 
-        /* --- Panel Content --- */
         .panel {
             background-color: #252525;
             max-height: 0;
@@ -138,7 +133,6 @@
             gap: 8px;
         }
 
-        /* --- Links inside Panels (Standardized) --- */
         .panel a {
             display: flex;
             justify-content: space-between;
@@ -160,13 +154,11 @@
             padding-left: 20px;
         }
 
-        /* Highlight for Quizlet/Important links */
         .highlight-link {
             border-left: 3px solid var(--accent-gold) !important;
             color: var(--text-primary) !important;
         }
 
-        /* --- Status Tags --- */
         .status-tag {
             font-size: 0.7em;
             padding: 2px 8px;
@@ -198,41 +190,63 @@
         <div class="subtitle">Combat Medic Specialist • Navigation</div>
     </header>
 
-    <button class="accordion">Board</button>
+    <button class="accordion">🎖️ Board Review</button>
     <div class="panel">
         <div class="panel-content">
             <a href="Board/Board.html" class="highlight-link">
                 <span>Board Review Questions</span>
+                <span class="status-tag ready">High Priority</span>
             </a>
         </div>
     </div>
 
-    <button class="accordion">BLS</button>
+    <button class="accordion">🫀 BLS</button>
     <div class="panel">
         <div class="panel-content">
             <a href="BLS.html">Basic Life Support (BLS)</a>
         </div>
     </div>
+
+    <button class="accordion">🏥 Limited Primary Care (LPC)</button>
+    <div class="panel">
+        <div class="panel-content">
+            <a href="LPC/navigation.html" class="highlight-link">LPC Main Navigation Hub</a>
+            <div class="divider"></div>
+            <a href="LPC/Ch1/Ch1.html"><span>Ch 1: Sick Call & Documentation</span></a>
+            <a href="LPC/Ch2/Ch2.html"><span>Ch 2: Battlefield Documentation</span></a>
+            <a href="LPC/Ch3/Ch3.html"><span>Ch 3: Infection & Sterile Tech</span></a>
+            <a href="LPC/Ch4/Ch4.html"><span>Ch 4: Pharmacology</span></a>
+            <a href="LPC/Ch5/Ch5.html"><span>Ch 5: Medication Admin</span></a>
+            <a href="LPC/Ch6/Ch6.html"><span>Ch 6: Administer Injections</span></a>
+            <a href="LPC/Ch7/Ch7.html"><span>Ch 7: Ocular Care</span></a>
+            <a href="LPC/Ch8/Ch8.html"><span>Ch 8: ENT Care</span></a>
+            <a href="LPC/Ch9/Ch9.html"><span>Ch 9: Skin Care</span></a>
+            <a href="LPC/Ch10/Ch10.html"><span>Ch 10: Orthopedic Injuries</span></a>
+            <a href="LPC/Ch11/Ch11.html"><span>Ch 11: Environmental Threats</span></a>
+            <a href="LPC/Ch12/Ch12.html"><span>Ch 12: Venipuncture</span></a>
+            <a href="LPC/Ch13/Ch13.html"><span>Ch 13: Behavioral Health</span></a>
+        </div>
+    </div>
     
-    <button class="accordion">Module 4: Medical Emergencies</button>
+    <button class="accordion">💊 Module 4: Medical</button>
     <div class="panel">
         <div class="panel-content">
             <a href="Mod4/Quizlet.html" class="highlight-link">Quizlet Vocabulary</a>
             <a href="Mod4/Ch18.html">Chapter 18: Pharmacology</a>
-            <a href="Mod4/Ch19.html">Chapter 19: Respiratory Emergencies</a>
-            <a href="Mod4/Ch20.html">Chapter 20: Cardiac Emergencies</a>
+            <a href="Mod4/Ch19.html">Chapter 19: Respiratory</a>
+            <a href="Mod4/Ch20.html">Chapter 20: Cardiac</a>
             <a href="Mod4/Ch21.html">Chapter 21: Resuscitation</a>
             <a href="Mod4/Ch22.html">Chapter 22: Diabetic / AMS</a>
             <a href="Mod4/Ch23.html">Chapter 23: Allergic Reactions</a>
             <a href="Mod4/Ch24.html">Chapter 24: Infectious Diseases</a>
             <a href="Mod4/Ch25.html">Chapter 25: Poisoning & Overdose</a>
-            <a href="Mod4/Ch26.html">Chapter 26: Abdominal Emergencies</a>
-            <a href="Mod4/Ch27.html">Chapter 27: Behavioral Emergencies</a>
+            <a href="Mod4/Ch26.html">Chapter 26: Abdominal</a>
+            <a href="Mod4/Ch27.html">Chapter 27: Behavioral</a>
             <a href="Mod4/Ch28.html">Chapter 28: Hematological & Renal</a>
         </div>
     </div>
     
-    <button class="accordion">Module 5: Trauma & EMS</button>
+    <button class="accordion">🩹 Module 5: Trauma & EMS</button>
     <div class="panel">
         <div class="panel-content">
             <a href="Mod5/html/Ch29.html">Ch 29: Bleeding & Shock </a>
@@ -242,28 +256,26 @@
             <a href="Mod5/html/Ch33.html">Ch 33: Head, Neck, & Spine </a>
             <a href="Mod5/html/Ch34.html">Ch 34: Multisystem Trauma </a>
             <a href="Mod5/html/Ch35.html">Ch 35: Environmental</a>
-            
             <div class="divider"></div>
-
             <a href="Mod5/html/Ch38.html">Ch 38: EMS Operations</a>
             <a href="Mod5/html/Ch39.html">Ch 39: HazMat & Incident Mgmt</a>
             <a href="Mod5/html/Ch40.html">Ch 40: Highway Safety</a>
             <a href="Mod5/html/Ch41.html">Ch 41: Terrorism Response</a>
-            <a href="Mod5/html/Section5Review.html"> Section Review </a>
+            <a href="Mod5/html/Section5Review.html" class="highlight-link">Section Review</a>
         </div>
     </div>
     
-       <button class="accordion">Final</button>
+    <button class="accordion">🏁 Final Exam</button>
     <div class="panel">
         <div class="panel-content">
-            <a href="Final/Final.html">Comprehensive final</a>
+            <a href="Final/Final.html" class="highlight-link">Comprehensive Final</a>
         </div>
     </div>
     
-    <button class="accordion">Extras</button>
+    <button class="accordion">⚙️ Extras</button>
     <div class="panel">
         <div class="panel-content">
-            <a href="../index.html">to 68k navigation</a>
+            <a href="../index.html">To 68K Navigation</a>
             <a href="navigation.html">Refresh Page</a>
         </div>
     </div>
@@ -275,10 +287,7 @@
 
     for (let i = 0; i < acc.length; i++) {
         acc[i].addEventListener("click", function() {
-            // Toggle active class
             this.classList.toggle("active");
-            
-            // Toggle panel visibility
             const panel = this.nextElementSibling;
             if (panel.style.maxHeight) {
                 panel.style.maxHeight = null;
