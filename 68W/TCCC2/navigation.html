@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>68W TCCC Navigation</title>
+    <style>
+        /* =========================================
+           DARK THEME VARIABLES
+           ========================================= */
+        :root {
+            --bg-body: #121212;
+            --bg-card: #1e1e1e;
+            --bg-button: #2c2c2c;
+            --bg-hover: #383838;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent: #4caf50;           /* Army Green */
+            --accent-gold: #FFD700;      /* Gold Highlights */
+            --border: #333333;
+            --radius: 8px;
+            --shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 15px;
+        }
+
+        h1 {
+            color: var(--accent);
+            margin: 0;
+            font-size: 2em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1em;
+            color: var(--text-secondary);
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        /* --- Navigation Link --- */
+        .top-nav {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .top-nav a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9em;
+            transition: color 0.2s;
+        }
+        .top-nav a:hover { color: var(--accent-gold); }
+
+        /* --- Accordion Style --- */
+        .accordion {
+            background-color: var(--bg-button);
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 18px 20px;
+            width: 100%;
+            border: 1px solid var(--border);
+            text-align: left;
+            outline: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-radius: var(--radius);
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion:hover {
+            background-color: var(--bg-hover);
+            border-color: var(--accent);
+            transform: translateX(2px);
+        }
+
+        .accordion.active {
+            background-color: var(--bg-hover);
+            border-color: var(--accent);
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            margin-bottom: 0;
+        }
+
+        .accordion:after {
+            content: '+';
+            color: var(--accent);
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion.active:after {
+            transform: rotate(45deg);
+        }
+
+        .panel {
+            background-color: #252525;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            border-left: 3px solid var(--accent);
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            border-bottom-left-radius: var(--radius);
+            border-bottom-right-radius: var(--radius);
+            margin-bottom: 15px;
+        }
+
+        .panel-content {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .panel a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            background-color: var(--bg-body);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .panel a:hover {
+            background-color: var(--bg-hover);
+            color: var(--text-primary);
+            border-color: var(--accent);
+            padding-left: 20px;
+        }
+
+        .page-num {
+            font-size: 0.8em;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <nav class="top-nav">
+        <a href="../navigation.html">← Back to 68W Hub</a>
+    </nav>
+
+    <header>
+        <h1>TCCC Study Hub</h1>
+        <div class="subtitle">Tactical Combat Casualty Care • Navigation</div>
+    </header>
+
+    <button class="accordion">🩸 Phase 1: Foundations</button>
+    <div class="panel">
+        <div class="panel-content">
+            <a href="Ch1/Ch1.html"><span>Combat Medical Aid Bag</span> <span class="page-num">p. 3</span></a>
+            <a href="Ch2/Ch2.html"><span>Intro to Battlefield Medicine</span> <span class="page-num">p. 12</span></a>
+            <a href="Ch3/Ch3.html"><span>Casualty Movement</span> <span class="page-num">p. 29</span></a>
+            <a href="Ch4/Ch4.html"><span>Casualty Triage</span> <span class="page-num">p. 55</span></a>
+        </div>
+    </div>
+
+    <button class="accordion">⚔️ Phase 2: Interventions</button>
+    <div class="panel">
+        <div class="panel-content">
+            <a href="Ch5/Ch5.html"><span>Combat Casualty Assessment (CCA)</span> <span class="page-num">p. 69</span></a>
+            <a href="Ch6/Ch6.html"><span>Vascular Access</span> <span class="page-num">p. 91</span></a>
+            <a href="Ch7/Ch7.html"><span>Control Bleeding</span> <span class="page-num">p. 109</span></a>
+            <a href="Ch8/Ch8.html"><span>Airway Management</span> <span class="page-num">p. 130</span></a>
+            <a href="Ch9/Ch9.html"><span>Thoracic Trauma</span> <span class="page-num">p. 146</span></a>
+            <a href="Ch10/Ch10.html"><span>Shock - Whole Blood</span> <span class="page-num">p. 167</span></a>
+        </div>
+    </div>
+
+    <button class="accordion">🧠 Phase 3: Trauma & Injuries</button>
+    <div class="panel">
+        <div class="panel-content">
+            <a href="Ch11/Ch11.html"><span>Head Injuries with TBI</span> <span class="page-num">p. 212</span></a>
+            <a href="Ch12/Ch12.html"><span>Ocular Injuries</span> <span class="page-num">p. 239</span></a>
+            <a href="Ch13/Ch13.html"><span>Abdominal Trauma</span> <span class="page-num">p. 252</span></a>
+            <a href="Ch14/Ch14.html"><span>Burns</span> <span class="page-num">p. 266</span></a>
+            <a href="Ch15/Ch15.html"><span>Musculoskeletal Trauma</span> <span class="page-num">p. 283</span></a>
+        </div>
+    </div>
+
+    <button class="accordion">⚖️ Phase 4: Logistics & Law</button>
+    <div class="panel">
+        <div class="panel-content">
+            <a href="Ch16/Ch16.html"><span>Combat Medic Resilience Training</span> <span class="page-num">p. 306</span></a>
+            <a href="Ch17/Ch17.html"><span>International Law & Geneva Convention</span> <span class="page-num">p. 323</span></a>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const acc = document.getElementsByClassName("accordion");
+    for (let i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            const panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            } 
+        });
+    }
+</script>
+
+</body>
+</html>
