@@ -8,7 +8,7 @@ const chapter14Questions = [
             "Epidermis, Hypodermis, Dermis"
         ],
         answer: 1,
-        explanation: "The skin consists of the epidermis (outer), dermis (middle containing structures), and the subcutaneous/hypodermis (inner fatty layer).",
+        explanation: "The skin consists of the epidermis (outer), dermis (middle), and the subcutaneous/hypodermis (inner fatty layer).",
         cite: "Page 267"
     },
     {
@@ -32,7 +32,7 @@ const chapter14Questions = [
             "Damage extending into the bone"
         ],
         answer: 2,
-        explanation: "Partial-thickness burns involve the epidermis and varying depths of the dermis, typically causing blisters and significant pain because nerve endings remain intact.",
+        explanation: "Partial-thickness burns involve the epidermis and varying depths of the dermis, typically causing blisters and significant pain.",
         cite: "Page 268"
     },
     {
@@ -44,11 +44,11 @@ const chapter14Questions = [
             "Third-degree burns are actually the most painful."
         ],
         answer: 1,
-        explanation: "Because full-thickness burns destroy the entire dermis, the nerve endings are killed, though the surrounding second-degree areas will still be extremely painful.",
+        explanation: "Full-thickness burns destroy the entire dermis, including the nerve endings, though surrounding areas remain painful.",
         cite: "Page 269"
     },
     {
-        q: "Using the 'Rule of Nines,' what percentage of Total Body Surface Area (TBSA) is assigned to the entire front torso (chest and abdomen)?",
+        q: "Using the 'Rule of Nines,' what percentage of TBSA is assigned to the entire front torso (chest and abdomen)?",
         options: [
             "9%",
             "18%",
@@ -72,7 +72,7 @@ const chapter14Questions = [
         cite: "Page 270"
     },
     {
-        q: "When using the 'Rule of Palms' to estimate small or irregular burns, the casualty's palm (including fingers) represents approximately what percentage of their TBSA?",
+        q: "When using the 'Rule of Palms' for small burns, the casualty's palm (including fingers) represents approximately what percentage of their TBSA?",
         options: [
             "0.5%",
             "1%",
@@ -80,11 +80,11 @@ const chapter14Questions = [
             "5%"
         ],
         answer: 1,
-        explanation: "The area of the patient's own hand is used as a quick reference for roughly 1% of their total body surface area.",
+        explanation: "The area of the patient's own hand is roughly 1% of their total body surface area.",
         cite: "Page 270"
     },
     {
-        q: "What is the most important clinical concern for a casualty with facial burns, singed nasal hairs, or carbonaceous sputum?",
+        q: "What is the primary clinical concern for a casualty with facial burns, singed nasal hairs, or carbonaceous sputum?",
         options: [
             "Scarring of the face",
             "Inhalation injury and potential airway obstruction",
@@ -92,11 +92,11 @@ const chapter14Questions = [
             "Infection of the nose"
         ],
         answer: 1,
-        explanation: "These are hallmark signs of inhalation injury; heat or chemicals can cause rapid swelling (edema) of the airway, leading to total obstruction.",
+        explanation: "These are signs of inhalation injury; heat or chemicals can cause rapid swelling (edema) of the airway, leading to obstruction.",
         cite: "Page 272"
     },
     {
-        q: "In TCCC, what is the initial fluid resuscitation rate for an adult casualty with burns covering 20% or more of their TBSA (The Rule of 10)?",
+        q: "In TCCC, what is the initial fluid resuscitation rate for an adult with burns covering 20% or more of TBSA (Rule of 10)?",
         options: [
             "TBSA % x 10 mL/hr",
             "TBSA % x 100 mL/hr",
@@ -104,11 +104,11 @@ const chapter14Questions = [
             "Fixed rate of 1000 mL/hr"
         ],
         answer: 0,
-        explanation: "The 'Rule of 10' simplifies initial fluid needs: take the TBSA %, round to the nearest 10, and multiply by 10 to get the mL/hr starting rate.",
+        explanation: "The 'Rule of 10' calculation is: (TBSA % rounded to nearest 10) x 10 = initial mL/hr rate.",
         cite: "Page 275"
     },
     {
-        q: "For a casualty weighing over 80 kg, how much extra fluid should be added to the 'Rule of 10' calculation for every 10 kg of additional body weight?",
+        q: "For a casualty weighing over 80 kg, how much extra fluid is added to the 'Rule of 10' for every 10 kg of additional body weight?",
         options: [
             "50 mL/hr",
             "100 mL/hr",
@@ -116,7 +116,7 @@ const chapter14Questions = [
             "200 mL/hr"
         ],
         answer: 1,
-        explanation: "For every 10 kg above 80 kg, you add 100 mL/hr to the initial infusion rate determined by the Rule of 10.",
+        explanation: "For every 10 kg above 80 kg, you add 100 mL/hr to the initial infusion rate.",
         cite: "Page 275"
     },
     {
@@ -128,11 +128,11 @@ const chapter14Questions = [
             "5% Dextrose"
         ],
         answer: 1,
-        explanation: "Isotonic crystalloids like LR or Plasma-Lyte are preferred for burn shock to maintain electrolyte balance and volume.",
+        explanation: "Isotonic crystalloids like LR or Plasma-Lyte are preferred for burn shock to maintain electrolyte balance.",
         cite: "Page 275"
     },
     {
-        q: "If a burn casualty is ALSO in hemorrhagic shock (e.g., from an explosion), what is the priority for fluid resuscitation?",
+        q: "If a burn casualty is ALSO in hemorrhagic shock, what is the priority for fluid resuscitation?",
         options: [
             "Lactated Ringers for the burns",
             "HES (Hespan)",
@@ -140,7 +140,7 @@ const chapter14Questions = [
             "Oral fluids"
         ],
         answer: 2,
-        explanation: "Hemorrhagic shock kills faster than burn shock; therefore, resuscitation with blood products takes priority following TCCC shock protocols.",
+        explanation: "Hemorrhagic shock kills faster than burn shock; therefore, resuscitation with blood products takes priority.",
         cite: "Page 275"
     },
     {
@@ -152,7 +152,7 @@ const chapter14Questions = [
             "It increases the risk of infection."
         ],
         answer: 1,
-        explanation: "Large burns destroy the skin's ability to regulate temperature; cooling them with ice can rapidly lead to systemic hypothermia and worsen the injury.",
+        explanation: "Large burns destroy the skin's ability to regulate temperature; cooling them with ice can lead to systemic hypothermia.",
         cite: "Page 276"
     },
     {
@@ -164,19 +164,19 @@ const chapter14Questions = [
             "Use a flashlight to burn them out"
         ],
         answer: 1,
-        explanation: "White phosphorus ignites when exposed to oxygen; keeping it submerged or wet prevents it from burning the casualty further until it can be removed.",
+        explanation: "White phosphorus ignites when exposed to oxygen; keeping it wet prevents it from burning the casualty further.",
         cite: "Page 278"
     },
     {
         q: "A 'Circumferential' burn to an extremity is a medical emergency because:",
         options: [
             "It requires more bandages.",
-            "As the tissue swells, the non-elastic burned skin acts like a tourniquet, cutting off circulation (Compartment Syndrome).",
+            "As the tissue swells, the non-elastic burned skin cuts off circulation (Compartment Syndrome).",
             "It always results in amputation.",
             "The patient cannot move the limb."
         ],
         answer: 1,
-        explanation: "Burned skin (eschar) is rigid. Swelling underneath can compress vessels and nerves, requiring an escharotomy to restore blood flow.",
+        explanation: "Burned skin (eschar) is rigid. Swelling underneath can compress vessels and nerves, requiring an escharotomy.",
         cite: "Page 276"
     },
     {
@@ -188,11 +188,11 @@ const chapter14Questions = [
             "Singed hair"
         ],
         answer: 1,
-        explanation: "Electricity travels through the body, often causing significant internal damage and disrupting the heart's electrical rhythm, even if external wounds look small.",
+        explanation: "Electricity travels through the body, often causing significant internal damage and disrupting the heart's rhythm.",
         cite: "Page 279"
     },
     {
-        q: "Which medication should be used for pain control in a burn casualty who is NOT in shock and NOT at risk for respiratory distress?",
+        q: "Which medication is used for pain control in a burn casualty who is NOT in shock and NOT at risk for respiratory distress?",
         options: [
             "Aspirin",
             "Ketamine or OTFC (Fentanyl)",
@@ -200,7 +200,7 @@ const chapter14Questions = [
             "Antibiotics"
         ],
         answer: 1,
-        explanation: "Burn pain is severe; TCCC analgesia protocols (Ketamine/Fentanyl) should be followed to manage distress effectively.",
+        explanation: "Burn pain is severe; TCCC analgesia protocols (Ketamine/Fentanyl) should be followed effectively.",
         cite: "Page 277"
     },
     {
@@ -209,10 +209,10 @@ const chapter14Questions = [
             "Wet, soaked gauze",
             "Dry, sterile dressing or a clean sheet",
             "Adhesive bandages",
-            "Topical antibiotic cream and no dressing"
+            "Topical antibiotic cream"
         ],
         answer: 1,
-        explanation: "Dry dressings are preferred for transport to help prevent hypothermia; wet dressings should be avoided for large surface area burns.",
+        explanation: "Dry dressings are preferred for transport to help prevent hypothermia.",
         cite: "Page 277"
     },
     {
@@ -224,7 +224,7 @@ const chapter14Questions = [
             "500 mL/hr"
         ],
         answer: 1,
-        explanation: "Maintaining a urine output of 30-50 mL per hour indicates that the kidneys are being adequately perfused by the fluid resuscitation.",
+        explanation: "A urine output of 30-50 mL per hour indicates that the kidneys are being adequately perfused.",
         cite: "Page 275"
     },
     {
@@ -234,7 +234,7 @@ const chapter14Questions = [
             "False"
         ],
         answer: 1,
-        explanation: "Antibiotics (from the CWMP) are indicated for penetrating trauma; they are NOT routinely given for isolated burns at the point of injury in the TFC phase.",
+        explanation: "Antibiotics are indicated for penetrating trauma; they are NOT routinely given for isolated burns at the point of injury.",
         cite: "Page 277"
     }
 ];
