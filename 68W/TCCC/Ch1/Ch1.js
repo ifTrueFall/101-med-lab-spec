@@ -4,15 +4,15 @@ const chapter1Questions = [
         options: [
             "To provide long-term patient recovery supplies",
             "To carry equipment for treating life-threatening injuries on the battlefield",
-            "To act as a storage unit for the medic's personal belongings",
+            "To act as a storage unit for personal electronics",
             "To replace a stationary medical facility in the field"
         ],
         answer: 1,
-        [span_0](start_span)explanation: "The CMAB is designed to allow the 68W to provide immediate life-saving interventions for casualties in a tactical environment[span_0](end_span).",
+        explanation: "The CMAB is designed to allow a medic to provide immediate, life-saving interventions for casualties in a tactical environment.",
         cite: "Page 3"
     },
     {
-        q: "Which specific piece of equipment in the CMAB is primarily used for massive hemorrhage control of an extremity?",
+        q: "Which item in the CMAB is primarily used for massive hemorrhage control of an extremity?",
         options: [
             "H-bandage",
             "Combat Application Tourniquet (CAT)",
@@ -20,7 +20,7 @@ const chapter1Questions = [
             "Kerlix Gauze"
         ],
         answer: 1,
-        [span_1](start_span)explanation: "The CAT is a specialized tourniquet carried in the CMAB specifically for rapid, one-handed application to control life-threatening bleeding from limbs[span_1](end_span).",
+        explanation: "The CAT is a specialized tourniquet carried in the CMAB specifically for rapid, one-handed application to control life-threatening limb bleeding.",
         cite: "Page 5"
     },
     {
@@ -32,7 +32,7 @@ const chapter1Questions = [
             "Attached to the shoulder straps with tape"
         ],
         answer: 1,
-        [span_2](start_span)explanation: "Time-critical items like tourniquets and pressure dressings should be in external pockets to minimize the time spent searching for gear during a crisis[span_2](end_span).",
+        explanation: "Time-critical items like tourniquets and pressure dressings should be in external pockets to minimize the time spent searching for gear during a crisis.",
         cite: "Page 4"
     },
     {
@@ -44,7 +44,7 @@ const chapter1Questions = [
             "To act as a secondary splinting material"
         ],
         answer: 1,
-        [span_3](start_span)explanation: "Combat Gauze is impregnated with a hemostatic agent that helps accelerate the natural clotting process in areas where a tourniquet cannot be applied[span_3](end_span).",
+        explanation: "Combat Gauze is impregnated with a hemostatic agent that helps accelerate the natural clotting process in areas where a tourniquet cannot be applied.",
         cite: "Page 6"
     },
     {
@@ -56,7 +56,7 @@ const chapter1Questions = [
             "SAM Splint"
         ],
         answer: 0,
-        [span_4](start_span)explanation: "An occlusive chest seal creates an airtight barrier over a chest wound to prevent air from entering the pleural space[span_4](end_span).",
+        explanation: "An occlusive chest seal creates an airtight barrier over a chest wound to prevent air from entering the pleural space.",
         cite: "Page 7"
     },
     {
@@ -68,7 +68,7 @@ const chapter1Questions = [
             "10-gauge, 5 inch"
         ],
         answer: 1,
-        [span_5](start_span)explanation: "The 14-gauge, 3.25-inch needle is the standard size required to penetrate the chest wall and reach the pleural space to relieve a tension pneumothorax[span_5](end_span).",
+        explanation: "A 14-gauge, 3.25-inch needle is the standard size required to penetrate the chest wall of most casualties to reach the pleural space.",
         cite: "Page 7"
     },
     {
@@ -80,11 +80,11 @@ const chapter1Questions = [
             "Have a suspected fractured jaw and cannot open their mouth"
         ],
         answer: 1,
-        [span_6](start_span)explanation: "An NPA is a soft tube inserted into the nasal passage to maintain a patent airway in casualties with a decreased level of consciousness[span_6](end_span).",
+        explanation: "An NPA is a soft tube inserted into the nasal passage to maintain a patent airway in casualties with a decreased level of consciousness.",
         cite: "Page 8"
     },
     {
-        q: "Why is it important to carry a 'Sharpie' or permanent marker in a medical aid bag?",
+        q: "Why is it important to carry a permanent marker (like a Sharpie) in a medical aid bag?",
         options: [
             "For drawing diagrams of the injury for the doctor",
             "To mark the time of tourniquet application on the patient's forehead",
@@ -92,7 +92,7 @@ const chapter1Questions = [
             "To track the number of patients treated"
         ],
         answer: 1,
-        [span_7](start_span)explanation: "Documentation of the time a tourniquet was applied is critical for the next level of care to prevent limb loss or complications[span_7](end_span).",
+        explanation: "Documentation of the time a tourniquet was applied is critical for the next level of care to prevent limb loss or complications.",
         cite: "Page 5"
     },
     {
@@ -104,11 +104,11 @@ const chapter1Questions = [
             "To clean a patient's skin before surgery"
         ],
         answer: 1,
-        [span_8](start_span)explanation: "These dressings are designed with a built-in pressure bar to exert constant force on a wound to control bleeding[span_8](end_span).",
+        explanation: "These dressings are designed with a built-in pressure bar to exert constant force on a wound to control bleeding.",
         cite: "Page 5"
     },
     {
-        q: "How often should a Combat Medic inventory and check their aid bag?",
+        q: "How often should a combat medic inventory and check their aid bag?",
         options: [
             "Only after a combat mission",
             "On a regular, scheduled basis and after every use",
@@ -116,7 +116,7 @@ const chapter1Questions = [
             "When the medic notices items are missing"
         ],
         answer: 1,
-        [span_9](start_span)explanation: "Regular inventory ensures that expired items are replaced and that the medic is fully prepared for any casualty situation[span_9](end_span).",
+        explanation: "Regular inventory ensures that expired items are replaced and that the medic is fully prepared for any casualty situation.",
         cite: "Page 4"
     },
     {
@@ -128,7 +128,7 @@ const chapter1Questions = [
             "Extra set of dry clothes"
         ],
         answer: 1,
-        [span_10](start_span)explanation: "Trauma casualties lose the ability to regulate body temperature; specialized heat-reflective blankets are used to conserve body heat[span_10](end_span).",
+        explanation: "Trauma casualties lose the ability to regulate body temperature; specialized heat-reflective blankets are used to conserve body heat.",
         cite: "Page 10"
     },
     {
@@ -140,7 +140,7 @@ const chapter1Questions = [
             "Removing a foreign object from the throat"
         ],
         answer: 1,
-        [span_11](start_span)explanation: "When basic airway maneuvers fail, the Cric-Kit provides the tools necessary to create a surgical opening in the neck to restore breathing[span_11](end_span).",
+        explanation: "When basic airway maneuvers fail, the Cric-Kit provides the tools necessary to create a surgical opening in the neck to restore breathing.",
         cite: "Page 8"
     },
     {
@@ -152,7 +152,7 @@ const chapter1Questions = [
             "A certificate of training for the 68W"
         ],
         answer: 1,
-        [span_12](start_span)explanation: "This card stays with the patient and provides the next echelon of care with vital information regarding injuries and treatments provided[span_12](end_span).",
+        explanation: "This card stays with the patient and provides the next echelon of care with vital information regarding injuries and treatments.",
         cite: "Page 11"
     },
     {
@@ -164,7 +164,7 @@ const chapter1Questions = [
             "Flashlight"
         ],
         answer: 1,
-        [span_13](start_span)explanation: "Gloves protect the medic from bloodborne pathogens while providing care to casualties[span_13](end_span).",
+        explanation: "Gloves protect the medic from bloodborne pathogens while providing care to casualties.",
         cite: "Page 3"
     },
     {
@@ -176,7 +176,7 @@ const chapter1Questions = [
             "Made of wood to prevent electrical shock"
         ],
         answer: 1,
-        [span_14](start_span)explanation: "The SAM splint's versatility makes it ideal for the field, as it can be folded or curved to provide strength for stabilizing fractures[span_14](end_span).",
+        explanation: "The SAM splint's versatility makes it ideal for the field, as it can be molded to provide strength for stabilizing fractures.",
         cite: "Page 9"
     },
     {
@@ -188,7 +188,7 @@ const chapter1Questions = [
             "To monitor the patient's temperature"
         ],
         answer: 1,
-        [span_15](start_span)explanation: "This device helps the medic assess the effectiveness of respiratory treatments and the patient's circulatory status[span_15](end_span).",
+        explanation: "This device helps the medic assess the effectiveness of respiratory treatments and the patient's circulatory status.",
         cite: "Page 10"
     },
     {
@@ -200,11 +200,11 @@ const chapter1Questions = [
             "To open boxes of medical supplies"
         ],
         answer: 1,
-        [span_16](start_span)explanation: "Removing clothing is the first step in the assessment process to ensure no hidden life-threatening injuries are missed[span_16](end_span).",
+        explanation: "Removing clothing is the first step in the assessment process to ensure no hidden life-threatening injuries are missed.",
         cite: "Page 3"
     },
     {
-        q: "The 'Pill Pack' or 'Combat Wound Medication Pack' (CWMP) contains:",
+        q: "The 'Pill Pack' (Combat Wound Medication Pack) contains:",
         options: [
             "Vitamins and supplements",
             "Antibiotics and pain medication for immediate oral use",
@@ -212,7 +212,7 @@ const chapter1Questions = [
             "Sleeping aids and anti-anxiety meds"
         ],
         answer: 1,
-        [span_17](start_span)explanation: "Providing early antibiotics and pain relief in the field helps prevent infection and manages the patient's distress[span_17](end_span).",
+        explanation: "Providing early antibiotics and pain relief in the field helps prevent infection and manages the patient's distress.",
         cite: "Page 10"
     },
     {
@@ -224,7 +224,7 @@ const chapter1Questions = [
             "To indicate the price of the items"
         ],
         answer: 1,
-        [span_18](start_span)explanation: "Color coding or labeling reduces cognitive load on the medic during high-stress situations, allowing for faster retrieval of supplies[span_18](end_span).",
+        explanation: "Color coding reduces cognitive load on the medic during high-stress situations, allowing for faster retrieval of supplies.",
         cite: "Page 4"
     },
     {
@@ -236,7 +236,7 @@ const chapter1Questions = [
             "Communicate with the commander"
         ],
         answer: 1,
-        [span_19](start_span)explanation: "MARCH (Massive Hemorrhage, Airway, Respiration, Circulation, Hypothermia/Head) is the sequence used to address injuries in the order they kill[span_19](end_span).",
+        explanation: "MARCH (Massive Hemorrhage, Airway, Respiration, Circulation, Hypothermia/Head) is the sequence used to treat injuries in the order they kill.",
         cite: "Page 11"
     }
 ];
