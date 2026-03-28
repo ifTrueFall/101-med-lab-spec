@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCCC Chapter 6: Vascular Access Review</title>
+    
+    <link rel="stylesheet" href="../tccc-style.css">
+</head>
+<body>
+
+<nav class="top-nav">
+    <a href="../navigation.html">Return to TCCC Menu</a> 
+</nav>
+
+<div class="container">
+    <header>
+        <h1>TCCC Review: Chapter 6</h1>
+        <h3>Vascular Access</h3>
+    </header>
+
+    <div id="quiz-container">Loading Combat Medic Data...</div>
+    
+    <div style="text-align:center; margin-top:20px;">
+        <button class="reset-btn" onclick="location.reload()">Reset Quiz</button>
+    </div>
+</div>
+
+<script src="Ch6.js"></script>
+
+<script src="../../scripts/QuizEngine.js"></script>
+
+<script>
+    window.onload = function() {
+        if (typeof chapter6Questions !== 'undefined' && typeof renderQuiz === 'function') {
+            renderQuiz(chapter6Questions, 'quiz-container');
+        } else {
+            document.getElementById('quiz-container').innerHTML = 
+                "<p style='color:red;'>Error: Could not load data (Ch6.js) or engine (QuizEngine.js).</p>";
+        }
+    };
+</script>
+
+</body>
+</html>
